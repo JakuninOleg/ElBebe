@@ -25,6 +25,7 @@
   .wave-shape--day { fill: var(--aqua); }
   .wave-path--mobile { display: none; }
   .wave-shape--hello { fill: #ffdedf; }
+  .wave-shape--hello-front { fill: #ffa6a7; z-index: 1; }
 
   /* Photo edges use individually drawn paths, not rounded rectangles. */
   .hero { grid-template-columns: minmax(0,.95fr) minmax(0,1.05fr); gap: 30px; min-height: 610px; margin-top: 0; }
@@ -83,7 +84,7 @@
   .home-rate+.home-rate { border-top: 1px dashed #dfc990; padding-top: 17px; margin-top: 17px; }
   .family-drops { width: 44px; left: 43%; top: 0; transform: rotate(25deg); }
 
-  .day-band { margin-top: 45px; padding: 82px 0 77px; background: transparent; border-radius: 0; isolation: isolate; }
+  .day-band { display: grid; align-items: center; min-height: 540px; margin-top: 45px; padding: 112px 0 92px; background: transparent; border-radius: 0; isolation: isolate; }
   .day-band::before, .day-band::after { display: none; }
   .day-intro { margin-bottom: 29px; gap: 35px; }
   .day-intro h2 { font-size: 44px; }
@@ -146,21 +147,20 @@
   .faq-side-wash { left: -185px; top: 10px; width: 135px; transform: rotate(28deg); }
   .faq-drops { width: 29px; left: -40px; top: 25px; transform: rotate(-15deg); }
 
-  .hello-band { margin-top: 36px; min-height: 295px; padding: 55px 135px 48px 47%; background: transparent; border-radius: 0; isolation: isolate; overflow: visible; }
-  .hello-visual { position: absolute; left: 9%; width: 35%; top: 7px; bottom: 14px; isolation: isolate; }
-  .hello-photo { width: 90%; left: auto; right: 0; top: 0; bottom: 0; border-radius: 0; clip-path: url(#elbebe-hello-photo); }
+  .hello-band { display: block; width: 100%; margin-top: 36px; min-height: 0; padding: 0; background: transparent; border-radius: 0; isolation: isolate; overflow: visible; }
+  .hello-inner { position: relative; display: flex; align-items: center; min-height: 340px; padding-block: 55px 48px; }
+  .hello-photo { width: 31.5%; left: 12.5%; right: auto; top: 7px; bottom: 26px; border-radius: 0; clip-path: url(#elbebe-hello-photo); z-index: 0; }
   .hello-photo img { object-position: 50% 42%; transform: none; }
-  .hello-content { position: relative; z-index: 1; min-width: 0; }
+  .hello-content { position: relative; z-index: 3; flex: 1; min-width: 0; margin-left: 47%; margin-right: 135px; }
   .hello-content h2 { font-size: 37px; }
   .hello-content p { font-size: 16px; line-height: 1.35; }
   .hello-content .button { font-size: 16px; }
-  .hello-perch { position: absolute; left: 0; bottom: 0; width: 43%; height: 100%; z-index: 2; pointer-events: none; }
-  .hello-ledge { position: absolute; left: 0; bottom: 0; width: 100%; height: 46%; fill: #ffa6a7; }
-  .hello-bunny { position: absolute; width: 90%; height: auto; object-fit: contain; left: 6%; bottom: 35%; z-index: 1; transform: rotate(-8deg); transform-origin: 50% 90%; }
+  .hello-perch { position: absolute; left: 9%; top: 7px; bottom: 14px; width: 15%; height: auto; z-index: 2; pointer-events: none; }
+  .hello-bunny { position: absolute; width: 90%; height: auto; object-fit: contain; left: 6%; bottom: 35%; z-index: 1; transform: rotate(-2deg); transform-origin: 50% 90%; }
   .hello-mobile-mascot { display: none; }
-  .hello-greeting { position: absolute; left: -1%; top: 65px; font-size: 22px; color: #a87daf; transform: rotate(-12deg); }
-  .hello-note { display: block; right: 10px; top: auto; bottom: 75px; width: 112px; font-size: 25px; transform: rotate(-11deg); }
-  .hello-heart { left: 4%; top: auto; bottom: 18px; color: #ffbe41; font-size: 28px; }
+  .hello-greeting { position: absolute; left: -1%; top: 65px; font-size: 22px; color: #a87daf; transform: rotate(-12deg); z-index: 3; }
+  .hello-note { display: block; right: 10px; top: auto; bottom: 75px; width: 112px; font-size: 25px; transform: rotate(-11deg); z-index: 3; }
+  .hello-heart { left: 4%; top: auto; bottom: 18px; color: #ffbe41; font-size: 28px; z-index: 3; }
   .hello-drops { width: 37px; right: 10%; top: 14px; transform: rotate(21deg); }
   .site-footer { margin-top: 25px; }
 
@@ -233,8 +233,10 @@
     .team-home { padding: 15px; }
     .team-home h2 { font-size: 30px; }
     .team-home>div:first-child>p { font-size: 15px; }
-    .hello-band { padding-left: 45%; padding-right: 38px; min-height: 275px; }
-    .hello-visual { left: 6%; width: 37%; }
+    .hello-inner { min-height: 300px; }
+    .hello-content { margin-left: 45%; margin-right: 38px; }
+    .hello-photo { left: 9.7%; width: 33.3%; }
+    .hello-perch { left: 6%; width: 16%; }
     .hello-note { display: none; }
     .hello-greeting { display: none; }
     .hello-content h2 { font-size: 30px; }
@@ -334,7 +336,7 @@
     .home-rate .home-rate-price { font-size: 21px; }
     .home-rate p { font-size: 13px; }
     .family-drops { width: 33px; left: auto; right: 0; top: -17px; }
-    .day-band { padding: 66px 0 65px; margin-top: 25px; border-radius: 0; background: transparent; }
+    .day-band { min-height: 760px; padding: 90px 0 86px; margin-top: 25px; border-radius: 0; background: transparent; }
     .day-intro { display: block; text-align: center; margin-bottom: 20px; }
     .day-intro h2 { font-size: 30px; }
     .day-intro p { display: none; }
@@ -393,9 +395,11 @@
     .faq-answer { font-size: 14px; line-height: 1.45; padding: 0 14px 17px; }
     .faq-side-wash { width: 62px; left: -47px; top: 45px; }
     .faq-drops { width: 18px; left: -5px; top: 13px; }
-    .hello-band { margin-top: 26px; min-height: 208px; padding: 32px 24% 32px 34%; border-radius: 0; background: transparent; overflow: visible; }
-    .hello-visual { left: -2%; top: 8px; bottom: 13px; width: 35%; }
-    .hello-photo { left: 0; right: 0; top: 0; bottom: 0; width: 100%; clip-path: url(#elbebe-hello-photo); border-radius: 0; }
+    .hello-band { margin-top: 26px; }
+    .hello-inner { min-height: 208px; padding-block: 32px; }
+    .hello-content { margin-left: 34%; margin-right: 24%; }
+    .hello-photo { left: -2%; right: auto; top: 8px; bottom: 13px; width: 35%; clip-path: url(#elbebe-hello-photo); border-radius: 0; }
+    .wave-shape--hello-front { display: none; }
     .hello-photo img { object-position: 50% 42%; transform: none; }
     .hello-content h2 { font-size: clamp(14px,4.5vw,20px); line-height: 1.07; margin-bottom: 9px; }
     .hello-content p { font-size: 11px; line-height: 1.3; margin-bottom: 12px; }
