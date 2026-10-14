@@ -1,0 +1,14 @@
+---
+interface Props { page: { title: string; description: string; canonical: string; image: string; siteName: string }; }
+const { page } = Astro.props;
+---
+<meta name="description" content={page.description}/>
+<meta name="robots" content="noindex, nofollow"/>
+<link rel="canonical" href={page.canonical}/>
+<meta property="og:type" content="website"/>
+<meta property="og:locale" content="ru_RU"/>
+<meta property="og:title" content={page.title}/>
+<meta property="og:description" content={page.description}/>
+<meta property="og:site_name" content={page.siteName}/>
+<meta property="og:url" content={page.canonical}/>
+<meta property="og:image" content={new URL(page.image, Astro.url).href}/>

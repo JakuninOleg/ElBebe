@@ -1,0 +1,8 @@
+---
+import type { ImageValue } from 'emdash';
+interface Props { image: ImageValue | string | null; alt: string; width: number; height: number; loading?: 'lazy' | 'eager'; }
+const { image, alt, width, height, loading = 'lazy' } = Astro.props;
+const src = typeof image === 'string' ? image : image?.src;
+if (!src || !src.startsWith('/images/el-bebe/')) throw new Error('Showcase images must be curated public assets.');
+---
+<img src={src} alt={alt} width={width} height={height} loading={loading}/>

@@ -1,0 +1,36 @@
+{
+  "name": "oj-emdash",
+  "version": "0.0.3",
+  "private": true,
+  "type": "module",
+  "emdash": {
+    "label": "Starter",
+    "seed": "seed/seed.json"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "start": "node ./dist/server/entry.mjs",
+    "typecheck": "astro check",
+    "build:showcase": "astro build --config astro.showcase.config.mjs --mode showcase",
+    "preview:showcase": "astro preview --config astro.showcase.config.mjs --mode showcase --host 127.0.0.1 --port 4322",
+    "snapshot:showcase": "node scripts/export-showcase.mjs"
+  },
+  "dependencies": {
+    "@astrojs/node": "^11.1.5",
+    "@astrojs/react": "^6.0.5",
+    "@fontsource-variable/caveat": "^5.3.0",
+    "@fontsource-variable/nunito": "^5.3.0",
+    "astro": "^7.3.2",
+    "emdash": "^1.0.1",
+    "react": "19.2.4",
+    "react-dom": "19.2.4"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.10"
+  },
+  "engines": {
+    "node": "24.x"
+  }
+}

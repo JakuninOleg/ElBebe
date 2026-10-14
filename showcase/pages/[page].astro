@@ -1,0 +1,19 @@
+---
+import Groups from '../../src/pages/gruppy.astro';
+import Prices from '../../src/pages/stoimost.astro';
+import Day from '../../src/pages/den-v-sadu.astro';
+import Team from '../../src/pages/komanda.astro';
+import Space from '../../src/pages/prostranstvo.astro';
+import Parents from '../../src/pages/roditelyam.astro';
+import Contacts from '../../src/pages/kontakty.astro';
+import Details from '../../src/pages/svedeniya.astro';
+import Privacy from '../../src/pages/privacy.astro';
+import Consent from '../../src/pages/soglasie.astro';
+
+export function getStaticPaths() {
+  return ['gruppy', 'stoimost', 'den-v-sadu', 'komanda', 'prostranstvo', 'roditelyam', 'kontakty', 'svedeniya', 'privacy', 'soglasie'].map(page => ({ params: { page } }));
+}
+const pages = { gruppy: Groups, stoimost: Prices, 'den-v-sadu': Day, komanda: Team, prostranstvo: Space, roditelyam: Parents, kontakty: Contacts, svedeniya: Details, privacy: Privacy, soglasie: Consent };
+const Page = pages[Astro.params.page as keyof typeof pages];
+---
+<Page/>

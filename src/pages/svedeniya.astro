@@ -1,0 +1,9 @@
+---
+import Inner from '../layouts/Inner.astro';
+import Icon from '../components/el-bebe/Icon.astro';
+import { documentSections } from '../data/documents';
+---
+<Inner title="Сведения об образовательной организации — Эльбебе" heading="Сведения об образовательной организации" label="Сведения и документы" description="Официальные сведения, образовательная лицензия и документы детского сада Эльбебе." intro="Сведения о саде, образовательной деятельности и условиях посещения." callout={false}>
+  <div class="container content-section"><aside class="notice"><p>Раздел готовится. Реквизиты исполнителя, номер лицензии и документы будут размещены после получения актуальных материалов сада. Сейчас здесь показан состав раздела для локального макета.</p></aside><nav class="document-nav" aria-label="Разделы сведений">{documentSections.map(item=><a href={`#${item.id}`}>{item.title}<Icon name="chevron" size={19}/></a>)}</nav></div>
+  <div class="container content-section editorial">{documentSections.map(item=><section class="document-entry" id={item.id}><h2>{item.title}</h2><p>{item.text}</p><p class="document-pending">Материалы ожидаются от сада.</p></section>)}</div>
+</Inner>

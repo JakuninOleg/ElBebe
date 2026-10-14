@@ -1,0 +1,39 @@
+node_modules
+dist
+dist-showcase
+.astro
+.emdash/migrations.json
+uploads
+data.db
+
+# Environment
+.env
+.env.*
+!.env.example
+
+data.db-wal
+data.db-shm
+.astro/sessions/
+
+# Local form submissions and tooling
+.local/
+artifacts/
+
+# Local editor/agent configuration and deployment caches
+.agents/
+.claude/
+.cursor/
+.vscode/
+.mcp.json
+.vercel/
+.emdash/
+*.log
+*.jsonl
+.DS_Store
+
+# Private database backups must never be committed
+*.db
+*.db-wal
+*.db-shm
+*.sqlite
+*.sqlite3

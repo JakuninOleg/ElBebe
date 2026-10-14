@@ -1,0 +1,5 @@
+---
+interface Props { items: Array<{ id?: string; question: string; answer: string }>; }
+const { items } = Astro.props;
+---
+<div class="faq-list">{items.map(item => <details class="faq-item" data-faq><summary>{item.question}<span class="faq-plus" aria-hidden="true">+</span></summary><div class="faq-answer"><p>{item.answer}</p></div></details>)}</div>

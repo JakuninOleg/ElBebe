@@ -1,0 +1,10 @@
+---
+interface Props { kind?: 'drops' | 'wash' | 'heart' | 'cloud'; color?: string; class?: string; }
+const { kind = 'drops', color = '#ffd148', class: className = '' } = Astro.props;
+---
+<svg class:list={['page-decor', `decor-${kind}`, className]} viewBox="0 0 120 140" fill={color} aria-hidden="true" focusable="false">
+  {kind === 'drops' && <><path d="M30 58C12 34 30-4 40 9S49 43 30 58Z"/><path d="M54 69C48 44 80 17 87 32S79 59 54 69Z"/><path d="M61 92C80 67 115 74 110 89S86 106 61 92Z"/></>}
+  {kind === 'wash' && <path d="M10 20C29-2 76-7 102 17S114 61 93 80S62 116 29 130S-6 113 5 91S-8 44 10 20Z"/>}
+  {kind === 'heart' && <path d="M59 119C32 96-4 69 10 37C20 13 48 21 58 40C67 11 103 11 112 37C126 73 85 101 59 119Z"/>}
+  {kind === 'cloud' && <path d="M26 114C-2 115-8 83 13 68C-3 39 30 10 54 28C68-5 108 6 105 37C134 43 134 80 110 89C111 116 90 131 69 117C53 138 28 135 26 114Z"/>}
+</svg>

@@ -1,0 +1,18 @@
+---
+import Icon from './Icon.astro';
+import Sprig from './Sprig.astro';
+interface Props { address: string; phone?: string; }
+const { address, phone } = Astro.props;
+---
+<footer class="site-footer" id="kontakty">
+  <div class="container footer-main">
+    <div class="footer-brand"><a href="/" aria-label="Эльбебе — на главную"><img src="/images/el-bebe/logo.webp" alt="Детский сад Эльбебе" width="680" height="453" loading="lazy"/></a><p><span aria-hidden="true">♥</span> С любовью к детям.<br/>С заботой о будущем.</p></div>
+    <div class="footer-contacts"><p class="footer-address"><Icon name="pin"/>{address}</p><div class="footer-contact-links">
+      {phone ? <a href={`tel:${phone.replace(/[^+\d]/g, '')}`}><Icon name="phone"/><span>Позвонить</span></a> : <button type="button" data-open-visit><Icon name="phone"/><span>Связаться</span></button>}
+      <button type="button" data-open-visit><Icon name="mail"/><span>Написать нам</span></button><a href="/kontakty/"><Icon name="clock"/><span>Как нас найти</span></a>
+    </div><a class="footer-price-link" href="/stoimost/">Стоимость и оплата маткапиталом <Icon name="arrow" size={17}/></a></div>
+    <a class="map-card" href="https://yandex.ru/maps/org/el_bebe/154599785417/" target="_blank" rel="noopener noreferrer" aria-label="Открыть El Bebe в Яндекс Картах"><svg viewBox="0 0 360 190" aria-hidden="true"><rect width="360" height="190" fill="#e2efd9"/><path d="M0 148C95 151 80 100 141 113s71-4 101-48 69-37 118-41v166H0Z" fill="#bde7f0"/><path d="m-20 35 400 93M45-20l51 240M160-30l32 168M310-25l-67 163M0 97l154-57 127 2" stroke="#fffaf0" stroke-width="14" fill="none"/><path d="m-20 35 400 93M45-20l51 240M160-30l32 168M310-25l-67 163M0 97l154-57 127 2" stroke="#d5d4bd" stroke-width="1" fill="none"/><g fill="#a8c79b"><rect x="109" y="49" width="30" height="22" rx="4"/><rect x="208" y="72" width="35" height="20" rx="5"/><rect x="284" y="151" width="40" height="20" rx="5"/></g></svg><span><Icon name="pin" size={31}/><b>Мы здесь,<br/>в Сочи</b><Icon name="arrow" size={20}/></span></a>
+  </div>
+  <div class="container footer-bottom"><p>Эльбебе · частный детский сад в Сочи</p><nav aria-label="Документы"><a href="/svedeniya/">Сведения об образовательной организации</a><a href="/privacy/">Персональные данные</a></nav><p class="preview-note">Локальный макет. Фотографии сгенерированы для визуализации и будут заменены реальными.</p></div>
+  <Sprig class="footer-sprig"/>
+</footer>

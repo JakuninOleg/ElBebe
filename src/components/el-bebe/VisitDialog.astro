@@ -1,0 +1,31 @@
+---
+import Icon from './Icon.astro';
+const showcase = import.meta.env.MODE === 'showcase';
+---
+<dialog class="visit-dialog" id="visit-dialog" aria-labelledby="visit-title">
+  <button class="dialog-close" type="button" data-close-visit aria-label="Закрыть форму"><Icon name="close"/></button>
+  <div class="dialog-content" data-visit-content>
+    <span class="little-heart" aria-hidden="true">♥</span>
+    <h2 id="visit-title">Давайте знакомиться!</h2>
+    {showcase ? <><p>Это демонстрационная версия сайта. Запись через форму пока недоступна.</p><button class="button" type="button" data-close-visit>Понятно <Icon name="check" size={20}/></button></> : <>
+    <p>Оставьте номер — договоримся о встрече, покажем садик и ответим на ваши вопросы.</p>
+    <form id="visit-form" action="/api/visit" method="post" novalidate>
+      <label for="visit-name">Как к вам обращаться</label>
+      <input id="visit-name" name="name" type="text" autocomplete="given-name" placeholder="Ваше имя" required maxlength="80" aria-describedby="name-error" />
+      <span class="field-error" id="name-error" data-error="name"></span>
+      <label for="visit-phone">Номер телефона</label>
+      <input id="visit-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="+7 (___) ___-__-__" required maxlength="24" aria-describedby="phone-error" />
+      <span class="field-error" id="phone-error" data-error="phone"></span>
+      <div class="honey-field" aria-hidden="true"><label for="visit-website">Сайт</label><input id="visit-website" name="website" tabindex="-1" autocomplete="off" /></div>
+      <label class="consent-row"><input type="checkbox" name="consent" required value="true"/><span>Даю <a href="/soglasie/" target="_blank" rel="noopener">согласие на обработку персональных данных</a> для связи по моей заявке. <a href="/privacy/" target="_blank" rel="noopener">Политика обработки</a>.</span></label>
+      <span class="field-error" data-error="consent"></span>
+      <p class="form-message" id="form-message" role="status" aria-live="polite"></p>
+      <button class="button form-submit" type="submit">Прийти познакомиться <Icon name="arrow" size={20}/></button>
+      <p class="form-footnote">Локальный макет. Для проверки используйте тестовые данные.</p>
+    </form>
+    </>}
+  </div>
+  <div class="visit-success" data-visit-success hidden>
+    <span class="success-heart" aria-hidden="true">♥</span><h2 id="visit-success-title">Заявка получена!</h2><p>Спасибо за знакомство. Ваш номер сохранён — можно закрыть это окно.</p><button type="button" class="button" data-close-visit>Отлично <Icon name="check" size={20}/></button>
+  </div>
+</dialog>

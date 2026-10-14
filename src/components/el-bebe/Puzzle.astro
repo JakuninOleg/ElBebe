@@ -1,0 +1,9 @@
+---
+import Icon from './Icon.astro';
+interface Props { color?: string; icon?: string; class?: string; }
+const { color = 'var(--coral)', icon = 'heart', class: className = '' } = Astro.props;
+---
+<span class:list={['puzzle', className]} style={`--piece-color:${color}`} aria-hidden="true">
+  <svg viewBox="0 0 100 100" fill="currentColor"><path d="M35 21V15C35 6 42 1 50 1s15 5 15 14v6h14c0 0 0 14 0 14h6c9 0 14 7 14 15S94 65 85 65h-6v14H65v6c0 9-7 14-15 14s-15-5-15-14v-6H21V65h-6C6 65 1 58 1 50s5-15 14-15h6V21Z"/></svg>
+  <Icon name={icon} />
+</span>

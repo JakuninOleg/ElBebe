@@ -1,0 +1,11 @@
+---
+// Native EmDash "Live View" links use collection/slug. The records feed
+// shared public pages, so point those links to the page that renders them.
+const targets: Record<string, string> = {
+  el_bebe_site: '/', el_bebe_team: '/komanda/', el_bebe_rates: '/stoimost/',
+  el_bebe_faqs: '/roditelyam/', el_bebe_spaces: '/prostranstvo/', el_bebe_testimonials: '/#o-sade',
+};
+const target = targets[Astro.params.collection || ''];
+if (target) return Astro.redirect(target, 302);
+return Astro.rewrite('/404');
+---

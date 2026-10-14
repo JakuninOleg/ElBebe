@@ -1,0 +1,95 @@
+{
+  "$schema": "https://emdashcms.com/seed.schema.json",
+  "version": "1",
+  "meta": { "name": "El Bebe", "description": "Добавочные коллекции сайта El Bebe без изменения исходных данных" },
+  "collections": [
+    {
+      "slug": "el_bebe_site", "label": "Сайт", "labelSingular": "Настройки сайта", "supports": ["drafts", "revisions"],
+      "fields": [
+        { "slug": "title", "label": "Название записи", "type": "string", "required": true },
+        { "slug": "hero_title", "label": "Заголовок первого экрана", "type": "string", "required": true },
+        { "slug": "hero_text", "label": "Вступительный текст", "type": "text" },
+        { "slug": "address", "label": "Адрес", "type": "string" },
+        { "slug": "phone", "label": "Телефон для связи", "type": "string" },
+        { "slug": "license_text", "label": "Лицензия и материнский капитал", "type": "text" }
+      ]
+    },
+    {
+      "slug": "el_bebe_team", "label": "Воспитатели", "labelSingular": "Воспитатель", "supports": ["drafts", "revisions"],
+      "fields": [
+        { "slug": "title", "label": "Имя и фамилия", "type": "string", "required": true },
+        { "slug": "role", "label": "Должность", "type": "string" },
+        { "slug": "bio", "label": "Образование и опыт", "type": "text" },
+        { "slug": "image", "label": "Фотография сотрудника", "type": "image" },
+        { "slug": "sort_order", "label": "Порядок на сайте", "type": "integer" }
+      ]
+    },
+    {
+      "slug": "el_bebe_rates", "label": "Режимы и стоимость", "labelSingular": "Режим посещения", "supports": ["drafts", "revisions"],
+      "fields": [
+        { "slug": "title", "label": "Название формата", "type": "string", "required": true },
+        { "slug": "hours", "label": "Дни и часы посещения", "type": "string" },
+        { "slug": "price", "label": "Стоимость и период оплаты", "type": "string" },
+        { "slug": "description", "label": "Условия и состав оплаты", "type": "text" },
+        { "slug": "sort_order", "label": "Порядок на сайте", "type": "integer" }
+      ]
+    },
+    {
+      "slug": "el_bebe_faqs", "label": "Вопросы", "labelSingular": "Вопрос и ответ", "supports": ["drafts", "revisions"],
+      "fields": [
+        { "slug": "title", "label": "Вопрос", "type": "string", "required": true },
+        { "slug": "answer", "label": "Ответ", "type": "text", "required": true },
+        { "slug": "sort_order", "label": "Порядок на сайте", "type": "integer" }
+      ]
+    },
+    {
+      "slug": "el_bebe_spaces", "label": "Пространство", "labelSingular": "Фотография пространства", "supports": ["drafts", "revisions"],
+      "fields": [
+        { "slug": "title", "label": "Заголовок", "type": "string", "required": true },
+        { "slug": "description", "label": "Подпись и описание", "type": "text" },
+        { "slug": "image", "label": "Изображение", "type": "image" },
+        { "slug": "sort_order", "label": "Порядок на сайте", "type": "integer" }
+      ]
+    },
+    {
+      "slug": "el_bebe_testimonials", "label": "Отзывы", "labelSingular": "Отзыв родителя", "supports": ["drafts", "revisions"],
+      "fields": [
+        { "slug": "title", "label": "Автор отзыва", "type": "string", "required": true },
+        { "slug": "quote", "label": "Текст отзыва", "type": "text", "required": true },
+        { "slug": "source_url", "label": "Ссылка на оригинал", "type": "url", "required": true },
+        { "slug": "sort_order", "label": "Порядок на сайте", "type": "integer" }
+      ]
+    }
+  ],
+  "content": {
+    "el_bebe_site": [{ "id": "elbebe-site-main", "slug": "main", "status": "published", "data": {
+      "title": "Главная страница",
+      "hero_title": "Здесь детство идёт своим ходом",
+      "hero_text": "Играем, дружим и открываем мир. С заботой о каждом ребёнке.",
+      "address": "Сочи, Виноградная улица", "phone": "",
+      "license_text": "Есть образовательная лицензия. Возможна оплата материнским капиталом."
+    } }],
+    "el_bebe_team": [],
+    "el_bebe_testimonials": [],
+    "el_bebe_rates": [{ "id": "elbebe-rate-visit", "slug": "visit", "status": "published", "data": {
+      "title": "Посещение сада", "hours": "Обсудим при знакомстве", "price": "Стоимость уточняем индивидуально",
+      "description": "Расскажем о доступных форматах, действующей стоимости и том, что входит в оплату.", "sort_order": 10
+    } }],
+    "el_bebe_faqs": [
+      { "id": "elbebe-faq-visit", "slug": "first-visit", "status": "published", "data": {
+        "title": "Как познакомиться с садиком?", "answer": "Оставьте имя и телефон в форме. Обсудим ваши вопросы и удобное время знакомства.", "sort_order": 10
+      } },
+      { "id": "elbebe-faq-price", "slug": "current-conditions", "status": "published", "data": {
+        "title": "Как узнать стоимость и подходящий режим?", "answer": "Уточните действующие условия при обращении: формат посещения, часы, стоимость и состав оплаты.", "sort_order": 20
+      } },
+      { "id": "elbebe-faq-capital", "slug": "maternity-capital", "status": "published", "data": {
+        "title": "Можно ли оплатить материнским капиталом?", "answer": "Да, такая возможность есть. Условия договора и порядок оформления обсудим до оплаты.", "sort_order": 30
+      } }
+    ],
+    "el_bebe_spaces": [
+      { "id": "elbebe-space-play", "slug": "play", "status": "published", "data": { "title": "Игра", "description": "Визуализация пространства для игры", "sort_order": 10 } },
+      { "id": "elbebe-space-room", "slug": "room", "status": "published", "data": { "title": "Уют", "description": "Визуализация комнаты для спокойных занятий", "sort_order": 20 } },
+      { "id": "elbebe-space-playground", "slug": "playground", "status": "published", "data": { "title": "На воздухе", "description": "Визуализация детской площадки", "sort_order": 30 } }
+    ]
+  }
+}

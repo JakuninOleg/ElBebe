@@ -1,0 +1,13 @@
+---
+import Inner from '../layouts/Inner.astro';
+import Faq from '../components/el-bebe/Faq.astro';
+import Icon from '../components/el-bebe/Icon.astro';
+import { getSiteContent } from '../lib/cms';
+import { parentQuestions } from '../data/el-bebe';
+const { faqs } = await getSiteContent();
+const questions = [...faqs,...parentQuestions.filter(q=>!faqs.some(f=>f.question===q.question))];
+---
+<Inner title="Родителям — адаптация, питание и поступление в Эльбебе" heading="Спокойно обо всём важном" label="Родителям" description="Ответы на вопросы о частном детском саде Эльбебе: адаптация, питание, документы, стоимость и материнский капитал." intro="Вы выбираете место, где ребёнок будет проводить свой день. Вопросов может быть много — и каждый из них можно обсудить.">
+  <section class="container content-section"><Faq items={questions}/></section>
+  <section class="container content-section"><div class="content-grid"><article class="content-card"><h3>Первые дни</h3><p>Как познакомиться с садом, что рассказать воспитателю и как подготовиться к посещению.</p><p><a href="/gruppy/#adaptaciya">Об адаптации <Icon name="arrow" size={18}/></a></p></article><article class="content-card"><h3>Стоимость и оплата</h3><p>Режим посещения, условия договора и возможность оплаты материнским капиталом.</p><p><a href="/stoimost/">Условия посещения <Icon name="arrow" size={18}/></a></p></article><article class="content-card"><h3>Наша команда</h3><p>Познакомьтесь с людьми, которые будут рядом с ребёнком в течение дня.</p><p><a href="/komanda/">Воспитатели <Icon name="arrow" size={18}/></a></p></article></div></section>
+</Inner>

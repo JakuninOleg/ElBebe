@@ -1,0 +1,13 @@
+---
+import Layout from './ElBebe.astro';
+import Callout from '../components/el-bebe/Callout.astro';
+import { getSiteContent } from '../lib/cms';
+interface Props { title: string; heading: string; description: string; label?: string; intro?: string; callout?: boolean; }
+const { title, heading, description, label, intro = description, callout = true } = Astro.props;
+const { settings } = await getSiteContent();
+---
+<Layout title={title} description={description} address={settings.address} phone={settings.phone}>
+  <section class="page-hero container"><nav class="breadcrumbs" aria-label="Хлебные крошки"><a href="/">Главная</a><span aria-hidden="true">/</span><span>{label || heading}</span></nav><p class="eyebrow">Детский сад Эльбебе · Сочи</p><h1>{heading}</h1>{intro && <p class="lead">{intro}</p>}</section>
+  <slot/>
+  {callout && <div class="container"><Callout compact/></div>}
+</Layout>

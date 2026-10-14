@@ -1,0 +1,100 @@
+---
+import Layout from '../layouts/ElBebe.astro';
+import Icon from '../components/el-bebe/Icon.astro';
+import Puzzle from '../components/el-bebe/Puzzle.astro';
+import Sprig from '../components/el-bebe/Sprig.astro';
+import Decor from '../components/el-bebe/Decor.astro';
+import Wave from '../components/el-bebe/Wave.astro';
+import Faq from '../components/el-bebe/Faq.astro';
+import Gallery from '../components/el-bebe/Gallery.astro';
+import Callout from '../components/el-bebe/Callout.astro';
+import { Image } from '../lib/emdash-ui';
+import { getSiteContent } from '../lib/cms';
+import { activities, approaches, daySteps, previewSpaces, parentQuestions } from '../data/el-bebe';
+const content = await getSiteContent();
+const { settings, rates, team } = content;
+const spaces = content.spaces.some(s => s.image) ? content.spaces : previewSpaces;
+const cameraQuestion = { id: 'cameras', question: 'Есть ли в саду видеонаблюдение?', answer: 'Да, в Эльбебе установлены камеры. При знакомстве расскажем, как организовано видеонаблюдение и какие правила действуют в саду.' };
+const fallbackFaqs = [cameraQuestion, ...['adaptation', 'food', 'age', 'visit', 'capital', 'price'].flatMap(id => parentQuestions.filter(q => q.id === id))];
+const faqs = [...content.faqs, ...fallbackFaqs.filter(q => !content.faqs.some(f => f.question === q.question))].slice(0, 6);
+---
+<Layout title="Частный детский сад El Bebe в Сочи — на Виноградной" description="El Bebe — частный детский сад в Сочи на Виноградной улице. Группы, стоимость и воспитатели. Образовательная лицензия и условия оплаты материнским капиталом." address={settings.address} phone={settings.phone}>
+  <div class="home-page">
+    <section class="hero container" aria-labelledby="hero-title">
+      <span class="hero-note hand-note" aria-hidden="true">Большие<br/>открытия<br/>начинаются здесь ♡</span>
+      <div class="hero-copy">
+        <h1 class="hero-service" id="hero-title">Частный детский сад Эльбебе в Сочи</h1>
+        <p class="hero-title">{settings.hero_title}</p>
+        <p class="hero-description">{settings.hero_text}</p>
+        <button class="button" data-open-visit>Прийти познакомиться <Icon name="arrow" size={23}/></button>
+        <p class="hero-location"><Icon name="pin" size={16}/>Виноградная · Центральный район</p>
+        {settings.license_text && <a class="hero-license" href="/stoimost/#matkapital"><Icon name="shield" size={19}/><span>Есть лицензия. Возможна оплата маткапиталом.</span><Icon name="arrow" size={16}/></a>}
+        <ul class="hero-values"><li><Icon name="heart"/><span>Забота<br/>каждый день</span></li><li><Icon name="leaf"/><span>Развитие<br/>через игру</span></li><li><Icon name="sun"/><span>Счастливое<br/>детство в Сочи</span></li></ul>
+      </div>
+      <div class="hero-collage">
+        <div class="hero-photo"><img src="/images/el-bebe/hero.webp" alt="Девочка рисует красками — иллюстрация для макета" width="1122" height="1402" fetchpriority="high"/></div>
+        <div class="hero-circle hero-circle--teacher"><img src="/images/el-bebe/together.webp" alt="Игра вместе с педагогом — иллюстрация" width="1400" height="933"/></div>
+        <div class="hero-circle hero-circle--garden"><img src="/images/el-bebe/garden.webp" alt="Радость прогулки — иллюстрация" width="1400" height="933"/></div>
+        <span class="collage-note hand-note" aria-hidden="true"><span class="desktop-text">Любопытные<br/>дети —<br/>счастливые<br/>люди ♡</span><span class="mobile-text">Счастливые<br/>дети ♡</span></span>
+        <Sprig class="hero-sprig"/>
+      </div>
+      <Decor kind="wash" color="#ffdde8" class="hero-pink-wash"/>
+      <Decor kind="drops" class="hero-rays"/>
+      <Decor kind="wash" color="#c7ebe6" class="hero-side-wash"/>
+      <Decor kind="heart" class="hero-heart"/>
+    </section>
+
+    <section class="activities section container" aria-labelledby="activities-title">
+      <div class="section-heading"><h2 id="activities-title"><span class="desktop-text">Разностороннее развитие каждый день</span><span class="mobile-text">Развиваем важные навыки</span></h2><a class="text-link" href="/gruppy/">Все направления <Icon name="arrow" size={20}/></a></div>
+      <div class="activity-grid">{activities.map((item,i) => <a class="activity" href={`/gruppy/#${['tvorchestvo','rech','logika','dvizhenie','progulki','navyki'][i]}`}><div class="activity-photo"><img src={`/images/el-bebe/${item.image}.webp`} alt="" width="500" height="500" loading="lazy"/><Puzzle color={item.color}/></div><h3>{item.title}</h3><p>{item.text}</p></a>)}</div>
+      <Decor kind="wash" color="#ffdedf" class="activities-wash"/>
+      <Decor kind="heart" color="#ffb4bd" class="activities-heart"/>
+      <Decor kind="drops" color="#91d9eb" class="activities-drops"/>
+    </section>
+
+    <section class="about section container" id="o-sade" aria-labelledby="about-title">
+      <div class="about-image"><img src="/images/el-bebe/together.webp" alt="Педагог и дети за общей игрой — иллюстрация" width="1400" height="933" loading="lazy"/><span class="about-note hand-note" aria-hidden="true">Рядом<br/>вдохновляющие<br/>взрослые ♡</span><Decor kind="drops" class="about-drops"/></div>
+      <div class="about-copy"><h2 id="about-title">Больше, чем просто сад</h2><p class="lead">Детство — время для игры, открытий и настоящих отношений. В Эльбебе мы знакомимся с миром в своём темпе: пробуем новое, учимся дружить и быть собой.</p><div class="about-points">{[{ icon: 'heart', title: 'Игра', text: 'Пробуем новое и находим свои интересы.', color: '#ff6476' }, { icon: 'people', title: 'Общение', text: 'Учимся дружить и слушать друг друга.', color: '#ffca36' }, { icon: 'leaf', title: 'Забота', text: 'Видим интересы ребёнка и помогаем.', color: '#26abe0' }].map(item => <div class="about-point"><Puzzle color={item.color} icon={item.icon}/><div><h3>{item.title}</h3><p>{item.text}</p></div></div>)}</div></div>
+      <Sprig class="about-sprig"/>
+      <Decor kind="drops" color="#ffa9b4" class="about-pink-drops"/>
+      <Decor kind="wash" color="#ffdde2" class="about-side-wash"/>
+    </section>
+
+    <section class="family-info container section" aria-labelledby="groups-title">
+      <div class="family-copy"><p class="eyebrow">Сначала познакомимся</p><h2 id="groups-title">Группы и режимы пребывания</h2><p>Расскажите о возрасте и привычках ребёнка. Вместе обсудим подходящую группу, свободные места и удобный для семьи режим.</p><a href="/gruppy/" class="text-link">Как выбрать группу <Icon name="arrow" size={20}/></a></div>
+      <div class="family-rates"><h2>Стоимость посещения</h2>{rates.map(rate => <article class="home-rate"><h3>{rate.title}</h3>{rate.price && <p class="home-rate-price">{rate.price}</p>}{rate.hours && <p>{rate.hours}</p>}{rate.description && <p>{rate.description}</p>}</article>)}<a href="/stoimost/" class="text-link">Стоимость и состав оплаты <Icon name="arrow" size={20}/></a></div>
+      <Decor kind="drops" class="family-drops"/>
+    </section>
+
+    <section class="day-band" aria-labelledby="day-title">
+      <Wave/>
+      <div class="container"><div class="day-intro"><h2 id="day-title">День в Эльбебе</h2><p>Есть время для всего важного:<br/>игры, занятий, отдыха и новых впечатлений.</p></div><ol class="day-steps">{daySteps.map(item => <li><Puzzle color={item.color} icon={item.icon}/><div><h3>{item.title}</h3><p>{item.text}</p></div></li>)}</ol><span class="day-note hand-note" aria-hidden="true">Каждый день<br/>особенный ♡</span><a class="day-details text-link" href="/den-v-sadu/">Как проходит день <Icon name="arrow" size={19}/></a></div>
+      <Decor kind="heart" color="#ffabb2" class="day-heart-art"/>
+      <Decor kind="drops" class="day-drops-left"/>
+      <Decor kind="drops" class="day-drops-right"/>
+    </section>
+
+    <section class="approach section container" aria-labelledby="approach-title">
+      <h2 id="approach-title">Наш подход</h2><div class="approach-grid">{approaches.map(item => <article class={`approach-card approach-card--${item.color}`}><img src={`/images/el-bebe/${item.image}.webp`} alt="" width="1400" height="933" loading="lazy"/><div><h3>{item.title}</h3><p>{item.text}</p></div></article>)}</div>
+      <Decor kind="drops" class="approach-drops"/><Decor kind="heart" color="#ffb5bb" class="approach-heart"/>
+    </section>
+
+    <section class="camera-section container section" aria-labelledby="camera-title">
+      <div class="camera-art"><img src="/images/el-bebe/camera-v2.webp" alt="Иллюстрация камеры видеонаблюдения" width="600" height="580" loading="lazy"/></div>
+      <div class="camera-copy"><p class="eyebrow">Забота — в том числе в деталях</p><h2 id="camera-title">Видеонаблюдение в саду</h2><p>В Эльбебе установлены камеры. При знакомстве расскажем, как организовано видеонаблюдение и какие правила действуют в саду.</p><button class="text-link" type="button" data-open-visit>Задать вопрос <Icon name="arrow" size={19}/></button></div>
+      <Decor kind="wash" color="#e8f1d9" class="camera-wash"/>
+    </section>
+
+    <section class="spaces section container" aria-labelledby="spaces-title"><div class="section-heading"><h2 id="spaces-title">Наше пространство</h2><p>Для игры, творчества<br/>и маленьких открытий.</p><a class="text-link" href="/prostranstvo/">Смотреть все фото <Icon name="arrow" size={20}/></a></div><Gallery items={spaces}/><p class="gallery-caption">Образы для будущей фотогалереи. Заменим фотографиями нашего сада.</p><Decor kind="wash" color="#c7eaf4" class="spaces-side-wash"/></section>
+
+    <section class="team-home container section" aria-labelledby="team-title"><div><Icon name="people" size={38}/><h2 id="team-title">Наши воспитатели</h2><p>Познакомиться с человеком, который будет рядом с ребёнком, важно. На экскурсии встретимся с воспитателями и поговорим о том, что волнует вашу семью.</p><a href="/komanda/" class="text-link">Знакомство с командой <Icon name="arrow" size={20}/></a></div>{team.length > 0 && <div class="home-team-grid">{team.slice(0,3).map(person => <article>{person.image && <Image image={person.image} alt={person.name} width={320} height={320}/>}<h3>{person.name}</h3><p>{person.role}</p></article>)}</div>}<Decor kind="drops" color="#ffa8b2" class="team-drops"/></section>
+
+    <section class="meet section container" aria-labelledby="meet-title"><div class="section-heading"><h2 id="meet-title">Знакомство с садом</h2><p>Приглашаем в гости — чтобы почувствовать атмосферу лично.</p></div><ol class="meet-steps">{[{ icon: 'calendar', title: 'Оставьте заявку', text: 'Расскажите немного о себе и ребёнке.' }, { icon: 'plane', title: 'Договоримся о встрече', text: 'Подберём удобное время для знакомства.' }, { icon: 'heart', title: 'Приезжайте в гости', text: 'Покажем сад и ответим на ваши вопросы.' }].map((item,i) => <li><span class="step-number">{i+1}</span><span class="step-icon"><Icon name={item.icon} size={42}/></span><div><h3>{item.title}</h3><p>{item.text}</p></div></li>)}</ol><Decor kind="drops" class="meet-drops"/></section>
+
+    {settings.license_text && <aside class="license-strip container"><Icon name="shield" size={35}/><div><h2>Лицензия и оплата материнским капиталом</h2><p>{settings.license_text}</p></div><a class="text-link" href="/stoimost/#matkapital">Условия оплаты <Icon name="arrow" size={19}/></a></aside>}
+    {content.testimonials.length > 0 && <section class="section container"><h2>Отзывы родителей</h2><div class="review-grid">{content.testimonials.map(item => <blockquote><p>«{item.quote}»</p><footer>{item.author} · <a href={item.source_url} rel="noopener noreferrer" target="_blank">Читать отзыв</a></footer></blockquote>)}</div></section>}
+
+    <section class="questions section container" aria-labelledby="questions-title"><div class="section-heading"><h2 id="questions-title">Частые вопросы родителей</h2><a href="/roditelyam/" class="text-link">Все вопросы <Icon name="arrow" size={20}/></a></div><Faq items={faqs}/><Decor kind="wash" color="#c9eaf5" class="faq-side-wash"/><Decor kind="drops" class="faq-drops"/></section>
+    <div class="container"><Callout/></div>
+  </div>
+</Layout>
