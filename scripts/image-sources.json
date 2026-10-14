@@ -49,5 +49,10 @@
     "name": "hello-portrait-v2",
     "source": "exec-0488f4ac-bf5e-4e36-aff4-56d01e7d1d10.png",
     "width": 1000
+  },
+  {
+    "name": "bunny-standing-v3",
+    "source": "exec-aed8bbe5-6c58-4631-92c1-dde711b58e2b.png",
+    "width": 500
   }
 ]

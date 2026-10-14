@@ -35,3 +35,12 @@
 
 
 Для повторного преобразования задайте EL_BEBE_IMAGE_SOURCE_DIR — локальный каталог исходных PNG. В scripts/image-sources.json сохранены имена файлов; машинные абсолютные пути не публикуются. В готовой Vercel-сборке используются уже подготовленные WebP.
+
+
+## Поза зайца для мобильного баннера, 15 октября 2026
+
+`bunny-standing-v3.webp` — вариант существующего маскота в полный рост на прозрачном фоне. Получен встроенным ImageGen с `bunny-v2.webp` как референсом персонажа, просмотрен и преобразован Sharp в WebP шириной 500 px с сохранением прозрачности. В мобильной композиции расположен справа на жёлтой подложке; десктопный персонаж опирается на коралловую фигуру перед фотографией.
+
+Точное задание:
+
+> Use case: logo-brand character pose variation for a kindergarten website. Edit the supplied rabbit mascot reference to create a full-body standing pose of exactly the same white rabbit character. Preserve its recognisable cheerful face, large round black glasses, bright black eyes with highlights, pink cheeks, small coral pink nose, two prominent teeth, white fur, long white ears with pink inner ears, and crisp hand-drawn black outlines. The whole rabbit is visible from ear tips to both feet, with a small white round belly and compact child-friendly proportions. Pose: standing on both visible feet on one flat baseline, body turned slightly towards the left, head tilted affectionately towards the left as if looking at nearby website text. Both small front paws rest comfortably near its belly, one can touch the other; natural friendly pose with NO waving arm. Gently playful illustrated ink style with subtle soft pink shading, same style and character as reference, no accessories besides its existing glasses. Compose as a single isolated upright character, fill most of a portrait canvas, keep small transparent margins on all sides. It will sit at the bottom-right edge of a pale pink web banner. True transparent background. No scenery, no platform, no badge, no text, no letters, no numbers, no logos, no sticker border, no cast shadow outside the character. Keep outline thickness moderate so the mascot is refined and readable at 100 px wide.

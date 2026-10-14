@@ -6,11 +6,20 @@ const { compact = false } = Astro.props;
 ---
 <section class:list={['hello-band', compact && 'hello-band--compact']} aria-labelledby="hello-heading">
   <Wave kind="hello"/>
-  <div class="hello-photo"><img src="/images/el-bebe/hello-portrait-v2.webp" alt="Портрет ребёнка — иллюстрация для макета" width="1000" height="1000" loading="lazy" /></div>
-  <div class="hello-content"><h2 id="hello-heading">Готовы познакомиться?</h2><p>Приходите в Эльбебе: покажем садик, познакомим с воспитателями и поговорим о вашем ребёнке.</p><button class="button" type="button" data-open-visit>Прийти познакомиться <Icon name="arrow" size={22}/></button></div>
+  <div class="hello-visual">
+    <div class="hello-photo"><img src="/images/el-bebe/hello-portrait-v2.webp" alt="Портрет ребёнка — иллюстрация для макета" width="1000" height="1000" loading="lazy" /></div>
+    <div class="hello-perch" aria-hidden="true">
+      <svg class="hello-ledge" viewBox="0 0 230 180" preserveAspectRatio="none" focusable="false"><path d="M2 172C4 105 31 28 84 12C133-3 191 20 215 87C225 114 229 145 230 174C157 183 78 183 2 172Z"/></svg>
+      <img class="hello-bunny" src="/images/el-bebe/bunny-v2.webp" alt="" width="600" height="600" loading="lazy"/>
+    </div>
+  </div>
+  <div class="hello-content"><h2 id="hello-heading">Готовы познакомиться?</h2><p>Приходите в Эльбебе: покажем садик, познакомим с воспитателями и поговорим о вашем ребёнке.</p><button class="button" type="button" data-open-visit><span class="desktop-text">Прийти познакомиться</span><span class="mobile-text">Познакомиться</span><Icon name="arrow" size={22}/></button></div>
   <span class="hello-note hand-note" aria-hidden="true">Хорошее детство<br/>начинается здесь ♡</span>
   <span class="hello-heart" aria-hidden="true">♥</span>
-  <img class="hello-bunny" src="/images/el-bebe/bunny-v2.webp" alt="" width="460" height="480" loading="lazy"/>
-  <span class="hello-greeting hand-note" aria-hidden="true">Давайте<br/>познакомимся! ♡</span>
+  <div class="hello-mobile-mascot" aria-hidden="true">
+    <svg class="hello-mascot-ground" viewBox="0 0 150 80" preserveAspectRatio="none" focusable="false"><path d="M0 72C7 40 17 5 53 8C78 9 90-5 119 4C143 10 151 42 150 74C97 83 49 78 0 72Z"/></svg>
+    <img src="/images/el-bebe/bunny-standing-v3.webp" alt="" width="500" height="750" loading="lazy"/>
+  </div>
+  <span class="hello-greeting hand-note" aria-hidden="true">Давайте<br/>познакомимся!<br/>♡</span>
   <Decor kind="drops" class="hello-drops"/>
 </section>
