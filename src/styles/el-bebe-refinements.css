@@ -25,7 +25,6 @@
   .wave-shape--day { fill: var(--aqua); }
   .wave-path--mobile { display: none; }
   .wave-shape--hello { fill: #ffdedf; }
-  .wave-shape--hello-front { fill: #ffa6a7; z-index: 1; }
 
   /* Photo edges use individually drawn paths, not rounded rectangles. */
   .hero { grid-template-columns: minmax(0,.95fr) minmax(0,1.05fr); gap: 30px; min-height: 610px; margin-top: 0; }
@@ -149,14 +148,15 @@
 
   .hello-band { display: block; width: 100%; margin-top: 36px; min-height: 0; padding: 0; background: transparent; border-radius: 0; isolation: isolate; overflow: visible; }
   .hello-inner { position: relative; display: flex; align-items: center; min-height: 340px; padding-block: 55px 48px; }
-  .hello-photo { width: 31.5%; left: 12.5%; right: auto; top: 7px; bottom: 26px; border-radius: 0; clip-path: url(#elbebe-hello-photo); z-index: 0; }
+  .hello-photo { width: 31.5%; left: 12.5%; right: auto; top: 7px; bottom: 14px; border-radius: 0; clip-path: url(#elbebe-hello-photo); z-index: 0; }
   .hello-photo img { object-position: 50% 42%; transform: none; }
   .hello-content { position: relative; z-index: 3; flex: 1; min-width: 0; margin-left: 47%; margin-right: 135px; }
   .hello-content h2 { font-size: 37px; }
   .hello-content p { font-size: 16px; line-height: 1.35; }
   .hello-content .button { font-size: 16px; }
   .hello-perch { position: absolute; left: 9%; top: 7px; bottom: 14px; width: 15%; height: auto; z-index: 2; pointer-events: none; }
-  .hello-bunny { position: absolute; width: 90%; height: auto; object-fit: contain; left: 6%; bottom: 35%; z-index: 1; transform: rotate(-2deg); transform-origin: 50% 90%; }
+  .hello-ledge { position: absolute; left: 0; bottom: 0; width: 100%; height: 46%; fill: #ffa6a7; }
+  .hello-bunny { position: absolute; width: 90%; height: auto; object-fit: contain; left: 6%; bottom: 35%; z-index: 1; transform: rotate(-8deg); transform-origin: 50% 90%; }
   .hello-mobile-mascot { display: none; }
   .hello-greeting { position: absolute; left: -1%; top: 65px; font-size: 22px; color: #a87daf; transform: rotate(-12deg); z-index: 3; }
   .hello-note { display: block; right: 10px; top: auto; bottom: 75px; width: 112px; font-size: 25px; transform: rotate(-11deg); z-index: 3; }
@@ -399,7 +399,6 @@
     .hello-inner { min-height: 208px; padding-block: 32px; }
     .hello-content { margin-left: 34%; margin-right: 24%; }
     .hello-photo { left: -2%; right: auto; top: 8px; bottom: 13px; width: 35%; clip-path: url(#elbebe-hello-photo); border-radius: 0; }
-    .wave-shape--hello-front { display: none; }
     .hello-photo img { object-position: 50% 42%; transform: none; }
     .hello-content h2 { font-size: clamp(14px,4.5vw,20px); line-height: 1.07; margin-bottom: 9px; }
     .hello-content p { font-size: 11px; line-height: 1.3; margin-bottom: 12px; }

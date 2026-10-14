@@ -1,10 +1,10 @@
 ---
-interface Props { kind?: 'day' | 'hello' | 'hello-front'; }
+interface Props { kind?: 'day' | 'hello'; }
 const { kind = 'day' } = Astro.props;
 ---
 <svg class={`wave-shape wave-shape--${kind}`} viewBox="0 0 1440 500" preserveAspectRatio="none" aria-hidden="true" focusable="false">
   {kind === 'day' ? <>
     <path class="wave-path--desktop" d="M0 73C126 4 220 6 342 46S571 99 733 66S1001 98 1168 56S1339 0 1440 21V430C1306 399 1214 486 1046 461S781 492 604 472S335 505 193 470S67 429 0 448Z"/>
     <path class="wave-path--mobile" d="M0 28C168 3 293 9 453 24S739 36 948 21S1258 7 1440 17V478C1220 454 1088 477 863 482S582 466 368 480S131 488 0 474Z"/>
-  </> : kind === 'hello' ? <path d="M0 72C145 7 230 13 365 45S580 83 742 48S965 25 1126 48S1325 13 1440 36V456C1290 422 1190 488 1010 464S770 500 590 472S320 492 180 465S65 444 0 458Z"/> : <path d="M0 292C170 280 320 276 480 282S620 280 720 334S940 407 1100 391S1320 350 1440 364V456C1290 422 1190 488 1010 464S770 500 590 472S320 492 180 465S65 444 0 458Z"/>}
+  </> : <path d="M0 72C145 7 230 13 365 45S580 83 742 48S965 25 1126 48S1325 13 1440 36V456C1290 422 1190 488 1010 464S770 500 590 472S320 492 180 465S65 444 0 458Z"/>}
 </svg>
