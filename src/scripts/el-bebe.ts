@@ -1,5 +1,4 @@
 const dialog = document.querySelector<HTMLDialogElement>('#visit-dialog');
-const form = document.querySelector<HTMLFormElement>('#visit-form');
 const menuToggle = document.querySelector<HTMLButtonElement>('[data-menu-toggle]');
 const menu = document.querySelector<HTMLElement>('#mobile-menu');
 let lastFocused: HTMLElement | null = null;
@@ -66,8 +65,8 @@ document.querySelectorAll<HTMLDetailsElement>('[data-faq]').forEach(details => {
 document.querySelectorAll<HTMLButtonElement>('[data-open-visit]').forEach(button => button.addEventListener('click', () => {
   lastFocused = button.closest('#mobile-menu') ? menuToggle : button;
   closeMenu();
-  const content = document.querySelector<HTMLElement>('[data-visit-content]');
-  const success = document.querySelector<HTMLElement>('[data-visit-success]');
+  const content = dialog?.querySelector<HTMLElement>('[data-visit-content]');
+  const success = dialog?.querySelector<HTMLElement>('[data-visit-success]');
   if (content) content.hidden = false;
   if (success) success.hidden = true;
   dialog?.setAttribute('aria-labelledby', 'visit-title');
@@ -77,11 +76,12 @@ document.querySelectorAll('[data-close-visit]').forEach(button => button.addEven
 dialog?.addEventListener('close', () => { document.body.classList.remove('dialog-open'); lastFocused?.focus(); });
 dialog?.addEventListener('click', event => { const box = dialog.getBoundingClientRect(); if (event.target === dialog && (event.clientX < box.left || event.clientX > box.right || event.clientY < box.top || event.clientY > box.bottom)) dialog.close(); });
 
-form?.addEventListener('submit', async event => {
+document.querySelectorAll<HTMLFormElement>('[data-visit-form]').forEach(form => form.addEventListener('submit', async event => {
   event.preventDefault();
   const button = form.querySelector<HTMLButtonElement>('[type="submit"]')!;
   if (button.disabled) return;
-  const status = document.querySelector<HTMLElement>('#form-message')!;
+  const status = form.querySelector<HTMLElement>('[data-form-status]')!;
+  const panel = form.closest<HTMLElement>('[data-visit-panel]')!;
   form.querySelectorAll<HTMLElement>('[data-error]').forEach(el => { el.textContent = ''; });
   form.querySelectorAll('[aria-invalid]').forEach(el => el.removeAttribute('aria-invalid'));
   const data = new FormData(form);
@@ -98,13 +98,13 @@ form?.addEventListener('submit', async event => {
     const response = await fetch(form.action, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ name, phone, consent: true, website: data.get('website') || '' }) });
     const result = await response.json();
     if (!response.ok || !result.ok) { if (result.errors) showErrors(result.errors); throw new Error(result.message || 'Не удалось отправить. Попробуйте ещё раз.'); }
-    document.querySelector<HTMLElement>('[data-visit-content]')!.hidden = true;
-    const success = document.querySelector<HTMLElement>('[data-visit-success]')!; success.hidden = false;
-    dialog?.setAttribute('aria-labelledby', 'visit-success-title');
-    success.querySelector<HTMLButtonElement>('button')?.focus(); form.reset(); status.textContent = '';
+    panel.querySelector<HTMLElement>('[data-visit-content]')!.hidden = true;
+    const success = panel.querySelector<HTMLElement>('[data-visit-success]')!; success.hidden = false;
+    if (panel === dialog) dialog.setAttribute('aria-labelledby', 'visit-success-title');
+    success.querySelector<HTMLElement>('button, [tabindex="-1"]')?.focus(); form.reset(); status.textContent = '';
   } catch (error) { status.textContent = error instanceof Error ? error.message : 'Не удалось отправить. Проверьте соединение и попробуйте снова.'; }
   finally { button.disabled = false; }
-});
+}));
 
 document.querySelectorAll<HTMLElement>('[data-gallery]').forEach(gallery => {
   const track = gallery.querySelector<HTMLElement>('[data-gallery-track]')!;
