@@ -13,7 +13,7 @@ const FormElement = showcase ? 'div' : 'form';
   </div>
   <div class="visit-field">
     <label for={`${id}-phone`}>Номер телефона</label>
-    <input id={`${id}-phone`} name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="+7 (___) ___-__-__" required maxlength="24" disabled={showcase} aria-describedby={`${id}-phone-error`} />
+    <input id={`${id}-phone`} name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="+7 (___) ___-__-__" required maxlength="18" data-phone-mask disabled={showcase} aria-describedby={`${id}-phone-error`} />
     <span class="field-error" id={`${id}-phone-error`} data-error="phone"></span>
   </div>
   {!showcase && <div class="honey-field" aria-hidden="true"><label for={`${id}-website`}>Сайт</label><input id={`${id}-website`} name="website" tabindex="-1" autocomplete="off" /></div>}

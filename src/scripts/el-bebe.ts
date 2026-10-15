@@ -1,3 +1,7 @@
+import { attachRuPhoneMask, normalizeRuPhone } from '../lib/ru-phone';
+
+document.querySelectorAll<HTMLInputElement>('[data-phone-mask]:not(:disabled)').forEach(input => attachRuPhoneMask(input));
+
 const dialog = document.querySelector<HTMLDialogElement>('#visit-dialog');
 const menuToggle = document.querySelector<HTMLButtonElement>('[data-menu-toggle]');
 const menu = document.querySelector<HTMLElement>('#mobile-menu');
@@ -86,16 +90,16 @@ document.querySelectorAll<HTMLFormElement>('[data-visit-form]').forEach(form => 
   form.querySelectorAll('[aria-invalid]').forEach(el => el.removeAttribute('aria-invalid'));
   const data = new FormData(form);
   const name = String(data.get('name') || '').trim();
-  const phone = String(data.get('phone') || '').trim();
+  const phone = normalizeRuPhone(String(data.get('phone') || '').trim());
   const errors: Record<string, string> = {};
   if (name.length < 2) errors.name = 'Напишите ваше имя, хотя бы два символа.';
-  if (!/^[+\d\s()\-]+$/.test(phone) || !/^(?:7|8)?\d{10}$/.test(phone.replace(/\D/g, ''))) errors.phone = 'Введите российский номер, например +7 (900) 000-00-00.';
+  if (!phone) errors.phone = 'Введите российский номер, например +7 (900) 000-00-00.';
   if (!data.get('consent')) errors.consent = 'Чтобы связаться с вами, нужно согласие на обработку данных.';
   const showErrors = (items: Record<string, string>) => { for (const [key, message] of Object.entries(items)) { const target = form.querySelector<HTMLElement>(`[data-error="${key}"]`); if (target) target.textContent = message; const input = form.elements.namedItem(key); if (input instanceof HTMLElement) input.setAttribute('aria-invalid', 'true'); } };
   if (Object.keys(errors).length) { showErrors(errors); form.querySelector<HTMLElement>('[aria-invalid]')?.focus(); return; }
   button.disabled = true; status.textContent = 'Отправляем заявку…';
   try {
-    const response = await fetch(form.action, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ name, phone, consent: true, website: data.get('website') || '' }) });
+    const response = await fetch(form.action, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ name, phone: `+${phone}`, consent: true, website: data.get('website') || '' }) });
     const result = await response.json();
     if (!response.ok || !result.ok) { if (result.errors) showErrors(result.errors); throw new Error(result.message || 'Не удалось отправить. Попробуйте ещё раз.'); }
     panel.querySelector<HTMLElement>('[data-visit-content]')!.hidden = true;

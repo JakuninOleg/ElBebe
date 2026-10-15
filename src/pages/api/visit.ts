@@ -3,6 +3,7 @@ import { createHash, randomUUID } from "node:crypto";
 import { mkdir, open } from "node:fs/promises";
 import { homedir } from "node:os";
 import { dirname, isAbsolute, relative, resolve } from "node:path";
+import { normalizeRuPhone } from "../../lib/ru-phone";
 
 export const prerender = false;
 const BODY_LIMIT = 8_192;
@@ -60,12 +61,8 @@ async function readBody(request: Request): Promise<Record<string, unknown>> {
 
 const value = (data: Record<string, unknown>, field: string) => typeof data[field] === "string" ? data[field].trim() : "";
 function normalizedPhone(phone: string): string | null {
-  if (!/^[+\d\s()\-]+$/.test(phone) || phone.length > 64) return null;
-  let digits = phone.replace(/\D/g, "");
-  if (digits.length < 10 || digits.length > 15) return null;
-  if (digits.length === 10) digits = `7${digits}`;
-  else if (digits.length === 11 && digits.startsWith("8")) digits = `7${digits.slice(1)}`;
-  return `+${digits}`;
+  const digits = normalizeRuPhone(phone);
+  return digits ? `+${digits}` : null;
 }
 const key = (kind: string, source: string) => `${kind}:${createHash("sha256").update(source).digest("hex")}`;
 function reserveRateLimit(ip: string, phone: string): number {
