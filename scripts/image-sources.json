@@ -54,5 +54,35 @@
     "name": "bunny-standing-v3",
     "source": "exec-aed8bbe5-6c58-4631-92c1-dde711b58e2b.png",
     "width": 500
+  },
+  {
+    "name": "camera-phone",
+    "source": "exec-9928f93a-ba04-4140-952a-38983ade05c0.png",
+    "width": 1000
+  },
+  {
+    "name": "family-capital",
+    "source": "exec-181db3b5-3ec7-4297-a1d0-6bc1252b3cb0.png",
+    "width": 900
+  },
+  {
+    "name": "teacher-preview-1",
+    "source": "exec-dcf9e3c2-1dea-4768-9e33-bb1793d0384e.png",
+    "width": 440
+  },
+  {
+    "name": "teacher-preview-2",
+    "source": "exec-ccae4de2-fc29-42a3-9346-08943dfd7e4c.png",
+    "width": 440
+  },
+  {
+    "name": "teacher-preview-3",
+    "source": "exec-69a78ded-462c-4c4c-8e54-1569daaa271b.png",
+    "width": 440
+  },
+  {
+    "name": "teacher-preview-4",
+    "source": "exec-4a591a29-b5b1-4651-8784-025ab6a7629a.png",
+    "width": 440
   }
 ]

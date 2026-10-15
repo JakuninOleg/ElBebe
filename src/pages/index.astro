@@ -8,7 +8,9 @@ import Wave from '../components/el-bebe/Wave.astro';
 import Faq from '../components/el-bebe/Faq.astro';
 import Gallery from '../components/el-bebe/Gallery.astro';
 import Callout from '../components/el-bebe/Callout.astro';
-import { Image } from '../lib/emdash-ui';
+import Surveillance from '../components/el-bebe/Surveillance.astro';
+import Educators from '../components/el-bebe/Educators.astro';
+import FamilyCapital from '../components/el-bebe/FamilyCapital.astro';
 import { getSiteContent } from '../lib/cms';
 import { activities, approaches, daySteps, previewSpaces, parentQuestions } from '../data/el-bebe';
 const content = await getSiteContent();
@@ -79,19 +81,16 @@ const faqs = [...content.faqs, ...fallbackFaqs.filter(q => !content.faqs.some(f 
       <Decor kind="drops" class="approach-drops"/><Decor kind="heart" color="#ffb5bb" class="approach-heart"/>
     </section>
 
-    <section class="camera-section container section" aria-labelledby="camera-title">
-      <div class="camera-art"><img src="/images/el-bebe/camera-v2.webp" alt="Иллюстрация камеры видеонаблюдения" width="600" height="580" loading="lazy"/></div>
-      <div class="camera-copy"><p class="eyebrow">Забота — в том числе в деталях</p><h2 id="camera-title">Видеонаблюдение в саду</h2><p>В Эльбебе установлены камеры. При знакомстве расскажем, как организовано видеонаблюдение и какие правила действуют в саду.</p><button class="text-link" type="button" data-open-visit>Задать вопрос <Icon name="arrow" size={19}/></button></div>
-      <Decor kind="wash" color="#e8f1d9" class="camera-wash"/>
-    </section>
+    <Surveillance/>
 
     <section class="spaces section container" aria-labelledby="spaces-title"><div class="section-heading"><h2 id="spaces-title">Наше пространство</h2><p>Для игры, творчества<br/>и маленьких открытий.</p><a class="text-link" href="/prostranstvo/">Смотреть все фото <Icon name="arrow" size={20}/></a></div><Gallery items={spaces}/><p class="gallery-caption">Образы для будущей фотогалереи. Заменим фотографиями нашего сада.</p><Decor kind="wash" color="#c7eaf4" class="spaces-side-wash"/></section>
 
-    <section class="team-home container section" aria-labelledby="team-title"><div><Icon name="people" size={38}/><h2 id="team-title">Наши воспитатели</h2><p>Познакомиться с человеком, который будет рядом с ребёнком, важно. На экскурсии встретимся с воспитателями и поговорим о том, что волнует вашу семью.</p><a href="/komanda/" class="text-link">Знакомство с командой <Icon name="arrow" size={20}/></a></div>{team.length > 0 && <div class="home-team-grid">{team.slice(0,3).map(person => <article>{person.image && <Image image={person.image} alt={person.name} width={320} height={320}/>}<h3>{person.name}</h3><p>{person.role}</p></article>)}</div>}<Decor kind="drops" color="#ffa8b2" class="team-drops"/></section>
+    <Educators team={team}/>
 
     <section class="meet section container" aria-labelledby="meet-title"><div class="section-heading"><h2 id="meet-title">Знакомство с садом</h2><p>Приглашаем в гости — чтобы почувствовать атмосферу лично.</p></div><ol class="meet-steps">{[{ icon: 'calendar', title: 'Оставьте заявку', text: 'Расскажите немного о себе и ребёнке.' }, { icon: 'plane', title: 'Договоримся о встрече', text: 'Подберём удобное время для знакомства.' }, { icon: 'heart', title: 'Приезжайте в гости', text: 'Покажем сад и ответим на ваши вопросы.' }].map((item,i) => <li><span class="step-number">{i+1}</span><span class="step-icon"><Icon name={item.icon} size={42}/></span><div><h3>{item.title}</h3><p>{item.text}</p></div></li>)}</ol><Decor kind="drops" class="meet-drops"/></section>
 
     {settings.license_text && <aside class="license-strip container"><Icon name="shield" size={35}/><div><h2>Лицензия и оплата материнским капиталом</h2><p>{settings.license_text}</p></div><a class="text-link" href="/stoimost/#matkapital">Условия оплаты <Icon name="arrow" size={19}/></a></aside>}
+    <FamilyCapital/>
     {content.testimonials.length > 0 && <section class="section container"><h2>Отзывы родителей</h2><div class="review-grid">{content.testimonials.map(item => <blockquote><p>«{item.quote}»</p><footer>{item.author} · <a href={item.source_url} rel="noopener noreferrer" target="_blank">Читать отзыв</a></footer></blockquote>)}</div></section>}
 
     <section class="questions section container" aria-labelledby="questions-title"><div class="section-heading"><h2 id="questions-title">Частые вопросы родителей</h2><a href="/roditelyam/" class="text-link">Все вопросы <Icon name="arrow" size={20}/></a></div><Faq items={faqs}/><Decor kind="wash" color="#c9eaf5" class="faq-side-wash"/><Decor kind="drops" class="faq-drops"/></section>

@@ -1,0 +1,38 @@
+[
+  {
+    "name": "camera-phone",
+    "source": "exec-9928f93a-ba04-4140-952a-38983ade05c0.png",
+    "tool": "built-in image_gen",
+    "prompt": "Use case: photorealistic-natural. Asset: landscape lifestyle photograph for a warm Russian kindergarten website. Close view of a woman's two naturally posed hands holding a black smartphone horizontally; entire phone and fingers inside frame, phone takes 70 percent width. On the screen a crisp realistic photograph of a preschool teacher and three children building colorful wooden blocks at a low table in a sunny classroom with natural wooden furniture. The setting behind hands is softly defocused warm cream. Screen is a plain photograph, no interface, no live badge, no text, no numbers, no watermarks. Realistic hand anatomy, modest everyday clothing, candid and gentle, natural daylight, soft warm tones, subtle pastel aqua, coral and yellow accents. Horizontal 3:2 composition, generous breathing room at edges. This is a temporary illustrative photo, not documentation."
+  },
+  {
+    "name": "family-capital",
+    "source": "exec-181db3b5-3ec7-4297-a1d0-6bc1252b3cb0.png",
+    "tool": "built-in image_gen",
+    "prompt": "Use case: photorealistic-natural. Asset: warm family photograph for kindergarten website. A loving mother with shoulder-length dark blonde hair in an ivory linen blouse hugs her smiling 4-year-old daughter with curly light brown hair and a pale cream cotton shirt. Mother is in left half, daughter in right half, both entire heads visible, child looks happily toward camera and mother tenderly leans toward her cheek. Natural hands and arms around child, anatomically correct. In a bright sunny preschool with wood furniture and green plants, strongly blurred background, soft natural daylight, candid tender joyful moment, realistic skin texture, warm cream and subtle mint palette, no text, no logos. Square crop with faces comfortably within central 65 percent for an organic mask."
+  },
+  {
+    "name": "teacher-preview-1",
+    "source": "exec-dcf9e3c2-1dea-4768-9e33-bb1793d0384e.png",
+    "tool": "built-in image_gen",
+    "prompt": "Use case: photorealistic-natural. Asset: one individual temporary portrait for a preschool website mockup. Portrait of a woman about 35 with a warm oval face, shoulder-length honey-brown wavy hair, hazel eyes, soft green cotton blouse, no glasses. Friendly and approachable adult educator, natural relaxed small smile, facing camera, upper chest and shoulders visible, entire head and hair visible with generous empty room around them. Warm natural daylight, softly blurred bright kindergarten room with neutral wooden shelves and a hint of green plants. Realistic editorial photography, authentic skin texture, no glamour retouching, no corporate headshot backdrop, no text, no logos. Square image. Center head at x50% y40%, shoulders fill lower frame. This depicts a fictional model, not an actual employee."
+  },
+  {
+    "name": "teacher-preview-2",
+    "source": "exec-ccae4de2-fc29-42a3-9346-08943dfd7e4c.png",
+    "tool": "built-in image_gen",
+    "prompt": "Use case: photorealistic-natural. Asset: one individual temporary portrait for a preschool website mockup. Portrait of a woman about 45 with short chestnut bob haircut, brown eyes, a friendly round face, small round eyeglasses and cream linen blouse. Friendly and approachable adult educator, natural relaxed small smile, facing camera, upper chest and shoulders visible, entire head and hair visible with generous empty room around them. Warm natural daylight, softly blurred bright kindergarten room with neutral wooden shelves and a hint of green plants. Realistic editorial photography, authentic skin texture, no glamour retouching, no corporate headshot backdrop, no text, no logos. Square image. Center head at x50% y40%, shoulders fill lower frame. This depicts a fictional model, not an actual employee."
+  },
+  {
+    "name": "teacher-preview-3",
+    "source": "exec-69a78ded-462c-4c4c-8e54-1569daaa271b.png",
+    "tool": "built-in image_gen",
+    "prompt": "Use case: photorealistic-natural. Asset: one individual temporary portrait for a preschool website mockup. Portrait of a woman about 30 with dark curly shoulder-length hair, brown eyes, lightly freckled skin and a muted peach blouse. Friendly and approachable adult educator, natural relaxed small smile, facing camera, upper chest and shoulders visible, entire head and hair visible with generous empty room around them. Warm natural daylight, softly blurred bright kindergarten room with neutral wooden shelves and a hint of green plants. Realistic editorial photography, authentic skin texture, no glamour retouching, no corporate headshot backdrop, no text, no logos. Square image. Center head at x50% y40%, shoulders fill lower frame. This depicts a fictional model, not an actual employee."
+  },
+  {
+    "name": "teacher-preview-4",
+    "source": "exec-4a591a29-b5b1-4651-8784-025ab6a7629a.png",
+    "tool": "built-in image_gen",
+    "prompt": "Use case: photorealistic-natural. Asset: one individual temporary portrait for a preschool website mockup. Portrait of a woman about 50 with dark blonde hair loosely tied back, blue eyes, a gentle smile and a pale blue cotton shirt. Friendly and approachable adult educator, natural relaxed small smile, facing camera, upper chest and shoulders visible, entire head and hair visible with generous empty room around them. Warm natural daylight, softly blurred bright kindergarten room with neutral wooden shelves and a hint of green plants. Realistic editorial photography, authentic skin texture, no glamour retouching, no corporate headshot backdrop, no text, no logos. Square image. Center head at x50% y40%, shoulders fill lower frame. This depicts a fictional model, not an actual employee."
+  }
+]

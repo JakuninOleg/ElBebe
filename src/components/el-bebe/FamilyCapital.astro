@@ -1,0 +1,28 @@
+---
+import Icon from './Icon.astro';
+import Decor from './Decor.astro';
+const steps = [
+  { icon: 'chat', label: 'Обсудим услуги', color: 'mint' },
+  { icon: 'document', label: 'Договор с садом', color: 'yellow' },
+  { icon: 'shield', label: 'Решение СФР', color: 'aqua' },
+];
+---
+<section class="family-capital container section" aria-labelledby="capital-title">
+  <div class="capital-art">
+    <div class="capital-photo"><img src="/images/el-bebe/family-capital.webp" alt="Иллюстрация: мама обнимает дочку" width="900" height="900" loading="lazy"/></div>
+    <span class="capital-note hand-note" aria-hidden="true">С заботой<br/>о семье<Icon name="heart" size={24}/></span>
+    <Decor kind="drops" class="capital-drops"/>
+    <Decor kind="heart" color="#ffb5c2" class="capital-heart"/>
+    <Decor kind="wash" color="#c9eff1" class="capital-aqua"/>
+  </div>
+  <div class="capital-copy">
+    <h2 id="capital-title">Материнский капитал</h2>
+    <p>Посещение Эльбебе можно оплатить средствами материнского капитала при соблюдении условий программы.</p>
+    <p>Расскажем, какие услуги доступны к оплате и что нужно для обращения в Социальный фонд России.</p>
+    <ul class="family-details" role="list">
+      {steps.map(item => <li><span class={`family-detail-icon family-detail-icon--${item.color}`}><Icon name={item.icon} size={24}/></span><span>{item.label}</span></li>)}
+    </ul>
+    <div class="capital-actions"><a href="/stoimost/#matkapital" class="button">Условия оплаты <Icon name="arrow" size={21}/></a><a href="/svedeniya/#documents" class="text-link">Лицензия и документы</a></div>
+  </div>
+  <Decor kind="heart" color="#ffdce2" class="capital-side-heart"/>
+</section>
