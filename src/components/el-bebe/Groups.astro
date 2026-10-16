@@ -1,0 +1,33 @@
+---
+import type { SiteContent } from '../../lib/cms';
+import { Image } from '../../lib/emdash-ui';
+import { groupPreviews } from '../../data/group-previews';
+import Icon from './Icon.astro';
+import Decor from './Decor.astro';
+import Sprig from './Sprig.astro';
+interface Props { groups: SiteContent['groups']; }
+const { groups = [] } = Astro.props;
+const isPreview = groups.length === 0;
+const items: Array<SiteContent['groups'][number] & { previewImage?: string }> = isPreview ? groupPreviews : groups;
+const accents = ['pink', 'yellow', 'aqua'];
+const activityIcons = ['palette', 'sparkle', 'blocks'];
+const approachIcons = ['heart', 'people', 'leaf'];
+---
+<section class="growth-groups section container" id="gruppy" aria-labelledby="growth-title">
+  <header class="growth-heading"><h2 id="growth-title">Наши группы</h2><p>У каждого возраста — свои интересы,<br class="growth-desktop-break"/> занятия и ритм.</p></header>
+  <div class="growth-grid">{items.map((group, i) => <article class={`growth-group growth-group--${accents[i % accents.length]}`}>
+    <div class="growth-visual">
+      <div class="growth-photo">{group.image ? <Image image={group.image} alt={group.title} width={600} height={450}/> : group.previewImage ? <img src={`/images/el-bebe/${group.previewImage}.webp`} alt={`${group.title} — иллюстрация для макета`} width={group.previewImage === 'play' ? 1400 : 1000} height={group.previewImage === 'play' ? 933 : 750} loading="lazy"/> : <span class="growth-photo-empty"><Icon name="people" size={58}/></span>}</div>
+      {i === 0 && <><Icon name="heart" size={33} class="growth-heart"/><Decor kind="drops" class="growth-rays"/></>}
+      {i === 1 && <Sprig class="growth-sprig"/>}
+      {i === 2 && <Icon name="blocks" size={31} class="growth-blocks"/>}
+    </div>
+    <div class="growth-intro"><h3>{group.title}</h3>{group.summary && <p class="growth-summary">{group.summary}</p>}</div>
+    <div class="growth-details">
+      {group.activities && <div class="growth-detail"><Icon name={activityIcons[i % activityIcons.length]} size={29}/><div><h4>Занятия</h4><p>{group.activities}</p></div></div>}
+      {group.approach && <div class="growth-detail"><Icon name={approachIcons[i % approachIcons.length]} size={29}/><div><h4>Подход</h4><p>{group.approach}</p></div></div>}
+    </div>
+  </article>)}</div>
+  {isPreview && <p class="growth-preview-note">Пример наполнения для макета. Занятия и подход уточняем с садиком.</p>}
+  <div class="growth-choice"><div><h3>Поможем выбрать группу</h3><p>Поговорим о ребёнке и познакомимся с воспитателями.</p></div><button class="button" type="button" data-open-visit>Подобрать группу <Icon name="arrow" size={22}/></button><span class="growth-note hand-note" aria-hidden="true">Растём вместе ♡</span></div>
+</section>

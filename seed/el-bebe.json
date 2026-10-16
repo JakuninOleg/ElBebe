@@ -25,6 +25,17 @@
       ]
     },
     {
+      "slug": "el_bebe_groups", "label": "Группы", "labelSingular": "Группа", "supports": ["drafts", "revisions"],
+      "fields": [
+        { "slug": "title", "label": "Название группы", "type": "string", "required": true },
+        { "slug": "summary", "label": "Короткое описание", "type": "string" },
+        { "slug": "activities", "label": "Занятия", "type": "text" },
+        { "slug": "approach", "label": "Подход", "type": "text" },
+        { "slug": "image", "label": "Фотография группы", "type": "image" },
+        { "slug": "sort_order", "label": "Порядок на сайте", "type": "integer" }
+      ]
+    },
+    {
       "slug": "el_bebe_rates", "label": "Режимы и стоимость", "labelSingular": "Режим посещения", "supports": ["drafts", "revisions"],
       "fields": [
         { "slug": "title", "label": "Название формата", "type": "string", "required": true },
@@ -72,6 +83,11 @@
       "license_text": "Есть образовательная лицензия. Возможна оплата материнским капиталом."
     } }],
     "el_bebe_team": [],
+    "el_bebe_groups": [
+      { "id": "elbebe-group-younger", "slug": "younger", "status": "draft", "data": { "title": "Младшая группа", "summary": "Первое знакомство с садом", "activities": "Сенсорные игры, речь, движение.", "approach": "Больше поддержки и повторения. Помогаем освоиться и пробовать самому.", "sort_order": 10 } },
+      { "id": "elbebe-group-middle", "slug": "middle", "status": "draft", "data": { "title": "Средняя группа", "summary": "Больше вопросов и открытий", "activities": "Творчество, логика, сюжетные игры.", "approach": "Учимся договариваться, выбирать и действовать вместе.", "sort_order": 20 } },
+      { "id": "elbebe-group-older", "slug": "older", "status": "draft", "data": { "title": "Старшая группа", "summary": "Больше самостоятельности", "activities": "Проекты, счёт, речевые игры.", "approach": "Обсуждаем идеи, ищем решения и доводим задуманное до конца.", "sort_order": 30 } }
+    ],
     "el_bebe_testimonials": [],
     "el_bebe_rates": [
       { "id": "elbebe-rate-visit", "slug": "visit", "status": "published", "data": { "title": "Полный день", "hours": "8:00–19:00", "price": "47 000 ₽/мес.", "description": "", "is_main": true, "is_entry_fee": false, "sort_order": 10 } },

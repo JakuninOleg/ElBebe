@@ -20,6 +20,24 @@ export interface ElBebeFaq {
   terms?: Record<string, TaxonomyTerm[]>;
 }
 
+export interface ElBebeGroup {
+  id: string;
+  slug: string | null;
+  status: string;
+  title: string;
+  summary?: string;
+  activities?: string;
+  approach?: string;
+  image?: { id: string; src?: string; alt?: string; width?: number; height?: number; filename?: string; mimeType?: string; blurhash?: string; dominantColor?: string; focalX?: number; focalY?: number; provider?: string; previewUrl?: string; meta?: Record<string, unknown>; darkVariant?: { id: string; src?: string; alt?: string; width?: number; height?: number; filename?: string; mimeType?: string; blurhash?: string; dominantColor?: string; focalX?: number; focalY?: number; provider?: string; previewUrl?: string; meta?: Record<string, unknown> } };
+  sort_order?: number;
+  createdAt: Date;
+  updatedAt: Date;
+  publishedAt: Date | null;
+  byline?: BylineSummary | null;
+  bylines?: ContentBylineCredit[];
+  terms?: Record<string, TaxonomyTerm[]>;
+}
+
 export interface ElBebeRate {
   id: string;
   slug: string | null;
@@ -139,6 +157,7 @@ export interface Post {
 declare module "emdash" {
   interface EmDashCollections {
     el_bebe_faqs: ElBebeFaq;
+    el_bebe_groups: ElBebeGroup;
     el_bebe_rates: ElBebeRate;
     el_bebe_site: ElBebeSite;
     el_bebe_spaces: ElBebeSpace;

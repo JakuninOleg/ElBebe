@@ -2,6 +2,9 @@
 import Inner from '../layouts/Inner.astro';
 import Icon from '../components/el-bebe/Icon.astro';
 import { activities } from '../data/el-bebe';
+import Groups from '../components/el-bebe/Groups.astro';
+import { getSiteContent } from '../lib/cms';
+const { groups } = await getSiteContent();
 const descriptions = [
   'Краски, бумага, пластилин и самые разные идеи. В творчестве важен сам процесс: пробовать материалы, замечать цвета и находить свой способ выразить задуманное.',
   'Читаем, рассматриваем картинки, рассказываем истории и разговариваем друг с другом. Учимся задавать вопросы, слушать собеседника и делиться впечатлениями.',
@@ -12,6 +15,7 @@ const descriptions = [
 ];
 ---
 <Inner title="Группы, режимы и занятия в детском саду Эльбебе — Сочи" heading="Группы и режимы пребывания" label="Группы и занятия" description="Группы и занятия частного детского сада Эльбебе в Сочи. Творчество, общение, движение и самостоятельность." intro="Детям интересно, когда можно действовать самим: строить, рисовать, задавать вопросы и пробовать снова. Из таких маленьких открытий складывается наш день.">
+  <Groups groups={groups}/>
   <section class="container content-section split-section"><img src="/images/el-bebe/together.webp" alt="Совместная игра с педагогом — иллюстрация" width="1400" height="933"/><div><h2>Группа, в которой ребёнку будет хорошо</h2><p>При знакомстве поговорим о возрасте ребёнка, его привычках и опыте посещения сада. Уточним свободные места и подходящий режим.</p><p>Стоимость и состав услуг обсудим до начала посещений.</p><a class="text-link" href="/stoimost/">Режимы и стоимость <Icon name="arrow" size={20}/></a></div></section>
   <section class="container content-section"><h2>Развитие через игру</h2>{activities.map((item,i) => <article class="activity-detail" id={['tvorchestvo','rech','logika','dvizhenie','progulki','navyki'][i]}><img src={`/images/el-bebe/${item.image}.webp`} alt="" width="500" height="500" loading="lazy"/><div><h2>{item.title}</h2><p>{descriptions[i]}</p></div></article>)}</section>
   <section class="container content-section editorial" id="adaptaciya"><h2>Знакомство с садом — без спешки</h2><p>Ребёнку нужно время, чтобы привыкнуть к новому месту и людям. Перед первыми посещениями обсудим его распорядок, любимые занятия и способы успокоиться. Важно, чтобы родители и воспитатель могли говорить о том, как проходят первые дни.</p><p>Порядок адаптации согласуем лично: универсального срока, подходящего каждому ребёнку, нет.</p><a class="text-link" href="/roditelyam/">Вопросы родителей <Icon name="arrow" size={20}/></a></section>

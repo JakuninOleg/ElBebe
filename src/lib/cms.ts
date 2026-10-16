@@ -4,6 +4,7 @@ import type { ImageValue } from "emdash";
 export interface SiteContent {
   settings: { hero_title: string; hero_text: string; address: string; phone: string; license_text: string };
   team: Array<{ id: string; name: string; role: string; bio: string; image: ImageValue | null }>;
+  groups: Array<{ id: string; title: string; summary: string; activities: string; approach: string; image: ImageValue | null }>;
   rates: Array<{ id: string; title: string; hours: string; price: string; description: string; isMain: boolean; isEntryFee: boolean }>;
   faqs: Array<{ id: string; question: string; answer: string }>;
   spaces: Array<{ id: string; title: string; description: string; image: ImageValue | null }>;
@@ -66,9 +67,10 @@ const entryId = (entry: CmsEntry) => text(entry.data.id) || entry.id;
 
 /** Read the actual published EmDash records on the server. */
 export async function getSiteContent(): Promise<SiteContent> {
-  const [site, team, rates, faqs, spaces, testimonials] = await Promise.all([
+  const [site, team, rates, faqs, spaces, testimonials, groups] = await Promise.all([
     collection("el_bebe_site"), collection("el_bebe_team"), collection("el_bebe_rates"),
     collection("el_bebe_faqs"), collection("el_bebe_spaces"), collection("el_bebe_testimonials"),
+    collection("el_bebe_groups"),
   ]);
   const settings = (site.find((entry) => entry.id === "main") ?? site[0])?.data;
   return {
@@ -81,6 +83,9 @@ export async function getSiteContent(): Promise<SiteContent> {
     },
     team: team.filter((e) => text(e.data.title)).map((e) => ({
       id: entryId(e), name: text(e.data.title), role: text(e.data.role), bio: text(e.data.bio), image: imageValue(e.data.image),
+    })),
+    groups: groups.filter(e => text(e.data.title)).map(e => ({
+      id: entryId(e), title: text(e.data.title), summary: text(e.data.summary), activities: text(e.data.activities), approach: text(e.data.approach), image: imageValue(e.data.image),
     })),
     rates: rates.filter((e) => text(e.data.title)).map((e) => ({
       id: entryId(e), title: text(e.data.title), hours: text(e.data.hours), price: text(e.data.price), description: text(e.data.description),

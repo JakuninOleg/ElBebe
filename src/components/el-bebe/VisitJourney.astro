@@ -1,0 +1,23 @@
+---
+import Icon from './Icon.astro';
+import Decor from './Decor.astro';
+import Sprig from './Sprig.astro';
+const stops = [
+  { title: 'Осмотримся', text: 'Покажем комнаты для игр, занятий и отдыха.', image: 'room', alt: 'Светлая игровая комната — иллюстрация для макета', width: 1400, height: 933 },
+  { title: 'Познакомимся', text: 'Пообщаемся с воспитателями и расскажем о жизни группы.', image: 'visit-welcome', alt: 'Педагог знакомится с семьёй — иллюстрация для макета', width: 1100, height: 825 },
+  { title: 'Поговорим о вашем ребёнке', text: 'Обсудим привычки, подходящую группу и ваши вопросы.', image: 'visit-conversation', alt: 'Семья беседует с воспитателем — иллюстрация для макета', width: 1100, height: 825 },
+];
+---
+<section class="visit-journey section container" id="znakomstvo" aria-labelledby="meet-title">
+  <header class="visit-heading"><h2 id="meet-title">Знакомство с садом</h2><p>Приходите в гости: посмотрим сад, познакомимся и поговорим о вашем ребёнке.</p></header>
+  <div class="visit-scene">
+    <svg class="visit-desktop-trail" viewBox="0 0 1200 340" preserveAspectRatio="none" fill="none" aria-hidden="true"><path d="M290 67C385 11 436 77 470 145S600 211 670 149S747 15 895 67"/></svg>
+    <svg class="visit-paws" viewBox="0 0 80 80" aria-hidden="true"><g transform="rotate(-24 20 22)"><ellipse cx="20" cy="28" rx="10" ry="8"/><ellipse cx="8" cy="17" rx="3.5" ry="5"/><ellipse cx="19" cy="12" rx="3.5" ry="5"/><ellipse cx="30" cy="17" rx="3.5" ry="5"/></g><g transform="translate(29 31) rotate(-24 20 22)"><ellipse cx="20" cy="28" rx="10" ry="8"/><ellipse cx="8" cy="17" rx="3.5" ry="5"/><ellipse cx="19" cy="12" rx="3.5" ry="5"/><ellipse cx="30" cy="17" rx="3.5" ry="5"/></g></svg>
+    <ol class="visit-stops">{stops.map((stop,i) => <li class={`visit-stop visit-stop--${i+1}`}>
+      {i < stops.length-1 && <svg class="visit-mobile-trail" viewBox="0 0 44 300" preserveAspectRatio="none" fill="none" aria-hidden="true"><path d="M22 0C-4 60 50 110 22 160S6 245 22 300"/></svg>}
+      <div class="visit-visual"><div class="visit-photo"><img src={`/images/el-bebe/${stop.image}.webp`} alt={stop.alt} width={stop.width} height={stop.height} loading="lazy"/></div><span class="visit-number" aria-hidden="true">{i+1}</span><Decor kind="drops" class="visit-rays"/></div>
+      <h3>{stop.title}</h3><p>{stop.text}</p>
+    </li>)}</ol>
+  </div>
+  <div class="visit-bottom"><div class="visit-action"><button type="button" class="button" data-open-visit>Прийти познакомиться <Icon name="arrow" size={24}/></button><p>Оставьте номер — свяжемся и выберем время встречи.</p></div><div class="visit-host" aria-hidden="true"><span class="visit-host-note hand-note">Рады<br/>знакомству! ♡</span><Sprig class="visit-host-sprig"/><svg class="visit-host-shelf" viewBox="0 0 330 120" preserveAspectRatio="none"><path d="M5 105C45 80 75 42 140 42S242 43 286 35C315 31 334 42 330 69C326 105 286 120 220 120H15C0 120-5 116 5 105Z" fill="#ffdee6"/></svg><img class="visit-host-bunny" src="/images/el-bebe/bunny-welcome.webp" alt="" width="500" height="375" loading="lazy"/></div></div>
+</section>

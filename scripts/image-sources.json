@@ -99,5 +99,30 @@
     "name": "rates-painting",
     "source": "exec-86e302c8-6bf9-4443-b180-e60dd14b9dc6.png",
     "width": 1400
+  },
+  {
+    "name": "group-younger",
+    "source": "exec-5c6b8e51-88d0-43e5-b151-49602600b453.png",
+    "width": 1000
+  },
+  {
+    "name": "group-older",
+    "source": "exec-b75a3371-0b8b-485b-b6c7-b3e62611ea66.png",
+    "width": 1000
+  },
+  {
+    "name": "visit-welcome",
+    "source": "exec-0f9ce06a-9ec3-436b-99da-ab1cd33cd8ad.png",
+    "width": 1100
+  },
+  {
+    "name": "visit-conversation",
+    "source": "exec-1e3586d8-b86f-4fc1-886d-e34cd29d01a7.png",
+    "width": 1100
+  },
+  {
+    "name": "bunny-welcome",
+    "source": "exec-ba4c4491-42d5-46e2-8afe-86b74cba570c.png",
+    "width": 500
   }
 ]

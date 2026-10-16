@@ -80,7 +80,7 @@ for (const definition of seed.collections) {
       data.image = images.get(entry.slug);
     }
     const created = await client.create(definition.slug, { slug: entry.slug, data, status: "draft" });
-    await client.publish(definition.slug, created.id);
+    if (entry.status !== "draft") await client.publish(definition.slug, created.id);
     report.entriesCreated++;
   }
 }

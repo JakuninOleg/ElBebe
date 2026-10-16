@@ -7,7 +7,7 @@ import { fileURLToPath } from 'node:url';
 const db = new DatabaseSync(fileURLToPath(new URL('../data.db', import.meta.url)), { readOnly: true });
 const string = value => typeof value === 'string' ? value.trim() : '';
 function entries(collection) {
-  if (!['site', 'team', 'rates', 'faqs', 'spaces', 'testimonials'].includes(collection)) throw new Error('Unexpected showcase collection.');
+  if (!['site', 'team', 'groups', 'rates', 'faqs', 'spaces', 'testimonials'].includes(collection)) throw new Error('Unexpected showcase collection.');
   const slug = `el_bebe_${collection}`;
   return db.prepare(`SELECT e.slug, r.data FROM ec_${slug} e JOIN revisions r ON r.id = e.live_revision_id AND r.collection = ? AND r.entry_id = e.id WHERE e.status = 'published' AND e.deleted_at IS NULL`).all(slug)
     .map(row => ({ id: row.slug, data: JSON.parse(row.data) }))
@@ -29,6 +29,7 @@ try {
   const snapshot = {
     settings: Object.fromEntries(['hero_title', 'hero_text', 'address', 'phone', 'license_text'].map(field => [field, string(settings[field])])),
     team: entries('team').map(({ id, data }) => ({ id, name: string(data.title), role: string(data.role), bio: string(data.bio), image: publicImage(data.image) })),
+    groups: entries('groups').map(({ id, data }) => ({ id, title: string(data.title), summary: string(data.summary), activities: string(data.activities), approach: string(data.approach), image: publicImage(data.image) })),
     rates: entries('rates').map(({ id, data }) => ({ id, title: string(data.title), hours: string(data.hours), price: string(data.price), description: string(data.description), isMain: data.is_main === true || data.is_main === 1, isEntryFee: data.is_entry_fee === true || data.is_entry_fee === 1 })),
     faqs: entries('faqs').map(({ id, data }) => ({ id, question: string(data.title), answer: string(data.answer) })),
     spaces: entries('spaces').map(({ id, data }) => ({ id, title: string(data.title), description: string(data.description), image: publicImage(data.image) })),
