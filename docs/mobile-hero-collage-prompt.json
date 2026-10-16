@@ -1,0 +1,10 @@
+[
+  {
+    "name": "hero-mobile-collage-v2",
+    "source": "exec-3d9477aa-2a8b-48a8-a929-52bb984774d1.png",
+    "tool": "built-in image_gen",
+    "purpose": "Photo collage extracted from approved mobile hero concept; temporary AI illustration",
+    "transparent": true,
+    "prompt": "Use case: precise-object-edit / background-extraction. The input is an approved El Bebe mobile website design. Extract ONLY its central PHOTO COLLAGE as one high-resolution asset on a TRUE TRANSPARENT BACKGROUND. Preserve the exact people, faces, painting scene, teacher-and-children scene, arrangement, photo proportions, mask contours and decorations from the input; do not redesign. Specifically: the large organic cutout photo on right contains curly-haired girl painting, rising to a high rounded lobe on top right and sweeping down to the rounded bottom; the smaller circular teacher-with-children photo overlaps lower left with its thin ivory circular rim. Keep the pale pink backing shape behind the left side of the large photo, the small coral-pink heart floating to the left, and the two small aqua drops at lower right. Include the complete large photo and complete smaller circle, no clipped faces or hands. The overall asset is close to square, width:height about 1.10:1; right photo extends to the right edge while lower-left circle is completely visible. No margins beyond the small breathing room needed around the collage. Remove EVERYTHING else: all logo/header, all Russian text, button, address, shield, yellow rays by CTA, bottom icons, bottom heading and bottom lavender wave. Where the address or text overlapped the original collage boundary, reconstruct only photo edge/background seamlessly without letters. The top-left area of the resulting asset must be transparent exactly like the original design; most of its top edge is transparent until the tall right lobe. The asset should be a faithful extraction of this reference's collage, not a new interpretation. Genuine alpha channel, no white rectangle, no shadow outside the artwork, no text."
+  }
+]

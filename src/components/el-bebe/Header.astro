@@ -7,8 +7,8 @@ const items = [
   { href: '/komanda/', label: 'Воспитатели' }, { href: '/kontakty/', label: 'Контакты' },
 ];
 ---
-<header class="site-header">
-  <svg class="menu-blob" viewBox="0 0 130 120" preserveAspectRatio="none" aria-hidden="true"><path d="M0 0H130V120C115 101 95 114 66 99C28 80 41 38 0 0Z" fill="#c4eeea"/></svg>
+<header class:list={['site-header', { 'site-header--home': path === '/' }]}>
+  <svg class="menu-blob" viewBox="0 0 130 120" preserveAspectRatio="none" aria-hidden="true"><path class="menu-blob-original" d="M0 0H130V120C115 101 95 114 66 99C28 80 41 38 0 0Z" fill="#c4eeea"/><path class="menu-blob-home" d="M0 0H130V120C63 120 5 74 0 0Z" fill="#c4eeea"/></svg>
   <div class="container header-inner">
     <a class="brand" href="/" aria-label="Эльбебе — на главную"><img src="/images/el-bebe/logo-straight-v2.webp" width="680" height="379" alt="Детский сад Эльбебе, Сочи" fetchpriority="high" /></a>
     <nav class="desktop-nav" aria-label="Основное меню">{items.map(item => <a href={item.href} aria-current={path === item.href ? 'page' : undefined}>{item.label}</a>)}</nav>

@@ -1,0 +1,22 @@
+---
+interface Props { kind: 'heart' | 'blocks' | 'sea'; }
+const { kind } = Astro.props;
+---
+<svg class="hero-value-art" viewBox="0 0 120 110" fill="none" aria-hidden="true" focusable="false">
+  {kind === 'heart' && <>
+    <path d="M60 96C46 86 20 65 24 40C27 21 48 20 59 38C68 15 93 15 98 35C106 59 84 82 60 96Z" fill="#ff646e"/>
+    <path d="M36 27C45 24 54 28 59 38C63 28 69 22 78 21C69 35 70 54 58 64C46 54 36 42 36 27Z" fill="#ff7c82"/>
+    <g fill="#ffcf23"><path d="M17 49C4 37-2 44 5 50S22 55 17 49Z M15 68C-2 67 0 78 8 75S23 68 15 68Z M23 84C8 90 13 100 20 94S30 81 23 84Z M105 47C115 33 123 40 115 47S99 55 105 47Z M105 69C123 66 123 77 115 76S99 70 105 69Z"/></g>
+  </>}
+  {kind === 'blocks' && <>
+    <path d="m44 12 27 6-1 39-27-7Z" fill="#ffcf24"/><path d="m71 18 14-9v40L70 57Z" fill="#edb724"/><path d="m44 12 15-9 26 6-14 9Z" fill="#ffdc48"/>
+    <path d="m22 51 27 8v42l-27-9Z" fill="#1baee0"/><path d="m49 59 17-11v42l-17 11Z" fill="#098cc9"/><path d="m22 51 17-11 27 8-17 11Z" fill="#53c7e9"/>
+    <path d="m65 66 27-8v40l-27 9Z" fill="#ff6475"/><path d="m92 58 15 9v39l-15-8Z" fill="#ec4e66"/><path d="m65 66 16-16 26 17-15-9Z" fill="#ff8e96"/>
+    <g fill="#ffce24"><path d="M11 70C-2 58-5 69 4 73S18 77 11 70Z M10 89C-4 91 0 101 7 96S17 87 10 89Z M108 41C115 28 124 36 115 43S102 50 108 41Z"/></g>
+  </>}
+  {kind === 'sea' && <>
+    <path d="M26 61a32 32 0 0 1 64 0c-4 6-9 6-15 1-5-5-10-5-15 0-5 5-10 5-15 0-7-6-12-5-19-1Z" fill="#ffd036"/>
+    <g stroke="#ffcc25" stroke-width="6" stroke-linecap="round"><path d="M58 14V4M31 23l-6-9M17 43 7 39M85 23l6-9M100 43l10-4"/></g>
+    <g stroke="#16b3df" stroke-width="6" stroke-linecap="round"><path d="M14 73q11 10 22 0 11-10 22 0 11 10 22 0 11-10 22 0M14 88q11 10 22 0 11-10 22 0 11 10 22 0 11-10 22 0M14 103q11 10 22 0 11-10 22 0 11 10 22 0 11-10 22 0"/></g>
+  </>}
+</svg>
