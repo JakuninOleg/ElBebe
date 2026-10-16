@@ -29,7 +29,7 @@ try {
   const snapshot = {
     settings: Object.fromEntries(['hero_title', 'hero_text', 'address', 'phone', 'license_text'].map(field => [field, string(settings[field])])),
     team: entries('team').map(({ id, data }) => ({ id, name: string(data.title), role: string(data.role), bio: string(data.bio), image: publicImage(data.image) })),
-    rates: entries('rates').map(({ id, data }) => ({ id, title: string(data.title), hours: string(data.hours), price: string(data.price), description: string(data.description) })),
+    rates: entries('rates').map(({ id, data }) => ({ id, title: string(data.title), hours: string(data.hours), price: string(data.price), description: string(data.description), isMain: data.is_main === true || data.is_main === 1, isEntryFee: data.is_entry_fee === true || data.is_entry_fee === 1 })),
     faqs: entries('faqs').map(({ id, data }) => ({ id, question: string(data.title), answer: string(data.answer) })),
     spaces: entries('spaces').map(({ id, data }) => ({ id, title: string(data.title), description: string(data.description), image: publicImage(data.image) })),
     testimonials: entries('testimonials').filter(({ data }) => string(data.title) && string(data.quote) && publicUrl(data.source_url)).map(({ id, data }) => ({ id, author: string(data.title), quote: string(data.quote), source_url: publicUrl(data.source_url) })),

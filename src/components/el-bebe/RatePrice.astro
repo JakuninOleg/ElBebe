@@ -1,0 +1,6 @@
+---
+interface Props { price: string; }
+const { price } = Astro.props;
+const [amount, unit] = price.split(/(?=\/)/, 2);
+---
+<p class="attendance-price"><span>{amount || 'Уточняем при знакомстве'}</span>{unit && <small>{unit}</small>}</p>

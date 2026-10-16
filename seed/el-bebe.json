@@ -31,6 +31,8 @@
         { "slug": "hours", "label": "Дни и часы посещения", "type": "string" },
         { "slug": "price", "label": "Стоимость и период оплаты", "type": "string" },
         { "slug": "description", "label": "Условия и состав оплаты", "type": "text" },
+        { "slug": "is_main", "label": "Основной режим (цветная строка)", "type": "boolean" },
+        { "slug": "is_entry_fee", "label": "Вступительный взнос", "type": "boolean" },
         { "slug": "sort_order", "label": "Порядок на сайте", "type": "integer" }
       ]
     },
@@ -71,10 +73,16 @@
     } }],
     "el_bebe_team": [],
     "el_bebe_testimonials": [],
-    "el_bebe_rates": [{ "id": "elbebe-rate-visit", "slug": "visit", "status": "published", "data": {
-      "title": "Посещение сада", "hours": "Обсудим при знакомстве", "price": "Стоимость уточняем индивидуально",
-      "description": "Расскажем о доступных форматах, действующей стоимости и том, что входит в оплату.", "sort_order": 10
-    } }],
+    "el_bebe_rates": [
+      { "id": "elbebe-rate-visit", "slug": "visit", "status": "published", "data": { "title": "Полный день", "hours": "8:00–19:00", "price": "47 000 ₽/мес.", "description": "", "is_main": true, "is_entry_fee": false, "sort_order": 10 } },
+      { "id": "elbebe-rate-morning", "slug": "morning", "status": "published", "data": { "title": "Неполный день · утро", "hours": "8:00–12:30", "price": "25 000 ₽/мес.", "description": "", "is_main": true, "is_entry_fee": false, "sort_order": 20 } },
+      { "id": "elbebe-rate-evening", "slug": "evening", "status": "published", "data": { "title": "Неполный день · вечер", "hours": "15:00–19:00", "price": "23 000 ₽/мес.", "description": "", "is_main": true, "is_entry_fee": false, "sort_order": 30 } },
+      { "id": "elbebe-rate-hourly", "slug": "hourly", "status": "published", "data": { "title": "По часам", "hours": "", "price": "400 ₽/час", "description": "", "is_main": false, "is_entry_fee": false, "sort_order": 40 } },
+      { "id": "elbebe-rate-daily", "slug": "daily", "status": "published", "data": { "title": "На целый день", "hours": "8:00–19:00", "price": "3 000 ₽/день", "description": "", "is_main": false, "is_entry_fee": false, "sort_order": 50 } },
+      { "id": "elbebe-rate-weekend", "slug": "weekend", "status": "published", "data": { "title": "В выходной день", "hours": "9:00–19:00", "price": "3 000 ₽/день", "description": "", "is_main": false, "is_entry_fee": false, "sort_order": 60 } },
+      { "id": "elbebe-rate-night", "slug": "night", "status": "published", "data": { "title": "Ночное пребывание", "hours": "19:00–09:00", "price": "3 000 ₽/ночь", "description": "", "is_main": false, "is_entry_fee": false, "sort_order": 70 } },
+      { "id": "elbebe-rate-entry-fee", "slug": "entry-fee", "status": "published", "data": { "title": "Вступительный взнос", "hours": "", "price": "10 000 ₽", "description": "", "is_main": false, "is_entry_fee": true, "sort_order": 80 } }
+    ],
     "el_bebe_faqs": [
       { "id": "elbebe-faq-visit", "slug": "first-visit", "status": "published", "data": {
         "title": "Как познакомиться с садиком?", "answer": "Оставьте имя и телефон в форме. Обсудим ваши вопросы и удобное время знакомства.", "sort_order": 10

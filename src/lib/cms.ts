@@ -4,7 +4,7 @@ import type { ImageValue } from "emdash";
 export interface SiteContent {
   settings: { hero_title: string; hero_text: string; address: string; phone: string; license_text: string };
   team: Array<{ id: string; name: string; role: string; bio: string; image: ImageValue | null }>;
-  rates: Array<{ id: string; title: string; hours: string; price: string; description: string }>;
+  rates: Array<{ id: string; title: string; hours: string; price: string; description: string; isMain: boolean; isEntryFee: boolean }>;
   faqs: Array<{ id: string; question: string; answer: string }>;
   spaces: Array<{ id: string; title: string; description: string; image: ImageValue | null }>;
   testimonials: Array<{ id: string; quote: string; author: string; source_url: string }>;
@@ -84,6 +84,7 @@ export async function getSiteContent(): Promise<SiteContent> {
     })),
     rates: rates.filter((e) => text(e.data.title)).map((e) => ({
       id: entryId(e), title: text(e.data.title), hours: text(e.data.hours), price: text(e.data.price), description: text(e.data.description),
+      isMain: e.data.is_main === true, isEntryFee: e.data.is_entry_fee === true,
     })),
     faqs: faqs.filter((e) => text(e.data.title) && text(e.data.answer)).map((e) => ({
       id: entryId(e), question: text(e.data.title), answer: text(e.data.answer),

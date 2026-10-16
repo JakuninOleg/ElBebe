@@ -10,10 +10,75 @@
   "rates": [
     {
       "id": "visit",
-      "title": "Посещение сада",
-      "hours": "Обсудим при знакомстве",
-      "price": "Стоимость уточняем индивидуально",
-      "description": "Расскажем о доступных форматах, действующей стоимости и том, что входит в оплату."
+      "title": "Полный день",
+      "hours": "8:00–19:00",
+      "price": "47 000 ₽/мес.",
+      "description": "",
+      "isMain": true,
+      "isEntryFee": false
+    },
+    {
+      "id": "morning",
+      "title": "Неполный день · утро",
+      "hours": "8:00–12:30",
+      "price": "25 000 ₽/мес.",
+      "description": "",
+      "isMain": true,
+      "isEntryFee": false
+    },
+    {
+      "id": "evening",
+      "title": "Неполный день · вечер",
+      "hours": "15:00–19:00",
+      "price": "23 000 ₽/мес.",
+      "description": "",
+      "isMain": true,
+      "isEntryFee": false
+    },
+    {
+      "id": "hourly",
+      "title": "По часам",
+      "hours": "",
+      "price": "400 ₽/час",
+      "description": "",
+      "isMain": false,
+      "isEntryFee": false
+    },
+    {
+      "id": "daily",
+      "title": "На целый день",
+      "hours": "8:00–19:00",
+      "price": "3 000 ₽/день",
+      "description": "",
+      "isMain": false,
+      "isEntryFee": false
+    },
+    {
+      "id": "weekend",
+      "title": "В выходной день",
+      "hours": "9:00–19:00",
+      "price": "3 000 ₽/день",
+      "description": "",
+      "isMain": false,
+      "isEntryFee": false
+    },
+    {
+      "id": "night",
+      "title": "Ночное пребывание",
+      "hours": "19:00–09:00",
+      "price": "3 000 ₽/ночь",
+      "description": "",
+      "isMain": false,
+      "isEntryFee": false
+    },
+    {
+      "id": "entry-fee",
+      "title": "Вступительный взнос",
+      "hours": "",
+      "price": "10 000 ₽",
+      "description": "",
+      "isMain": false,
+      "isEntryFee": true
     }
   ],
   "faqs": [

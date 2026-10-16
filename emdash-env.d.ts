@@ -29,6 +29,8 @@ export interface ElBebeRate {
   price?: string;
   description?: string;
   sort_order?: number;
+  is_main?: boolean;
+  is_entry_fee?: boolean;
   createdAt: Date;
   updatedAt: Date;
   publishedAt: Date | null;

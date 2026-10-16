@@ -13,6 +13,7 @@ import Educators from '../components/el-bebe/Educators.astro';
 import FamilyCapital from '../components/el-bebe/FamilyCapital.astro';
 import HeroValueArt from '../components/el-bebe/HeroValueArt.astro';
 import HeroFactIcon from '../components/el-bebe/HeroFactIcon.astro';
+import AttendanceRates from '../components/el-bebe/AttendanceRates.astro';
 import { getSiteContent } from '../lib/cms';
 import { activities, approaches, daySteps, previewSpaces, parentQuestions } from '../data/el-bebe';
 const content = await getSiteContent();
@@ -33,10 +34,10 @@ const faqs = [...content.faqs, ...fallbackFaqs.filter(q => !content.faqs.some(f 
         <p class="hero-description">{settings.hero_text.split(/(?<=\.)\s+/).map(sentence => <span>{sentence}{' '}</span>)}</p>
         <button type="button" class="button hero-visit-button" data-open-visit>Прийти познакомиться <Icon name="arrow" size={23}/><svg class="hero-cta-rays" viewBox="0 0 100 100" fill="#ffce1d" aria-hidden="true"><path d="M15 58C3 18 8 0 20 6S28 31 15 58ZM40 75C45 37 76 13 80 29S67 58 40 75ZM56 89C75 67 104 70 98 84S75 96 56 89Z"/></svg></button>
         <div class="hero-facts">
-          <p class="hero-location"><Icon name="pin" size={16}/><HeroFactIcon kind="location"/><span class="desktop-text">Виноградная · Центральный район</span><span class="mobile-text hero-fact-copy"><strong>Сочи</strong><small>ул. Виноградная</small></span></p>
-          {settings.license_text && <a class="hero-license" href="/stoimost/#matkapital"><Icon name="shield" size={19}/><HeroFactIcon kind="license"/><span class="desktop-text">Есть лицензия. Возможна оплата маткапиталом.</span><span class="mobile-text hero-fact-copy"><strong>Есть лицензия</strong><small>Оплата маткапиталом</small></span><Icon name="arrow" size={16}/></a>}
+          <p class="hero-location"><HeroFactIcon kind="location"/><span class="hero-fact-copy"><strong>Сочи</strong><small>ул. Виноградная</small></span></p>
+          {settings.license_text && <a class="hero-license" href="/stoimost/#matkapital"><HeroFactIcon kind="license"/><span class="hero-fact-copy"><strong>Есть лицензия</strong><small>Оплата маткапиталом</small></span></a>}
         </div>
-        <ul class="hero-values"><li><Icon name="heart" class="hero-value-desktop"/><HeroValueArt kind="heart"/><span>Забота<br/>каждый день</span></li><li><Icon name="leaf" class="hero-value-desktop"/><HeroValueArt kind="blocks"/><span>Развитие<br/>через игру</span></li><li><Icon name="sun" class="hero-value-desktop"/><HeroValueArt kind="sea"/><span class="desktop-text">Счастливое<br/>детство в Сочи</span><span class="mobile-text">Детство<br/>в Сочи</span></li></ul>
+        <ul class="hero-values"><li><HeroValueArt kind="heart"/><span>Забота<br/>каждый день</span></li><li><HeroValueArt kind="blocks"/><span>Развитие<br/>через игру</span></li><li><HeroValueArt kind="sea"/><span>Счастливое<br/>детство в Сочи</span></li></ul>
       </div>
       <div class="hero-collage">
         <div class="hero-photo"><picture><source media="(max-width: 760px)" srcset="/images/el-bebe/hero-mobile-collage-v2.webp" width="1100" height="1000"/><img src="/images/el-bebe/hero.webp" alt="Игра и творчество в саду — иллюстрация для макета" width="1122" height="1402" fetchpriority="high"/></picture></div>
@@ -68,11 +69,7 @@ const faqs = [...content.faqs, ...fallbackFaqs.filter(q => !content.faqs.some(f 
       <Decor kind="wash" color="#ffdde2" class="about-side-wash"/>
     </section>
 
-    <section class="family-info container section" aria-labelledby="groups-title">
-      <div class="family-copy"><p class="eyebrow">Сначала познакомимся</p><h2 id="groups-title">Группы и режимы пребывания</h2><p>Расскажите о возрасте и привычках ребёнка. Вместе обсудим подходящую группу, свободные места и удобный для семьи режим.</p><a href="/gruppy/" class="text-link">Как выбрать группу <Icon name="arrow" size={20}/></a></div>
-      <div class="family-rates"><h2>Стоимость посещения</h2>{rates.map(rate => <article class="home-rate"><h3>{rate.title}</h3>{rate.price && <p class="home-rate-price">{rate.price}</p>}{rate.hours && <p>{rate.hours}</p>}{rate.description && <p>{rate.description}</p>}</article>)}<a href="/stoimost/" class="text-link">Стоимость и состав оплаты <Icon name="arrow" size={20}/></a></div>
-      <Decor kind="drops" class="family-drops"/>
-    </section>
+    <AttendanceRates rates={rates}/>
 
     <section class="day-band" aria-labelledby="day-title">
       <Wave/>
