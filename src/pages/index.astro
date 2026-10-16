@@ -12,6 +12,7 @@ import Surveillance from '../components/el-bebe/Surveillance.astro';
 import Educators from '../components/el-bebe/Educators.astro';
 import FamilyCapital from '../components/el-bebe/FamilyCapital.astro';
 import HeroValueArt from '../components/el-bebe/HeroValueArt.astro';
+import HeroFactIcon from '../components/el-bebe/HeroFactIcon.astro';
 import { getSiteContent } from '../lib/cms';
 import { activities, approaches, daySteps, previewSpaces, parentQuestions } from '../data/el-bebe';
 const content = await getSiteContent();
@@ -31,8 +32,10 @@ const faqs = [...content.faqs, ...fallbackFaqs.filter(q => !content.faqs.some(f 
         <p class:list={['hero-title', { 'hero-title--reference': hasReferenceHeadline }]}>{hasReferenceHeadline ? <><span class="hero-title-first">Здесь детство</span>{' '}<span class="hero-title-last">идёт своим ходом</span></> : settings.hero_title}<svg class="hero-title-heart" viewBox="0 0 100 100" aria-hidden="true"><path d="M29 83C10 59 4 24 23 20C35 17 42 31 43 47C57 11 79 22 75 39C71 58 45 79 29 91Z" fill="#ffce1c"/><path d="M30 65C21 48 19 32 25 31C31 31 31 56 37 58C43 60 57 32 63 36C69 42 47 63 30 76Z" fill="#ffe879"/><path d="M77 19C76 0 91-3 88 9S77 30 77 19ZM84 41C94 25 106 34 96 41S78 50 84 41Z" fill="#ffcf22"/></svg></p>
         <p class="hero-description">{settings.hero_text.split(/(?<=\.)\s+/).map(sentence => <span>{sentence}{' '}</span>)}</p>
         <button type="button" class="button hero-visit-button" data-open-visit>Прийти познакомиться <Icon name="arrow" size={23}/><svg class="hero-cta-rays" viewBox="0 0 100 100" fill="#ffce1d" aria-hidden="true"><path d="M15 58C3 18 8 0 20 6S28 31 15 58ZM40 75C45 37 76 13 80 29S67 58 40 75ZM56 89C75 67 104 70 98 84S75 96 56 89Z"/></svg></button>
-        <p class="hero-location"><Icon name="pin" size={16}/><span class="desktop-text">Виноградная · Центральный район</span><span class="mobile-text">Виноградная · Сочи</span></p>
-        {settings.license_text && <a class="hero-license" href="/stoimost/#matkapital"><Icon name="shield" size={19}/><span class="desktop-text">Есть лицензия. Возможна оплата маткапиталом.</span><span class="mobile-text">Лицензия · Оплата маткапиталом</span><Icon name="arrow" size={16}/></a>}
+        <div class="hero-facts">
+          <p class="hero-location"><Icon name="pin" size={16}/><HeroFactIcon kind="location"/><span class="desktop-text">Виноградная · Центральный район</span><span class="mobile-text hero-fact-copy"><strong>Сочи</strong><small>ул. Виноградная</small></span></p>
+          {settings.license_text && <a class="hero-license" href="/stoimost/#matkapital"><Icon name="shield" size={19}/><HeroFactIcon kind="license"/><span class="desktop-text">Есть лицензия. Возможна оплата маткапиталом.</span><span class="mobile-text hero-fact-copy"><strong>Есть лицензия</strong><small>Оплата маткапиталом</small></span><Icon name="arrow" size={16}/></a>}
+        </div>
         <ul class="hero-values"><li><Icon name="heart" class="hero-value-desktop"/><HeroValueArt kind="heart"/><span>Забота<br/>каждый день</span></li><li><Icon name="leaf" class="hero-value-desktop"/><HeroValueArt kind="blocks"/><span>Развитие<br/>через игру</span></li><li><Icon name="sun" class="hero-value-desktop"/><HeroValueArt kind="sea"/><span class="desktop-text">Счастливое<br/>детство в Сочи</span><span class="mobile-text">Детство<br/>в Сочи</span></li></ul>
       </div>
       <div class="hero-collage">
