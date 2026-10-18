@@ -8,13 +8,17 @@ import '../styles/el-bebe-family.css';
 import '../styles/el-bebe-mobile-hero.css';
 import '../styles/el-bebe-rates.css';
 import '../styles/el-bebe-groups-visit.css';
+import '../styles/el-bebe-first-days.css';
+import '../styles/el-bebe-icon-art.css';
+import '../styles/el-bebe-content.css';
 import ArtDefs from '../components/el-bebe/ArtDefs.astro';
 import Header from '../components/el-bebe/Header.astro';
 import Footer from '../components/el-bebe/Footer.astro';
 import VisitDialog from '../components/el-bebe/VisitDialog.astro';
+import { siteLocation } from '../data/site-location';
 import { EmDashHead, EmDashBodyStart, EmDashBodyEnd, createPublicPageContext } from '../lib/emdash-ui';
 interface Props { title: string; description: string; address?: string; phone?: string; }
-const { title, description, address = 'Сочи, Виноградная улица', phone = '' } = Astro.props;
+const { title, description, address = siteLocation.address, phone = '' } = Astro.props;
 const canonical = new URL(Astro.url.pathname, Astro.url.origin).href;
 const page = createPublicPageContext({ Astro, kind: 'custom', pageType: 'website', title, pageTitle: title, description, canonical, image: '/images/el-bebe/hero.webp', siteName: 'Эльбебе', seo: { robots: 'noindex, nofollow' } });
 ---

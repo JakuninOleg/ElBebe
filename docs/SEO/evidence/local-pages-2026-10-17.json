@@ -1,0 +1,1112 @@
+[
+  {
+    "path": "/",
+    "status": 200,
+    "primary": true,
+    "titles": [
+      "Частный детский сад El Bebe в Сочи — на Виноградной"
+    ],
+    "descriptions": [
+      "El Bebe — частный детский сад в Сочи на Виноградной улице. Группы, стоимость и воспитатели. Образовательная лицензия и условия оплаты материнским капиталом."
+    ],
+    "headings": [
+      {
+        "level": 1,
+        "id": "hero-title",
+        "text": "Частный детский сад Эльбебе в Сочи"
+      },
+      {
+        "level": 2,
+        "id": "growth-title",
+        "text": "Наши группы"
+      },
+      {
+        "level": 3,
+        "id": null,
+        "text": "Младшая группа"
+      },
+      {
+        "level": 4,
+        "id": null,
+        "text": "Занятия"
+      },
+      {
+        "level": 4,
+        "id": null,
+        "text": "Подход"
+      },
+      {
+        "level": 3,
+        "id": null,
+        "text": "Средняя группа"
+      },
+      {
+        "level": 4,
+        "id": null,
+        "text": "Занятия"
+      },
+      {
+        "level": 4,
+        "id": null,
+        "text": "Подход"
+      },
+      {
+        "level": 3,
+        "id": null,
+        "text": "Старшая группа"
+      },
+      {
+        "level": 4,
+        "id": null,
+        "text": "Занятия"
+      },
+      {
+        "level": 4,
+        "id": null,
+        "text": "Подход"
+      },
+      {
+        "level": 3,
+        "id": null,
+        "text": "Поможем выбрать группу"
+      },
+      {
+        "level": 2,
+        "id": "groups-title",
+        "text": "Режимы и стоимость"
+      },
+      {
+        "level": 3,
+        "id": null,
+        "text": "Полный день"
+      },
+      {
+        "level": 3,
+        "id": null,
+        "text": "Неполный день · утро"
+      },
+      {
+        "level": 3,
+        "id": null,
+        "text": "Неполный день · вечер"
+      },
+      {
+        "level": 3,
+        "id": null,
+        "text": "Другие режимы посещения"
+      },
+      {
+        "level": 4,
+        "id": null,
+        "text": "По часам"
+      },
+      {
+        "level": 4,
+        "id": null,
+        "text": "На целый день"
+      },
+      {
+        "level": 4,
+        "id": null,
+        "text": "В выходной день"
+      },
+      {
+        "level": 4,
+        "id": null,
+        "text": "Ночное пребывание"
+      },
+      {
+        "level": 2,
+        "id": "day-title",
+        "text": "День в Эльбебе"
+      },
+      {
+        "level": 3,
+        "id": null,
+        "text": "Встречаемся"
+      },
+      {
+        "level": 3,
+        "id": null,
+        "text": "Занимаемся"
+      },
+      {
+        "level": 3,
+        "id": null,
+        "text": "Обедаем"
+      },
+      {
+        "level": 3,
+        "id": null,
+        "text": "Гуляем"
+      },
+      {
+        "level": 3,
+        "id": null,
+        "text": "Идём домой"
+      },
+      {
+        "level": 2,
+        "id": "first-days-title",
+        "text": "Первые дни в саду"
+      },
+      {
+        "level": 3,
+        "id": null,
+        "text": "Первые посещения"
+      },
+      {
+        "level": 3,
+        "id": null,
+        "text": "Поддержка воспитателя"
+      },
+      {
+        "level": 3,
+        "id": null,
+        "text": "Связь с родителями"
+      },
+      {
+        "level": 2,
+        "id": "approach-title",
+        "text": "Наш подход"
+      },
+      {
+        "level": 3,
+        "id": null,
+        "text": "Свобода быть собой"
+      },
+      {
+        "level": 3,
+        "id": null,
+        "text": "Учимся через игру"
+      },
+      {
+        "level": 3,
+        "id": null,
+        "text": "Забота каждый день"
+      },
+      {
+        "level": 2,
+        "id": "camera-title",
+        "text": "Видеонаблюдение в саду"
+      },
+      {
+        "level": 2,
+        "id": "spaces-title",
+        "text": "Наше пространство"
+      },
+      {
+        "level": 2,
+        "id": "team-title",
+        "text": "Наши воспитатели"
+      },
+      {
+        "level": 2,
+        "id": "meet-title",
+        "text": "Знакомство с садом"
+      },
+      {
+        "level": 3,
+        "id": null,
+        "text": "Осмотримся"
+      },
+      {
+        "level": 3,
+        "id": null,
+        "text": "Познакомимся"
+      },
+      {
+        "level": 3,
+        "id": null,
+        "text": "Поговорим о вашем ребёнке"
+      },
+      {
+        "level": 2,
+        "id": null,
+        "text": "Лицензия и оплата материнским капиталом"
+      },
+      {
+        "level": 2,
+        "id": "capital-title",
+        "text": "Оплата материнским капиталом"
+      },
+      {
+        "level": 2,
+        "id": "questions-title",
+        "text": "Частые вопросы родителей"
+      },
+      {
+        "level": 2,
+        "id": "hello-heading",
+        "text": "Готовы познакомиться?"
+      },
+      {
+        "level": 3,
+        "id": null,
+        "text": "Приглашение в садик"
+      },
+      {
+        "level": 3,
+        "id": "hello-success-title",
+        "text": "До скорой встречи!"
+      }
+    ],
+    "robots": [
+      "noindex, nofollow"
+    ],
+    "canonical": [
+      "http://127.0.0.1:4321/"
+    ],
+    "duplicateIds": [],
+    "jsonLd": [
+      "{\"@context\":\"https://schema.org\",\"@type\":\"WebSite\",\"name\":\"Эльбебе\",\"url\":\"http://127.0.0.1:4321\"}"
+    ],
+    "brokenInternal": []
+  },
+  {
+    "path": "/gruppy/",
+    "status": 200,
+    "primary": true,
+    "titles": [
+      "Группы, режимы и занятия в детском саду Эльбебе — Сочи"
+    ],
+    "descriptions": [
+      "Младшая, средняя и старшая группы в частном детском саду Эльбебе в Сочи. Полный и неполный день, занятия и адаптация."
+    ],
+    "headings": [
+      {
+        "level": 1,
+        "id": null,
+        "text": "Группы и режимы пребывания"
+      },
+      {
+        "level": 2,
+        "id": "growth-title",
+        "text": "Наши группы"
+      },
+      {
+        "level": 3,
+        "id": null,
+        "text": "Младшая группа"
+      },
+      {
+        "level": 4,
+        "id": null,
+        "text": "Занятия"
+      },
+      {
+        "level": 4,
+        "id": null,
+        "text": "Подход"
+      },
+      {
+        "level": 3,
+        "id": null,
+        "text": "Средняя группа"
+      },
+      {
+        "level": 4,
+        "id": null,
+        "text": "Занятия"
+      },
+      {
+        "level": 4,
+        "id": null,
+        "text": "Подход"
+      },
+      {
+        "level": 3,
+        "id": null,
+        "text": "Старшая группа"
+      },
+      {
+        "level": 4,
+        "id": null,
+        "text": "Занятия"
+      },
+      {
+        "level": 4,
+        "id": null,
+        "text": "Подход"
+      },
+      {
+        "level": 3,
+        "id": null,
+        "text": "Поможем выбрать группу"
+      },
+      {
+        "level": 2,
+        "id": null,
+        "text": "Полный день, утро или вечер"
+      },
+      {
+        "level": 2,
+        "id": null,
+        "text": "Группа, в которой ребёнку будет хорошо"
+      },
+      {
+        "level": 2,
+        "id": null,
+        "text": "Развитие через игру"
+      },
+      {
+        "level": 3,
+        "id": null,
+        "text": "Творчество"
+      },
+      {
+        "level": 3,
+        "id": null,
+        "text": "Развитие речи"
+      },
+      {
+        "level": 3,
+        "id": null,
+        "text": "Логика"
+      },
+      {
+        "level": 3,
+        "id": null,
+        "text": "Движение"
+      },
+      {
+        "level": 3,
+        "id": null,
+        "text": "Прогулки"
+      },
+      {
+        "level": 3,
+        "id": null,
+        "text": "Бытовые навыки"
+      },
+      {
+        "level": 2,
+        "id": null,
+        "text": "Адаптация к детскому саду — первые посещения"
+      },
+      {
+        "level": 2,
+        "id": "hello-heading",
+        "text": "Готовы познакомиться?"
+      },
+      {
+        "level": 3,
+        "id": null,
+        "text": "Приглашение в садик"
+      },
+      {
+        "level": 3,
+        "id": "hello-success-title",
+        "text": "До скорой встречи!"
+      }
+    ],
+    "robots": [
+      "noindex, nofollow"
+    ],
+    "canonical": [
+      "http://127.0.0.1:4321/gruppy/"
+    ],
+    "duplicateIds": [],
+    "jsonLd": [
+      "{\"@context\":\"https://schema.org\",\"@type\":\"WebSite\",\"name\":\"Эльбебе\",\"url\":\"http://127.0.0.1:4321\"}"
+    ],
+    "brokenInternal": []
+  },
+  {
+    "path": "/stoimost/",
+    "status": 200,
+    "primary": true,
+    "titles": [
+      "Цены детского сада Эльбебе в Сочи — оплата маткапиталом"
+    ],
+    "descriptions": [
+      "Цены частного детского сада Эльбебе в Сочи: полный и неполный день, разовое и почасовое посещение. Порядок оплаты материнским капиталом."
+    ],
+    "headings": [
+      {
+        "level": 1,
+        "id": null,
+        "text": "Стоимость посещения Эльбебе"
+      },
+      {
+        "level": 2,
+        "id": "groups-title",
+        "text": "Режимы посещения"
+      },
+      {
+        "level": 3,
+        "id": null,
+        "text": "Полный день"
+      },
+      {
+        "level": 3,
+        "id": null,
+        "text": "Неполный день · утро"
+      },
+      {
+        "level": 3,
+        "id": null,
+        "text": "Неполный день · вечер"
+      },
+      {
+        "level": 3,
+        "id": null,
+        "text": "Другие режимы посещения"
+      },
+      {
+        "level": 4,
+        "id": null,
+        "text": "По часам"
+      },
+      {
+        "level": 4,
+        "id": null,
+        "text": "На целый день"
+      },
+      {
+        "level": 4,
+        "id": null,
+        "text": "В выходной день"
+      },
+      {
+        "level": 4,
+        "id": null,
+        "text": "Ночное пребывание"
+      },
+      {
+        "level": 2,
+        "id": null,
+        "text": "Что обсудим перед зачислением"
+      },
+      {
+        "level": 2,
+        "id": null,
+        "text": "Оплата частного детского сада материнским капиталом"
+      },
+      {
+        "level": 3,
+        "id": null,
+        "text": "Какие расходы можно оплатить"
+      },
+      {
+        "level": 3,
+        "id": null,
+        "text": "Порядок оформления"
+      },
+      {
+        "level": 2,
+        "id": "hello-heading",
+        "text": "Готовы познакомиться?"
+      },
+      {
+        "level": 3,
+        "id": null,
+        "text": "Приглашение в садик"
+      },
+      {
+        "level": 3,
+        "id": "hello-success-title",
+        "text": "До скорой встречи!"
+      }
+    ],
+    "robots": [
+      "noindex, nofollow"
+    ],
+    "canonical": [
+      "http://127.0.0.1:4321/stoimost/"
+    ],
+    "duplicateIds": [],
+    "jsonLd": [
+      "{\"@context\":\"https://schema.org\",\"@type\":\"WebSite\",\"name\":\"Эльбебе\",\"url\":\"http://127.0.0.1:4321\"}"
+    ],
+    "brokenInternal": []
+  },
+  {
+    "path": "/den-v-sadu/",
+    "status": 200,
+    "primary": true,
+    "titles": [
+      "Распорядок дня в детском саду Эльбебе — Сочи"
+    ],
+    "descriptions": [
+      "Распорядок дня детского сада Эльбебе в Сочи: встреча с 8:00, занятия, прогулки, питание, дневной сон и свободная игра."
+    ],
+    "headings": [
+      {
+        "level": 1,
+        "id": null,
+        "text": "Как проходит день в Эльбебе"
+      },
+      {
+        "level": 2,
+        "id": null,
+        "text": "Время для всего важного"
+      },
+      {
+        "level": 3,
+        "id": null,
+        "text": "Встречаемся"
+      },
+      {
+        "level": 3,
+        "id": null,
+        "text": "Занимаемся"
+      },
+      {
+        "level": 3,
+        "id": null,
+        "text": "Обедаем"
+      },
+      {
+        "level": 3,
+        "id": null,
+        "text": "Гуляем"
+      },
+      {
+        "level": 3,
+        "id": null,
+        "text": "Идём домой"
+      },
+      {
+        "level": 2,
+        "id": null,
+        "text": "Распорядок дня"
+      },
+      {
+        "level": 2,
+        "id": null,
+        "text": "Питание и дневной отдых"
+      },
+      {
+        "level": 2,
+        "id": "hello-heading",
+        "text": "Готовы познакомиться?"
+      },
+      {
+        "level": 3,
+        "id": null,
+        "text": "Приглашение в садик"
+      },
+      {
+        "level": 3,
+        "id": "hello-success-title",
+        "text": "До скорой встречи!"
+      }
+    ],
+    "robots": [
+      "noindex, nofollow"
+    ],
+    "canonical": [
+      "http://127.0.0.1:4321/den-v-sadu/"
+    ],
+    "duplicateIds": [],
+    "jsonLd": [
+      "{\"@context\":\"https://schema.org\",\"@type\":\"WebSite\",\"name\":\"Эльбебе\",\"url\":\"http://127.0.0.1:4321\"}"
+    ],
+    "brokenInternal": []
+  },
+  {
+    "path": "/komanda/",
+    "status": 200,
+    "primary": true,
+    "titles": [
+      "Воспитатели детского сада Эльбебе в Сочи"
+    ],
+    "descriptions": [
+      "Знакомство с воспитателями Эльбебе: команда, подход к детям и общение с родителями."
+    ],
+    "headings": [
+      {
+        "level": 1,
+        "id": null,
+        "text": "Наши воспитатели"
+      },
+      {
+        "level": 2,
+        "id": null,
+        "text": "Познакомимся лично"
+      },
+      {
+        "level": 3,
+        "id": null,
+        "text": "Замечать"
+      },
+      {
+        "level": 3,
+        "id": null,
+        "text": "Поддерживать"
+      },
+      {
+        "level": 3,
+        "id": null,
+        "text": "Быть на связи"
+      },
+      {
+        "level": 2,
+        "id": "hello-heading",
+        "text": "Готовы познакомиться?"
+      },
+      {
+        "level": 3,
+        "id": null,
+        "text": "Приглашение в садик"
+      },
+      {
+        "level": 3,
+        "id": "hello-success-title",
+        "text": "До скорой встречи!"
+      }
+    ],
+    "robots": [
+      "noindex, nofollow"
+    ],
+    "canonical": [
+      "http://127.0.0.1:4321/komanda/"
+    ],
+    "duplicateIds": [],
+    "jsonLd": [
+      "{\"@context\":\"https://schema.org\",\"@type\":\"WebSite\",\"name\":\"Эльбебе\",\"url\":\"http://127.0.0.1:4321\"}"
+    ],
+    "brokenInternal": []
+  },
+  {
+    "path": "/prostranstvo/",
+    "status": 200,
+    "primary": true,
+    "titles": [
+      "Фотографии и пространство детского сада Эльбебе в Сочи"
+    ],
+    "descriptions": [
+      "Пространство Эльбебе для игр, занятий и отдыха. Приходите познакомиться с садиком на Виноградной в Сочи."
+    ],
+    "headings": [
+      {
+        "level": 1,
+        "id": null,
+        "text": "Пространство детского сада"
+      },
+      {
+        "level": 2,
+        "id": "hello-heading",
+        "text": "Готовы познакомиться?"
+      },
+      {
+        "level": 3,
+        "id": null,
+        "text": "Приглашение в садик"
+      },
+      {
+        "level": 3,
+        "id": "hello-success-title",
+        "text": "До скорой встречи!"
+      }
+    ],
+    "robots": [
+      "noindex, nofollow"
+    ],
+    "canonical": [
+      "http://127.0.0.1:4321/prostranstvo/"
+    ],
+    "duplicateIds": [],
+    "jsonLd": [
+      "{\"@context\":\"https://schema.org\",\"@type\":\"WebSite\",\"name\":\"Эльбебе\",\"url\":\"http://127.0.0.1:4321\"}"
+    ],
+    "brokenInternal": []
+  },
+  {
+    "path": "/roditelyam/",
+    "status": 200,
+    "primary": true,
+    "titles": [
+      "Родителям — адаптация, питание и поступление в Эльбебе"
+    ],
+    "descriptions": [
+      "Ответы на вопросы о частном детском саде Эльбебе: адаптация, питание, документы, стоимость и материнский капитал."
+    ],
+    "headings": [
+      {
+        "level": 1,
+        "id": null,
+        "text": "Вопросы родителей о детском саде"
+      },
+      {
+        "level": 3,
+        "id": null,
+        "text": "Первые дни"
+      },
+      {
+        "level": 3,
+        "id": null,
+        "text": "Стоимость и оплата"
+      },
+      {
+        "level": 3,
+        "id": null,
+        "text": "Наша команда"
+      },
+      {
+        "level": 2,
+        "id": "hello-heading",
+        "text": "Готовы познакомиться?"
+      },
+      {
+        "level": 3,
+        "id": null,
+        "text": "Приглашение в садик"
+      },
+      {
+        "level": 3,
+        "id": "hello-success-title",
+        "text": "До скорой встречи!"
+      }
+    ],
+    "robots": [
+      "noindex, nofollow"
+    ],
+    "canonical": [
+      "http://127.0.0.1:4321/roditelyam/"
+    ],
+    "duplicateIds": [],
+    "jsonLd": [
+      "{\"@context\":\"https://schema.org\",\"@type\":\"WebSite\",\"name\":\"Эльбебе\",\"url\":\"http://127.0.0.1:4321\"}"
+    ],
+    "brokenInternal": []
+  },
+  {
+    "path": "/kontakty/",
+    "status": 200,
+    "primary": true,
+    "titles": [
+      "Контакты Эльбебе — детский сад на Виноградной в Сочи"
+    ],
+    "descriptions": [
+      "Адрес детского сада Эльбебе: Сочи, ул. Виноградная, 2/3. Контакты, карта и запись на экскурсию."
+    ],
+    "headings": [
+      {
+        "level": 1,
+        "id": null,
+        "text": "Как найти Эльбебе"
+      },
+      {
+        "level": 2,
+        "id": null,
+        "text": "Эльбебе в Сочи"
+      },
+      {
+        "level": 2,
+        "id": null,
+        "text": "Где посмотреть отзывы"
+      },
+      {
+        "level": 2,
+        "id": "hello-heading",
+        "text": "Готовы познакомиться?"
+      },
+      {
+        "level": 3,
+        "id": null,
+        "text": "Приглашение в садик"
+      },
+      {
+        "level": 3,
+        "id": "hello-success-title",
+        "text": "До скорой встречи!"
+      }
+    ],
+    "robots": [
+      "noindex, nofollow"
+    ],
+    "canonical": [
+      "http://127.0.0.1:4321/kontakty/"
+    ],
+    "duplicateIds": [],
+    "jsonLd": [
+      "{\"@context\":\"https://schema.org\",\"@type\":\"WebSite\",\"name\":\"Эльбебе\",\"url\":\"http://127.0.0.1:4321\"}"
+    ],
+    "brokenInternal": []
+  },
+  {
+    "path": "/svedeniya/",
+    "status": 200,
+    "primary": true,
+    "titles": [
+      "Сведения об образовательной организации — Эльбебе"
+    ],
+    "descriptions": [
+      "Официальные сведения, образовательная лицензия и документы детского сада Эльбебе."
+    ],
+    "headings": [
+      {
+        "level": 1,
+        "id": null,
+        "text": "Сведения об образовательной организации"
+      },
+      {
+        "level": 2,
+        "id": null,
+        "text": "Основные сведения"
+      },
+      {
+        "level": 2,
+        "id": null,
+        "text": "Структура и органы управления"
+      },
+      {
+        "level": 2,
+        "id": null,
+        "text": "Документы"
+      },
+      {
+        "level": 2,
+        "id": null,
+        "text": "Образование"
+      },
+      {
+        "level": 2,
+        "id": null,
+        "text": "Руководство"
+      },
+      {
+        "level": 2,
+        "id": null,
+        "text": "Педагогический состав"
+      },
+      {
+        "level": 2,
+        "id": null,
+        "text": "Материально-техническое обеспечение и доступная среда"
+      },
+      {
+        "level": 2,
+        "id": null,
+        "text": "Платные образовательные услуги"
+      },
+      {
+        "level": 2,
+        "id": null,
+        "text": "Финансово-хозяйственная деятельность"
+      },
+      {
+        "level": 2,
+        "id": null,
+        "text": "Вакантные места для приёма"
+      },
+      {
+        "level": 2,
+        "id": null,
+        "text": "Стипендии и меры поддержки"
+      },
+      {
+        "level": 2,
+        "id": null,
+        "text": "Международное сотрудничество"
+      },
+      {
+        "level": 2,
+        "id": null,
+        "text": "Организация питания"
+      },
+      {
+        "level": 2,
+        "id": null,
+        "text": "Образовательные стандарты и требования"
+      }
+    ],
+    "robots": [
+      "noindex, nofollow"
+    ],
+    "canonical": [
+      "http://127.0.0.1:4321/svedeniya/"
+    ],
+    "duplicateIds": [],
+    "jsonLd": [
+      "{\"@context\":\"https://schema.org\",\"@type\":\"WebSite\",\"name\":\"Эльбебе\",\"url\":\"http://127.0.0.1:4321\"}"
+    ],
+    "brokenInternal": []
+  },
+  {
+    "path": "/privacy/",
+    "status": 200,
+    "primary": true,
+    "titles": [
+      "Обработка персональных данных — Эльбебе"
+    ],
+    "descriptions": [
+      "Информация о форме знакомства и обработке персональных данных в макете сайта Эльбебе."
+    ],
+    "headings": [
+      {
+        "level": 1,
+        "id": null,
+        "text": "Обработка персональных данных"
+      },
+      {
+        "level": 2,
+        "id": null,
+        "text": "Форма знакомства"
+      },
+      {
+        "level": 2,
+        "id": null,
+        "text": "Что потребуется перед публикацией"
+      },
+      {
+        "level": 2,
+        "id": null,
+        "text": "Сервисы на странице"
+      }
+    ],
+    "robots": [
+      "noindex, nofollow"
+    ],
+    "canonical": [
+      "http://127.0.0.1:4321/privacy/"
+    ],
+    "duplicateIds": [],
+    "jsonLd": [
+      "{\"@context\":\"https://schema.org\",\"@type\":\"WebSite\",\"name\":\"Эльбебе\",\"url\":\"http://127.0.0.1:4321\"}"
+    ],
+    "brokenInternal": []
+  },
+  {
+    "path": "/soglasie/",
+    "status": 200,
+    "primary": true,
+    "titles": [
+      "Согласие на обработку данных — Эльбебе"
+    ],
+    "descriptions": [
+      "Назначение согласия для формы знакомства на сайте Эльбебе."
+    ],
+    "headings": [
+      {
+        "level": 1,
+        "id": null,
+        "text": "Согласие на обработку данных"
+      },
+      {
+        "level": 2,
+        "id": null,
+        "text": "Для чего нужна форма"
+      },
+      {
+        "level": 2,
+        "id": null,
+        "text": "Отдельное действие"
+      },
+      {
+        "level": 2,
+        "id": null,
+        "text": "Текст для публичного сайта"
+      }
+    ],
+    "robots": [
+      "noindex, nofollow"
+    ],
+    "canonical": [
+      "http://127.0.0.1:4321/soglasie/"
+    ],
+    "duplicateIds": [],
+    "jsonLd": [
+      "{\"@context\":\"https://schema.org\",\"@type\":\"WebSite\",\"name\":\"Эльбебе\",\"url\":\"http://127.0.0.1:4321\"}"
+    ],
+    "brokenInternal": []
+  },
+  {
+    "path": "/posts/",
+    "status": 404,
+    "primary": false,
+    "titles": [
+      "Страница не найдена — Эльбебе"
+    ],
+    "descriptions": [
+      "Такой страницы нет. Вернитесь на главную сайта детского сада Эльбебе."
+    ],
+    "headings": [
+      {
+        "level": 1,
+        "id": null,
+        "text": "Кажется, мы заблудились"
+      }
+    ],
+    "robots": [
+      "noindex, nofollow"
+    ],
+    "canonical": [
+      "http://127.0.0.1:4321/404"
+    ],
+    "duplicateIds": [],
+    "jsonLd": [
+      "{\"@context\":\"https://schema.org\",\"@type\":\"WebSite\",\"name\":\"Эльбебе\",\"url\":\"http://127.0.0.1:4321\"}"
+    ],
+    "brokenInternal": [
+      {
+        "href": "#main",
+        "text": "Перейти к содержанию",
+        "problem": "HTTP 404"
+      }
+    ]
+  },
+  {
+    "path": "/robots.txt",
+    "status": 200,
+    "primary": false,
+    "titles": null,
+    "descriptions": null,
+    "headings": null,
+    "robots": null,
+    "canonical": null,
+    "duplicateIds": null,
+    "jsonLd": null,
+    "brokenInternal": []
+  },
+  {
+    "path": "/sitemap.xml",
+    "status": 200,
+    "primary": false,
+    "titles": null,
+    "descriptions": null,
+    "headings": null,
+    "robots": null,
+    "canonical": null,
+    "duplicateIds": null,
+    "jsonLd": null,
+    "brokenInternal": []
+  },
+  {
+    "path": "/seo-audit-missing-page/",
+    "status": 404,
+    "primary": false,
+    "titles": [
+      "Страница не найдена — Эльбебе"
+    ],
+    "descriptions": [
+      "Такой страницы нет. Вернитесь на главную сайта детского сада Эльбебе."
+    ],
+    "headings": [
+      {
+        "level": 1,
+        "id": null,
+        "text": "Кажется, мы заблудились"
+      }
+    ],
+    "robots": [
+      "noindex, nofollow"
+    ],
+    "canonical": [
+      "http://127.0.0.1:4321/404"
+    ],
+    "duplicateIds": [],
+    "jsonLd": [
+      "{\"@context\":\"https://schema.org\",\"@type\":\"WebSite\",\"name\":\"Эльбебе\",\"url\":\"http://127.0.0.1:4321\"}"
+    ],
+    "brokenInternal": [
+      {
+        "href": "#main",
+        "text": "Перейти к содержанию",
+        "problem": "HTTP 404"
+      }
+    ]
+  }
+]

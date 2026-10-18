@@ -1,5 +1,6 @@
 import { getEmDashCollection } from "emdash";
 import type { ImageValue } from "emdash";
+import { siteLocation, resolveSiteAddress } from '../data/site-location';
 
 export interface SiteContent {
   settings: { hero_title: string; hero_text: string; address: string; phone: string; license_text: string };
@@ -16,7 +17,7 @@ type CmsEntry = { id: string; data: CmsData };
 const defaults: SiteContent["settings"] = {
   hero_title: "Здесь детство идёт своим ходом",
   hero_text: "Играем, дружим и открываем мир. С заботой о каждом ребёнке.",
-  address: "Сочи, Виноградная улица",
+  address: siteLocation.address,
   phone: "",
   license_text: "Есть образовательная лицензия. Возможна оплата материнским капиталом.",
 };
@@ -77,7 +78,7 @@ export async function getSiteContent(): Promise<SiteContent> {
     settings: {
       hero_title: text(settings?.hero_title) || defaults.hero_title,
       hero_text: text(settings?.hero_text) || defaults.hero_text,
-      address: text(settings?.address) || defaults.address,
+      address: resolveSiteAddress(settings?.address),
       phone: text(settings?.phone),
       license_text: settings ? text(settings.license_text) : defaults.license_text,
     },

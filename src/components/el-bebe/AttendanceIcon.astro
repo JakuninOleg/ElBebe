@@ -1,8 +1,9 @@
 ---
+import IllustratedIcon from './IllustratedIcon.astro';
 interface Props { kind: 'day' | 'morning' | 'evening'; }
 const { kind } = Astro.props;
 ---
-<svg class="attendance-icon" width="64" height="64" viewBox="0 0 64 64" fill="none" aria-hidden="true" focusable="false">
+{Astro.url.pathname === '/' ? <IllustratedIcon name={kind} class="attendance-icon" size={64}/> : <svg class="attendance-icon" width="64" height="64" viewBox="0 0 64 64" fill="none" aria-hidden="true" focusable="false">
   {kind === 'day' ? <>
     <circle cx="32" cy="32" r="14" fill="#ffcc27"/>
     <g stroke="#ffc52a" stroke-width="4" stroke-linecap="round"><path d="M32 5v6M32 53v6M5 32h6M53 32h6M13 13l4 4M47 47l4 4M13 51l4-4M47 17l4-4"/></g>
@@ -17,4 +18,4 @@ const { kind } = Astro.props;
     <path d="M11 45h42" stroke="#ff8278" stroke-width="4" stroke-linecap="round"/>
     <path d="M17 53h30" stroke="#ff93b6" stroke-width="4" stroke-linecap="round"/>
   </>}
-</svg>
+</svg>}

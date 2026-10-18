@@ -16,30 +16,33 @@ import HeroFactIcon from '../components/el-bebe/HeroFactIcon.astro';
 import AttendanceRates from '../components/el-bebe/AttendanceRates.astro';
 import Groups from '../components/el-bebe/Groups.astro';
 import VisitJourney from '../components/el-bebe/VisitJourney.astro';
+import FirstDays from '../components/el-bebe/FirstDays.astro';
+import { getParentQuestions } from '../lib/parent-questions';
 import { getSiteContent } from '../lib/cms';
-import { activities, approaches, daySteps, previewSpaces, parentQuestions } from '../data/el-bebe';
+import { activities, approaches, daySteps, previewSpaces } from '../data/el-bebe';
 const content = await getSiteContent();
 const { settings, rates, team, groups } = content;
+const heroAddress = settings.address.replace(/^Сочи,\s*/, '');
 const hasReferenceHeadline = settings.hero_title === 'Здесь детство идёт своим ходом';
+const showIntroSections = false;
 const spaces = content.spaces.some(s => s.image) ? content.spaces : previewSpaces;
-const cameraQuestion = { id: 'cameras', question: 'Есть ли в саду видеонаблюдение?', answer: 'Да, в Эльбебе установлены камеры. При знакомстве расскажем, как организовано видеонаблюдение и какие правила действуют в саду.' };
-const fallbackFaqs = [cameraQuestion, ...['adaptation', 'food', 'age', 'visit', 'capital', 'price'].flatMap(id => parentQuestions.filter(q => q.id === id))];
-const faqs = [...content.faqs, ...fallbackFaqs.filter(q => !content.faqs.some(f => f.question === q.question))].slice(0, 6);
+const faqs = getParentQuestions(content.faqs).slice(0, 6);
 ---
 <Layout title="Частный детский сад El Bebe в Сочи — на Виноградной" description="El Bebe — частный детский сад в Сочи на Виноградной улице. Группы, стоимость и воспитатели. Образовательная лицензия и условия оплаты материнским капиталом." address={settings.address} phone={settings.phone}>
   <div class="home-page">
     <section class="hero container" aria-labelledby="hero-title">
       <span class="hero-note hand-note" aria-hidden="true">Большие<br/>открытия<br/>начинаются здесь ♡</span>
       <div class="hero-copy">
-        <h1 class="hero-service" id="hero-title"><span class="desktop-text">Частный детский сад Эльбебе в Сочи</span><span class="mobile-text">Частный детский сад в Сочи</span></h1>
+        <h1 class="hero-service" id="hero-title">Частный детский сад Эльбебе в Сочи</h1>
         <p class:list={['hero-title', { 'hero-title--reference': hasReferenceHeadline }]}>{hasReferenceHeadline ? <><span class="hero-title-first">Здесь детство</span>{' '}<span class="hero-title-last">идёт своим ходом</span></> : settings.hero_title}<svg class="hero-title-heart" viewBox="0 0 100 100" aria-hidden="true"><path d="M29 83C10 59 4 24 23 20C35 17 42 31 43 47C57 11 79 22 75 39C71 58 45 79 29 91Z" fill="#ffce1c"/><path d="M30 65C21 48 19 32 25 31C31 31 31 56 37 58C43 60 57 32 63 36C69 42 47 63 30 76Z" fill="#ffe879"/><path d="M77 19C76 0 91-3 88 9S77 30 77 19ZM84 41C94 25 106 34 96 41S78 50 84 41Z" fill="#ffcf22"/></svg></p>
-        <p class="hero-description">{settings.hero_text.split(/(?<=\.)\s+/).map(sentence => <span>{sentence}{' '}</span>)}</p>
+        <p class="hero-description">{settings.hero_text.split(/(?<=\.)\s+/).map(sentence => <span>{sentence}{' '}</span>)}<Decor kind="drops" class="hero-rays"/></p>
         <button type="button" class="button hero-visit-button" data-open-visit>Прийти познакомиться <Icon name="arrow" size={23}/><svg class="hero-cta-rays" viewBox="0 0 100 100" fill="#ffce1d" aria-hidden="true"><path d="M15 58C3 18 8 0 20 6S28 31 15 58ZM40 75C45 37 76 13 80 29S67 58 40 75ZM56 89C75 67 104 70 98 84S75 96 56 89Z"/></svg></button>
+        <div class="hero-details">
         <div class="hero-facts">
-          <p class="hero-location"><HeroFactIcon kind="location"/><span class="hero-fact-copy"><strong>Сочи</strong><small>ул. Виноградная</small></span></p>
+          <p class="hero-location"><HeroFactIcon kind="location"/><span class="hero-fact-copy"><strong>Сочи</strong><small>{heroAddress}</small></span></p>
           {settings.license_text && <a class="hero-license" href="/stoimost/#matkapital"><HeroFactIcon kind="license"/><span class="hero-fact-copy"><strong>Есть лицензия</strong><small>Оплата маткапиталом</small></span></a>}
         </div>
-        <ul class="hero-values"><li><HeroValueArt kind="heart"/><span>Забота<br/>каждый день</span></li><li><HeroValueArt kind="blocks"/><span>Развитие<br/>через игру</span></li><li><HeroValueArt kind="sea"/><span>Счастливое<br/>детство в Сочи</span></li></ul>
+        </div>
       </div>
       <div class="hero-collage">
         <div class="hero-photo"><picture><source media="(max-width: 760px)" srcset="/images/el-bebe/hero-mobile-collage-v2.webp" width="1100" height="1000"/><img src="/images/el-bebe/hero.webp" alt="Игра и творчество в саду — иллюстрация для макета" width="1122" height="1402" fetchpriority="high"/></picture></div>
@@ -48,13 +51,12 @@ const faqs = [...content.faqs, ...fallbackFaqs.filter(q => !content.faqs.some(f 
         <span class="collage-note hand-note" aria-hidden="true"><span class="desktop-text">Любопытные<br/>дети —<br/>счастливые<br/>люди ♡</span><span class="mobile-text">Счастливые<br/>дети ♡</span></span>
         <Sprig class="hero-sprig"/>
       </div>
+      <ul class="hero-values"><li><HeroValueArt kind="heart"/><span>Забота<br/>каждый день</span></li><li><HeroValueArt kind="blocks"/><span>Развитие<br/>через игру</span></li><li><HeroValueArt kind="sea"/><span>Счастливое<br/>детство в Сочи</span></li></ul>
       <Decor kind="wash" color="#ffdde8" class="hero-pink-wash"/>
-      <Decor kind="drops" class="hero-rays"/>
       <Decor kind="wash" color="#c7ebe6" class="hero-side-wash"/>
-      <Decor kind="heart" class="hero-heart"/>
     </section>
 
-    <section class="activities section container" aria-labelledby="activities-title">
+    {showIntroSections && <><section class="activities section container" aria-labelledby="activities-title">
       <svg class="hero-next-wave" viewBox="0 0 390 91" preserveAspectRatio="none" aria-hidden="true"><path d="M0 16C30-4 49 7 77 12S119 15 143 7S178 0 211 12S270 31 314 21S357 12 372 4S386 0 390 4V91H0Z"/></svg>
       <div class="section-heading"><h2 id="activities-title"><span class="desktop-text">Разностороннее развитие каждый день</span><span class="mobile-text">Развиваем важные навыки</span></h2><a class="text-link" href="/gruppy/">Все направления <Icon name="arrow" size={20}/></a></div>
       <div class="activity-grid">{activities.map((item,i) => <a class="activity" href={`/gruppy/#${['tvorchestvo','rech','logika','dvizhenie','progulki','navyki'][i]}`}><div class="activity-photo"><img src={`/images/el-bebe/${item.image}.webp`} alt="" width="500" height="500" loading="lazy"/><Puzzle color={item.color}/></div><h3>{item.title}</h3><p>{item.text}</p></a>)}</div>
@@ -63,13 +65,15 @@ const faqs = [...content.faqs, ...fallbackFaqs.filter(q => !content.faqs.some(f 
       <Decor kind="drops" color="#91d9eb" class="activities-drops"/>
     </section>
 
-    <section class="about section container" id="o-sade" aria-labelledby="about-title">
+    <section class="about section container" id="about-intro" aria-labelledby="about-title">
       <div class="about-image"><img src="/images/el-bebe/together.webp" alt="Педагог и дети за общей игрой — иллюстрация" width="1400" height="933" loading="lazy"/><span class="about-note hand-note" aria-hidden="true">Рядом<br/>вдохновляющие<br/>взрослые ♡</span><Decor kind="drops" class="about-drops"/></div>
       <div class="about-copy"><h2 id="about-title">Больше, чем просто сад</h2><p class="lead">Детство — время для игры, открытий и настоящих отношений. В Эльбебе мы знакомимся с миром в своём темпе: пробуем новое, учимся дружить и быть собой.</p><div class="about-points">{[{ icon: 'heart', title: 'Игра', text: 'Пробуем новое и находим свои интересы.', color: '#ff6476' }, { icon: 'people', title: 'Общение', text: 'Учимся дружить и слушать друг друга.', color: '#ffca36' }, { icon: 'leaf', title: 'Забота', text: 'Видим интересы ребёнка и помогаем.', color: '#26abe0' }].map(item => <div class="about-point"><Puzzle color={item.color} icon={item.icon}/><div><h3>{item.title}</h3><p>{item.text}</p></div></div>)}</div></div>
       <Sprig class="about-sprig"/>
       <Decor kind="drops" color="#ffa9b4" class="about-pink-drops"/>
       <Decor kind="wash" color="#ffdde2" class="about-side-wash"/>
     </section>
+
+    </>}
 
     <Groups groups={groups}/>
     <AttendanceRates rates={rates} heading="Режимы и стоимость"/>
@@ -81,6 +85,8 @@ const faqs = [...content.faqs, ...fallbackFaqs.filter(q => !content.faqs.some(f 
       <Decor kind="drops" class="day-drops-left"/>
       <Decor kind="drops" class="day-drops-right"/>
     </section>
+
+    <FirstDays/>
 
     <section class="approach section container" aria-labelledby="approach-title">
       <h2 id="approach-title">Наш подход</h2><div class="approach-grid">{approaches.map(item => <article class={`approach-card approach-card--${item.color}`}><img src={`/images/el-bebe/${item.image}.webp`} alt="" width="1400" height="933" loading="lazy"/><div><h3>{item.title}</h3><p>{item.text}</p></div></article>)}</div>

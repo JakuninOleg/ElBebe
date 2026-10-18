@@ -1,0 +1,81 @@
+@layer firstDays {
+  .first-days {
+    display: grid;
+    grid-template-columns: minmax(0, 1.04fr) minmax(0, 1fr);
+    grid-template-areas: "heading media" "copy media";
+    column-gap: clamp(32px, 5vw, 70px);
+    row-gap: 22px;
+    align-items: center;
+    margin-top: 70px;
+    scroll-margin-top: 40px;
+  }
+
+  .first-days-heading { grid-area: heading; align-self: end; min-width: 0; }
+  .first-days-heading h2 { font-size: clamp(32px, 3.4vw, 44px); line-height: 1.12; }
+  .first-days-heading > p { margin-top: 10px; font-size: 17px; line-height: 1.45; color: #604771; }
+  .first-days-copy { grid-area: copy; align-self: start; min-width: 0; }
+  .first-days-details { display: grid; gap: 22px; margin: 0; padding: 0; list-style: none; }
+  .first-days-details > li { display: grid; grid-template-columns: 50px minmax(0, 1fr); gap: 17px; align-items: start; }
+  .first-days-details h3 { margin: 0 0 5px; font-size: 20px; line-height: 1.25; font-weight: 850; }
+  .first-days-details p { margin: 0; max-width: 43ch; font-size: 16px; line-height: 1.5; color: #59446a; }
+  .first-days-icon { position: relative; isolation: isolate; display: grid; place-items: center; width: 50px; height: 50px; }
+  .first-days-icon::before { content: ""; position: absolute; inset: 1px; z-index: -1; border-radius: 42% 58% 48% 52% / 52% 42% 58% 48%; transform: rotate(-12deg); }
+  .first-days-icon--pink { color: #da4765; }
+  .first-days-icon--pink::before { background: #ffe0e6; }
+  .first-days-icon--yellow { color: #a97112; }
+  .first-days-icon--yellow::before { background: #fff0ba; transform: rotate(14deg); }
+  .first-days-icon--mint { color: #387b69; }
+  .first-days-icon--mint::before { background: #dcefdc; transform: rotate(-7deg); }
+  .first-days-link { margin-top: 25px; line-height: 1.4; }
+  .first-days-link > svg { flex-shrink: 0; }
+
+  .first-days-media { grid-area: media; position: relative; isolation: isolate; min-width: 0; margin: 0; padding: 12px 0 0; }
+  .first-days-media::before,
+  .first-days-media::after { content: ""; position: absolute; z-index: -1; pointer-events: none; }
+  .first-days-media::before { inset: 9% -1% 13% 8%; background: #ffe2e7; border-radius: 58% 42% 47% 53% / 48% 42% 58% 52%; transform: rotate(12deg); }
+  .first-days-media::after { left: -1%; bottom: 10%; width: 48%; height: 35%; background: #d7efec; border-radius: 62% 38% 60% 40% / 47% 53% 47% 53%; transform: rotate(-18deg); }
+  .first-days-photo { aspect-ratio: 1.14; clip-path: url(#elbebe-visit-two); }
+  .first-days-photo > img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: 47% center; }
+  .first-days-rays { position: absolute; width: 48px; height: 48px; left: 4%; top: 5%; transform: rotate(-15deg); pointer-events: none; }
+  .first-days-sprig { position: absolute; width: 65px; right: -9px; bottom: 11%; transform: rotate(12deg); pointer-events: none; }
+  .first-days-media figcaption { margin-top: 8px; font-size: 11px; text-align: center; line-height: 1.4; color: #81718b; }
+
+  @media (max-width: 1000px) {
+    .first-days { column-gap: 30px; row-gap: 19px; margin-top: 56px; }
+    .first-days-heading h2 { font-size: 36px; }
+    .first-days-heading > p { font-size: 16px; }
+    .first-days-details { gap: 19px; }
+    .first-days-details > li { grid-template-columns: 42px minmax(0, 1fr); gap: 12px; }
+    .first-days-icon { width: 42px; height: 42px; }
+    .first-days-icon > svg { width: 24px; height: 24px; }
+    .first-days-details h3 { font-size: 18px; }
+    .first-days-photo { aspect-ratio: .94; }
+    .first-days-sprig { width: 52px; right: -5px; }
+  }
+
+  @media (max-width: 760px) {
+    .first-days { grid-template-columns: minmax(0, 1fr); grid-template-areas: "heading" "media" "copy"; gap: 20px; margin-top: 42px; scroll-margin-top: 24px; }
+    .first-days-heading h2 { font-size: 30px; }
+    .first-days-heading > p { margin-top: 8px; font-size: 16px; }
+    .first-days-media { width: min(100%, 480px); justify-self: center; padding-top: 0; }
+    .first-days-photo { aspect-ratio: 1.45; }
+    .first-days-photo > img { object-position: 47% 43%; }
+    .first-days-media::before { inset: 5% 1% 15% 9%; }
+    .first-days-rays { width: 35px; height: 35px; top: -2px; left: 4%; }
+    .first-days-sprig { width: 44px; bottom: 13%; right: 0; }
+    .first-days-details { gap: 20px; }
+    .first-days-details > li { grid-template-columns: 43px minmax(0, 1fr); gap: 13px; }
+    .first-days-icon { width: 43px; height: 43px; }
+    .first-days-details h3 { font-size: 18px; }
+    .first-days-details p { max-width: none; font-size: 16px; line-height: 1.5; }
+    .first-days-link { margin-top: 23px; font-size: 15px; }
+  }
+
+  @media (max-width: 370px) {
+    .first-days-heading h2 { font-size: 28px; }
+    .first-days-heading > p,
+    .first-days-details p { font-size: 15px; }
+    .first-days-details h3 { font-size: 17px; }
+    .first-days-link { font-size: 14px; gap: 8px; }
+  }
+}

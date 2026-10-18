@@ -1,23 +1,32 @@
 @layer mobileHero {
   .hero-title-heart, .hero-cta-rays, .hero-next-wave, .menu-blob-home { display: none; }
   .hero-photo picture { display: contents; }
-  .hero-facts { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.2fr); gap: 15px; margin-top: 19px; }
-  .hero-facts>.hero-location, .hero-facts>.hero-license { display: flex; gap: 10px; align-items: center; margin: 0; min-width: 0; color: #65357e; }
+  .hero { row-gap: 16px; }
+  .hero-copy { align-self: center; padding-block: 0; }
+  .hero-description { position: relative; }
+  .hero-description .hero-rays { top: -10px; left: -52px; width: 44px; }
+  .hero-details { margin-top: 20px; }
+  .hero-facts { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 20px; margin: 0; }
+  .hero-facts>.hero-location, .hero-facts>.hero-license { display: flex; align-items: center; gap: 10px; min-width: 0; max-width: none; margin: 0; color: #65357e; }
+  .hero-facts>.hero-license { padding-left: 20px; border-left: 1px solid #dfd3e5; }
   .hero-fact-art { display: block; flex: 0 0 36px; width: 36px; height: 36px; }
   .hero-fact-copy { display: block; }
-  .hero-fact-copy>strong { display: block; color: #65357e; font-size: 14px; line-height: 1.15; font-weight: 850; }
+  .hero-fact-copy>strong { display: block; color: #65357e; font-size: 13px; line-height: 1.2; font-weight: 850; }
   .hero-fact-copy>small { display: block; color: #72597d; margin-top: 3px; font-size: 12px; line-height: 1.2; font-weight: 650; }
   .hero-license:hover .hero-fact-copy>strong { text-decoration: underline; text-underline-offset: 3px; }
-  .hero-values { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 14px; margin-top: 24px; }
-  .hero-values>li { display: flex; gap: 9px; align-items: center; color: var(--purple); font-size: 13px; font-weight: 800; line-height: 1.15; }
-  .hero-values .hero-value-art { display: block; flex-shrink: 0; width: 45px; height: 43px; }
+  .hero-values { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 0; margin: 0; padding: 12px 0 0; list-style: none; }
+  .hero-values>li { display: flex; align-items: center; justify-content: center; gap: 20px; min-width: 0; max-width: none; padding: 0 24px; color: var(--purple); font-size: clamp(18px,1.7vw,25px); font-weight: 900; line-height: 1.16; }
+  .hero-values>li+li { border-left: 1px solid #dfd3e5; }
+  .hero-values .hero-value-art { display: block; flex: 0 0 80px; width: 80px; height: 74px; }
 
-  @media (min-width: 761px) and (max-width: 1100px) {
-    .hero-facts { grid-template-columns: 1fr; gap: 9px; }
-  }
-  @media (min-width: 761px) and (max-width: 1350px) {
-    .hero-values>li { flex-direction: column; text-align: center; gap: 3px; font-size: 12px; }
-    .hero-values .hero-value-art { width: 40px; height: 38px; }
+  @media (min-width:761px) and (max-width:1100px) {
+    .hero-facts { gap: 12px; }
+    .hero-facts>.hero-license { padding-left: 12px; }
+    .hero-facts>.hero-location, .hero-facts>.hero-license { gap: 7px; }
+    .hero-fact-art { flex-basis: 30px; width: 30px; height: 30px; }
+    .hero-fact-copy>small { font-size: 11px; }
+    .hero-values>li { gap: 14px; padding-inline: 12px; font-size: 18px; }
+    .hero-values .hero-value-art { flex-basis: 64px; width: 64px; height: 59px; }
   }
 
   @media (max-width: 760px) {
@@ -50,8 +59,9 @@
     .hero .hero-visit-button { grid-row: 4; justify-self: start; width: min(77.3vw, 405px); min-height: clamp(47px, 13.6vw, 66px); max-width: calc(100% - 40px); margin-top: 11px; padding: 10px 20px; gap: 18px; font-size: clamp(15px, 4.6vw, 24px); line-height: 1.1; font-weight: 900; white-space: nowrap; }
     .hero .hero-visit-button>.icon { width: 28px; height: 28px; flex-shrink: 0; stroke-width: 2; }
     .hero-cta-rays { display: block; position: absolute; width: min(11.5vw, 58px); height: auto; top: -8px; right: min(-15.2vw, -40px); pointer-events: none; }
-    .hero-facts { display: grid; grid-template-columns: 1fr; grid-row: 5; gap: 7px; margin-top: 14px; }
-    .hero-facts>.hero-location, .hero-facts>.hero-license { grid-row: auto; display: flex; align-items: center; gap: 10px; width: fit-content; max-width: 240px; min-height: 38px; margin: 0; color: #65357e; }
+    .hero-details { display: contents; }
+    .hero-facts { display: grid; grid-template-columns: 1fr; grid-row: 5; gap: 7px; margin: 14px 20px 0; }
+    .hero-facts>.hero-location, .hero-facts>.hero-license { grid-row: auto; display: flex; flex-direction: row; align-items: center; gap: 10px; width: fit-content; max-width: 240px; min-height: 38px; margin: 0; padding: 0; border: 0; text-align: left; color: #65357e; }
     .hero-facts .icon, .hero-facts .desktop-text { display: none; }
     .hero-facts .hero-fact-art { display: block; flex: 0 0 36px; width: 36px; height: 36px; }
     .hero-facts .hero-fact-copy { display: block; }
@@ -65,9 +75,10 @@
     .hero-photo img { display: block; width: 100%; height: auto; clip-path: none; object-fit: contain; object-position: center; transform: none; }
     .hero-circle, .collage-note, .hero-sprig, .hero-note, .hero-pink-wash, .hero-rays, .hero-side-wash, .hero-heart { display: none; }
     .hero-values { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); grid-row: 8; grid-column: 1; gap: 12px; margin: -2px 18px 0; padding: 0; z-index: 2; }
-    .hero-values>li { display: flex; flex-direction: column; gap: 2px; text-align: center; align-items: center; font-size: clamp(12px, 3.65vw, 19px); font-weight: 900; line-height: 1.02; color: var(--purple); }
+    .hero-values>li { grid-row: auto; display: flex; flex-direction: column; justify-content: start; gap: 2px; padding: 0; text-align: center; align-items: center; font-size: clamp(12px, 3.65vw, 19px); font-weight: 900; line-height: 1.02; color: var(--purple); }
+    .hero-values>li+li { border: 0; }
     .hero-values .hero-value-desktop { display: none; }
-    .hero-values .hero-value-art { display: block; width: min(15vw, 78px); height: min(12.7vw, 66px); margin-bottom: 3px; }
+    .hero-values .hero-value-art { display: block; flex-basis: auto; width: min(15vw, 78px); height: min(12.7vw, 66px); margin-bottom: 3px; }
     .hero-values .desktop-text { display: none; }
     .hero-values .mobile-text { display: inline; }
 

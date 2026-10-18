@@ -1,0 +1,7 @@
+---
+import { illustratedIcons, illustratedIconAliases } from '../../data/illustrated-icons';
+interface Props { name: string; class?: string; size?: number; }
+const { name, class: className = '', size = 40 } = Astro.props;
+const illustration = illustratedIconAliases[name] ?? name;
+---
+<svg class:list={['illustrated-icon', className]} data-illustration={illustration} width={size} height={size} viewBox="0 0 120 110" fill="none" aria-hidden="true" focusable="false" set:html={illustratedIcons[illustration] ?? illustratedIcons.sparkle}/>

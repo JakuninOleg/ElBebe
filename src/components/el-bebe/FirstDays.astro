@@ -1,0 +1,51 @@
+---
+import Icon from './Icon.astro';
+import Decor from './Decor.astro';
+import Sprig from './Sprig.astro';
+
+const details = [
+  {
+    icon: 'heart',
+    color: 'pink',
+    title: 'Первые посещения',
+    text: 'Начало посещения согласуем с родителями: учитываем привычки ребёнка и его опыт общения.',
+  },
+  {
+    icon: 'people',
+    color: 'yellow',
+    title: 'Поддержка воспитателя',
+    text: 'Знакомимся с тем, что любит ребёнок и что помогает ему чувствовать себя спокойно.',
+  },
+  {
+    icon: 'chat',
+    color: 'mint',
+    title: 'Связь с родителями',
+    text: 'Обсудим, как обмениваться новостями о ребёнке и рассказывать о первых днях в группе.',
+  },
+];
+---
+<section class="first-days section container" id="o-sade" aria-labelledby="first-days-title">
+  <header class="first-days-heading">
+    <h2 id="first-days-title">Первые дни в саду</h2>
+    <p>Как проходит адаптация к детскому саду</p>
+  </header>
+
+  <div class="first-days-copy">
+    <ul class="first-days-details" role="list">
+      {details.map(item => <li>
+        <span class={`first-days-icon first-days-icon--${item.color}`}><Icon name={item.icon} size={27}/></span>
+        <div><h3>{item.title}</h3><p>{item.text}</p></div>
+      </li>)}
+    </ul>
+    <a class="text-link first-days-link" href="/gruppy/#adaptaciya">Подробнее о первых посещениях <Icon name="arrow" size={20}/></a>
+  </div>
+
+  <figure class="first-days-media">
+    <div class="first-days-photo">
+      <img src="/images/el-bebe/first-days.webp" alt="Воспитатель помогает ребёнку освоиться за игрой — иллюстрация для макета" width="1400" height="1050" loading="lazy"/>
+    </div>
+    <Decor kind="drops" class="first-days-rays"/>
+    <Sprig class="first-days-sprig"/>
+    <figcaption>Иллюстрация для макета</figcaption>
+  </figure>
+</section>
