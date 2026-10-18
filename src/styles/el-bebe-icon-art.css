@@ -1,5 +1,5 @@
 @layer iconArt {
-  .illustrated-icon { flex-shrink: 0; vertical-align: middle; }
+  .illustrated-icon { flex-shrink: 0; vertical-align: middle; fill: none; stroke: none; }
   .home-page .puzzle > .puzzle-art { display: block; width: 100%; height: 100%; fill: none; }
 
   .home-page .growth-detail { grid-template-columns: 38px minmax(0, 1fr); gap: 12px; }

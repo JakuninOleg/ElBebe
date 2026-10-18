@@ -1,19 +1,34 @@
-// The three approved hero illustrations define the palette and shape language.
+// The hero illustrations define the palette and shape language.
 // Static SVG markup only: these strings never contain editor-provided HTML.
 const rays = '<g fill="#ffcf23"><path d="M101 23c1-12 10-16 12-9s-8 14-12 9ZM105 35c10-9 18-6 13 0s-14 6-13 0Z"/></g>';
 const leftRays = '<g fill="#ffcf23"><path d="M16 76C3 65-2 73 5 78s17 3 11-2ZM16 91C2 92 2 102 9 98s13-9 7-7Z"/></g>';
+const seaWave = 'M10 0C16-6 24-6 30 0S44 6 50 0S64-6 70 0S84 6 90 0S104-6 110 0';
 
 export const illustratedIcons: Record<string, string> = {
   heart: `<path d="M60 96C46 86 20 65 24 40C27 21 48 20 59 38C68 15 93 15 98 35C106 59 84 82 60 96Z" fill="#ff646e"/>
     <path d="M36 27C45 24 54 28 59 38C63 28 69 22 78 21C69 35 70 54 58 64C46 54 36 42 36 27Z" fill="#ff7c82"/>
     <g fill="#ffcf23"><path d="M17 49C4 37-2 44 5 50S22 55 17 49Z M15 68C-2 67 0 78 8 75S23 68 15 68Z M23 84C8 90 13 100 20 94S30 81 23 84Z M105 47C115 33 123 40 115 47S99 55 105 47Z M105 69C123 66 123 77 115 76S99 70 105 69Z"/></g>`,
-  blocks: `<path d="m44 12 27 6-1 39-27-7Z" fill="#ffcf24"/><path d="m71 18 14-9v40L70 57Z" fill="#edb724"/><path d="m44 12 15-9 26 6-14 9Z" fill="#ffdc48"/>
-    <path d="m22 51 27 8v42l-27-9Z" fill="#1baee0"/><path d="m49 59 17-11v42l-17 11Z" fill="#098cc9"/><path d="m22 51 17-11 27 8-17 11Z" fill="#53c7e9"/>
-    <path d="m65 66 27-8v40l-27 9Z" fill="#ff6475"/><path d="m92 58 15 9v39l-15-8Z" fill="#ec4e66"/><path d="m65 66 16-16 26 17-15-9Z" fill="#ff8e96"/>
-    <g fill="#ffce24"><path d="M11 70C-2 58-5 69 4 73S18 77 11 70Z M10 89C-4 91 0 101 7 96S17 87 10 89Z M108 41C115 28 124 36 115 43S102 50 108 41Z"/></g>`,
-  sea: `<path d="M26 61a32 32 0 0 1 64 0c-4 6-9 6-15 1-5-5-10-5-15 0-5 5-10 5-15 0-7-6-12-5-19-1Z" fill="#ffd036"/>
-    <g stroke="#ffcc25" stroke-width="6" stroke-linecap="round" fill="none"><path d="M58 14V4M31 23l-6-9M17 43 7 39M85 23l6-9M100 43l10-4"/></g>
-    <g stroke="#16b3df" stroke-width="6" stroke-linecap="round" fill="none"><path d="M14 73q11 10 22 0 11-10 22 0 11 10 22 0 11-10 22 0M14 88q11 10 22 0 11-10 22 0 11 10 22 0 11-10 22 0M14 103q11 10 22 0 11-10 22 0 11 10 22 0 11-10 22 0"/></g>`,
+  blocks: `<g stroke-width="1.6" stroke-linejoin="round">
+      <path d="m16 60 22-12 22 12-22 12Z" fill="#72d4e9" stroke="#72d4e9"/>
+      <path d="m16 60 22 12v26L16 86Z" fill="#29b8dc" stroke="#29b8dc"/>
+      <path d="m38 72 22-12v26L38 98Z" fill="#1599c5" stroke="#1599c5"/>
+      <path d="m60 60 22-12 22 12-22 12Z" fill="#ffa0a8" stroke="#ffa0a8"/>
+      <path d="m60 60 22 12v26L60 86Z" fill="#ff7584" stroke="#ff7584"/>
+      <path d="m82 72 22-12v26L82 98Z" fill="#ee536e" stroke="#ee536e"/>
+      <path d="m38 22 22-12 22 12-22 12Z" fill="#ffe47b" stroke="#ffe47b"/>
+      <path d="m38 22 22 12v26L38 48Z" fill="#ffcf36" stroke="#ffcf36"/>
+      <path d="m60 34 22-12v26L60 60Z" fill="#efb72c" stroke="#efb72c"/>
+    </g>
+    <g stroke="#fffdf7" stroke-width="2.8" stroke-linecap="round" opacity=".65"><path d="m22 68 10 5m12-43 10 5"/></g>
+    <g fill="#ffcf23"><path d="M18 35C7 32 5 24 10 23s12 8 8 12ZM99 32c-1-11 6-18 10-13s-5 16-10 13Z"/></g>`,
+  sea: `<path d="M33 61a27 27 0 0 1 54 0Z" fill="#ffcf36"/>
+    <path d="M33 61a27 27 0 0 1 37-25C52 33 39 44 39 61Z" fill="#ffe47b"/>
+    <g stroke="#ffcf23" stroke-width="5" stroke-linecap="round"><path d="M60 13v9M32 23l6 7M16 45l9 3M88 23l-6 7M104 45l-9 3"/></g>
+    <g stroke="#19add5" stroke-width="5.5" stroke-linecap="round" fill="none">
+      <path d="${seaWave}" transform="translate(0 72)"/>
+      <path d="${seaWave}" transform="translate(0 86)"/>
+      <path d="${seaWave}" transform="translate(0 100)"/>
+    </g>`,
   palette: `<path d="M65 17C32 12 12 34 16 61c4 28 31 39 53 28 12-6-7-15 0-24 5-7 19 2 27-9 12-18-9-36-31-39Z" fill="#ffcf48"/>
     <path d="M24 58c-1-21 12-33 33-36-28-4-45 17-41 39 3 19 16 28 31 31-13-7-21-18-23-34Z" fill="#ffe38a"/>
     <circle cx="35" cy="47" r="8" fill="#ff6475"/><circle cx="53" cy="33" r="8" fill="#1baee0"/><circle cx="77" cy="39" r="8" fill="#8aba57"/><circle cx="37" cy="71" r="7" fill="#a768c0"/>
