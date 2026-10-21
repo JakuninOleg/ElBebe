@@ -1,8 +1,8 @@
 @layer brandRefresh {
   :root {
-    --ink: #2b373c;
+    --ink: #6d2194;
     --purple: var(--ink);
-    --body: #48565c;
+    --body: #776086;
     --font: 'Nunito Sans Variable', sans-serif;
   }
 
@@ -16,7 +16,7 @@
   .hero-fact-copy > strong, .hero-values > li { color: var(--ink); }
   .hero-fact-copy > strong, .hero-values > li { font-weight: 700; }
   .hero-fact-copy > small { color: var(--body); font-weight: 400; }
-  .hero-license:hover .hero-fact-copy > strong { color: #087f87; }
+  .hero-license:hover .hero-fact-copy > strong { color: #6d2194; }
   .brand img { height: auto; max-height: 120px; }
   .footer-brand > a > img { height: auto; }
   .footer-address, .footer-contact-links a, .footer-contact-links button,
@@ -28,18 +28,18 @@
   .invitation-intro > p, .invitation-form-intro,
   .visit-form .consent-row, .invitation-success > p { color: var(--body); }
   .visit-field > label { color: var(--ink); font-weight: 600; }
-  .visit-field > input { color: var(--ink); border-color: #cbd1d3; }
-  .visit-field > input::placeholder { color: #727e84; }
-  .visit-field > input:disabled { -webkit-text-fill-color: #727e84; }
-  .visit-field > input:hover:not(:disabled) { border-color: #078b91; }
-  .visit-field > input:focus-visible { border-color: #078b91; outline-color: #82cbd0; }
-  .visit-form .consent-row input:focus-visible { outline-color: #82cbd0; }
-  .visit-form .consent-row a { color: #087f87; }
-  .invitation-note, .invitation-bunny-note { color: #3f6970; }
+  .visit-field > input { color: var(--ink); border-color: #d9c4d9; }
+  .visit-field > input::placeholder { color: #846f8c; }
+  .visit-field > input:disabled { -webkit-text-fill-color: #846f8c; }
+  .visit-field > input:hover:not(:disabled) { border-color: #a44bc0; }
+  .visit-field > input:focus-visible { border-color: #a44bc0; outline-color: #d0a5e2; }
+  .visit-form .consent-row input:focus-visible { outline-color: #d0a5e2; }
+  .visit-form .consent-row a { color: #6d2194; }
+  .invitation-note, .invitation-bunny-note { color: #865292; }
   .invitation-letter { margin-top: 110px; }
   .invitation-bunny { width: 216px; height: 216px; right: 24px; top: -202px; }
   .invitation-bunny-note { right: 260px; top: -105px; }
-  a:focus-visible, button:focus-visible, summary:focus-visible { outline-color: #078b91; }
+  a:focus-visible, button:focus-visible, summary:focus-visible { outline-color: #a44bc0; }
 
   @media (min-width: 901px) and (max-width: 1100px) {
     .invitation-letter { margin-top: 98px; }
