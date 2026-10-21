@@ -8,6 +8,7 @@ const zones = [
   { id: 'speech', title: 'Речь', art: 'lesson-speech', x: 73, y: 80, color: '#d9f0f6', lead: 'Находим слова для своих открытий', text: 'Логопед и речевые занятия — в программах всех трёх групп. В средней знакомимся с азбукой и английским языком, в старшей готовимся к школе.', link: '/gruppy/', label: 'Сравнить программы групп' },
   { id: 'rest', title: 'Отдых', art: 'moon', x: 83, y: 44, color: '#f6e0ef', lead: 'Делаем паузу и набираемся сил', text: 'После обеда готовимся ко сну, слушаем сказки. Затем — сон или тихие игры по режиму группы. Точное время смотрите в недельном расписании.', link: '/gruppy/#weekly-title', label: 'Выбрать расписание группы' },
 ];
+const sceneAlts: Record<string,string> = {play:'Дети строят из деревянных кубиков',create:'Дети рисуют красками за столом',move:'Дети делают упражнения вместе с педагогом',speech:'Педагог читает детям книгу с картинками',rest:'Дети отдыхают в кроватях под мягкими одеялами'};
 ---
 <section class="day-map container content-section" aria-labelledby="day-map-title" data-day-map>
   <div class="day-map-heading"><div><h2 id="day-map-title">Время для всего важного</h2><p>Играем, рисуем, читаем и отдыхаем. Выберите занятие, чтобы узнать о нём больше.</p></div><span class="hand-note" aria-hidden="true">Маленький мир<br/>больших открытий</span></div>
@@ -17,6 +18,7 @@ const zones = [
       <div class="day-map-controls" role="group" aria-label="Выберите занятие" hidden>{zones.map((zone, i) => <button type="button" class="day-map-pin" data-map-zone={zone.id} aria-controls={`map-${zone.id}`} aria-pressed={i === 0 ? 'true' : 'false'} style={`--pin-x:${zone.x}%;--pin-y:${zone.y}%;--pin-color:${zone.color}`}><span class="map-pin-dot" aria-hidden="true"></span>{zone.title}</button>)}</div>
     </div>
     <div class="day-map-stories" aria-live="polite" aria-atomic="true">{zones.map(zone => <article id={`map-${zone.id}`} data-map-story={zone.id}>
+      <div class="day-map-detail-art" style={`--activity-art:url('/images/el-bebe/day-${zone.id}-768.webp')`} role="img" aria-label={sceneAlts[zone.id]}></div>
       <IllustratedIcon name={zone.art} size={78}/><h3>{zone.title}</h3><strong>{zone.lead}</strong><p>{zone.text}</p><a class="text-link" href={zone.link}>{zone.label}<Icon name="arrow" size={20}/></a>
     </article>)}</div>
   </div>
@@ -39,6 +41,10 @@ const zones = [
     }
     buttons.forEach(button => button.addEventListener('click', () => select(button.dataset.mapZone!, true)));
     select(buttons[0].dataset.mapZone!);
+    if (matchMedia('(max-width: 760px)').matches) buttons.forEach(button => {
+      const image = new Image();
+      image.src = `/images/el-bebe/day-${button.dataset.mapZone}-768.webp`;
+    });
     controls.hidden = false;
     map.dataset.enhanced = '';
   });

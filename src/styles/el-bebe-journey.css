@@ -19,6 +19,7 @@
   .map-pin-dot { width: 8px; height: 8px; border-radius: 50%; background: currentColor; flex-shrink: 0; }
   .day-map-pin[aria-pressed="true"] { background: var(--purple); color: white; box-shadow: 0 7px 18px #4d315b32; }
   .day-map-stories { min-width: 0; }
+  .day-map-detail-art { display: none; }
   .day-map[data-enhanced] .day-map-stories { min-height: 385px; display: grid; align-items: center; }
   .day-map-stories>article { padding-block: 20px; }
   .day-map-stories>[hidden], .day-map-controls[hidden] { display: none; }
@@ -159,12 +160,17 @@
     .day-map-heading p { font-size: 16px; margin-top: 16px; }
     .day-map-heading>.hand-note { display: none; }
     .day-map-layout { display: block; margin-top: 20px; }
-    .day-map-controls:not([hidden]) { position: static; display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
-    .day-map-pin { position: static; left: auto; top: auto; transform: none; flex: 1 1 28%; font-size: 15px; min-height: 46px; padding: 9px 11px; border-width: 0; box-shadow: none; }
-    .day-map[data-enhanced] .day-map-stories { min-height: 340px; display: block; margin-top: 22px; }
-    .day-map-stories>article { padding: 22px 0 0; border-top: 1px solid #dfd0e5; }
-    .day-map-stories>article>.illustrated-icon { float: right; width: 64px; height: 64px; margin: 0 0 16px 16px; }
-    .day-map-stories h3 { margin: 0 0 12px; font-size: 27px; }
+    .day-map-scene>img { display: none; }
+    .day-map-controls:not([hidden]) { position: static; display: grid; grid-template-columns: repeat(6,minmax(0,1fr)); gap: 8px; }
+    .day-map-pin { position: static; left: auto; top: auto; transform: none; flex: 1 1 28%; font-size: 15px; min-height: 46px; padding: 9px 6px; border-width: 0; box-shadow: none; }
+    .day-map-pin .map-pin-dot { display: none; }
+    .day-map-pin { grid-column: span 2; }
+    .day-map-pin:nth-child(-n+2) { grid-column: span 3; }
+    .day-map[data-enhanced] .day-map-stories { min-height: 0; display: block; margin-top: 16px; }
+    .day-map-stories>article { padding: 0; border: 0; }
+    .day-map-stories>article>.illustrated-icon { display: none; }
+    .day-map-detail-art { display: block; width: 100%; aspect-ratio: 3/2; background-image: var(--activity-art); background-size: contain; background-position: center; background-repeat: no-repeat; }
+    .day-map-stories h3 { margin: 16px 0 12px; font-size: 27px; }
     .day-map-stories strong { font-size: 18px; }
     .day-map-stories p { font-size: 16px; margin-top: 16px; }
     .day-map-stories .text-link { margin-top: 20px; font-size: 15px; }
