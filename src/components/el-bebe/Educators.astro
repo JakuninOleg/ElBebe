@@ -3,9 +3,11 @@ import Icon from './Icon.astro';
 import Decor from './Decor.astro';
 import { Image } from '../../lib/emdash-ui';
 import type { SiteContent } from '../../lib/cms';
-import IllustratedIcon from './IllustratedIcon.astro';
+import { previewEducators } from '../../data/preview-educators';
 interface Props { team: SiteContent['team']; heading?: string; }
 const { team, heading = 'Наши воспитатели' } = Astro.props;
+const people = team.length > 0 ? team : previewEducators;
+const isPreview = team.length === 0;
 const accents = ['aqua', 'yellow', 'pink', 'green'];
 const ornaments = ['heart', 'crown', 'flower', 'music'];
 ---
@@ -16,19 +18,16 @@ const ornaments = ['heart', 'crown', 'flower', 'music'];
     {Astro.url.pathname !== '/komanda/' && <a href="/komanda/" class="text-link">Знакомство с командой <Icon name="arrow" size={19}/></a>}
   </header>
   <p class="educators-intro">На экскурсии познакомимся с воспитателями, поговорим о привычках ребёнка и о том, что важно вашей семье.</p>
-  {team.length > 0 ?
     <div class="educators-grid">
-      {(Astro.url.pathname === '/komanda/' ? team : team.slice(0,4)).map((person, i) => <article class={`educator educator--${accents[i % accents.length]}`}>
+      {(Astro.url.pathname === '/komanda/' ? people : people.slice(0,4)).map((person, i) => <article class={`educator educator--${accents[i % accents.length]}`} data-preview-educator={isPreview || undefined}>
         <div class="educator-portrait">
-          <div class="educator-photo">{person.image ? <Image image={person.image} alt={person.name} width={400} height={400}/> : <span class="educator-photo-empty"><Icon name="people" size={58}/></span>}</div>
+          <div class="educator-photo">{typeof person.image === 'string' ? <img src={person.image} alt="Иллюстративный портрет для карточки воспитателя" width="440" height="440" loading="lazy"/> : person.image ? <Image image={person.image} alt={person.name} width={400} height={400}/> : <span class="educator-photo-empty"><Icon name="people" size={58}/></span>}</div>
           <Icon name={ornaments[i % ornaments.length]} class="educator-ornament" size={32}/>
         </div>
         <h3>{person.name}</h3>
         {person.role && <p class="educator-role">{person.role}</p>}
         {person.bio && <p class="educator-bio">{person.bio}</p>}
       </article>)}
-    </div> :
-    <div class="team-welcome"><IllustratedIcon name="people" size={150}/><div><h3>Познакомимся лично</h3><p>Покажем, как устроена жизнь группы, поговорим о занятиях и о том, что помогает ребёнку освоиться. На встрече можно задать воспитателям свои вопросы.</p><button class="text-link" type="button" data-open-visit>Прийти на знакомство <Icon name="arrow" size={20}/></button></div></div>
-  }
+    </div>
   <Decor kind="wash" color="#ffe8eb" class="educators-side-wash"/>
 </section>
