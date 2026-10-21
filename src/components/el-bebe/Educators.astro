@@ -14,10 +14,9 @@ const ornaments = ['heart', 'crown', 'flower', 'music'];
 <section class="educators container section" aria-labelledby="team-title">
   <header class="educators-heading">
     <div class="educators-title"><Icon name="people" size={34}/><h2 id="team-title">{heading}</h2></div>
-    <p>Люди, с которыми ребёнок<br/>будет расти и открывать мир.</p>
     {Astro.url.pathname !== '/komanda/' && <a href="/komanda/" class="text-link">Знакомство с командой <Icon name="arrow" size={19}/></a>}
   </header>
-  <p class="educators-intro">На экскурсии познакомимся с воспитателями, поговорим о привычках ребёнка и о том, что важно вашей семье.</p>
+  <p class="educators-intro">На экскурсии познакомимся с воспитателями и поговорим о вашем ребёнке: его привычках, интересах и первых днях в группе.</p>
     <div class="educators-grid">
       {(Astro.url.pathname === '/komanda/' ? people : people.slice(0,4)).map((person, i) => <article class={`educator educator--${accents[i % accents.length]}`} data-preview-educator={isPreview || undefined}>
         <div class="educator-portrait">

@@ -9,6 +9,8 @@ export interface ParentReview {
   date?: string;
   published?: string;
   topic?: string;
+  avatar?: string;
+  avatarSourceUrl?: string;
 }
 
 /** Publish only checked, five-star reviews linked to this kindergarten. */

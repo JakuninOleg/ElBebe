@@ -3,10 +3,36 @@ import { groupCards } from '../../data/group-cards';
 import { groupPages } from '../../data/group-pages';
 import IllustratedIcon from './IllustratedIcon.astro';
 import Icon from './Icon.astro';
+import { groups, weekdays } from '../../data/group-schedules.json';
+import { lessonPreview } from '../../lib/week-preview';
 ---
-<section class="schedule-links container content-section" aria-labelledby="weekly-title">
-  <div class="week-intro"><IllustratedIcon name="calendar" size={96}/><h2 id="weekly-title">Неделя в вашей группе</h2><p>У каждого дня свои занятия. Выберите группу и посмотрите всю неделю.</p><span class="hand-note" aria-hidden="true">С понедельника<br/>до пятницы</span></div>
-  <div class="week-index">{groupCards.map((group, i) => <a class={`week-index-link week-index-link--${group.accent}`} id={`schedule-${group.id}`} href={`/gruppy/${groupPages[group.id].slug}/#weekly-title`}>
-    <IllustratedIcon name={['lesson-sensory','lesson-english','lesson-robot'][i]} size={58}/><div><h3>{group.title}</h3><p>{group.summary}</p><span>Посмотреть расписание</span></div><Icon name="arrow" size={26}/>
-  </a>)}</div>
+<section class="schedule-links container content-section" aria-labelledby="weekly-title" data-week-planner>
+  <div class="section-copy"><h2 id="weekly-title">Неделя в вашей группе</h2><p>Выберите группу и день недели — посмотрите, какие занятия ждут ребёнка.</p></div>
+  <div class="week-planner">
+    <div class="week-guide" aria-hidden="true"><img src="/images/el-bebe/bunny-guide.webp" width="414" height="640" alt="" loading="lazy"/><span class="hand-note">Заглянем<br/>в расписание?</span></div>
+    <div class="week-book">
+      <div class="week-group-picker" role="group" aria-label="Выберите группу" data-week-controls hidden>{groupCards.map((group,i) => <button type="button" data-week-group={group.id} aria-label={group.title} aria-controls="week-preview" aria-pressed={i===0?'true':'false'}><IllustratedIcon name={['lesson-sensory','lesson-english','lesson-robot'][i]} size={34}/>{group.title.replace(' группа','')}</button>)}</div>
+      <div class="week-day-picker" role="group" aria-label="Выберите день недели" data-week-controls hidden>{weekdays.map((day,i)=><button type="button" data-week-day={i} aria-label={day} aria-controls="week-preview" aria-pressed={i===0?'true':'false'}>{['Пн','Вт','Ср','Чт','Пт'][i]}</button>)}</div>
+      <div id="week-preview" class="week-preview" aria-live="polite" aria-atomic="true">{groups.map((group,g)=>weekdays.map((day,d)=><article data-preview-group={group.id} data-preview-day={d} hidden={g!==0||d!==0}>
+        <h3>{day}</h3><dl>{lessonPreview(group.schedule,d).map(lesson=><div><dt>{lesson.time}</dt><dd>{lesson.label}</dd></div>)}</dl><a class="text-link" href={`/gruppy/${groupPages[group.id].slug}/#weekly-title`}>Вся неделя и распорядок <Icon name="arrow" size={20}/></a>
+      </article>))}</div>
+      <noscript><p>Полные расписания: {groupCards.map(group=><a href={`/gruppy/${groupPages[group.id].slug}/#weekly-title`}>{group.title} </a>)}</p></noscript>
+    </div>
+  </div>
 </section>
+<script>
+  document.querySelectorAll<HTMLElement>('[data-week-planner]').forEach(planner=>{
+    const groups=Array.from(planner.querySelectorAll<HTMLButtonElement>('[data-week-group]'));
+    const days=Array.from(planner.querySelectorAll<HTMLButtonElement>('[data-week-day]'));
+    const panels=Array.from(planner.querySelectorAll<HTMLElement>('[data-preview-group]'));
+    let group=groups[0].dataset.weekGroup!, day='0';
+    function show(){
+      groups.forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.weekGroup===group)));
+      days.forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.weekDay===day)));
+      panels.forEach(panel=>{panel.hidden=panel.dataset.previewGroup!==group||panel.dataset.previewDay!==day;});
+    }
+    groups.forEach(button=>button.addEventListener('click',()=>{group=button.dataset.weekGroup!;show();}));
+    days.forEach(button=>button.addEventListener('click',()=>{day=button.dataset.weekDay!;show();}));
+    planner.querySelectorAll<HTMLElement>('[data-week-controls]').forEach(control=>{control.hidden=false;});
+  });
+</script>

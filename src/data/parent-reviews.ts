@@ -4,21 +4,27 @@ import type { ParentReview } from '../lib/parent-reviews';
 // identity checked in the public cards on 2026-10-22; no invented testimonials.
 export const parentReviews: ParentReview[] = [
   {
-    id: 'yandex-natalia-2025-05-15', author: 'Наталия Ермошкина', rating: 5, approved: true,
-    source: 'yandex', date: '15 мая 2025', published: '2025-05-15', topic: 'О занятиях и внимании к детям',
-    text: 'Воспитатели внимательные, доброжелательные, с индивидуальным подходом к каждому ребёнку. Программа насыщенная: развивающие занятия, творчество, английский язык, прогулки. Питание сбалансированное и разнообразное.',
-    sourceUrl: 'https://yandex.ru/maps/org/154599785417/reviews?reviews%5BpublicId%5D=41wx37qp1tdq6164dzjyx32uu8',
+    id: 'yandex-anna-2023-11-04', author: 'Анна Маркина', rating: 5, approved: true,
+    source: 'yandex', date: '4 ноября 2023', published: '2023-11-04', topic: 'О впечатлениях после каждого дня',
+    text: 'Мы знаем, что вечером заберем ребёнка и он будет сыт, доволен и обязательно узнает что-то новое. Потому что программа обучения очень интересная и занимательная.',
+    avatar: '/images/el-bebe/reviews/anna.jpg',
+    avatarSourceUrl: 'https://avatars.mds.yandex.net/get-yapic/21493/enc-1ae1c8e0400020a36fba6273dd10a46b98eee9008467e0d4eb455d6405be2647/islands-68',
+    sourceUrl: 'https://yandex.ru/maps/org/154599785417/reviews?reviews%5BpublicId%5D=jmbutkrzpqtz3w9rpprrkrp1r8',
   },
   {
-    id: '2gis-olga-2022-03-01', author: 'OLGA Ikonnikova', rating: 5, approved: true,
-    source: '2gis', date: '1 марта 2022', published: '2022-03-01', topic: 'О том, чем живёт ребёнок в саду',
-    text: 'Все живут большой дружной семьёй. А вечерами дома мы с интересом рассматриваем фото и видео, что делали детки днем.',
+    id: '2gis-kristina-2023-04-01', author: 'Кристина Ермак', rating: 5, approved: true,
+    source: '2gis', date: '1 апреля 2023', published: '2023-04-01', topic: 'Первые успехи в шахматах',
+    text: 'Особая любовь это шахматы! Да! Шахматы, в 4 года дочь уже научилась играть!',
+    avatar: '/images/el-bebe/reviews/kristina.jpg',
+    avatarSourceUrl: 'https://i2.photo.2gis.com/images/profile/844424941612922_72f6_64x64.jpg',
     sourceUrl: 'https://2gis.ru/sochi/firm/70000001044912349/tab/reviews',
   },
   {
     id: 'yandex-nastasya-2025-05-30', author: 'Настасья Евглевская', rating: 5, approved: true,
     source: 'yandex', date: '30 мая 2025', published: '2025-05-30', topic: 'О саде, куда хочется вернуться',
     text: 'Обе дочки ходили туда. Сейчас уже младшая выпускница. … Любим сад. До сих пор старшая просит вернуться ) бывает иногда в гостях',
+    avatar: '/images/el-bebe/reviews/nastasya.jpg',
+    avatarSourceUrl: 'https://avatars.mds.yandex.net/get-yapic/37154/zB41XfAz3dEsexwfKVpe6tg1Pxw-1/islands-68',
     sourceUrl: 'https://yandex.ru/maps/org/154599785417/reviews?reviews%5BpublicId%5D=INMYSEA',
   },
 ];

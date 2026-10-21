@@ -10,10 +10,10 @@ const zones = [
 ];
 ---
 <section class="day-map container content-section" aria-labelledby="day-map-title" data-day-map>
-  <div class="day-map-heading"><div><h2 id="day-map-title">Время для всего важного</h2><p>У каждого занятия — своё место в дне. Выберите, куда заглянем.</p></div><span class="hand-note" aria-hidden="true">Маленький мир<br/>больших открытий</span></div>
+  <div class="day-map-heading"><div><h2 id="day-map-title">Время для всего важного</h2><p>Играем, рисуем, читаем и отдыхаем. Выберите занятие, чтобы узнать о нём больше.</p></div><span class="hand-note" aria-hidden="true">Маленький мир<br/>больших открытий</span></div>
   <div class="day-map-layout">
     <div class="day-map-scene">
-      <img src="/images/el-bebe/day-map-1536.webp" srcset="/images/el-bebe/day-map-640.webp 640w, /images/el-bebe/day-map-960.webp 960w, /images/el-bebe/day-map-1536.webp 1536w" sizes="(max-width: 760px) calc(100vw - 32px), (max-width: 1100px) 68vw, 900px" width="1536" height="1024" alt="Карта занятий: игровые домики, творческая мастерская, зона движения, чтения и отдыха" loading="lazy"/>
+      <img src="/images/el-bebe/day-map-v2-1536.webp" srcset="/images/el-bebe/day-map-v2-640.webp 640w, /images/el-bebe/day-map-v2-960.webp 960w, /images/el-bebe/day-map-v2-1536.webp 1536w" sizes="(max-width: 760px) calc(100vw - 32px), (max-width: 1100px) 68vw, 900px" width="1536" height="1024" alt="Карта занятий: игровые домики, творческая мастерская, зона движения, чтения и отдыха" loading="lazy"/>
       <div class="day-map-controls" role="group" aria-label="Выберите занятие" hidden>{zones.map((zone, i) => <button type="button" class="day-map-pin" data-map-zone={zone.id} aria-controls={`map-${zone.id}`} aria-pressed={i === 0 ? 'true' : 'false'} style={`--pin-x:${zone.x}%;--pin-y:${zone.y}%;--pin-color:${zone.color}`}><span class="map-pin-dot" aria-hidden="true"></span>{zone.title}</button>)}</div>
     </div>
     <div class="day-map-stories" aria-live="polite" aria-atomic="true">{zones.map(zone => <article id={`map-${zone.id}`} data-map-story={zone.id}>
@@ -26,11 +26,18 @@ const zones = [
     const controls = map.querySelector<HTMLElement>('.day-map-controls')!;
     const buttons = Array.from(map.querySelectorAll<HTMLButtonElement>('[data-map-zone]'));
     const stories = Array.from(map.querySelectorAll<HTMLElement>('[data-map-story]'));
-    function select(zone: string) {
+    let selectedZone = '';
+    function select(zone: string, animate = false) {
+      if (selectedZone === zone) return;
       buttons.forEach(button => button.setAttribute('aria-pressed', String(button.dataset.mapZone === zone)));
-      stories.forEach(story => { story.hidden = story.dataset.mapStory !== zone; });
+      stories.forEach(story => {
+        story.getAnimations().forEach(animation => animation.cancel());
+        story.hidden = story.dataset.mapStory !== zone;
+        if (!story.hidden && animate && !matchMedia('(prefers-reduced-motion: reduce)').matches) story.animate([{opacity: 0, transform: 'translateY(8px)'}, {opacity: 1, transform: 'translateY(0)'}], {duration: 340, easing: 'cubic-bezier(.22,1,.36,1)'});
+      });
+      selectedZone = zone;
     }
-    buttons.forEach(button => button.addEventListener('click', () => select(button.dataset.mapZone!)));
+    buttons.forEach(button => button.addEventListener('click', () => select(button.dataset.mapZone!, true)));
     select(buttons[0].dataset.mapZone!);
     controls.hidden = false;
     map.dataset.enhanced = '';

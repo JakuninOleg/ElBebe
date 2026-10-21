@@ -2,6 +2,7 @@
 import Icon from './Icon.astro';
 interface Props { address: string; phone?: string; }
 const { address, phone } = Astro.props;
+const phoneHref = phone?.replace(/[^+\d]/g, '');
 const links = [
   ['О саде', '/#o-sade'], ['Наши группы', '/gruppy/'], ['Стоимость', '/stoimost/'],
   ['День в саду', '/den-v-sadu/'], ['Воспитатели', '/komanda/'], ['Родителям', '/roditelyam/'], ['Контакты', '/kontakty/'],
@@ -10,9 +11,9 @@ const links = [
 <footer class="site-footer" id="kontakty">
   <div class="container footer-main">
     <div class="footer-brand"><a href="/" aria-label="Эльбэби — на главную"><img src="/images/el-bebe/logo-ru-approved.svg" alt="Детский сад Эльбэби" width="1495" height="775" loading="lazy"/></a><p><span aria-hidden="true"><Icon name="heart" size={28}/></span> С любовью к детям.<br/>С заботой о будущем.</p></div>
-    <nav class="footer-navigation" aria-label="Разделы сайта"><h2>Загляните в сад</h2>{links.map(([label, href]) => <a href={href}>{label}</a>)}</nav>
-    <div class="footer-visit"><h2>Приходите знакомиться</h2><p class="footer-visit-address"><Icon name="pin" size={28}/>{address}</p><p class="footer-visit-hours">Работаем 24/7</p>{phone && <a class="footer-phone" href={`tel:${phone.replace(/[^+\d]/g, '')}`}>{phone}</a>}<button type="button" class="text-link" data-open-visit>Записаться на экскурсию <Icon name="arrow" size={20}/></button></div>
+    <div class="footer-visit"><p class="footer-visit-address"><Icon name="pin" size={36}/>{address}</p><p class="footer-visit-hours">Работаем 24/7</p>{phoneHref && <a class="footer-phone" href={`tel:${phoneHref}`}>{phone}</a>}<button type="button" class="button" data-open-visit>Прийти познакомиться <Icon name="arrow" size={20}/></button></div>
     <div class="footer-live-map"><iframe title="Эль Бебе на Яндекс Картах — Виноградная, 2/3" src="https://yandex.ru/map-widget/v1/?oid=154599785417&ol=biz&z=16" width="380" height="230" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe><a href="https://yandex.ru/maps/org/el_bebe/154599785417/" target="_blank" rel="noopener noreferrer">Открыть в Яндекс Картах <Icon name="arrow" size={18}/></a></div>
   </div>
+  <nav class="footer-navigation container" aria-label="Разделы сайта">{links.map(([label, href]) => <a href={href}>{label}</a>)}</nav>
   <div class="container footer-bottom"><p>Эльбэби · частный детский сад в Сочи</p><nav aria-label="Документы"><a href="/svedeniya/">Сведения об образовательной организации</a><a href="/privacy/">Персональные данные</a></nav></div>
 </footer>
