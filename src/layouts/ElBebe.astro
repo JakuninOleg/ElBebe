@@ -30,10 +30,11 @@ const page = createPublicPageContext({ Astro, kind: 'custom', pageType: 'website
     <meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/>
     <meta name="theme-color" content="#fffdf7"/>
     <title>{title}</title>
-    <link rel="icon" type="image/x-icon" sizes="16x16 32x32 48x48" href="/favicon.ico"/>
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-bunny-16.png"/>
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-bunny-32.png"/>
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
+    <link rel="icon" type="image/x-icon" sizes="16x16 32x32 48x48" href="/favicon.ico?v=approved-bunny"/>
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-bunny-16.png?v=approved-bunny"/>
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-bunny-32.png?v=approved-bunny"/>
+    <link rel="icon" type="image/svg+xml" sizes="any" href="/favicon.svg?v=approved-bunny"/>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=approved-bunny"/>
     <EmDashHead page={page}/>
   </head>
   <body>

@@ -2,7 +2,7 @@ import { writeFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import sharp from 'sharp';
 
-const master = fileURLToPath(new URL('../docs/design/favicon-bunny-master.png', import.meta.url));
+const master = fileURLToPath(new URL('../public/favicon.svg', import.meta.url));
 const publicFile = name => new URL(`../public/${name}`, import.meta.url);
 const sizes = [16, 32, 48];
 const frames = await Promise.all(sizes.map(size => sharp(master)
@@ -27,6 +27,8 @@ for (const [index, size] of sizes.entries()) {
   offset += frames[index].length;
 }
 await writeFile(publicFile('favicon.ico'), Buffer.concat([directory, ...frames]));
+await sharp(master).resize(512, 512).png()
+  .toFile(fileURLToPath(new URL('../docs/design/favicon-bunny-master.png', import.meta.url)));
 await sharp(master).resize(180, 180)
   .flatten({ background: '#fffdf7' }).png()
   .toFile(fileURLToPath(publicFile('apple-touch-icon.png')));
