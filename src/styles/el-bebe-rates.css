@@ -21,9 +21,9 @@
   .attendance-mode h3 { font-size: 20px; font-weight: 900; line-height: 1.2; letter-spacing: -.02em; }
   .attendance-period-narrow { display: none; }
   .attendance-hours { font-size: 17px; line-height: 1.4; margin-top: 5px; color: #76598a; }
-  .attendance-price { display: flex; align-items: baseline; flex-wrap: wrap; justify-content: flex-end; color: var(--purple); font-variant-numeric: tabular-nums; line-height: 1.15; }
+  .attendance-price { display: grid; grid-template-columns: max-content max-content; align-items: baseline; justify-content: end; color: var(--purple); font-variant-numeric: tabular-nums; line-height: 1.15; }
   .attendance-price>span { font-size: 29px; font-weight: 900; letter-spacing: -.025em; white-space: nowrap; }
-  .attendance-price>small { font-size: 16px; font-weight: 700; white-space: nowrap; }
+  .attendance-price>small { inline-size: 3.25em; text-align: left; font-size: 16px; font-weight: 700; white-space: nowrap; }
   .attendance-description { grid-column: 2 / -1; font-size: 15px; line-height: 1.5; }
   .attendance-other { margin-top: 36px; }
   .attendance-other>h3 { font-size: 27px; margin-bottom: 17px; }
@@ -76,7 +76,6 @@
     .attendance-hours { font-size: 14px; margin-top: 5px; line-height: 1.25; }
     .attendance-price>span { font-size: 22px; }
     .attendance-price>small { font-size: 12px; }
-    .attendance-mode .attendance-price { max-width: 119px; }
     .attendance-description { font-size: 14px; }
     .attendance-other { margin-top: 24px; }
     .attendance-other>h3 { font-size: 23px; line-height: 1.12; margin-bottom: 10px; }
@@ -101,6 +100,5 @@
     .attendance-hours { font-size: 13px; }
     .attendance-price>span, .attendance-option .attendance-price>span { font-size: 20px; }
     .attendance-price>small { font-size: 11px; }
-    .attendance-mode .attendance-price { max-width: 106px; }
   }
 }
