@@ -18,6 +18,7 @@ data.db-shm
 # Local form submissions and tooling
 .local/
 artifacts/
+tmp/pdfs/
 
 # Local editor/agent configuration and deployment caches
 .agents/

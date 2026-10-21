@@ -1,3 +1,4 @@
+import { groupLessonIcons } from './group-lesson-icons';
 // The hero illustrations define the palette and shape language.
 // Static SVG markup only: these strings never contain editor-provided HTML.
 const rays = '<g fill="#ffcf23"><path d="M101 23c1-12 10-16 12-9s-8 14-12 9ZM105 35c10-9 18-6 13 0s-14 6-13 0Z"/></g>';
@@ -5,6 +6,7 @@ const leftRays = '<g fill="#ffcf23"><path d="M16 76C3 65-2 73 5 78s17 3 11-2ZM16
 const seaWave = 'M10 0C16-6 24-6 30 0S44 6 50 0S64-6 70 0S84 6 90 0S104-6 110 0';
 
 export const illustratedIcons: Record<string, string> = {
+  ...groupLessonIcons,
   heart: `<path d="M60 96C46 86 20 65 24 40C27 21 48 20 59 38C68 15 93 15 98 35C106 59 84 82 60 96Z" fill="#ff646e"/>
     <path d="M36 27C45 24 54 28 59 38C63 28 69 22 78 21C69 35 70 54 58 64C46 54 36 42 36 27Z" fill="#ff7c82"/>
     <g fill="#ffcf23"><path d="M17 49C4 37-2 44 5 50S22 55 17 49Z M15 68C-2 67 0 78 8 75S23 68 15 68Z M23 84C8 90 13 100 20 94S30 81 23 84Z M105 47C115 33 123 40 115 47S99 55 105 47Z M105 69C123 66 123 77 115 76S99 70 105 69Z"/></g>`,

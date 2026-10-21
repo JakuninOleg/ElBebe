@@ -1,32 +1,42 @@
 ---
 import type { SiteContent } from '../../lib/cms';
 import { Image } from '../../lib/emdash-ui';
-import { groupPreviews } from '../../data/group-previews';
+import { groupCards } from '../../data/group-cards';
+import IllustratedIcon from './IllustratedIcon.astro';
 import Icon from './Icon.astro';
 import Decor from './Decor.astro';
-import Sprig from './Sprig.astro';
-interface Props { groups: SiteContent['groups']; }
-const { groups = [] } = Astro.props;
-const isPreview = groups.length === 0;
-const items: Array<SiteContent['groups'][number] & { previewImage?: string }> = isPreview ? groupPreviews : groups;
-const accents = ['pink', 'yellow', 'aqua'];
-const activityIcons = ['palette', 'sparkle', 'blocks'];
-const approachIcons = ['heart', 'people', 'leaf'];
+interface Props { groups: SiteContent['groups']; headingLevel?: 'h1' | 'h2'; }
+const { groups = [], headingLevel = 'h2' } = Astro.props;
+const Heading = headingLevel;
+const CardHeading = headingLevel === 'h1' ? 'h2' : 'h3';
+const imageDescriptions = ['Дети строят из кубиков вместе с педагогом', 'Ребёнок рисует цветными карандашами', 'Дети собирают учебного робота'];
 ---
-<section class="growth-groups section container" id="gruppy" aria-labelledby="growth-title">
-  <header class="growth-heading"><h2 id="growth-title">Наши группы</h2><p>У каждого возраста — свои интересы,<br class="growth-desktop-break"/> занятия и ритм.</p></header>
-  <div class="growth-grid">{items.map((group, i) => <article class={`growth-group growth-group--${accents[i % accents.length]}`}>
-    <div class="growth-visual">
-      <div class="growth-photo">{group.image ? <Image image={group.image} alt={group.title} width={600} height={450}/> : group.previewImage ? <img src={`/images/el-bebe/${group.previewImage}.webp`} alt={`${group.title}`} width={group.previewImage === 'play' ? 1400 : 1000} height={group.previewImage === 'play' ? 933 : 750} loading="lazy"/> : <span class="growth-photo-empty"><Icon name="people" size={58}/></span>}</div>
-      {i === 0 && <><Icon name="heart" size={33} class="growth-heart"/><Decor kind="drops" class="growth-rays"/></>}
-      {i === 1 && <Sprig class="growth-sprig"/>}
-      {i === 2 && <Icon name="blocks" size={31} class="growth-blocks"/>}
+<section class="group-programs section container" id="gruppy" aria-labelledby="growth-title">
+  <header class="programs-heading">
+    <div class="programs-title">
+      <svg class="programs-title-wash" viewBox="0 0 600 110" preserveAspectRatio="none" aria-hidden="true"><path d="M10 63C63 30 126 1 202 17S335 67 419 36 593 18 591 63 487 106 374 93 188 91 92 101 1 83 10 63Z" fill="#fce9f0"/></svg>
+      <Decor kind="drops" class="programs-title-rays programs-title-rays--left"/>
+      <Heading id="growth-title">Наши группы</Heading>
+      <Decor kind="drops" class="programs-title-rays programs-title-rays--right"/>
     </div>
-    <div class="growth-intro"><h3>{group.title}</h3>{group.summary && <p class="growth-summary">{group.summary}</p>}</div>
-    <div class="growth-details">
-      {group.activities && <div class="growth-detail"><Icon name={activityIcons[i % activityIcons.length]} size={29}/><div><h4>Занятия</h4><p>{group.activities}</p></div></div>}
-      {group.approach && <div class="growth-detail"><Icon name={approachIcons[i % approachIcons.length]} size={29}/><div><h4>Подход</h4><p>{group.approach}</p></div></div>}
-    </div>
-  </article>)}</div>
-  <div class="growth-choice"><div><h3>Поможем выбрать группу</h3><p>Поговорим о ребёнке и познакомимся с воспитателями.</p></div><button class="button" type="button" data-open-visit>Подобрать группу <Icon name="arrow" size={22}/></button><span class="growth-note hand-note" aria-hidden="true">Растём вместе ♡</span></div>
+    <p>Английский, логопед, робототехника — у каждой группы своя программа.</p>
+  </header>
+  <div class="programs-grid">{groupCards.map((program, index) => {
+    const photo = groups.find(group => group.id === program.id || group.title === program.title)?.image;
+    return <article class={`program-card program-card--${program.accent}`} id={`group-${program.id}`}>
+      <div class="program-card-visual">
+        <div class="program-card-photo">
+          {photo ? <Image image={photo} alt={imageDescriptions[index]} width={700} height={460}/> : <img src={`/images/el-bebe/${program.image}.webp`} alt={imageDescriptions[index]} width={program.id === 'younger' ? 1000 : 1100} height={program.id === 'younger' ? 750 : 825} sizes="(max-width: 600px) calc(100vw - 64px), (max-width: 979px) 510px, 31vw" loading="lazy"/>}
+        </div>
+        <Decor kind="drops" class="program-card-rays program-card-rays--left"/>
+        <Decor kind="drops" class="program-card-rays program-card-rays--right"/>
+      </div>
+      <div class="program-card-content">
+        <CardHeading>{program.title}</CardHeading>
+        <p class="program-card-summary">{program.summary}</p>
+        <ul class="program-lessons">{program.lessons.map(lesson => <li><span class="program-lesson-art"><IllustratedIcon name={lesson.icon} size={48}/></span><span>{lesson.label}</span></li>)}</ul>
+        <a class="program-card-link" href={`/gruppy/#schedule-${program.id}`} aria-label={`${program.title}: занятия и расписание`}>Занятия и расписание <Icon name="arrow" size={22}/></a>
+      </div>
+    </article>;
+  })}</div>
 </section>

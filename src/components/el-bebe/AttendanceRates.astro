@@ -26,6 +26,7 @@ const icons = ['day', 'morning', 'evening'] as const;
       <AttendanceIcon kind={icons[index % icons.length]}/>
       <div class="attendance-mode-copy"><h3>{title}{period && <span class="attendance-period-wide"> · {period}</span>}</h3>{rate.hours && <p class="attendance-hours">{period && <span class="attendance-period-narrow">{period.charAt(0).toUpperCase() + period.slice(1)} · </span>}{rate.hours}</p>}</div>
       <RatePrice price={rate.price}/>
+      {rate.title === 'Полный день' && <p class="attendance-description">Четырёхразовое питание включено: завтрак, обед, полдник и ужин.</p>}
       {rate.description && <p class="attendance-description">{rate.description}</p>}
     </article>;
     })}</div>}
