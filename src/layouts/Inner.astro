@@ -7,7 +7,7 @@ const { title, heading, description, label, intro = description, callout = true 
 const { settings } = await getSiteContent();
 ---
 <Layout title={title} description={description} address={settings.address} phone={settings.phone}>
-  <section class="page-hero container"><nav class="breadcrumbs" aria-label="Хлебные крошки"><a href="/">Главная</a><span aria-hidden="true">/</span><span>{label || heading}</span></nav><p class="eyebrow">Детский сад Эльбебе · Сочи</p><h1>{heading}</h1>{intro && <p class="lead">{intro}</p>}</section>
+  <section class="page-hero container"><nav class="breadcrumbs" aria-label="Хлебные крошки"><a href="/">Главная</a><span aria-hidden="true">/</span><span>{label || heading}</span></nav><p class="eyebrow">Детский сад Эльбэби · Сочи</p><h1>{heading}</h1>{intro && <p class="lead">{intro}</p>}</section>
   <slot/>
   {callout && <Callout compact/>}
 </Layout>

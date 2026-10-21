@@ -1,11 +1,6 @@
 ---
 import Icon from './Icon.astro';
 import Decor from './Decor.astro';
-const details = [
-  { icon: 'camera', label: 'Камеры в саду', color: 'pink' },
-  { icon: 'shield', label: 'Правила доступа', color: 'mint' },
-  { icon: 'chat', label: 'Ответы на вопросы', color: 'yellow' },
-];
 ---
 <section class="surveillance container section" aria-labelledby="camera-title">
   <div class="surveillance-mascot" aria-hidden="true">
@@ -14,19 +9,15 @@ const details = [
   </div>
   <div class="surveillance-copy">
     <h2 id="camera-title">Видеонаблюдение в саду</h2>
-    <p>В Эльбебе установлены камеры. На знакомстве расскажем, как устроено видеонаблюдение и какие правила доступа действуют в саду.</p>
-    <ul class="family-details" role="list">
-      {details.map(item => <li><span class={`family-detail-icon family-detail-icon--${item.color}`}><Icon name={item.icon} size={23}/></span><span>{item.label}</span></li>)}
-    </ul>
+    <p>В Эльбэби установлены камеры. На знакомстве расскажем, как устроено видеонаблюдение и какие правила доступа действуют в саду.</p>
     <button class="text-link" type="button" data-open-visit>Спросить о видеонаблюдении <Icon name="arrow" size={19}/></button>
   </div>
   <figure class="surveillance-photo">
     <div class="surveillance-photo-frame">
-      <img src="/images/el-bebe/camera-phone.webp" alt="Иллюстрация: на экране телефона — занятие в детском саду" width="1000" height="667" loading="lazy"/>
+      <img src="/images/el-bebe/camera-phone.webp" alt="на экране телефона — занятие в детском саду" width="1000" height="667" loading="lazy"/>
     </div>
     <span class="surveillance-note hand-note" aria-hidden="true">Спокойнее,<br/>когда всё понятно<Icon name="heart" size={21}/></span>
     <Decor kind="drops" class="surveillance-drops"/>
     <Decor kind="heart" color="#ffd75e" class="surveillance-heart"/>
-    <figcaption>Иллюстрация для макета</figcaption>
   </figure>
 </section>

@@ -10,7 +10,7 @@ const items = [
 <header class:list={['site-header', { 'site-header--home': path === '/' }]}>
   <svg class="menu-blob" viewBox="0 0 130 120" preserveAspectRatio="none" aria-hidden="true"><path class="menu-blob-original" d="M0 0H130V120C115 101 95 114 66 99C28 80 41 38 0 0Z" fill="#c4eeea"/><path class="menu-blob-home" d="M0 0H130V120C63 120 5 74 0 0Z" fill="#c4eeea"/></svg>
   <div class="container header-inner">
-    <a class="brand" href="/" aria-label="Эльбебе — на главную"><img src="/images/el-bebe/logo-straight-v2.webp" width="680" height="379" alt="Детский сад Эльбебе, Сочи" fetchpriority="high" /></a>
+    <a class="brand" href="/" aria-label="Эльбэби — на главную"><img src="/images/el-bebe/logo-ru-approved.svg" width="1495" height="775" alt="Детский сад Эльбэби, Сочи" fetchpriority="high" /></a>
     <nav class="desktop-nav" aria-label="Основное меню">{items.map(item => <a href={item.href} aria-current={path === item.href ? 'page' : undefined}>{item.label}</a>)}</nav>
     <button class="button header-cta" type="button" data-open-visit>Прийти познакомиться <Icon name="arrow" size={20}/></button>
     <button class="menu-toggle" type="button" aria-label="Открыть меню" aria-controls="mobile-menu" aria-expanded="false" data-menu-toggle><Icon name="menu" class="menu-bars" size={28}/><Icon name="close" class="menu-close" size={28}/></button>

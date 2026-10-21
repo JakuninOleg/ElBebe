@@ -38,7 +38,6 @@
   .first-days-photo > img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: 47% center; }
   .first-days-rays { position: absolute; width: 48px; height: 48px; left: 4%; top: 5%; transform: rotate(-15deg); pointer-events: none; }
   .first-days-sprig { position: absolute; width: 65px; right: -9px; bottom: 11%; transform: rotate(12deg); pointer-events: none; }
-  .first-days-media figcaption { margin-top: 8px; font-size: 11px; text-align: center; line-height: 1.4; color: #81718b; }
 
   @media (max-width: 1000px) {
     .first-days { column-gap: 30px; row-gap: 19px; margin-top: 56px; }

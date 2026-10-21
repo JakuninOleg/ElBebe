@@ -33,7 +33,6 @@
   .growth-group--aqua .growth-detail:last-child>.icon { color: #559a88; }
   .growth-detail h4 { font-size: 18px; line-height: 1.25; font-weight: 900; letter-spacing: -.01em; margin-bottom: 5px; }
   .growth-detail p { font-size: 16px; line-height: 1.5; }
-  .growth-preview-note { font-size: 13px; line-height: 1.45; color: #785d89; margin-top: 24px; }
   .growth-choice { display: flex; align-items: center; gap: 28px; border-top: 1px solid #e4d7e9; padding-top: 25px; margin-top: 22px; }
   .growth-choice h3 { font-size: 25px; line-height: 1.15; margin-bottom: 7px; }
   .growth-choice p { font-size: 16px; line-height: 1.4; }
@@ -124,7 +123,6 @@
     .growth-rays { width: 25px; right: -3px; top: -13%; }
     .growth-sprig { width: 29px; right: -9px; bottom: -4px; }
     .growth-blocks { width: 23px; height: 23px; top: -6%; right: -3px; }
-    .growth-preview-note { font-size: 13px; margin-top: 20px; }
     .growth-choice { display: block; margin-top: 20px; padding-top: 22px; }
     .growth-choice h3 { font-size: 25px; }
     .growth-choice p { font-size: 16px; }

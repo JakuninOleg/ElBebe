@@ -1,0 +1,62 @@
+@layer brandRefresh {
+  :root {
+    --ink: #2b373c;
+    --purple: var(--ink);
+    --body: #48565c;
+    --font: 'Nunito Sans Variable', sans-serif;
+  }
+
+  body { font-weight: 400; }
+  h1, h2, h3, h4 { color: var(--ink); font-weight: 700; }
+  .hero-title { color: var(--ink); font-weight: 800; }
+  .hero h1.hero-service { font-weight: 600; }
+  .button { font-weight: 700; }
+  .desktop-nav a, .mobile-nav a { color: var(--ink); font-weight: 600; }
+  .hero-description, .hero-facts > .hero-location, .hero-facts > .hero-license,
+  .hero-fact-copy > strong, .hero-values > li { color: var(--ink); }
+  .hero-fact-copy > strong, .hero-values > li { font-weight: 700; }
+  .hero-fact-copy > small { color: var(--body); font-weight: 400; }
+  .hero-license:hover .hero-fact-copy > strong { color: #087f87; }
+  .brand img { height: auto; max-height: 120px; }
+  .footer-brand > a > img { height: auto; }
+  .footer-address, .footer-contact-links a, .footer-contact-links button,
+  .footer-price-link, .footer-brand p, .footer-bottom, .section-heading > p { color: var(--body); }
+  .map-card > span { color: var(--ink); }
+
+  .faq-item summary, .faq-trigger { color: var(--ink); font-weight: 700; }
+  .faq-answer { color: var(--body); font-weight: 400; }
+  .invitation-intro > p, .invitation-form-intro,
+  .visit-form .consent-row, .invitation-success > p { color: var(--body); }
+  .visit-field > label { color: var(--ink); font-weight: 600; }
+  .visit-field > input { color: var(--ink); border-color: #cbd1d3; }
+  .visit-field > input::placeholder { color: #727e84; }
+  .visit-field > input:disabled { -webkit-text-fill-color: #727e84; }
+  .visit-field > input:hover:not(:disabled) { border-color: #078b91; }
+  .visit-field > input:focus-visible { border-color: #078b91; outline-color: #82cbd0; }
+  .visit-form .consent-row input:focus-visible { outline-color: #82cbd0; }
+  .visit-form .consent-row a { color: #087f87; }
+  .invitation-note, .invitation-bunny-note { color: #3f6970; }
+  .invitation-letter { margin-top: 110px; }
+  .invitation-bunny { width: 216px; height: 216px; right: 24px; top: -202px; }
+  .invitation-bunny-note { right: 260px; top: -105px; }
+  a:focus-visible, button:focus-visible, summary:focus-visible { outline-color: #078b91; }
+
+  @media (min-width: 901px) and (max-width: 1100px) {
+    .invitation-letter { margin-top: 98px; }
+    .invitation-bunny { width: 188px; height: 188px; top: -176px; right: 20px; }
+    .invitation-bunny-note { right: 225px; top: -92px; }
+  }
+  @media (max-width: 900px) {
+    .invitation-letter { margin-top: 180px; }
+    .invitation-bunny { width: 180px; height: 180px; top: -168px; right: 18px; }
+    .invitation-bunny-note { right: 211px; top: -86px; font-size: 25px; }
+  }
+  @media (max-width: 760px) {
+    .brand img { max-height: 98px; }
+  }
+  @media (max-width: 360px) {
+    .invitation-letter { margin-top: 164px; }
+    .invitation-bunny { width: 164px; height: 164px; top: -153px; right: 12px; }
+    .invitation-bunny-note { right: 190px; top: -82px; width: 82px; font-size: 22px; }
+  }
+}

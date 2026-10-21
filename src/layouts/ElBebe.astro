@@ -1,5 +1,5 @@
 ---
-import '@fontsource-variable/nunito';
+import '@fontsource-variable/nunito-sans/index.css';
 import '@fontsource-variable/caveat';
 import '../styles/el-bebe.css';
 import '../styles/el-bebe-refinements.css';
@@ -11,6 +11,7 @@ import '../styles/el-bebe-groups-visit.css';
 import '../styles/el-bebe-first-days.css';
 import '../styles/el-bebe-icon-art.css';
 import '../styles/el-bebe-content.css';
+import '../styles/el-bebe-brand.css';
 import ArtDefs from '../components/el-bebe/ArtDefs.astro';
 import Header from '../components/el-bebe/Header.astro';
 import Footer from '../components/el-bebe/Footer.astro';
@@ -20,7 +21,7 @@ import { EmDashHead, EmDashBodyStart, EmDashBodyEnd, createPublicPageContext } f
 interface Props { title: string; description: string; address?: string; phone?: string; }
 const { title, description, address = siteLocation.address, phone = '' } = Astro.props;
 const canonical = new URL(Astro.url.pathname, Astro.url.origin).href;
-const page = createPublicPageContext({ Astro, kind: 'custom', pageType: 'website', title, pageTitle: title, description, canonical, image: '/images/el-bebe/hero.webp', siteName: 'Эльбебе', seo: { robots: 'noindex, nofollow' } });
+const page = createPublicPageContext({ Astro, kind: 'custom', pageType: 'website', title, pageTitle: title, description, canonical, image: '/images/el-bebe/hero.webp', siteName: 'Эльбэби', seo: { robots: 'noindex, nofollow' } });
 ---
 <!doctype html>
 <html lang="ru">

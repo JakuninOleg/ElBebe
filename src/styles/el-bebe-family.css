@@ -30,7 +30,6 @@
   .surveillance-note { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; position: absolute; top: -28px; right: -10px; width: 139px; min-height: 104px; padding: 14px; color: #387a9d; background: #d0f1f2; border-radius: 52% 48% 43% 57% / 49% 51% 49% 51%; font-size: 20px; line-height: .95; text-align: center; transform: rotate(10deg); }
   .surveillance-drops { width: 49px; height: 58px; left: -8px; top: 2px; transform: rotate(-23deg); }
   .surveillance-heart { width: 51px; height: 57px; right: -4px; bottom: 30px; transform: rotate(20deg); }
-  .surveillance-photo figcaption { font-size: 11px; color: #74657a; text-align: center; margin-top: 8px; }
 
   .educators { position: relative; margin-top: 56px; }
   .educators-heading { display: flex; align-items: center; gap: 30px; }
@@ -58,7 +57,6 @@
   .educator h3 { font-size: 20px; line-height: 1.25; }
   .educator-role { color: #715580; font-size: 14px; line-height: 1.4; margin-top: 6px; }
   .educator-bio { color: #59446a; font-size: 14px; line-height: 1.55; margin-top: 14px; white-space: pre-line; }
-  .educators-preview figcaption { max-width: 650px; color: #74657a; font-size: 13px; line-height: 1.5; margin: 12px auto 0; text-align: center; }
   .educators-side-wash { width: 130px; height: 190px; left: -230px; top: -15px; transform: rotate(30deg); }
 
   .family-capital { display: grid; grid-template-columns: minmax(0,.95fr) minmax(0,1.05fr); gap: 70px; align-items: center; position: relative; margin-top: 60px; padding: 15px 18px 20px; }
@@ -121,7 +119,6 @@
     .surveillance-note>.icon { width: 17px; height: 17px; }
     .surveillance-drops { width: 34px; height: 41px; top: 17px; left: -7px; }
     .surveillance-heart { width: 34px; height: 41px; right: -2px; bottom: 20px; }
-    .surveillance-photo figcaption { font-size: 10px; margin-top: 6px; }
     .educators { margin-top: 38px; }
     .educators-heading { gap: 12px; align-items: flex-start; }
     .educators-title { gap: 9px; }
@@ -135,7 +132,6 @@
     .educator-ornament { width: 27px; height: 27px; right: -1px; }
     .educator h3 { font-size: 17px; }
     .educator-role, .educator-bio { font-size: 13px; }
-    .educators-preview figcaption { font-size: 12px; text-align: left; margin-top: 14px; }
     .educators-side-wash { width: 90px; height: 120px; left: -108px; top: 110px; }
     .family-capital { grid-template-columns: minmax(0,1fr); gap: 27px; margin-top: 38px; padding: 0; }
     .capital-art { width: 80%; max-width: 365px; justify-self: center; margin-top: 6px; padding-top: 24px; }

@@ -8,7 +8,7 @@ const showcase = import.meta.env.MODE === 'showcase';
   <div class="dialog-content" data-visit-content>
     <span class="little-heart" aria-hidden="true"><Icon name="heart" size={48}/></span>
     <h2 id="visit-title">Давайте знакомиться!</h2>
-    {showcase ? <><p>Это демонстрационная версия сайта. Запись через форму пока недоступна.</p><button class="button" type="button" data-close-visit>Понятно <Icon name="check" size={20}/></button></> : <>
+    {showcase ? <><p>Приходите познакомиться с садом и воспитателями. Адрес и способы связи — на странице контактов.</p><a class="button" href="/kontakty/">Контакты сада <Icon name="arrow" size={20}/></a></> : <>
     <p>Оставьте номер — договоримся о встрече, покажем садик и ответим на ваши вопросы.</p>
     <VisitForm id="visit"/>
     </>}
