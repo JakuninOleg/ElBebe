@@ -5,14 +5,15 @@ import { groupCards } from '../../data/group-cards';
 import IllustratedIcon from './IllustratedIcon.astro';
 import Icon from './Icon.astro';
 import Decor from './Decor.astro';
-interface Props { groups: SiteContent['groups']; headingLevel?: 'h1' | 'h2'; }
-const { groups = [], headingLevel = 'h2' } = Astro.props;
+import { groupPages } from '../../data/group-pages';
+interface Props { groups: SiteContent['groups']; headingLevel?: 'h1' | 'h2'; showHeading?: boolean; }
+const { groups = [], headingLevel = 'h2', showHeading = true } = Astro.props;
 const Heading = headingLevel;
 const CardHeading = headingLevel === 'h1' ? 'h2' : 'h3';
 const imageDescriptions = ['Дети строят из кубиков вместе с педагогом', 'Ребёнок рисует цветными карандашами', 'Дети собирают учебного робота'];
 ---
-<section class="group-programs section container" id="gruppy" aria-labelledby="growth-title">
-  <header class="programs-heading">
+<section class="group-programs section container" id="gruppy" aria-labelledby={showHeading ? 'growth-title' : undefined} aria-label={showHeading ? undefined : 'Программы групп'}>
+  {showHeading && <header class="programs-heading">
     <div class="programs-title">
       <svg class="programs-title-wash" viewBox="0 0 600 110" preserveAspectRatio="none" aria-hidden="true"><path d="M10 63C63 30 126 1 202 17S335 67 419 36 593 18 591 63 487 106 374 93 188 91 92 101 1 83 10 63Z" fill="#fce9f0"/></svg>
       <Decor kind="drops" class="programs-title-rays programs-title-rays--left"/>
@@ -20,7 +21,7 @@ const imageDescriptions = ['Дети строят из кубиков вмест
       <Decor kind="drops" class="programs-title-rays programs-title-rays--right"/>
     </div>
     <p>Английский, логопед, робототехника — у каждой группы своя программа.</p>
-  </header>
+  </header>}
   <div class="programs-grid">{groupCards.map((program, index) => {
     const photo = groups.find(group => group.id === program.id || group.title === program.title)?.image;
     return <article class={`program-card program-card--${program.accent}`} id={`group-${program.id}`}>
@@ -35,7 +36,7 @@ const imageDescriptions = ['Дети строят из кубиков вмест
         <CardHeading>{program.title}</CardHeading>
         <p class="program-card-summary">{program.summary}</p>
         <ul class="program-lessons">{program.lessons.map(lesson => <li><span class="program-lesson-art"><IllustratedIcon name={lesson.icon} size={48}/></span><span>{lesson.label}</span></li>)}</ul>
-        <a class="program-card-link" href={`/gruppy/#schedule-${program.id}`} aria-label={`${program.title}: занятия и расписание`}>Занятия и расписание <Icon name="arrow" size={22}/></a>
+        <a class="program-card-link" href={`/gruppy/${groupPages[program.id].slug}/`} aria-label={`${program.title}: занятия и расписание`}>Подробнее о группе <Icon name="arrow" size={22}/></a>
       </div>
     </article>;
   })}</div>

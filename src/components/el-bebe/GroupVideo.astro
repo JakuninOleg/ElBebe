@@ -1,0 +1,12 @@
+---
+import Icon from './Icon.astro';
+import Decor from './Decor.astro';
+interface Props { groupId: string; title: string; }
+const { groupId, title } = Astro.props;
+---
+<section class="group-video container content-section" aria-labelledby="group-video-title">
+  <div><h2 id="group-video-title">Маленькие открытия<br/>в движении</h2><p>Короткие видео помогут увидеть, как дети занимаются, играют и пробуют новое.</p><span class="hand-note" aria-hidden="true">Посмотреть<br/>одним глазком ♡</span></div>
+  <div class="group-video-frame" data-video-slot={groupId} role="img" aria-label={`Видео: ${title.toLowerCase()}. Готовится к публикации.`}>
+    <Icon name="camera" size={58}/><strong>Видео из жизни группы</strong><span>Скоро здесь</span><Decor kind="drops"/>
+  </div>
+</section>

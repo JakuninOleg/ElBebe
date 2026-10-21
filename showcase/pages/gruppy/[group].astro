@@ -1,0 +1,9 @@
+---
+import GroupDetail from '../../../src/components/el-bebe/GroupDetail.astro';
+import { groupPages } from '../../../src/data/group-pages';
+export function getStaticPaths() {
+  return Object.entries(groupPages).map(([groupId, page]) => ({ params: { group: page.slug }, props: { groupId } }));
+}
+const { groupId } = Astro.props;
+---
+<GroupDetail groupId={groupId}/>

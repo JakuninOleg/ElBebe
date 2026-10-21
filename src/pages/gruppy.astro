@@ -1,29 +1,25 @@
 ---
-import Layout from '../layouts/ElBebe.astro';
-import Callout from '../components/el-bebe/Callout.astro';
-import GroupSchedules from '../components/el-bebe/GroupSchedules.astro';
-import Icon from '../components/el-bebe/Icon.astro';
-import { activities } from '../data/el-bebe';
+import Inner from '../layouts/Inner.astro';
 import Groups from '../components/el-bebe/Groups.astro';
+import FirstDays from '../components/el-bebe/FirstDays.astro';
+import Included from '../components/el-bebe/Included.astro';
+import Faq from '../components/el-bebe/Faq.astro';
+import Icon from '../components/el-bebe/Icon.astro';
 import { getSiteContent } from '../lib/cms';
-const { groups, rates, settings } = await getSiteContent();
-const formats = rates.filter(rate => !rate.isEntryFee);
-const descriptions = [
-  'Краски, бумага, пластилин и самые разные идеи. В творчестве важен сам процесс: пробовать материалы, замечать цвета и находить свой способ выразить задуманное.',
-  'Читаем, рассматриваем картинки, рассказываем истории и разговариваем друг с другом. Учимся задавать вопросы, слушать собеседника и делиться впечатлениями.',
-  'Сравниваем, собираем, считаем в игре и ищем, как всё устроено. Конструктор и простые задачи дают повод подумать, попробовать и придумать решение.',
-  'Подвижные игры помогают узнавать возможности своего тела, координировать движения и действовать вместе с другими детьми.',
-  'На улице есть место движению и наблюдениям: замечать смену погоды, рассматривать растения и находить интересное в знакомом дворе.',
-  'Убирать после игры, заботиться о вещах и просить о помощи. Маленькие повседневные дела помогают почувствовать: «Я могу сам».',
+import { groupCards } from '../data/group-cards';
+import { groupPages } from '../data/group-pages';
+const { groups, rates } = await getSiteContent();
+const questions = [
+  { question: 'Чем отличаются младшая, средняя и старшая группы?', answer: 'У каждой группы своя программа. В младшей — развитие речи, сенсорика, Монтессори, музыка и первые задачи с кубиками. В средней добавляются английский язык, азбука, хореография и практические занятия. В старшей — подготовка к школе, робототехника, нейроигры, шахматы и финансовая грамотность. На страницах групп можно посмотреть полный перечень и недельное расписание.' },
+  { question: 'Все ли занятия входят в стоимость?', answer: 'Да. Все занятия по программе группы и питание в часы посещения включены в стоимость детского сада. В стоимость полного дня входят четыре приёма пищи: завтрак, обед, полдник и ужин. Вступительный взнос указан отдельно в прайсе.', link: { href: '/stoimost/', label: 'Посмотреть цены' } },
+  { question: 'Можно ли посещать сад неполный день или ночью?', answer: 'Эльбэби работает 24/7. Есть полный и неполный день, почасовое и разовое посещение, выходные дни и ночное пребывание. Для ночи и выходного дня в прайсе предусмотрены отдельные режимы. Перед началом согласуем время посещения, свободные места и условия договора.' },
 ];
 ---
-<Layout title="Группы и занятия в детском саду Эльбэби — Сочи" description="Занятия младшей, средней и старшей групп Эльбэби: английский язык, логопед, робототехника, шахматы, подготовка к школе. Расписание по дням недели." address={settings.address} phone={settings.phone}>
-  <nav class="breadcrumbs group-page-breadcrumbs container" aria-label="Хлебные крошки"><a href="/">Главная</a><span aria-hidden="true">/</span><span>Группы и занятия</span></nav>
-  <Groups groups={groups} headingLevel="h1"/>
-  <GroupSchedules/>
-  <section class="container content-section editorial" id="rezhimy"><h2>Полный день, утро или вечер</h2><p>Можно выбрать полный или неполный день, почасовое и разовое посещение. Для выходного дня и ночного пребывания в прайсе предусмотрены отдельные варианты. Наличие мест и условия выбранного режима уточняем перед записью.</p><dl class="regime-list">{formats.map(rate => <div><dt>{rate.title}</dt><dd>{rate.hours || 'Время согласуем при записи'}</dd></div>)}</dl><a class="text-link" href="/stoimost/">Сравнить цены и условия <Icon name="arrow" size={20}/></a></section>
-  <section class="container content-section split-section"><img src="/images/el-bebe/together.webp" alt="Совместная игра с педагогом" width="1400" height="933"/><div><h2>Группа, в которой ребёнку будет хорошо</h2><p>При знакомстве поговорим о возрасте ребёнка, его привычках и опыте посещения сада. Уточним свободные места и подходящий режим.</p><p>Стоимость и состав услуг обсудим до начала посещений.</p><a class="text-link" href="/stoimost/">Режимы и стоимость <Icon name="arrow" size={20}/></a></div></section>
-  <section class="container content-section"><h2>Развитие через игру</h2>{activities.map((item,i) => <article class="activity-detail" id={['tvorchestvo','rech','logika','dvizhenie','progulki','navyki'][i]}><img src={`/images/el-bebe/${item.image}.webp`} alt="" width="500" height="500" loading="lazy"/><div><h3>{item.title}</h3><p>{descriptions[i]}</p></div></article>)}</section>
-  <section class="container content-section editorial" id="adaptaciya"><h2>Адаптация к детскому саду — первые посещения</h2><p>Ребёнку нужно время, чтобы привыкнуть к новому месту и людям. Перед первыми посещениями обсудим его распорядок, любимые занятия и способы успокоиться. Важно, чтобы родители и воспитатель могли говорить о том, как проходят первые дни.</p><p>Порядок адаптации согласуем лично: универсального срока, подходящего каждому ребёнку, нет.</p><button type="button" class="button" data-open-visit>Обсудить первые посещения <Icon name="arrow" size={20}/></button><p><a href="/roditelyam/">Вопросы родителей</a></p></section>
-  <Callout compact/>
-</Layout>
+<Inner title="Группы детского сада Эльбэби в Сочи — занятия и расписание" heading="Наши группы" label="Наши группы" description="Младшая, средняя и старшая группы Эльбэби в Сочи. Логопед, английский, робототехника, шахматы и подготовка к школе. Питание и занятия включены." intro="У каждой группы — свои интересы, занятия и открытия. В младшей знакомимся с миром, в средней больше общаемся и пробуем, в старшей готовимся к школе и исследуем новое." mascot note="У каждого — свой интерес">
+  <Groups groups={groups} headingLevel="h1" showHeading={false}/>
+  <div class="container content-section"><Included/></div>
+  <section class="schedule-links container content-section" aria-labelledby="weekly-title"><h2 id="weekly-title">Расписание вашей группы</h2><p>Каждый день недели расписан отдельно: занятия, прогулки, питание и отдых.</p><div>{groupCards.map(group => <a id={`schedule-${group.id}`} href={`/gruppy/${groupPages[group.id].slug}/#weekly-title`}><span>{group.title}</span><span>Смотреть неделю <Icon name="arrow" size={20}/></span></a>)}</div></section>
+  <section class="container content-section regime-editorial" id="rezhimy"><div><h2>Сад работает 24/7.<br/>Выбирайте свой ритм.</h2><p>Полный день, несколько часов, выходной или ночное пребывание. Питание и занятия включены в стоимость выбранного режима.</p><a class="text-link" href="/stoimost/">Сравнить цены <Icon name="arrow" size={20}/></a></div><dl class="regime-list">{rates.filter(rate => !rate.isEntryFee).map(rate => <div><dt>{rate.title}</dt><dd>{rate.hours || 'Время согласуем при записи'}</dd></div>)}</dl></section>
+  <div id="adaptaciya"><FirstDays/></div>
+  <section class="container content-section group-detail-faq"><h2>Как выбрать группу</h2><Faq items={questions}/></section>
+</Inner>

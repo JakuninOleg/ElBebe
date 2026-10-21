@@ -2,7 +2,7 @@
 import IllustratedIcon from './IllustratedIcon.astro';
 interface Props { name: string; class?: string; size?: number; }
 const { name, class: className = '', size = 24 } = Astro.props;
-const illustrated = Astro.url.pathname === '/' && !['arrow', 'chevron', 'menu', 'close', 'check'].includes(name);
+const illustrated = !['arrow', 'chevron', 'menu', 'close', 'check'].includes(name);
 const paths: Record<string, string> = {
   arrow: '<path d="M4 12h15m-6-6 6 6-6 6"/>',
   heart: '<path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8Z"/>',

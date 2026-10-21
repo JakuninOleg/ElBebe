@@ -1,0 +1,19 @@
+---
+import IllustratedIcon from './IllustratedIcon.astro';
+import Decor from './Decor.astro';
+import Sprig from './Sprig.astro';
+interface Props { heading: string; intro: string; label?: string; art?: string; note?: string; mascot?: boolean; parent?: { href: string; label: string }; }
+const { heading, intro, label = heading, art = 'blocks', note = 'Маленькие шаги — большие открытия', mascot = false, parent } = Astro.props;
+---
+<section class:list={['inner-intro container', { 'inner-intro--quiet': ['Сведения и документы', 'Персональные данные', 'Согласие'].includes(label) }]} aria-labelledby="page-heading">
+  <nav class="breadcrumbs" aria-label="Хлебные крошки"><a href="/">Главная</a><span aria-hidden="true">/</span>{parent && <><a href={parent.href}>{parent.label}</a><span aria-hidden="true">/</span></>}<span aria-current="page">{label}</span></nav>
+  <div class="inner-intro-grid">
+    <div class="inner-intro-copy"><h1 id="page-heading">{heading}</h1><p>{intro}</p></div>
+    <div class:list={['inner-intro-art', { 'inner-intro-art--bunny': mascot }]} aria-hidden="true">
+      <Decor kind="wash" color="#dceee3" class="inner-intro-wash"/>
+      {mascot ? <img src="/images/el-bebe/bunny-approved.svg" alt="" width="390" height="490"/> : <IllustratedIcon name={art} size={150}/>}
+      {note && <span class="hand-note">{note}</span>}<Decor kind="drops" class="inner-intro-rays"/><Sprig class="inner-intro-sprig"/>
+    </div>
+  </div>
+  <Decor kind="wash" color="#ffe3eb" class="inner-intro-side"/>
+</section>

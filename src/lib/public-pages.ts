@@ -1,6 +1,6 @@
 /** Intended public pages; native CMS records and administration stay intact. */
 export const publicPages = [
-  '/', '/gruppy/', '/stoimost/', '/den-v-sadu/', '/komanda/',
+  '/', '/gruppy/', '/gruppy/mladshaya/', '/gruppy/srednyaya/', '/gruppy/starshaya/', '/stoimost/', '/den-v-sadu/', '/komanda/',
   '/prostranstvo/', '/roditelyam/', '/kontakty/', '/svedeniya/',
   '/privacy/', '/soglasie/',
 ];

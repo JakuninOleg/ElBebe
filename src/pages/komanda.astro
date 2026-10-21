@@ -1,10 +1,17 @@
 ---
 import Inner from '../layouts/Inner.astro';
 import { getSiteContent } from '../lib/cms';
-import { Image } from '../lib/emdash-ui';
+import Educators from '../components/el-bebe/Educators.astro';
+import IllustratedIcon from '../components/el-bebe/IllustratedIcon.astro';
+import Faq from '../components/el-bebe/Faq.astro';
 const { team } = await getSiteContent();
+const questions = [
+  { question: 'Можно ли познакомиться с воспитателями до зачисления?', answer: 'Да. На экскурсии познакомимся с воспитателями, обсудим привычки ребёнка и программу группы. Расскажите, что помогает ему чувствовать себя спокойно, какие занятия интересны и есть ли опыт посещения другого детского сада.' },
+  { question: 'Есть ли занятия с логопедом и психологом?', answer: 'В расписании младшей группы есть занятия с логопедом, в средней и старшей — с логопедом и психологом. Эти занятия включены в стоимость посещения по программе группы. Точное время указано в недельных расписаниях.', link: { href: '/gruppy/', label: 'Занятия по группам' } },
+];
 ---
 <Inner title="Воспитатели детского сада Эльбэби в Сочи" heading="Наши воспитатели" label="Воспитатели" description="Знакомство с воспитателями Эльбэби: команда, подход к детям и общение с родителями." intro="Для ребёнка воспитатель — человек, к которому можно подойти с вопросом, радостью или тревогой. Для родителя — тот, с кем можно обсудить, как проходит день.">
-  {team.length > 0 ? <section class="container content-section"><div class="content-grid">{team.map(person => <article class="team-card">{person.image && <Image image={person.image} alt={person.name} width={600} height={600}/>}<h3>{person.name}</h3><p class="role">{person.role}</p><p>{person.bio}</p></article>)}</div></section> : <section class="container content-section editorial"><h2>Познакомимся лично</h2><p>Приходите на экскурсию: познакомимся с воспитателями, поговорим о привычках ребёнка и о том, что для вашей семьи важно в садике.</p></section>}
-  <section class="container content-section"><div class="content-grid"><article class="content-card"><h3>Замечать</h3><p>Интересы, настроение и маленькие успехи каждого ребёнка.</p></article><article class="content-card"><h3>Поддерживать</h3><p>Помогать пробовать, договариваться и справляться с трудностями.</p></article><article class="content-card"><h3>Быть на связи</h3><p>Обсуждать с родителями день ребёнка и важные для него перемены.</p></article></div></section>
+  <Educators team={team} heading="Познакомимся с командой"/>
+  <section class="container content-section"><div class="content-grid"><article class="content-card"><IllustratedIcon name="lesson-sensory" size={68}/><h3>Замечать</h3><p>Интересы, настроение и маленькие успехи каждого ребёнка.</p></article><article class="content-card"><IllustratedIcon name="heart" size={68}/><h3>Поддерживать</h3><p>Помогать пробовать, договариваться и справляться с трудностями.</p></article><article class="content-card"><IllustratedIcon name="chat" size={68}/><h3>Быть на связи</h3><p>Обсуждать с родителями день ребёнка и важные для него перемены.</p></article></div></section>
+  <section class="container content-section group-detail-faq"><h2>О педагогах и занятиях</h2><Faq items={questions}/></section>
 </Inner>

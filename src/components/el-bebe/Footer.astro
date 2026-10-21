@@ -7,7 +7,7 @@ const { address, phone } = Astro.props;
 <footer class="site-footer" id="kontakty">
   <div class="container footer-main">
     <div class="footer-brand"><a href="/" aria-label="Эльбэби — на главную"><img src="/images/el-bebe/logo-ru-approved.svg" alt="Детский сад Эльбэби" width="1495" height="775" loading="lazy"/></a><p><span aria-hidden="true"><Icon name="heart" size={28}/></span> С любовью к детям.<br/>С заботой о будущем.</p></div>
-    <div class="footer-contacts"><p class="footer-address"><Icon name="pin"/>{address}</p><div class="footer-contact-links">
+    <div class="footer-contacts"><p class="footer-address"><Icon name="pin"/>{address}</p><p class="footer-hours">Работаем 24/7</p><div class="footer-contact-links">
       {phone ? <a href={`tel:${phone.replace(/[^+\d]/g, '')}`}><Icon name="phone"/><span>Позвонить</span></a> : <button type="button" data-open-visit><Icon name="phone"/><span>Связаться</span></button>}
       <button type="button" data-open-visit><Icon name="mail"/><span>Написать нам</span></button><a href="/kontakty/"><Icon name="clock"/><span>Как нас найти</span></a>
     </div><a class="footer-price-link" href="/stoimost/">Стоимость и оплата маткапиталом <Icon name="arrow" size={17}/></a></div>
