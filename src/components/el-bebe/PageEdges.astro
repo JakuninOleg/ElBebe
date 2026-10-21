@@ -1,0 +1,11 @@
+---
+import Decor from './Decor.astro';
+import Sprig from './Sprig.astro';
+import IllustratedIcon from './IllustratedIcon.astro';
+---
+<div class="page-edges" aria-hidden="true">
+  <Decor kind="wash" color="#fff0c2" class="page-edge-wash page-edge-wash--left"/>
+  <Sprig class="page-edge-leaf"/>
+  <Decor kind="wash" color="#fce6ed" class="page-edge-wash page-edge-wash--right"/>
+  <span class="page-edge-sun"><IllustratedIcon name="sun" size={60}/></span>
+</div>

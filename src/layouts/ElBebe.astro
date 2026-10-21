@@ -1,5 +1,8 @@
 ---
-import '@fontsource-variable/nunito-sans/index.css';
+import '../styles/el-bebe-fonts.css';
+import nunitoCyrillic from '@fontsource-variable/nunito-sans/files/nunito-sans-cyrillic-wght-normal.woff2?url';
+import nunitoLatin from '@fontsource-variable/nunito-sans/files/nunito-sans-latin-wght-normal.woff2?url';
+import nunitoSymbols from '@fontsource-variable/nunito-sans/files/nunito-sans-latin-ext-wght-normal.woff2?url';
 import '@fontsource-variable/caveat';
 import '../styles/el-bebe.css';
 import '../styles/el-bebe-refinements.css';
@@ -15,6 +18,7 @@ import '../styles/el-bebe-brand.css';
 import '../styles/el-bebe-group-cards.css';
 import '../styles/el-bebe-editorial.css';
 import '../styles/el-bebe-layout-polish.css';
+import '../styles/el-bebe-journey.css';
 import ArtDefs from '../components/el-bebe/ArtDefs.astro';
 import Header from '../components/el-bebe/Header.astro';
 import Footer from '../components/el-bebe/Footer.astro';
@@ -32,6 +36,9 @@ const page = createPublicPageContext({ Astro, kind: 'custom', pageType: 'website
     <meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/>
     <meta name="theme-color" content="#fffdf7"/>
     <title>{title}</title>
+    <link rel="preload" href={nunitoCyrillic} as="font" type="font/woff2" crossorigin/>
+    <link rel="preload" href={nunitoLatin} as="font" type="font/woff2" crossorigin/>
+    <link rel="preload" href={nunitoSymbols} as="font" type="font/woff2" crossorigin/>
     <link rel="icon" type="image/x-icon" sizes="16x16 32x32 48x48" href="/favicon.ico?v=approved-bunny"/>
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-bunny-16.png?v=approved-bunny"/>
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-bunny-32.png?v=approved-bunny"/>

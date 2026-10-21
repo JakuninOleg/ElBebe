@@ -3,7 +3,7 @@
   *,*::before,*::after{box-sizing:border-box}body,h1,h2,h3,h4,p,figure,blockquote{margin:0}button,input,textarea{font:inherit}button,a{-webkit-tap-highlight-color:transparent}button{cursor:pointer}img,svg{display:block}img{max-width:100%}a,button{color:inherit}button{border:0}ul,ol{padding:0;margin:0}[hidden]{display:none!important}
 }
 @layer base {
-  :root{--ivory:#fffdf7;--purple:#6d2194;--body:#776086;--coral:#ff686b;--aqua:#c4eeea;--font:'Nunito Variable',sans-serif;scroll-behavior:smooth;scroll-padding-top:30px;color-scheme:light}
+  :root{--ivory:#fffdf7;--purple:#6d2194;--body:#776086;--coral:#ff686b;--aqua:#c4eeea;--font:'Nunito Sans Variable',sans-serif;scroll-behavior:smooth;scroll-padding-top:30px;color-scheme:light}
   body{background:var(--ivory);color:var(--body);font-family:var(--font);font-weight:600;font-size:17px;line-height:1.4;overflow-x:clip}body.dialog-open{overflow:hidden}h1,h2,h3,h4{color:var(--purple);font-weight:950;line-height:1.06;letter-spacing:-.035em}h1{font-size:clamp(48px,5.2vw,76px)}h2{font-size:clamp(32px,3.3vw,46px)}h3{font-size:22px;letter-spacing:-.025em}a{text-underline-offset:4px}button{background:none}a,button,input,summary{outline-offset:5px}a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid #a44bc0}::selection{background:#ffdd8d;color:var(--purple)}
 }
 @layer components {

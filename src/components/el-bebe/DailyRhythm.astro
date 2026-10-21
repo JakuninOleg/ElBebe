@@ -1,13 +1,23 @@
 ---
 import { dailySchedule } from '../../data/daily-schedule';
 import IllustratedIcon from './IllustratedIcon.astro';
+import Decor from './Decor.astro';
 const chapters = [
-  { title: 'Утро и открытия', art: 'morning', color: 'yellow', items: dailySchedule.slice(0, 5) },
-  { title: 'Обед и отдых', art: 'apple', color: 'blue', items: dailySchedule.slice(5, 9) },
-  { title: 'Вторая половина дня', art: 'heart', color: 'pink', items: dailySchedule.slice(9) },
+  { title: 'Начинаем без спешки', art: 'morning', image: 'visit-welcome', alt: 'Встреча ребёнка с воспитателем', items: dailySchedule.slice(0,3), note: 'Здесь меня ждут' },
+  { title: 'Пробуем и открываем', art: 'palette', image: 'group-middle-art', alt: 'Рисование в группе', items: dailySchedule.slice(3,5) },
+  { title: 'Время выдохнуть', art: 'moon', image: 'room', alt: 'Светлое пространство для спокойных занятий', items: dailySchedule.slice(5,9), note: 'Растём в своём ритме' },
+  { title: 'Ещё столько интересного', art: 'lesson-robot', image: 'group-older-robot', alt: 'Конструирование и занятия с роботом', items: dailySchedule.slice(9,12) },
+  { title: 'С историями — домой', art: 'heart', image: 'garden', alt: 'Ребёнок на прогулке', items: dailySchedule.slice(12), note: 'До завтра!' },
 ];
 ---
 <section class="day-rhythm container content-section" id="raspisanie" aria-labelledby="rhythm-title">
-  <div class="section-copy"><h2 id="rhythm-title">Распорядок дня в Эльбэби</h2><p>Общие события дня для всех групп. Занятия и точное время по будням — в <a href="/gruppy/#weekly-title">расписании вашей группы</a>.</p></div>
-  <div class="day-rhythm-chapters">{chapters.map(chapter => <article class={`day-rhythm-chapter day-rhythm-chapter--${chapter.color}`}><header><IllustratedIcon name={chapter.art} size={72}/><h3>{chapter.title}</h3></header><dl>{chapter.items.map(([time, activity]) => <div><dt>{time}</dt><dd>{activity}</dd></div>)}</dl></article>)}</div>
+  <div class="section-copy"><h2 id="rhythm-title">Распорядок дня в Эльбэби</h2><p>От первой утренней встречи до вечерних историй. Время отдельных событий зависит от группы — оно указано в <a href="/gruppy/#weekly-title">недельном расписании</a>.</p></div>
+  <div class="rhythm-route">
+    <svg class="rhythm-route-line" viewBox="0 0 100 1000" preserveAspectRatio="none" aria-hidden="true"><path d="M50 0C-15 90 115 110 50 200S-15 310 50 400S115 510 50 600S-15 710 50 800S115 910 50 1000" fill="none" stroke="currentColor" stroke-width="2" vector-effect="non-scaling-stroke"/></svg>
+    {chapters.map(chapter => <article class="rhythm-stop">
+      <div class="rhythm-stop-photo"><img src={`/images/el-bebe/${chapter.image}.webp`} alt={chapter.alt} width="680" height="460" loading="lazy"/>{chapter.note && <span class="hand-note" aria-hidden="true">{chapter.note}</span>}</div>
+      <div class="rhythm-stop-copy"><header><IllustratedIcon name={chapter.art} size={52}/><h3>{chapter.title}</h3></header><dl>{chapter.items.map(([time, activity]) => <div><dt>{time}</dt><dd>{activity}</dd></div>)}</dl></div>
+    </article>)}
+  </div>
+  <div class="day-meal-note"><IllustratedIcon name="apple" size={58}/><p><strong>Завтрак, обед, полдник и ужин</strong><span>Четыре приёма пищи и все занятия включены в стоимость полного дня.</span></p><Decor kind="drops"/></div>
 </section>

@@ -1,9 +1,7 @@
 ---
 import Inner from '../layouts/Inner.astro';
-import Puzzle from '../components/el-bebe/Puzzle.astro';
-import { daySteps } from '../data/el-bebe';
+import DayMap from '../components/el-bebe/DayMap.astro';
 import DailyRhythm from '../components/el-bebe/DailyRhythm.astro';
-import Included from '../components/el-bebe/Included.astro';
 import Faq from '../components/el-bebe/Faq.astro';
 const questions = [
   { question: 'Сколько приёмов пищи на полном дне?', answer: 'На полном дне в детском саду — четыре приёма пищи: завтрак, обед, полдник и ужин. Питание включено в стоимость. Актуальное меню обсудим до начала посещений; если у ребёнка есть аллергия или пищевые ограничения, обязательно расскажите о них заранее.' },
@@ -12,9 +10,7 @@ const questions = [
 ];
 ---
 <Inner title="Распорядок дня в детском саду Эльбэби — Сочи" heading="Как проходит день в Эльбэби" label="День в саду" description="Распорядок дня детского сада Эльбэби в Сочи: встреча с 8:00, занятия, прогулки, питание, дневной сон и свободная игра." intro="В течение дня чередуем занятия, прогулки, питание и отдых. Посмотрите распорядок сада — он поможет представить день ребёнка и подготовиться к первым посещениям.">
-  <div class="container content-section"><Included/></div>
-  <section class="container content-section"><h2>Время для всего важного</h2><div class="day-page-list">{daySteps.map((item,i) => <article><Puzzle color={item.color} icon={item.icon}/><div><h3>{item.title}</h3><p>{[ 'Начинаем с приветствия. Можно освоиться, выбрать игру и пообщаться с воспитателем.', 'Рисуем, строим, разговариваем и исследуем. Чередуем занятия и свободную игру.', 'Делаем паузу, обедаем и восстанавливаем силы. Обсуждаем привычки и особенности питания с родителями.', 'Двигаемся, играем и наблюдаем за миром. Порядок прогулок зависит от погоды и режима группы.', 'Делимся впечатлениями дня. Воспитатель расскажет, что было интересно ребёнку и как он себя чувствовал.' ][i]}</p></div></article>)}</div></section>
+  <DayMap/>
   <DailyRhythm/>
-  <section class="container content-section editorial"><h2>Питание и дневной отдых</h2><p>В стоимость полного дня включены четыре приёма пищи: завтрак, обед, полдник и ужин. После обеда — сон или тихие игры. Актуальное меню и питание для выбранного режима обсудим при знакомстве. Об аллергии и пищевых ограничениях важно рассказать до начала посещений.</p><p><a href="/gruppy/#rezhimy">Выбрать режим посещения</a> · <a href="/stoimost/">Посмотреть стоимость</a></p></section>
   <section class="container content-section group-detail-faq"><h2>О распорядке и питании</h2><Faq items={questions}/></section>
 </Inner>

@@ -5,11 +5,8 @@ import IllustratedIcon from './IllustratedIcon.astro';
 import Icon from './Icon.astro';
 ---
 <section class="schedule-links container content-section" aria-labelledby="weekly-title">
-  <div class="section-copy"><h2 id="weekly-title">Неделя в вашей группе</h2><p>От утренней встречи до вечерней прогулки. Посмотрите, какие занятия ждут ребёнка в каждый день недели.</p></div>
-  <div class="schedule-notebooks">{groupCards.map(group => <a class={`schedule-notebook schedule-notebook--${group.accent}`} id={`schedule-${group.id}`} href={`/gruppy/${groupPages[group.id].slug}/#weekly-title`}>
-    <div class="schedule-notebook-title"><IllustratedIcon name="calendar" size={62}/><h3>{group.title}</h3></div>
-    <p>{group.summary}</p>
-    <ul class="schedule-weekdays" aria-label="Пять дней недели"><li>Пн</li><li>Вт</li><li>Ср</li><li>Чт</li><li>Пт</li></ul>
-    <span class="schedule-notebook-action">Открыть расписание <Icon name="arrow" size={22}/></span>
+  <div class="week-intro"><IllustratedIcon name="calendar" size={96}/><h2 id="weekly-title">Неделя в вашей группе</h2><p>У каждого дня свои занятия. Выберите группу и посмотрите всю неделю.</p><span class="hand-note" aria-hidden="true">С понедельника<br/>до пятницы</span></div>
+  <div class="week-index">{groupCards.map((group, i) => <a class={`week-index-link week-index-link--${group.accent}`} id={`schedule-${group.id}`} href={`/gruppy/${groupPages[group.id].slug}/#weekly-title`}>
+    <IllustratedIcon name={['lesson-sensory','lesson-english','lesson-robot'][i]} size={58}/><div><h3>{group.title}</h3><p>{group.summary}</p><span>Посмотреть расписание</span></div><Icon name="arrow" size={26}/>
   </a>)}</div>
 </section>

@@ -1,0 +1,38 @@
+---
+import IllustratedIcon from './IllustratedIcon.astro';
+import Icon from './Icon.astro';
+const zones = [
+  { id: 'play', title: 'Игра', art: 'blocks', x: 23, y: 36, color: '#ffdedb', lead: 'Придумываем свой маленький мир', text: 'Строим из кубиков, исследуем сенсорные материалы и придумываем сюжеты для игр. Свободная игра остаётся в распорядке каждой группы.', link: '/gruppy/mladshaya/', label: 'Занятия младшей группы' },
+  { id: 'create', title: 'Творчество', art: 'palette', x: 54, y: 34, color: '#fff0bb', lead: 'Рисуем, мастерим, пробуем', text: 'Музыка, рисование и творчество есть в программах групп. В средней группе ещё и готовим на занятиях «Поварёнок».', link: '/gruppy/srednyaya/', label: 'Занятия средней группы' },
+  { id: 'move', title: 'Движение', art: 'lesson-fitness', x: 27, y: 73, color: '#e1efcf', lead: 'Потягиваемся навстречу новому дню', text: 'Утром — зарядка, в течение дня — прогулки. В младшей и средней группах есть детский фитнес, в средней — хореография.', link: '#raspisanie', label: 'Посмотреть распорядок' },
+  { id: 'speech', title: 'Речь', art: 'lesson-speech', x: 73, y: 80, color: '#d9f0f6', lead: 'Находим слова для своих открытий', text: 'Логопед и речевые занятия — в программах всех трёх групп. В средней знакомимся с азбукой и английским языком, в старшей готовимся к школе.', link: '/gruppy/', label: 'Сравнить программы групп' },
+  { id: 'rest', title: 'Отдых', art: 'moon', x: 83, y: 44, color: '#f6e0ef', lead: 'Делаем паузу и набираемся сил', text: 'После обеда готовимся ко сну, слушаем сказки. Затем — сон или тихие игры по режиму группы. Точное время смотрите в недельном расписании.', link: '/gruppy/#weekly-title', label: 'Выбрать расписание группы' },
+];
+---
+<section class="day-map container content-section" aria-labelledby="day-map-title" data-day-map>
+  <div class="day-map-heading"><div><h2 id="day-map-title">Время для всего важного</h2><p>У каждого занятия — своё место в дне. Выберите, куда заглянем.</p></div><span class="hand-note" aria-hidden="true">Маленький мир<br/>больших открытий</span></div>
+  <div class="day-map-layout">
+    <div class="day-map-scene">
+      <img src="/images/el-bebe/day-map-1536.webp" srcset="/images/el-bebe/day-map-640.webp 640w, /images/el-bebe/day-map-960.webp 960w, /images/el-bebe/day-map-1536.webp 1536w" sizes="(max-width: 760px) calc(100vw - 32px), (max-width: 1100px) 68vw, 900px" width="1536" height="1024" alt="Карта занятий: игровые домики, творческая мастерская, зона движения, чтения и отдыха" loading="lazy"/>
+      <div class="day-map-controls" role="group" aria-label="Выберите занятие" hidden>{zones.map((zone, i) => <button type="button" class="day-map-pin" data-map-zone={zone.id} aria-controls={`map-${zone.id}`} aria-pressed={i === 0 ? 'true' : 'false'} style={`--pin-x:${zone.x}%;--pin-y:${zone.y}%;--pin-color:${zone.color}`}><span class="map-pin-dot" aria-hidden="true"></span>{zone.title}</button>)}</div>
+    </div>
+    <div class="day-map-stories" aria-live="polite" aria-atomic="true">{zones.map(zone => <article id={`map-${zone.id}`} data-map-story={zone.id}>
+      <IllustratedIcon name={zone.art} size={78}/><h3>{zone.title}</h3><strong>{zone.lead}</strong><p>{zone.text}</p><a class="text-link" href={zone.link}>{zone.label}<Icon name="arrow" size={20}/></a>
+    </article>)}</div>
+  </div>
+</section>
+<script>
+  document.querySelectorAll<HTMLElement>('[data-day-map]').forEach(map => {
+    const controls = map.querySelector<HTMLElement>('.day-map-controls')!;
+    const buttons = Array.from(map.querySelectorAll<HTMLButtonElement>('[data-map-zone]'));
+    const stories = Array.from(map.querySelectorAll<HTMLElement>('[data-map-story]'));
+    function select(zone: string) {
+      buttons.forEach(button => button.setAttribute('aria-pressed', String(button.dataset.mapZone === zone)));
+      stories.forEach(story => { story.hidden = story.dataset.mapStory !== zone; });
+    }
+    buttons.forEach(button => button.addEventListener('click', () => select(button.dataset.mapZone!)));
+    select(buttons[0].dataset.mapZone!);
+    controls.hidden = false;
+    map.dataset.enhanced = '';
+  });
+</script>
