@@ -15,11 +15,11 @@
   .first-days-heading > p { margin-top: 10px; font-size: 17px; line-height: 1.45; color: #604771; }
   .first-days-copy { grid-area: copy; align-self: start; min-width: 0; }
   .first-days-details { display: grid; gap: 22px; margin: 0; padding: 0; list-style: none; }
-  .first-days-details > li { display: grid; grid-template-columns: 50px minmax(0, 1fr); gap: 17px; align-items: start; }
+  .first-days-details > li { display: grid; grid-template-columns: 68px minmax(0, 1fr); gap: 20px; align-items: start; }
   .first-days-details h3 { margin: 0 0 5px; font-size: 20px; line-height: 1.25; font-weight: 850; }
   .first-days-details p { margin: 0; max-width: 43ch; font-size: 16px; line-height: 1.5; color: #59446a; }
-  .first-days-icon { position: relative; isolation: isolate; display: grid; place-items: center; width: 50px; height: 50px; }
-  .first-days-icon::before { content: ""; position: absolute; inset: 1px; z-index: -1; border-radius: 42% 58% 48% 52% / 52% 42% 58% 48%; transform: rotate(-12deg); }
+  .first-days-icon { position: relative; isolation: isolate; display: grid; place-items: center; width: 68px; height: 64px; }
+  .first-days-icon::before { content: none; }
   .first-days-icon--pink { color: #da4765; }
   .first-days-icon--pink::before { background: #ffe0e6; }
   .first-days-icon--yellow { color: #a97112; }
@@ -44,9 +44,9 @@
     .first-days-heading h2 { font-size: 36px; }
     .first-days-heading > p { font-size: 16px; }
     .first-days-details { gap: 19px; }
-    .first-days-details > li { grid-template-columns: 42px minmax(0, 1fr); gap: 12px; }
-    .first-days-icon { width: 42px; height: 42px; }
-    .first-days-icon > svg { width: 24px; height: 24px; }
+    .first-days-details > li { grid-template-columns: 58px minmax(0, 1fr); gap: 16px; }
+    .first-days-icon { width: 58px; height: 56px; }
+    .first-days-icon > svg { width: 56px; height: 56px; }
     .first-days-details h3 { font-size: 18px; }
     .first-days-photo { aspect-ratio: .94; }
     .first-days-sprig { width: 52px; right: -5px; }
@@ -63,8 +63,8 @@
     .first-days-rays { width: 35px; height: 35px; top: -2px; left: 4%; }
     .first-days-sprig { width: 44px; bottom: 13%; right: 0; }
     .first-days-details { gap: 20px; }
-    .first-days-details > li { grid-template-columns: 43px minmax(0, 1fr); gap: 13px; }
-    .first-days-icon { width: 43px; height: 43px; }
+    .first-days-details > li { grid-template-columns: 58px minmax(0, 1fr); gap: 16px; }
+    .first-days-icon { width: 58px; height: 56px; }
     .first-days-details h3 { font-size: 18px; }
     .first-days-details p { max-width: none; font-size: 16px; line-height: 1.5; }
     .first-days-link { margin-top: 23px; font-size: 15px; }

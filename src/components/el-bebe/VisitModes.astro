@@ -1,0 +1,22 @@
+---
+import type { SiteContent } from '../../lib/cms';
+import IllustratedIcon from './IllustratedIcon.astro';
+import Icon from './Icon.astro';
+interface Props { rates: SiteContent['rates']; }
+const { rates } = Astro.props;
+const modes = rates.filter(rate => !rate.isEntryFee);
+function art(title: string) {
+  const name = title.toLowerCase();
+  if (name.includes('ноч')) return 'evening';
+  if (name.includes('выход')) return 'calendar';
+  if (name.includes('час')) return 'clock';
+  if (name.includes('утро')) return 'morning';
+  if (name.includes('вечер')) return 'evening';
+  return 'sun';
+}
+---
+<section class="visit-modes container content-section" id="rezhimy" aria-labelledby="modes-title">
+  <header class="visit-modes-heading"><IllustratedIcon name="clock" size={110}/><div><h2 id="modes-title">Сад под ваш ритм</h2><p>Работаем 24/7. Можно выбрать полный день, несколько часов, выходной или ночное пребывание.</p></div></header>
+  <dl class="visit-modes-list">{modes.map(rate => <div><IllustratedIcon name={art(rate.title)} size={52}/><div><dt>{rate.title.replace(' · ', ': ')}</dt><dd>{rate.hours || 'Время согласуем при записи'}</dd></div></div>)}</dl>
+  <footer><p>Питание и занятия включены в стоимость выбранного режима.</p><a class="text-link" href="/stoimost/">Сравнить режимы и цены <Icon name="arrow" size={21}/></a></footer>
+</section>

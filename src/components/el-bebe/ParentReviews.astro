@@ -1,0 +1,11 @@
+---
+import { parentReviews, yandexReviewsUrl } from '../../data/parent-reviews';
+import { selectParentReviews } from '../../lib/parent-reviews';
+import IllustratedIcon from './IllustratedIcon.astro';
+import Icon from './Icon.astro';
+const reviews = selectParentReviews(parentReviews);
+---
+<section class="parent-reviews container content-section" aria-labelledby="reviews-title">
+  <div class="parent-reviews-heading"><IllustratedIcon name="chat" size={88}/><div><h2 id="reviews-title">Родители об Эльбэби</h2><p>{reviews.length ? 'Выбранные отзывы с оценкой пять звёзд. Полная лента — в карточке сада.' : 'О выборе сада и первых днях в группе — в историях родителей на Яндекс Картах.'}</p></div><a class="text-link" href={yandexReviewsUrl} target="_blank" rel="noopener noreferrer">{reviews.length ? 'Все отзывы на Яндекс Картах' : 'Читать на Яндекс Картах'}<Icon name="arrow" size={22}/></a></div>
+  {reviews.length > 0 && <div class="parent-reviews-list">{reviews.map(review => <figure><div class="review-stars" aria-label="Оценка: 5 из 5">{Array.from({length:5}, () => <Icon name="star" size={20}/>)}</div><blockquote>{review.text}</blockquote><figcaption><strong>{review.author}</strong><a href={review.sourceUrl} target="_blank" rel="noopener noreferrer">Оригинал отзыва</a></figcaption></figure>)}</div>}
+</section>

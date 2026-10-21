@@ -1,22 +1,23 @@
 ---
 import Icon from './Icon.astro';
 const path = Astro.url.pathname;
+const active = (href: string) => path === href || (href !== '/#o-sade' && path.startsWith(href));
 const items = [
   { href: '/#o-sade', label: 'О саде' }, { href: '/gruppy/', label: 'Группы' },
   { href: '/stoimost/', label: 'Стоимость' }, { href: '/den-v-sadu/', label: 'День в саду' },
   { href: '/komanda/', label: 'Воспитатели' }, { href: '/kontakty/', label: 'Контакты' },
 ];
 ---
-<header class:list={['site-header', { 'site-header--home': path === '/' }]}>
+<header class="site-header">
   <svg class="menu-blob" viewBox="0 0 130 120" preserveAspectRatio="none" aria-hidden="true"><path class="menu-blob-original" d="M0 0H130V120C115 101 95 114 66 99C28 80 41 38 0 0Z" fill="#c4eeea"/><path class="menu-blob-home" d="M0 0H130V120C63 120 5 74 0 0Z" fill="#c4eeea"/></svg>
   <div class="container header-inner">
     <a class="brand" href="/" aria-label="Эльбэби — на главную"><img src="/images/el-bebe/logo-ru-approved.svg" width="1495" height="775" alt="Детский сад Эльбэби, Сочи" fetchpriority="high" /></a>
-    <nav class="desktop-nav" aria-label="Основное меню">{items.map(item => <a href={item.href} aria-current={path === item.href ? 'page' : undefined}>{item.label}</a>)}</nav>
+    <nav class="desktop-nav" aria-label="Основное меню">{items.map(item => <a href={item.href} aria-current={active(item.href) ? path === item.href ? 'page' : 'location' : undefined}><span>{item.label}</span></a>)}</nav>
     <button class="button header-cta" type="button" data-open-visit>Прийти познакомиться <Icon name="arrow" size={20}/></button>
     <button class="menu-toggle" type="button" aria-label="Открыть меню" aria-controls="mobile-menu" aria-expanded="false" data-menu-toggle><Icon name="menu" class="menu-bars" size={28}/><Icon name="close" class="menu-close" size={28}/></button>
   </div>
   <nav id="mobile-menu" class="mobile-nav" aria-label="Мобильное меню" hidden>
-    {items.map(item => <a href={item.href}>{item.label}<Icon name="chevron" size={18}/></a>)}
+    {items.map(item => <a href={item.href} aria-current={active(item.href) ? path === item.href ? 'page' : 'location' : undefined}>{item.label}<Icon name="chevron" size={18}/></a>)}
     <a href="/prostranstvo/">Фотографии сада<Icon name="chevron" size={18}/></a>
     <a href="/roditelyam/">Вопросы родителей<Icon name="chevron" size={18}/></a>
     <button class="button" type="button" data-open-visit>Прийти познакомиться <Icon name="arrow" size={20}/></button>

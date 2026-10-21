@@ -2,18 +2,18 @@
   /* The mascot's paws meet the top edge of a real, usable invitation sheet. */
   .invitation { margin-top: 58px; }
   .invitation > .wave-shape { inset: 38px 0 12px; height: calc(100% - 50px); }
-  .invitation-inner { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); align-items: center; gap: 74px; padding: 96px 42px 78px; }
-  .invitation-intro { align-self: center; padding-top: 4px; }
+  .invitation-inner { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); grid-template-areas: "intro letter" "memory letter"; align-items: center; gap: 25px 74px; padding: 96px 0 78px; }
+  .invitation-intro { grid-area: intro; align-self: end; padding-top: 4px; }
   .invitation-intro > h2 { font-size: clamp(36px,3.8vw,54px); line-height: 1.03; }
   .invitation-intro > p { max-width: 410px; margin-top: 20px; font-size: 18px; line-height: 1.5; color: #735080; }
-  .invitation-memory { position: relative; margin-top: 25px; height: 278px; }
+  .invitation-memory { grid-area: memory; align-self: start; position: relative; height: 278px; }
   .invitation-photo { position: absolute; inset: 0 0 0 130px; max-width: 342px; clip-path: url(#elbebe-hello-photo); }
   .invitation-photo img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 43%; }
   .invitation-note { position: absolute; left: 0; bottom: 35px; width: 140px; transform: rotate(-12deg); color: #865292; font-size: 32px; line-height: 1.02; }
   .invitation-photo-drops { position: absolute; width: 37px; right: 0; top: 5px; transform: rotate(15deg); }
   .invitation-photo-heart { position: absolute; left: 30px; top: 35px; width: 31px; transform: rotate(-15deg); }
 
-  .invitation-letter { position: relative; min-width: 0; margin-top: 68px; isolation: isolate; }
+  .invitation-letter { grid-area: letter; position: relative; min-width: 0; margin-top: 68px; isolation: isolate; }
   .invitation-paper { position: relative; min-height: 502px; padding: 34px 38px 26px; background: #fffdf8; border-radius: 14px 18px 22px 16px; box-shadow: 0 15px 34px #a4566a1a; }
   .invitation-paper::before { content: ''; position: absolute; inset: 8px -8px -7px 8px; background: #fff0cd; border-radius: 15px 15px 20px 18px; transform: rotate(2deg); z-index: -1; }
   .invitation-paper::after { content: ''; position: absolute; right: 0; bottom: 0; width: 29px; height: 29px; border-radius: 6px 0 0; background: #f7e8d7; clip-path: polygon(100% 0,100% 100%,0 100%); }
@@ -65,13 +65,13 @@
   @media (max-width: 900px) {
     .invitation { margin-top: 30px; }
     .invitation > .wave-shape { inset: 16px 0 10px; height: calc(100% - 26px); }
-    .invitation-inner { grid-template-columns: minmax(0,1fr); gap: 0; max-width: 540px; padding: 58px 7px 65px; }
+    .invitation-inner { grid-template-columns: minmax(0,1fr); grid-template-areas: "intro" "letter" "memory"; gap: 0; max-width: 540px; padding: 58px 0 65px; }
     .invitation .wave-path--desktop { display: none; }
     .invitation .wave-path--mobile { display: block; }
     .invitation-intro { position: relative; padding: 0 5px; }
     .invitation-intro > h2 { font-size: clamp(31px,8.3vw,44px); }
     .invitation-intro > p { max-width: 370px; margin-top: 16px; font-size: 16px; }
-    .invitation-memory { margin-top: 17px; height: 226px; max-width: 390px; }
+    .invitation-memory { margin-top: 36px; height: 210px; width: 100%; max-width: 390px; justify-self: center; }
     .invitation-photo { left: 34%; right: 3%; max-width: 270px; }
     .invitation-note { left: 0; bottom: 40px; width: 114px; font-size: 28px; }
     .invitation-photo-heart { left: 11px; top: 15px; width: 25px; }

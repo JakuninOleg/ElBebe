@@ -8,6 +8,7 @@ import Wave from '../components/el-bebe/Wave.astro';
 import Faq from '../components/el-bebe/Faq.astro';
 import Gallery from '../components/el-bebe/Gallery.astro';
 import Callout from '../components/el-bebe/Callout.astro';
+import ParentReviews from '../components/el-bebe/ParentReviews.astro';
 import Surveillance from '../components/el-bebe/Surveillance.astro';
 import Educators from '../components/el-bebe/Educators.astro';
 import FamilyCapital from '../components/el-bebe/FamilyCapital.astro';
@@ -104,6 +105,7 @@ const faqs = getParentQuestions(content.faqs).slice(0, 8);
     {content.testimonials.length > 0 && <section class="section container"><h2>Отзывы родителей</h2><div class="review-grid">{content.testimonials.map(item => <blockquote><p>«{item.quote}»</p><footer>{item.author} · <a href={item.source_url} rel="noopener noreferrer" target="_blank">Читать отзыв</a></footer></blockquote>)}</div></section>}
 
     <section class="questions section container" aria-labelledby="questions-title"><div class="section-heading"><h2 id="questions-title">Частые вопросы родителей</h2><a href="/roditelyam/" class="text-link">Все вопросы <Icon name="arrow" size={20}/></a></div><Faq items={faqs}/><Decor kind="wash" color="#c9eaf5" class="faq-side-wash"/><Decor kind="drops" class="faq-drops"/></section>
+    <ParentReviews/>
     <Callout/>
   </div>
 </Layout>

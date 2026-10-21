@@ -33,16 +33,16 @@
     /* Phones use the complete viewport; desktop keeps its stable scroll gutter. */
     html { scrollbar-gutter: auto; scrollbar-width: none; }
     html::-webkit-scrollbar { width: 0; }
-    .site-header--home .header-inner { width: 100%; max-width: 560px; height: clamp(104px, 32.3vw, 168px); padding-inline: 20px; grid-template-columns: minmax(0,1fr) 50px; align-items: start; }
-    .site-header--home .header-inner .brand { position: relative; top: 4px; width: min(57.5vw, 280px); margin-left: min(4.5vw, 22px); align-self: start; }
-    .site-header--home .header-inner .brand img { width: 100%; height: auto; aspect-ratio: 680 / 379; }
-    .site-header--home .menu-toggle { margin-top: clamp(21px, 6.7vw, 40px); margin-right: 3px; width: 50px; height: 44px; padding: 6px 9px; border-radius: 10px; }
-    .site-header--home .menu-toggle>.icon { width: 44px; height: 44px; stroke-width: 2.7; }
-    .site-header--home .menu-blob { width: min(32.5vw, 175px); height: min(30vw, 165px); }
-    .site-header--home .menu-blob-original { display: none; }
-    .site-header--home .menu-blob-home { display: block; }
-    .site-header--home::before { width: min(25vw, 130px); height: min(38vw, 190px); top: -60px; left: -50px; border-radius: 0 0 90% 0; transform: none; background: #ffedaa; }
-    .site-header--home .mobile-nav:not([hidden]) { top: calc(100% - 2px); z-index: 5; max-height: calc(100dvh - 145px); }
+    .site-header .header-inner { width: 100%; max-width: 560px; height: clamp(104px, 32.3vw, 168px); padding-inline: 20px; grid-template-columns: minmax(0,1fr) 50px; align-items: start; }
+    .site-header .header-inner .brand { position: relative; top: 4px; width: min(57.5vw, 280px); margin-left: min(4.5vw, 22px); align-self: start; }
+    .site-header .header-inner .brand img { width: 100%; height: auto; aspect-ratio: 680 / 379; }
+    .site-header .menu-toggle { margin-top: clamp(21px, 6.7vw, 40px); margin-right: 3px; width: 50px; height: 44px; padding: 6px 9px; border-radius: 10px; }
+    .site-header .menu-toggle>.icon { width: 44px; height: 44px; stroke-width: 2.7; }
+    .site-header .menu-blob { width: min(32.5vw, 175px); height: min(30vw, 165px); }
+    .site-header .menu-blob-original { display: none; }
+    .site-header .menu-blob-home { display: block; }
+    .site-header::before { width: min(25vw, 130px); height: min(38vw, 190px); top: -60px; left: -50px; border-radius: 0 0 90% 0; transform: none; background: #ffedaa; }
+    .site-header .mobile-nav:not([hidden]) { top: calc(100% - 2px); z-index: 5; max-height: calc(100dvh - 145px); }
 
     .hero { display: grid; grid-template-columns: minmax(0,1fr); gap: 0; width: 100%; max-width: 560px; min-height: 0; margin: 0 auto; padding-top: 3px; isolation: isolate; }
     .hero-copy { display: contents; }

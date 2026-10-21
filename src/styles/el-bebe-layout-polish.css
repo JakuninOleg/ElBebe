@@ -1,0 +1,163 @@
+@layer layoutPolish {
+  .section-copy { margin-bottom: 32px; }
+  .section-copy h2 { font-size: clamp(30px, 3.2vw, 42px); line-height: 1.16; }
+  .section-copy>p { margin-top: 18px; font-size: 18px; line-height: 1.65; color: #574063; }
+
+  /* One navigation treatment for home and every internal route. */
+  .desktop-nav a { position: relative; isolation: isolate; padding-block: 12px; }
+  .desktop-nav a::before { content: ''; position: absolute; z-index: -1; inset: 5px -9px; background: #ffe2ec; border-radius: 45% 55% 48% 52% / 60% 48% 52% 40%; clip-path: inset(0 100% 0 0); transition: clip-path 240ms cubic-bezier(.16,1,.3,1); }
+  .desktop-nav a::after { content: ''; position: absolute; height: 3px; inset-inline: 5px; bottom: 2px; background: #ff8b91; border-radius: 60%; transform: scaleX(0); transform-origin: left; transition: transform 240ms cubic-bezier(.16,1,.3,1); }
+  .desktop-nav a[aria-current]::after { transform: scaleX(1); }
+  .desktop-nav a:focus-visible::before { clip-path: inset(0); }
+  .desktop-nav a:focus-visible::after { transform: scaleX(1); }
+  .header-inner .brand img { object-fit: contain; }
+  .mobile-nav a[aria-current] { color: var(--purple); background: #fff0e8; border-radius: 10px; }
+
+  .schedule-links>div.schedule-notebooks { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 24px; margin-top: 0; }
+  .schedule-links .schedule-notebook { --notebook: #fff0f4; display: flex; flex-direction: column; align-items: stretch; justify-content: start; gap: 0; padding: 28px; background: var(--notebook); border: 0; border-radius: 24px; color: #574063; text-decoration: none; transition: background-color 180ms; }
+  .schedule-links .schedule-notebook--blue { --notebook: #eaf5fc; }
+  .schedule-links .schedule-notebook--green { --notebook: #eef6e8; }
+  .schedule-notebook-title { display: flex; align-items: center; gap: 16px; }
+  .schedule-notebook-title>.illustrated-icon { flex-shrink: 0; }
+  .schedule-notebook h3 { font-size: 25px; line-height: 1.2; }
+  .schedule-notebook>p { margin-block: 20px 24px; font-size: 17px; line-height: 1.5; }
+  .schedule-weekdays { display: flex; justify-content: space-between; list-style: none; gap: 8px; padding-block: 14px; margin-top: auto; border-block: 1px solid #cfbed5; font-weight: 700; font-size: 15px; color: var(--purple); }
+  .schedule-links .schedule-notebook>.schedule-notebook-action { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-top: 22px; font-size: 16px; font-weight: 700; color: #287285; }
+  .schedule-notebook-action>.icon { flex-shrink: 0; transition: transform 180ms; }
+
+  .visit-modes { padding: 40px 44px; background: #eef6f0; border-radius: 32px 48px 32px 40px; }
+  .visit-modes-heading { display: grid; grid-template-columns: 110px minmax(0,1fr); gap: 28px; align-items: center; }
+  .visit-modes-heading h2 { font-size: clamp(30px,3.2vw,42px); }
+  .visit-modes-heading p { margin-top: 16px; color: #405d50; font-size: 18px; line-height: 1.6; }
+  .visit-modes-list { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 0 48px; margin-block: 28px; }
+  .visit-modes-list>div { display: flex; align-items: center; gap: 20px; padding-block: 20px; border-bottom: 1px solid #cddfce; }
+  .visit-modes-list .illustrated-icon { flex-shrink: 0; }
+  .visit-modes-list dt { color: var(--purple); font-size: 20px; font-weight: 750; }
+  .visit-modes-list dd { margin: 6px 0 0; font-size: 17px; color: #405d50; font-variant-numeric: tabular-nums; }
+  .visit-modes>footer { display: flex; justify-content: space-between; gap: 24px; align-items: center; flex-wrap: wrap; }
+  .visit-modes>footer>p { color: #405d50; font-size: 16px; }
+  .visit-modes>footer>a { font-size: 16px; }
+
+  .weekly-heading { display: flex; align-items: center; gap: 24px; margin-bottom: 28px; }
+  .weekly-heading>.illustrated-icon { flex-shrink: 0; }
+  .weekly-heading h2 { font-size: clamp(30px,3.2vw,42px); line-height: 1.16; }
+  .weekly-heading p { margin-top: 16px; color: #574063; font-size: 18px; line-height: 1.6; }
+  .group-schedule { padding-inline: 28px; border-radius: 24px; }
+  .schedule-toggle-label { display: flex; align-items: center; gap: 16px; font-size: 15px; font-weight: 600; color: #287285; }
+  .group-schedule[open] .schedule-toggle-label>.icon { transform: rotate(90deg); }
+  .group-day-picker { display: none; }
+  .group-week-scroll thead th { padding-block: 18px; }
+  .group-week-scroll { scrollbar-color: #cba4d4 #f6edf8; scrollbar-width: thin; }
+
+  .day-rhythm-chapters { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 24px; align-items: start; }
+  .day-rhythm-chapter { padding: 28px; background: #fff6dc; border-radius: 24px; }
+  .day-rhythm-chapter--blue { background: #eaf5fb; }
+  .day-rhythm-chapter--pink { background: #fff0f3; }
+  .day-rhythm-chapter>header { display: flex; flex-direction: column; align-items: start; gap: 16px; margin-bottom: 12px; min-height: 142px; }
+  .day-rhythm-chapter h3 { font-size: 25px; line-height: 1.25; }
+  .day-rhythm-chapter dl { margin: 0; }
+  .day-rhythm-chapter dl>div { padding-block: 18px; border-bottom: 1px solid #d8cbd8; }
+  .day-rhythm-chapter dl>div:last-child { border: 0; padding-bottom: 0; }
+  .day-rhythm-chapter dt { color: var(--purple); font-size: 16px; font-weight: 750; font-variant-numeric: tabular-nums; }
+  .day-rhythm-chapter dd { margin: 7px 0 0; color: #574063; line-height: 1.6; font-size: 17px; }
+
+  .teacher-conversation { display: grid; grid-template-columns: minmax(0,.9fr) minmax(0,1.1fr); align-items: start; gap: 80px; padding-block: 32px; }
+  .teacher-conversation h2 { font-size: clamp(30px,3.2vw,42px); line-height: 1.14; margin-top: 20px; }
+  .teacher-conversation p { font-size: 18px; line-height: 1.65; color: #574063; margin-top: 16px; }
+  .teacher-conversation .button { font-size: 16px; gap: 16px; margin-top: 28px; padding-inline: 24px; }
+  .teacher-conversation ul { list-style: none; }
+  .teacher-conversation li { padding-block: 24px; border-bottom: 1px solid #e1d4e6; }
+  .teacher-conversation li:first-child { padding-top: 0; }
+  .teacher-conversation li:last-child { border-bottom: 0; }
+  .teacher-conversation h3 { font-size: 25px; line-height: 1.2; }
+  .teacher-conversation li p { font-size: 17px; }
+
+  .parent-reviews { margin-block: 64px; padding-block: 28px; border-block: 1px solid #dfd4e3; }
+  .parent-reviews-heading { display: grid; grid-template-columns: 88px minmax(0,1fr) auto; align-items: center; gap: 24px; }
+  .parent-reviews-heading h2 { font-size: clamp(28px,2.7vw,36px); line-height: 1.2; }
+  .parent-reviews-heading p { margin-top: 12px; color: #574063; font-size: 17px; line-height: 1.6; }
+  .parent-reviews-heading>a { font-size: 16px; }
+  .parent-reviews-list { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 28px; margin-top: 32px; }
+  .parent-reviews-list>figure { padding: 24px; background: #f2f7ea; border-radius: 18px; }
+  .review-stars { display: flex; gap: 4px; color: #9c6f12; margin-bottom: 18px; }
+  .parent-reviews blockquote { color: #574063; font-size: 17px; line-height: 1.65; }
+  .parent-reviews figcaption { display: grid; gap: 10px; margin-top: 22px; font-size: 15px; }
+  .parent-reviews figcaption a { color: #287285; }
+  .contact-live-map { overflow: hidden; border-radius: 28px; min-width: 0; background: #e9f3e9; }
+  .contact-live-map iframe { display: block; width: 100%; min-height: 380px; border: 0; }
+  .contact-live-map>a { display: flex; align-items: center; gap: 16px; padding: 20px 24px; color: #287285; font-weight: 700; font-size: 16px; }
+
+  @media (hover:hover) {
+    .desktop-nav a:hover::before { clip-path: inset(0); }
+    .desktop-nav a:hover::after { transform: scaleX(1); }
+    .desktop-nav a:hover { color: var(--purple); }
+    .schedule-links .schedule-notebook:hover { background: color-mix(in srgb,var(--notebook) 75%,#e6d6e8); }
+    .schedule-notebook:hover .schedule-notebook-action>.icon { transform: translateX(4px); }
+  }
+  @media (max-width:1100px) {
+    .schedule-links>div.schedule-notebooks, .day-rhythm-chapters { gap: 16px; }
+    .schedule-links .schedule-notebook, .day-rhythm-chapter { padding: 24px; }
+    .schedule-notebook-title { flex-direction: column; align-items: start; }
+    .schedule-notebook h3, .day-rhythm-chapter h3 { font-size: 23px; }
+    .teacher-conversation { gap: 40px; }
+    .parent-reviews-heading { grid-template-columns: 72px minmax(0,1fr); }
+    .parent-reviews-heading>.illustrated-icon { width: 72px; height: 72px; }
+    .parent-reviews-heading>a { grid-column: 2; }
+  }
+  @media (max-width:760px) {
+    .section-copy { margin-bottom: 24px; }
+    .section-copy>p { font-size: 16px; margin-top: 16px; }
+    .schedule-links>div.schedule-notebooks { grid-template-columns: minmax(0,1fr); gap: 18px; }
+    .schedule-notebook-title { flex-direction: row; align-items: center; }
+    .schedule-notebook>p { margin-block: 16px; font-size: 16px; }
+    .schedule-weekdays { padding-block: 12px; }
+    .schedule-links .schedule-notebook>.schedule-notebook-action { margin-top: 18px; }
+    .visit-modes { padding: 28px 24px; border-radius: 24px 36px 24px 30px; }
+    .visit-modes-heading { grid-template-columns: minmax(0,1fr); gap: 20px; }
+    .visit-modes-heading>.illustrated-icon { width: 80px; height: 80px; }
+    .visit-modes-heading h2 { font-size: 30px; }
+    .visit-modes-heading p { font-size: 16px; }
+    .visit-modes-list { grid-template-columns: minmax(0,1fr); margin-block: 20px 24px; }
+    .visit-modes-list>div { gap: 16px; padding-block: 16px; }
+    .visit-modes-list dt { font-size: 18px; }
+    .visit-modes-list dd { font-size: 16px; }
+    .visit-modes>footer { gap: 18px; }
+    .visit-modes>footer>p { font-size: 15px; }
+    .weekly-heading { align-items: start; gap: 16px; }
+    .weekly-heading>.illustrated-icon { width: 56px; height: 56px; }
+    .weekly-heading p { margin-top: 12px; font-size: 16px; }
+    .group-schedule { padding-inline: 16px; }
+    .group-schedule>summary { align-items: center; padding-block: 20px; font-size: 20px; }
+    .schedule-toggle-label { font-size: 0; gap: 0; }
+    .group-schedule[data-day] .group-day-picker { display: flex; gap: 8px; margin-bottom: 16px; }
+    .group-day-picker>button { flex: 1; min-width: 0; min-height: 44px; background: #f4eef6; color: var(--purple); border-radius: 12px; font-weight: 750; }
+    .group-day-picker>button[aria-pressed="true"] { background: var(--purple); color: #fff; }
+    .group-day-picker .weekday-full { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+    .group-schedule[data-day] .group-week-hint { display: none; }
+    .group-schedule[data-day] table { min-width: 0; font-size: 15px; }
+    .group-schedule[data-day] [data-weekday-cell] { display: none; }
+    .group-schedule[data-day="0"] [data-weekday-cell="0"], .group-schedule[data-day="1"] [data-weekday-cell="1"], .group-schedule[data-day="2"] [data-weekday-cell="2"], .group-schedule[data-day="3"] [data-weekday-cell="3"], .group-schedule[data-day="4"] [data-weekday-cell="4"] { display: table-cell; }
+    .group-week-scroll th, .group-week-scroll td { padding: 14px 12px; }
+    .group-week-scroll th:first-child { width: 74px; }
+    .day-rhythm-chapters { grid-template-columns: minmax(0,1fr); gap: 20px; }
+    .day-rhythm-chapter>header { flex-direction: row; align-items: center; gap: 18px; min-height: 0; margin-bottom: 12px; }
+    .day-rhythm-chapter>header>.illustrated-icon { width: 58px; height: 58px; flex-shrink: 0; }
+    .day-rhythm-chapter dl>div { display: grid; grid-template-columns: 105px minmax(0,1fr); gap: 18px; }
+    .day-rhythm-chapter dd { margin: 0; font-size: 16px; }
+    .day-rhythm-chapter dt { font-size: 15px; }
+    .teacher-conversation { grid-template-columns: minmax(0,1fr); gap: 32px; padding-block: 12px; }
+    .teacher-conversation>div>.illustrated-icon { width: 80px; height: 80px; }
+    .teacher-conversation p, .teacher-conversation li p { font-size: 16px; }
+    .teacher-conversation h3 { font-size: 23px; }
+    .parent-reviews { margin-block: 44px; }
+    .parent-reviews-heading { grid-template-columns: 56px minmax(0,1fr); gap: 16px; }
+    .parent-reviews-heading>.illustrated-icon { width: 56px; height: 56px; }
+    .parent-reviews-heading p { font-size: 16px; }
+    .parent-reviews-heading>a { grid-column: 1/-1; font-size: 15px; }
+    .parent-reviews-list { grid-template-columns: minmax(0,1fr); }
+    .contact-live-map iframe { min-height: 320px; }
+  }
+  @media (prefers-reduced-motion:reduce) {
+    .desktop-nav a::before, .desktop-nav a::after, .schedule-notebook-action>.icon, .schedule-links .schedule-notebook { transition: none; }
+  }
+}

@@ -11,12 +11,6 @@ const { compact = false } = Astro.props;
     <div class="invitation-intro">
       <h2 id="hello-heading">Готовы<br/>познакомиться?</h2>
       <p>Приходите в Эльбэби: покажем садик, познакомим с воспитателями и поговорим о вашем ребёнке.</p>
-      <div class="invitation-memory">
-        <div class="invitation-photo"><img src="/images/el-bebe/hello-portrait-v2.webp" alt="Портрет ребёнка" width="1000" height="1000" loading="lazy" /></div>
-        <span class="invitation-note hand-note" aria-hidden="true">Давайте<br/>дружить!</span>
-        <Decor kind="drops" class="invitation-photo-drops"/>
-        <Decor kind="heart" class="invitation-photo-heart"/>
-      </div>
     </div>
     <div class="invitation-letter" data-visit-panel>
       <img class="invitation-bunny" src="/images/el-bebe/bunny-invitation.svg" alt="" width="400" height="400" loading="lazy" aria-hidden="true"/>
@@ -35,6 +29,12 @@ const { compact = false } = Astro.props;
           <p class="form-footnote">Это локальная проверка формы. Уведомление в садик не отправлялось.</p>
         </div>
       </div>
+    </div>
+    <div class="invitation-memory">
+      <div class="invitation-photo"><img src="/images/el-bebe/hello-portrait-v2.webp" alt="Портрет ребёнка" width="1000" height="1000" loading="lazy" /></div>
+      <span class="invitation-note hand-note" aria-hidden="true">Давайте<br/>дружить!</span>
+      <Decor kind="drops" class="invitation-photo-drops"/>
+      <Decor kind="heart" class="invitation-photo-heart"/>
     </div>
   </div>
 </section>

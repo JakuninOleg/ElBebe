@@ -1,0 +1,15 @@
+---
+import { groupCards } from '../../data/group-cards';
+import { groupPages } from '../../data/group-pages';
+import IllustratedIcon from './IllustratedIcon.astro';
+import Icon from './Icon.astro';
+---
+<section class="schedule-links container content-section" aria-labelledby="weekly-title">
+  <div class="section-copy"><h2 id="weekly-title">Неделя в вашей группе</h2><p>От утренней встречи до вечерней прогулки. Посмотрите, какие занятия ждут ребёнка в каждый день недели.</p></div>
+  <div class="schedule-notebooks">{groupCards.map(group => <a class={`schedule-notebook schedule-notebook--${group.accent}`} id={`schedule-${group.id}`} href={`/gruppy/${groupPages[group.id].slug}/#weekly-title`}>
+    <div class="schedule-notebook-title"><IllustratedIcon name="calendar" size={62}/><h3>{group.title}</h3></div>
+    <p>{group.summary}</p>
+    <ul class="schedule-weekdays" aria-label="Пять дней недели"><li>Пн</li><li>Вт</li><li>Ср</li><li>Чт</li><li>Пт</li></ul>
+    <span class="schedule-notebook-action">Открыть расписание <Icon name="arrow" size={22}/></span>
+  </a>)}</div>
+</section>

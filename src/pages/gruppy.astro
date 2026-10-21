@@ -4,10 +4,9 @@ import Groups from '../components/el-bebe/Groups.astro';
 import FirstDays from '../components/el-bebe/FirstDays.astro';
 import Included from '../components/el-bebe/Included.astro';
 import Faq from '../components/el-bebe/Faq.astro';
-import Icon from '../components/el-bebe/Icon.astro';
 import { getSiteContent } from '../lib/cms';
-import { groupCards } from '../data/group-cards';
-import { groupPages } from '../data/group-pages';
+import ScheduleLinks from '../components/el-bebe/ScheduleLinks.astro';
+import VisitModes from '../components/el-bebe/VisitModes.astro';
 const { groups, rates } = await getSiteContent();
 const questions = [
   { question: 'Чем отличаются младшая, средняя и старшая группы?', answer: 'У каждой группы своя программа. В младшей — развитие речи, сенсорика, Монтессори, музыка и первые задачи с кубиками. В средней добавляются английский язык, азбука, хореография и практические занятия. В старшей — подготовка к школе, робототехника, нейроигры, шахматы и финансовая грамотность. На страницах групп можно посмотреть полный перечень и недельное расписание.' },
@@ -18,8 +17,8 @@ const questions = [
 <Inner title="Группы детского сада Эльбэби в Сочи — занятия и расписание" heading="Наши группы" label="Наши группы" description="Младшая, средняя и старшая группы Эльбэби в Сочи. Логопед, английский, робототехника, шахматы и подготовка к школе. Питание и занятия включены." intro="У каждой группы — свои интересы, занятия и открытия. В младшей знакомимся с миром, в средней больше общаемся и пробуем, в старшей готовимся к школе и исследуем новое." mascot note="У каждого — свой интерес">
   <Groups groups={groups} headingLevel="h1" showHeading={false}/>
   <div class="container content-section"><Included/></div>
-  <section class="schedule-links container content-section" aria-labelledby="weekly-title"><h2 id="weekly-title">Расписание вашей группы</h2><p>Каждый день недели расписан отдельно: занятия, прогулки, питание и отдых.</p><div>{groupCards.map(group => <a id={`schedule-${group.id}`} href={`/gruppy/${groupPages[group.id].slug}/#weekly-title`}><span>{group.title}</span><span>Смотреть неделю <Icon name="arrow" size={20}/></span></a>)}</div></section>
-  <section class="container content-section regime-editorial" id="rezhimy"><div><h2>Сад работает 24/7.<br/>Выбирайте свой ритм.</h2><p>Полный день, несколько часов, выходной или ночное пребывание. Питание и занятия включены в стоимость выбранного режима.</p><a class="text-link" href="/stoimost/">Сравнить цены <Icon name="arrow" size={20}/></a></div><dl class="regime-list">{rates.filter(rate => !rate.isEntryFee).map(rate => <div><dt>{rate.title}</dt><dd>{rate.hours || 'Время согласуем при записи'}</dd></div>)}</dl></section>
+  <ScheduleLinks/>
+  <VisitModes rates={rates}/>
   <div id="adaptaciya"><FirstDays/></div>
   <section class="container content-section group-detail-faq"><h2>Как выбрать группу</h2><Faq items={questions}/></section>
 </Inner>

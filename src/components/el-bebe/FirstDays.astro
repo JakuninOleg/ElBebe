@@ -1,5 +1,6 @@
 ---
 import Icon from './Icon.astro';
+import IllustratedIcon from './IllustratedIcon.astro';
 import Decor from './Decor.astro';
 import Sprig from './Sprig.astro';
 
@@ -33,7 +34,7 @@ const details = [
   <div class="first-days-copy">
     <ul class="first-days-details" role="list">
       {details.map(item => <li>
-        <span class={`first-days-icon first-days-icon--${item.color}`}><Icon name={item.icon} size={27}/></span>
+        <span class={`first-days-icon first-days-icon--${item.color}`}><IllustratedIcon name={item.icon} size={64}/></span>
         <div><h3>{item.title}</h3><p>{item.text}</p></div>
       </li>)}
     </ul>
