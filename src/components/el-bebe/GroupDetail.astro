@@ -34,7 +34,7 @@ const faqs = [
   <section class="group-curriculum container content-section" aria-labelledby="curriculum-title"><div><h2 id="curriculum-title">Что есть<br/>в программе</h2><p>Занятия по расписанию чередуются с прогулками, свободной игрой и отдыхом.</p><span class="hand-note" aria-hidden="true">Каждый день<br/>что-то новое ♡</span></div><div class="curriculum-list">{schedule.categories.map((category, i) => <article><IllustratedIcon name={categoryArt[groupId][i]} size={72}/><div><h3>{category.title}</h3><ul>{category.activities.map(activity => <li>{activity.replace('Считаем - размышляем', 'Считаем — размышляем')}</li>)}</ul></div></article>)}</div></section>
   <div class="container content-section"><Included/></div>
   <GroupVideo groupId={groupId} title={program.title}/>
-  <GroupSchedules onlyGroup={groupId} expanded/>
+  <GroupSchedules onlyGroup={groupId}/>
   <section class="container content-section group-detail-faq"><h2>Родители спрашивают</h2><Faq items={faqs}/></section>
-  <nav class="group-sibling-links container content-section" aria-label="Другие группы"><span>Посмотреть другие группы</span>{groupCards.filter(group => group.id !== groupId).map(group => <a href={`/gruppy/${groupPages[group.id].slug}/`}>{group.title}<Icon name="arrow" size={19}/></a>)}</nav>
+  <section class="group-explore container content-section" aria-labelledby="other-groups-title"><h2 id="other-groups-title">Посмотрите другие группы</h2><nav class="group-explore-links" aria-label="Другие группы">{groupCards.filter(group=>group.id!==groupId).map(group=><a class={`group-explore-link group-explore-link--${group.accent}`} href={`/gruppy/${groupPages[group.id].slug}/`}><img src={`/images/el-bebe/${group.image}.webp`} alt="" width="1100" height="825" loading="lazy"/><div><h3>{group.title}</h3><p>{group.summary}</p><span>Занятия и расписание <Icon name="arrow" size={20}/></span></div></a>)}</nav></section>
 </Inner>

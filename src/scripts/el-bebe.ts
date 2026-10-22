@@ -1,4 +1,5 @@
 import { attachRuPhoneMask, normalizeRuPhone } from '../lib/ru-phone';
+import { updateScrollHeader, type ScrollHeaderState } from '../lib/scroll-header';
 
 document.querySelectorAll<HTMLInputElement>('[data-phone-mask]:not(:disabled)').forEach(input => attachRuPhoneMask(input));
 
@@ -7,7 +8,7 @@ const menuToggle = document.querySelector<HTMLButtonElement>('[data-menu-toggle]
 const menu = document.querySelector<HTMLElement>('#mobile-menu');
 let lastFocused: HTMLElement | null = null;
 
-function closeMenu() { if (menu && menuToggle) { menu.hidden = true; menuToggle.setAttribute('aria-expanded', 'false'); menuToggle.setAttribute('aria-label', 'Открыть меню'); } }
+function closeMenu(restoreFocus = false) { if (menu && menuToggle) { menu.hidden = true; menuToggle.setAttribute('aria-expanded', 'false'); menuToggle.setAttribute('aria-label', 'Открыть меню'); if (restoreFocus) menuToggle.focus(); } }
 menuToggle?.addEventListener('click', () => {
   if (!menu) return;
   const open = menu.hidden;
@@ -18,12 +19,40 @@ menuToggle?.addEventListener('click', () => {
     menu.animate([{ opacity: 0, transform: 'translateY(-6px)' }, { opacity: 1, transform: 'translateY(0)' }], { duration: 170, easing: 'cubic-bezier(.22,1,.36,1)' });
   }
 });
-menu?.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMenu));
-document.addEventListener('keydown', event => { if (event.key === 'Escape') closeMenu(); });
+menu?.querySelectorAll('a').forEach(link => link.addEventListener('click', () => closeMenu()));
+document.addEventListener('keydown', event => { if (event.key === 'Escape' && menu && !menu.hidden) closeMenu(true); });
 document.addEventListener('click', event => {
   if (event.target instanceof Node && menu && !menu.hidden && !menu.contains(event.target) && !menuToggle?.contains(event.target)) closeMenu();
 });
 matchMedia('(min-width: 1101px)').addEventListener('change', event => { if (event.matches) closeMenu(); });
+
+const scrollHeader = document.querySelector<HTMLElement>('[data-scroll-header]');
+if (scrollHeader) {
+  let state: ScrollHeaderState = { y: window.scrollY, travel: 0, sticky: false, hidden: false };
+  let frame = 0;
+  const update = () => {
+    frame = 0;
+    state = updateScrollHeader(state, window.scrollY, (scrollHeader.parentElement?.offsetHeight || 128) + 24, !!menu && !menu.hidden || scrollHeader.contains(document.activeElement));
+    scrollHeader.toggleAttribute('data-sticky', state.sticky);
+    scrollHeader.toggleAttribute('data-hidden', state.hidden);
+  };
+  const scheduleUpdate = () => { if (!frame) frame = requestAnimationFrame(update); };
+  window.addEventListener('scroll', scheduleUpdate, { passive: true });
+  window.addEventListener('resize', scheduleUpdate);
+  scrollHeader.addEventListener('focusin', scheduleUpdate);
+  update();
+}
+
+const footerSections = document.querySelectorAll<HTMLDetailsElement>('[data-footer-section]');
+const narrowFooter = matchMedia('(max-width: 760px)');
+function adaptFooter() {
+  footerSections.forEach(section => {
+    section.open = !narrowFooter.matches;
+    section.querySelector('summary')?.setAttribute('tabindex', narrowFooter.matches ? '0' : '-1');
+  });
+}
+narrowFooter.addEventListener('change', adaptFooter);
+adaptFooter();
 
 // Keep native details usable without JS. Animate the actual measured height in
 // both directions, including a reversal while the previous animation is running.

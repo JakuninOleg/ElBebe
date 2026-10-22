@@ -1,19 +1,35 @@
 ---
 import Icon from './Icon.astro';
+import IllustratedIcon from './IllustratedIcon.astro';
+import { siteContacts } from '../../data/site-contacts';
 interface Props { address: string; phone?: string; }
 const { address, phone } = Astro.props;
-const phoneHref = phone?.replace(/[^+\d]/g, '');
-const links = [
-  ['О саде', '/#o-sade'], ['Наши группы', '/gruppy/'], ['Стоимость', '/stoimost/'],
-  ['День в саду', '/den-v-sadu/'], ['Воспитатели', '/komanda/'], ['Родителям', '/roditelyam/'], ['Контакты', '/kontakty/'],
+const contactPhone = phone?.trim() || siteContacts.phone;
+const phoneHref = contactPhone.replace(/[^+\d]/g, '');
+const sections = [
+  { title: 'О саде', links: [['Знакомство с садом', '/#o-sade'], ['Воспитатели', '/komanda/'], ['Фотографии', '/prostranstvo/']] },
+  { title: 'Наши группы', links: [['Все группы', '/gruppy/'], ['Младшая группа', '/gruppy/mladshaya/'], ['Средняя группа', '/gruppy/srednyaya/'], ['Старшая группа', '/gruppy/starshaya/']] },
+  { title: 'Родителям', links: [['Стоимость', '/stoimost/'], ['День в саду', '/den-v-sadu/'], ['Вопросы родителей', '/roditelyam/'], ['Контакты', '/kontakty/']] },
 ];
 ---
 <footer class="site-footer" id="kontakty">
+  <section class="footer-location container" aria-labelledby="footer-location-title">
+    <div class="footer-location-copy">
+      <h2 id="footer-location-title">Приходите<br/>знакомиться</h2>
+      <p>Покажем садик, ответим на вопросы<br class="footer-copy-break"/> и расскажем о нашей жизни.</p>
+      <dl class="footer-location-facts">
+        <div><IllustratedIcon name="pin" size={44}/><div><dt>Наш адрес</dt><dd>{address}</dd></div></div>
+        <div><IllustratedIcon name="clock" size={44}/><div><dt>Режим работы</dt><dd>Работаем 24/7</dd></div></div>
+      </dl>
+      <a class="footer-phone" href={`tel:${phoneHref}`}>{contactPhone}</a>
+      <div class="footer-messengers">{siteContacts.messengers.map(link=><a href={link.href} target="_blank" rel="noopener noreferrer"><Icon name="chat" size={23}/>Написать в {link.label}<Icon name="arrow" size={18}/></a>)}</div>
+      <img class="footer-guide" src="/images/el-bebe/bunny-guide.webp" alt="" width="414" height="640" loading="lazy"/>
+    </div>
+    <div class="footer-live-map"><iframe title="Эль Бебе на Яндекс Картах — Виноградная, 2/3" src="https://yandex.ru/map-widget/v1/?oid=154599785417&ol=biz&z=16" width="640" height="440" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe><a href="https://yandex.ru/maps/org/el_bebe/154599785417/" target="_blank" rel="noopener noreferrer">Открыть в Яндекс Картах <Icon name="arrow" size={20}/></a></div>
+  </section>
   <div class="container footer-main">
     <div class="footer-brand"><a href="/" aria-label="Эльбэби — на главную"><img src="/images/el-bebe/logo-ru-approved.svg" alt="Детский сад Эльбэби" width="1495" height="775" loading="lazy"/></a><p><span aria-hidden="true"><Icon name="heart" size={28}/></span> С любовью к детям.<br/>С заботой о будущем.</p></div>
-    <div class="footer-visit"><p class="footer-visit-address"><Icon name="pin" size={36}/>{address}</p><p class="footer-visit-hours">Работаем 24/7</p>{phoneHref && <a class="footer-phone" href={`tel:${phoneHref}`}>{phone}</a>}<button type="button" class="button" data-open-visit>Прийти познакомиться <Icon name="arrow" size={20}/></button></div>
-    <div class="footer-live-map"><iframe title="Эль Бебе на Яндекс Картах — Виноградная, 2/3" src="https://yandex.ru/map-widget/v1/?oid=154599785417&ol=biz&z=16" width="380" height="230" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe><a href="https://yandex.ru/maps/org/el_bebe/154599785417/" target="_blank" rel="noopener noreferrer">Открыть в Яндекс Картах <Icon name="arrow" size={18}/></a></div>
+    <nav class="footer-navigation" aria-label="Разделы сайта">{sections.map(section=><details class="footer-nav-group" open data-footer-section><summary>{section.title}<Icon name="chevron" size={18}/></summary><ul>{section.links.map(([label,href])=><li><a href={href}>{label}<Icon name="chevron" size={16}/></a></li>)}</ul></details>)}</nav>
   </div>
-  <nav class="footer-navigation container" aria-label="Разделы сайта">{links.map(([label, href]) => <a href={href}>{label}</a>)}</nav>
   <div class="container footer-bottom"><p>Эльбэби · частный детский сад в Сочи</p><nav aria-label="Документы"><a href="/svedeniya/">Сведения об образовательной организации</a><a href="/privacy/">Персональные данные</a></nav></div>
 </footer>

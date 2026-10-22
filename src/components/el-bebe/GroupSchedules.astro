@@ -1,23 +1,22 @@
 ---
 import { groups, weekdays } from '../../data/group-schedules.json';
-import Icon from './Icon.astro';
 import IllustratedIcon from './IllustratedIcon.astro';
-interface Props { onlyGroup?: string; expanded?: boolean; }
-const { onlyGroup, expanded = false } = Astro.props;
+interface Props { onlyGroup?: string; }
+const { onlyGroup } = Astro.props;
 const schedules = onlyGroup ? groups.filter(group => group.id === onlyGroup) : groups;
 ---
 <section class="group-weekly container" aria-labelledby="weekly-title">
   <header class="weekly-heading"><IllustratedIcon name="calendar" size={86}/><div><h2 id="weekly-title">Неделя в группе</h2><p>{onlyGroup ? 'Занятия, прогулки, питание и отдых — с понедельника по пятницу.' : 'Выберите группу, чтобы посмотреть занятия и распорядок по дням недели.'}</p></div></header>
-  {schedules.map(group => <details class="group-schedule" id={`schedule-${group.id}`} data-group-schedule open={expanded}>
-    <summary><span>{group.title}</span><span class="schedule-toggle-label">Расписание на неделю <Icon name="chevron" size={22}/></span></summary>
-    <div class="group-day-picker" role="group" aria-label={`День недели: ${group.title.toLowerCase()}`}>{weekdays.map((day, index) => <button type="button" data-weekday={index} aria-pressed={index === 0 ? 'true' : 'false'}><span class="weekday-full">{day}</span><span class="weekday-short" aria-hidden="true">{['Пн','Вт','Ср','Чт','Пт'][index]}</span></button>)}</div>
+  {schedules.map(group => <article class="group-schedule" id={`schedule-${group.id}`} data-group-schedule>
+    <header class="group-schedule-heading"><h3>{group.title}</h3><p>Понедельник — пятница</p></header>
+    <div class="group-day-picker" role="group" aria-label={`День недели: ${group.title.toLowerCase()}`}>{weekdays.map((day, index) => <button type="button" data-weekday={index} aria-label={day} aria-pressed={index === 0 ? 'true' : 'false'}><span class="weekday-full">{day}</span><span class="weekday-short" aria-hidden="true">{['Пн','Вт','Ср','Чт','Пт'][index]}</span></button>)}</div>
     <p class="group-week-hint" id={`hint-${group.id}`}>Прокрутите таблицу вправо, чтобы посмотреть все дни недели.</p>
     <div class="group-week-scroll" role="region" aria-label={`Расписание: ${group.title.toLowerCase()}`} aria-describedby={`hint-${group.id}`} tabindex="0">
       <table><caption>Расписание занятий: {group.title.toLowerCase()}</caption><thead><tr><th scope="col">Время</th>{weekdays.map((day,index) => <th scope="col" data-weekday-cell={index}>{day}</th>)}</tr></thead>
         <tbody>{group.schedule.map(row => <tr class:list={{ 'group-meal-row': ['9:00','12:00','15:10','15:15','17:00'].includes(row.time) }}><th scope="row">{row.time}</th>{row.activities.map((activity,index) => <td data-weekday-cell={index}>{activity || '—'}</td>)}</tr>)}</tbody>
       </table>
     </div>
-  </details>)}
+  </article>)}
 </section>
 <script>
   document.querySelectorAll<HTMLElement>('[data-group-schedule]').forEach(schedule => {
@@ -28,10 +27,4 @@ const schedules = onlyGroup ? groups.filter(group => group.id === onlyGroup) : g
       buttons.forEach(item => item.setAttribute('aria-pressed', String(item === button)));
     }));
   });
-  function revealGroupSchedule() {
-    const schedule = document.getElementById(window.location.hash.slice(1));
-    if (schedule instanceof HTMLDetailsElement && schedule.hasAttribute('data-group-schedule')) schedule.open = true;
-  }
-  revealGroupSchedule();
-  window.addEventListener('hashchange', revealGroupSchedule);
 </script>
