@@ -1,0 +1,22 @@
+@layer realPhotos {
+  .hero-circle img { object-position: center; transform: none; }
+  .program-card-photo { aspect-ratio: 1.15; }
+  .program-card-photo img, .program-card--blue .program-card-photo img, .program-card--green .program-card-photo img { object-position: center; }
+  .group-detail-photo { aspect-ratio: 1.15; }
+  .home-page { overflow-x: clip; }
+  .capital-photo>img { object-position: 50% 36%; }
+  .visit-stop--2 .visit-photo img { object-position: 50% 28%; }
+  .rhythm-stop:first-of-type .rhythm-stop-photo>img { object-position: 50% 12%; }
+  .space-gallery:not(.space-gallery--full) .gallery-slide:nth-child(4)>img { object-position: 50% 65%; }
+  .space-gallery--full .gallery-track { align-items: start; }
+  .space-gallery--full .gallery-slide { border-radius: 18px 18px 0 0; }
+  .space-gallery--full .gallery-slide--wide { grid-column: 1 / -1; }
+  .space-gallery--full .gallery-slide>img { height: auto; aspect-ratio: auto; object-fit: contain; border-radius: 18px; }
+  .space-gallery--full .gallery-slide figcaption { position: static; padding: 16px 4px 22px; background: none; color: var(--purple); }
+  .space-gallery--full .gallery-slide figcaption span { color: #574063; }
+  @media (max-width: 760px) {
+    .hero-circle img { object-position: center; transform: none; }
+    .space-gallery:not(.space-gallery--full) .gallery-slide>img { aspect-ratio: 1.5; }
+    .group-detail-photo { aspect-ratio: 1.15; }
+  }
+}

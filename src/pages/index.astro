@@ -48,9 +48,9 @@ const faqs = getParentQuestions(content.faqs).slice(0, 8);
         </div>
       </div>
       <div class="hero-collage">
-        <div class="hero-photo"><picture><source media="(max-width: 760px)" srcset="/images/el-bebe/hero-mobile-collage-v2.webp" width="1100" height="1000"/><img src="/images/el-bebe/hero.webp" alt="Игра и творчество в саду" width="1122" height="1402" fetchpriority="high"/></picture></div>
-        <div class="hero-circle hero-circle--teacher"><img src="/images/el-bebe/together.webp" alt="Игра вместе с педагогом" width="1400" height="933" loading="lazy"/></div>
-        <div class="hero-circle hero-circle--garden"><img src="/images/el-bebe/garden.webp" alt="Радость прогулки" width="1400" height="933" loading="lazy"/></div>
+        <div class="hero-photo"><picture><source media="(max-width: 760px)" srcset="/images/el-bebe/real-hero-mobile-v1.webp" width="1100" height="1000"/><img src="/images/el-bebe/real-blocks-v1.webp" alt="Игра и творчество в саду" width="841" height="1280" fetchpriority="high"/></picture></div>
+        <div class="hero-circle hero-circle--teacher"><img src="/images/el-bebe/real-friends-square-v1.webp" alt="Дети обнимаются на прогулке" width="960" height="960" loading="lazy"/></div>
+        <div class="hero-circle hero-circle--garden"><img src="/images/el-bebe/real-outdoor-square-v1.webp" alt="Улыбка на прогулке" width="720" height="720" loading="lazy"/></div>
         <span class="collage-note hand-note" aria-hidden="true"><span class="desktop-text">Любопытные<br/>дети —<br/>счастливые<br/>люди ♡</span><span class="mobile-text">Счастливые<br/>дети ♡</span></span>
         <Sprig class="hero-sprig"/>
       </div>
@@ -69,7 +69,7 @@ const faqs = getParentQuestions(content.faqs).slice(0, 8);
     </section>
 
     <section class="about section container" id="about-intro" aria-labelledby="about-title">
-      <div class="about-image"><img src="/images/el-bebe/together.webp" alt="Педагог и дети за общей игрой" width="1400" height="933" loading="lazy"/><span class="about-note hand-note" aria-hidden="true">Рядом<br/>вдохновляющие<br/>взрослые ♡</span><Decor kind="drops" class="about-drops"/></div>
+      <div class="about-image"><img src="/images/el-bebe/real-friends-square-v1.webp" alt="Дети дружат и играют вместе" width="1400" height="933" loading="lazy"/><span class="about-note hand-note" aria-hidden="true">Как хорошо<br/>играть<br/>вместе ♡</span><Decor kind="drops" class="about-drops"/></div>
       <div class="about-copy"><h2 id="about-title">Больше, чем просто сад</h2><p class="lead">Детство — время для игры, открытий и настоящих отношений. В Эльбэби мы знакомимся с миром в своём темпе: пробуем новое, учимся дружить и быть собой.</p><div class="about-points">{[{ icon: 'heart', title: 'Игра', text: 'Пробуем новое и находим свои интересы.', color: '#ff6476' }, { icon: 'people', title: 'Общение', text: 'Учимся дружить и слушать друг друга.', color: '#ffca36' }, { icon: 'leaf', title: 'Забота', text: 'Видим интересы ребёнка и помогаем.', color: '#26abe0' }].map(item => <div class="about-point"><Puzzle color={item.color} icon={item.icon}/><div><h3>{item.title}</h3><p>{item.text}</p></div></div>)}</div></div>
       <Sprig class="about-sprig"/>
       <Decor kind="drops" color="#ffa9b4" class="about-pink-drops"/>
@@ -95,7 +95,7 @@ const faqs = getParentQuestions(content.faqs).slice(0, 8);
 
     <Surveillance/>
 
-    <section class="spaces section container" aria-labelledby="spaces-title"><div class="section-heading"><h2 id="spaces-title">Наше пространство</h2><p>Для игры, творчества<br/>и маленьких открытий.</p><a class="text-link" href="/prostranstvo/">Смотреть все фото <Icon name="arrow" size={20}/></a></div><Gallery items={spaces}/><Decor kind="wash" color="#c7eaf4" class="spaces-side-wash"/></section>
+    <section class="spaces section container" aria-labelledby="spaces-title"><div class="section-heading"><h2 id="spaces-title">Жизнь в Эльбэби</h2><p>Занятия, прогулки<br/>и счастливые моменты.</p><a class="text-link" href="/prostranstvo/">Смотреть все фото <Icon name="arrow" size={20}/></a></div><Gallery items={spaces.slice(0,4)}/><Decor kind="wash" color="#c7eaf4" class="spaces-side-wash"/></section>
 
     <Educators team={team}/>
 

@@ -10,7 +10,7 @@ interface Props { groups: SiteContent['groups']; headingLevel?: 'h1' | 'h2'; sho
 const { groups = [], headingLevel = 'h2', showHeading = true } = Astro.props;
 const Heading = headingLevel;
 const CardHeading = headingLevel === 'h1' ? 'h2' : 'h3';
-const imageDescriptions = ['Дети строят из кубиков вместе с педагогом', 'Ребёнок рисует цветными карандашами', 'Дети собирают учебного робота'];
+const imageDescriptions = ['Рисование цветными карандашами', 'Девочка с карандашами за творческим заданием', 'Ребёнок играет в шахматы'];
 ---
 <section class="group-programs section container" id="gruppy" aria-labelledby={showHeading ? 'growth-title' : undefined} aria-label={showHeading ? undefined : 'Программы групп'}>
   {showHeading && <header class="programs-heading">
@@ -27,7 +27,7 @@ const imageDescriptions = ['Дети строят из кубиков вмест
     return <article class={`program-card program-card--${program.accent}`} id={`group-${program.id}`}>
       <div class="program-card-visual">
         <div class="program-card-photo">
-          {photo ? <Image image={photo} alt={imageDescriptions[index]} width={700} height={460}/> : <img src={`/images/el-bebe/${program.image}.webp`} alt={imageDescriptions[index]} width={program.id === 'younger' ? 1000 : 1100} height={program.id === 'younger' ? 750 : 825} sizes="(max-width: 600px) calc(100vw - 64px), (max-width: 979px) 510px, 31vw" loading="lazy"/>}
+          {photo ? <Image image={photo} alt={imageDescriptions[index]} width={700} height={460}/> : <img src={`/images/el-bebe/${program.image}.webp`} alt={imageDescriptions[index]} width={program.id === 'younger' ? 900 : program.id === 'middle' ? 720 : 960} height={program.id === 'younger' ? 783 : program.id === 'middle' ? 626 : 835} sizes="(max-width: 600px) calc(100vw - 64px), (max-width: 979px) 510px, 31vw" loading="lazy"/>}
         </div>
         <Decor kind="drops" class="program-card-rays program-card-rays--left"/>
         <Decor kind="drops" class="program-card-rays program-card-rays--right"/>

@@ -15,6 +15,7 @@ function entries(collection) {
 }
 function publicImage(value) {
   if (!value) return null;
+  if (/(?:^|\/)(?:el-bebe-)?(?:room|play|life|garden|playground|group-younger|group-middle-art|group-older-robot)\.webp$/.test(string(value.filename))) return null;
   const match = /^el-bebe-([a-z0-9-]+\.webp)$/.exec(string(value.filename));
   if (!match || !existsSync(new URL(`../public/images/el-bebe/${match[1]}`, import.meta.url))) throw new Error('Add a reviewed public counterpart for every showcase image before exporting.');
   return { id: match[1], src: `/images/el-bebe/${match[1]}`, alt: string(value.alt) };

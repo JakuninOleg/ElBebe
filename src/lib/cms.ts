@@ -35,6 +35,8 @@ function imageValue(value: unknown): ImageValue | null {
   // EmDash Image component resolve that reference through the storage adapter.
   if (!value || typeof value !== "object") return null;
   const record = value as Record<string, unknown>;
+  // These generated samples now use the curated real-photo fallback.
+  if (/(?:^|\/)(?:el-bebe-)?(?:room|play|life|garden|playground|group-younger|group-middle-art|group-older-robot)\.webp$/.test(text(record.filename) || text(record.src))) return null;
   const src = safeUrl(record.src, true);
   if (!text(record.id) && !src) return null;
   return { ...record, id: text(record.id), src: src || undefined } as ImageValue;

@@ -11,7 +11,7 @@
       "id": "younger",
       "title": "Младшая группа",
       "subtitle": "Знакомимся с миром через игру",
-      "image": "group-younger",
+      "image": "real-group-younger-v1",
       "accent": "pink",
       "categories": [
         {
@@ -192,7 +192,7 @@
       "id": "middle",
       "title": "Средняя группа",
       "subtitle": "Больше общения, идей и самостоятельности",
-      "image": "play",
+      "image": "real-group-middle-v1",
       "accent": "yellow",
       "categories": [
         {
@@ -379,7 +379,7 @@
       "id": "older",
       "title": "Старшая группа",
       "subtitle": "Исследуем, рассуждаем, готовимся к школе",
-      "image": "group-older",
+      "image": "real-group-older-v1",
       "accent": "aqua",
       "categories": [
         {
