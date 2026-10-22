@@ -6,9 +6,20 @@ document.querySelectorAll<HTMLInputElement>('[data-phone-mask]:not(:disabled)').
 const dialog = document.querySelector<HTMLDialogElement>('#visit-dialog');
 const menuToggle = document.querySelector<HTMLButtonElement>('[data-menu-toggle]');
 const menu = document.querySelector<HTMLElement>('#mobile-menu');
+const navGroups = Array.from(document.querySelectorAll<HTMLDetailsElement>('[data-nav-group]'));
 let lastFocused: HTMLElement | null = null;
 
-function closeMenu(restoreFocus = false) { if (menu && menuToggle) { menu.hidden = true; menuToggle.setAttribute('aria-expanded', 'false'); menuToggle.setAttribute('aria-label', 'Открыть меню'); if (restoreFocus) menuToggle.focus(); } }
+function closeNavGroups(except?: HTMLDetailsElement) { navGroups.forEach(group => { if (group !== except) group.open = false; }); }
+function closeMenu(restoreFocus = false) { closeNavGroups(); if (menu && menuToggle) { menu.hidden = true; menuToggle.setAttribute('aria-expanded', 'false'); menuToggle.setAttribute('aria-label', 'Открыть меню'); if (restoreFocus) menuToggle.focus(); } }
+navGroups.forEach(group => {
+  group.addEventListener('toggle', () => { if (group.open) closeNavGroups(group); });
+  group.querySelectorAll('a').forEach(link => link.addEventListener('click', () => closeNavGroups()));
+  group.addEventListener('keydown', event => {
+    if (event.key !== 'Escape' || !group.open) return;
+    event.preventDefault(); event.stopPropagation();
+    group.open = false; group.querySelector('summary')?.focus();
+  });
+});
 menuToggle?.addEventListener('click', () => {
   if (!menu) return;
   const open = menu.hidden;
@@ -22,9 +33,14 @@ menuToggle?.addEventListener('click', () => {
 menu?.querySelectorAll('a').forEach(link => link.addEventListener('click', () => closeMenu()));
 document.addEventListener('keydown', event => { if (event.key === 'Escape' && menu && !menu.hidden) closeMenu(true); });
 document.addEventListener('click', event => {
-  if (event.target instanceof Node && menu && !menu.hidden && !menu.contains(event.target) && !menuToggle?.contains(event.target)) closeMenu();
+  if (!(event.target instanceof Node)) return;
+  closeNavGroups(navGroups.find(group => group.contains(event.target as Node)));
+  if (menu && !menu.hidden && !menu.contains(event.target) && !menuToggle?.contains(event.target)) closeMenu();
 });
-matchMedia('(min-width: 1101px)').addEventListener('change', event => { if (event.matches) closeMenu(); });
+document.addEventListener('focusin', event => {
+  if (event.target instanceof Node) closeNavGroups(navGroups.find(group => group.contains(event.target as Node)));
+});
+matchMedia('(min-width: 1101px)').addEventListener('change', () => closeMenu());
 
 const scrollHeader = document.querySelector<HTMLElement>('[data-scroll-header]');
 if (scrollHeader) {
@@ -32,7 +48,9 @@ if (scrollHeader) {
   let frame = 0;
   const update = () => {
     frame = 0;
-    state = updateScrollHeader(state, window.scrollY, (scrollHeader.parentElement?.offsetHeight || 128) + 24, !!menu && !menu.hidden || scrollHeader.contains(document.activeElement));
+    const wasSticky = state.sticky;
+    state = updateScrollHeader(state, window.scrollY, (scrollHeader.parentElement?.offsetHeight || 128) + 24, !!menu && !menu.hidden || navGroups.some(group => group.open) || scrollHeader.contains(document.activeElement));
+    if (wasSticky !== state.sticky) navGroups.forEach(group => { if (group.closest('.desktop-nav')) group.open = false; });
     scrollHeader.toggleAttribute('data-sticky', state.sticky);
     scrollHeader.toggleAttribute('data-hidden', state.hidden);
   };

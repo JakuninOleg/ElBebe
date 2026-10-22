@@ -8,7 +8,7 @@ const { address, phone } = Astro.props;
 const contactPhone = phone?.trim() || siteContacts.phone;
 const phoneHref = contactPhone.replace(/[^+\d]/g, '');
 const sections = [
-  { title: 'О саде', links: [['Знакомство с садом', '/#o-sade'], ['Воспитатели', '/komanda/'], ['Фотографии', '/prostranstvo/']] },
+  { title: 'О саде', links: [['Знакомство с садом', '/#o-sade'], ['Воспитатели', '/komanda/'], ['Галерея', '/prostranstvo/']] },
   { title: 'Наши группы', links: [['Все группы', '/gruppy/'], ['Младшая группа', '/gruppy/mladshaya/'], ['Средняя группа', '/gruppy/srednyaya/'], ['Старшая группа', '/gruppy/starshaya/']] },
   { title: 'Родителям', links: [['Стоимость', '/stoimost/'], ['День в саду', '/den-v-sadu/'], ['Вопросы родителей', '/roditelyam/'], ['Документы', '/dokumenty/'], ['Контакты', '/kontakty/']] },
 ];
