@@ -1,0 +1,78 @@
+@layer legal {
+  .legal-hub { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 24px; }
+  .legal-card { display: flex; flex-direction: column; padding: 32px; border: 1px solid #e7dce9; border-radius: 16px; background: #fff; text-decoration: none; }
+  .legal-card-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px; }
+  .legal-card-top>span { font-size: 14px; color: #75697d; font-variant-numeric: tabular-nums; }
+  .legal-card h2 { font-size: clamp(25px,2.3vw,32px); line-height: 1.2; letter-spacing: -.025em; }
+  .legal-card p { max-width: 40ch; margin-top: 16px; color: #574d63; font-size: 17px; line-height: 1.6; }
+  .legal-card-link { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding-top: 28px; margin-top: auto; font-size: 15px; font-weight: 750; color: #287285; }
+  .legal-card-link .icon { flex-shrink: 0; transition: transform 180ms; }
+  .legal-operator-block { display: grid; grid-template-columns: minmax(0,.8fr) minmax(0,1.2fr); gap: 64px; border-block: 1px solid #e7dce9; padding-block: 48px; margin-top: 48px; }
+  .legal-operator-block h2 { font-size: clamp(28px,3vw,40px); margin-top: 12px; line-height: 1.15; }
+  .legal-operator-block p, .legal-next p { margin-top: 20px; font-size: 17px; line-height: 1.7; color: #574d63; }
+  .legal-next h2 { font-size: clamp(28px,3vw,36px); }
+  .legal-next p { max-width: 80ch; }
+  .operator-details { margin: 0; display: grid; gap: 16px; }
+  .operator-details>div { min-width: 0; }
+  .operator-details dt { font-size: 13px; line-height: 1.5; color: #75697d; margin-bottom: 4px; }
+  .operator-details dd { margin: 0; font-size: 17px; line-height: 1.6; color: #3d3048; overflow-wrap: anywhere; }
+  .legal-layout { display: grid; grid-template-columns: 260px minmax(0,1fr); gap: 64px; align-items: start; }
+  .legal-contents { position: sticky; top: 100px; border-top: 2px solid var(--purple); padding-top: 20px; }
+  .legal-contents>p { font-size: 14px; font-weight: 750; margin-bottom: 12px; }
+  .legal-contents nav { display: grid; gap: 4px; }
+  .legal-contents nav a { padding-block: 9px; font-size: 15px; line-height: 1.45; text-decoration: none; color: #574d63; }
+  .legal-back { display: inline-block; font-size: 14px; margin-top: 24px; text-underline-offset: 5px; }
+  .legal-body { min-width: 0; color: #45384e; }
+  .legal-body .legal-version { margin: 0 0 32px; font-size: 14px; color: #75697d; }
+  .legal-body>section { scroll-margin-top: 100px; padding-bottom: 36px; margin-bottom: 36px; border-bottom: 1px solid #e7dce9; }
+  .legal-body h2 { font-size: 28px; line-height: 1.25; letter-spacing: -.02em; }
+  .legal-body h3 { font-size: 21px; margin-top: 28px; line-height: 1.35; }
+  .legal-body p { margin-top: 18px; font-size: 17px; line-height: 1.8; }
+  .legal-body a, .legal-next a, .operator-details a { text-underline-offset: 4px; }
+  .legal-body .operator-details { margin-top: 24px; padding: 24px; border-left: 3px solid #c7d9be; background: #f4f6ef; }
+  .legal-body code { font-size: .9em; overflow-wrap: anywhere; }
+  .legal-body .legal-endnote { font-size: 15px; margin-bottom: 48px; }
+  .legal-inline-button { display: inline; padding: 0; background: transparent; color: inherit; text-decoration: underline; text-underline-offset: 4px; }
+  .footer-bottom button { padding: 0; background: transparent; font: inherit; text-decoration: underline; text-underline-offset: 3px; }
+  .external-map { display: flex; flex-direction: column; min-width: 0; }
+  .map-placeholder { display: flex; flex: 1; flex-direction: column; align-items: center; justify-content: center; gap: 16px; padding: 32px 24px; min-height: 380px; text-align: center; background: #eaf0e4; }
+  .map-placeholder h3 { font-size: 23px; line-height: 1.3; }
+  .map-placeholder p, .contact-panel .map-placeholder p { margin: 0; max-width: 33ch; color: #574d63; font-size: 15px; line-height: 1.6; }
+  .map-privacy-link { font-size: 13px; text-underline-offset: 4px; }
+  [data-map-frame][hidden], [data-map-placeholder][hidden] { display: none; }
+  .external-map iframe { border: 0; }
+  .contact-live-map.external-map>a { display: flex; justify-content: space-between; gap: 12px; align-items: center; padding: 14px 18px; font-size: 14px; background: white; }
+  .privacy-primary, .privacy-secondary { display: inline-flex; align-items: center; justify-content: center; min-height: 46px; padding: 12px 20px; border-radius: 10px; font-size: 15px; line-height: 1.4; font-weight: 700; }
+  .privacy-primary { color: white; background: var(--purple); border: 1px solid var(--purple); }
+  .privacy-secondary { color: var(--purple); background: white; border: 1px solid #baa7c3; }
+  .privacy-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+  .privacy-banner { position: fixed; z-index: 65; inset: auto 24px 24px; margin-inline: auto; max-width: 1200px; display: flex; justify-content: space-between; align-items: center; gap: 24px; padding: 22px 28px; background: #fffdf7; border: 1px solid #d8c7df; border-radius: 16px; box-shadow: 0 6px 32px #46304d20; }
+  .privacy-banner p { color: #574d63; font-size: 14px; line-height: 1.5; }
+  .privacy-banner .privacy-banner-title { font-size: 18px; color: var(--purple); font-weight: 800; margin-bottom: 6px; }
+  .privacy-banner .privacy-actions { flex-shrink: 0; }
+  .privacy-dialog { border: 1px solid #e7dce9; border-radius: 18px; padding: 40px 32px 32px; width: min(560px,calc(100% - 32px)); max-height: calc(100dvh - 48px); color: #45384e; background: #fffdf7; }
+  .privacy-dialog::backdrop { background: #2b173d80; }
+  body:has(.privacy-dialog[open]) { overflow: hidden; }
+  .privacy-dialog h2 { font-size: 32px; margin-top: 12px; line-height: 1.2; }
+  .privacy-dialog p { font-size: 16px; line-height: 1.7; margin-top: 20px; }
+  .privacy-dialog .privacy-current { font-size: 14px; font-weight: 750; margin-block: 20px; }
+  .privacy-dialog .privacy-dialog-note { font-size: 13px; }
+  .privacy-close { position: absolute; right: 10px; top: 10px; display: grid; place-items: center; width: 44px; height: 44px; background: transparent; border-radius: 8px; }
+  .privacy-primary:focus-visible, .privacy-secondary:focus-visible, .privacy-close:focus-visible, .legal-card:focus-visible { outline: 3px solid #287285; outline-offset: 4px; }
+  @media (hover:hover) { .legal-card:hover { border-color: #a78cb5; } .legal-card:hover .legal-card-link .icon { transform: translateX(4px); } .legal-contents a:hover { text-decoration: underline; } }
+  @media (max-width:1000px) { .legal-layout { grid-template-columns: 200px minmax(0,1fr); gap: 32px; } .legal-operator-block { gap: 32px; } .privacy-banner { align-items: start; } .privacy-banner .privacy-actions { flex-direction: column; } }
+  @media (max-width:760px) {
+    .legal-hub { grid-template-columns: minmax(0,1fr); gap: 16px; }
+    .legal-card { padding: 24px; } .legal-card-top { margin-bottom: 20px; } .legal-card p { font-size: 16px; }
+    .legal-operator-block { display: block; margin-top: 32px; padding-block: 32px; } .legal-operator-block>.operator-details { margin-top: 28px; }
+    .legal-layout { display: block; } .legal-contents { position: static; padding-top: 16px; margin-bottom: 32px; }
+    .legal-contents nav { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 0 16px; } .legal-contents nav a { font-size: 14px; }
+    .legal-back { margin-top: 16px; } .legal-body h2 { font-size: 25px; } .legal-body p { font-size: 16px; line-height: 1.75; }
+    .legal-body .operator-details { padding: 20px 16px; } .operator-details dd { font-size: 16px; }
+    .map-placeholder { min-height: 290px; padding: 24px 18px; gap: 12px; } .map-placeholder h3 { font-size: 21px; }
+    .privacy-banner { inset: auto 12px 12px; display: block; padding: 18px; border-radius: 12px; } .privacy-banner .privacy-actions { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 8px; margin-top: 16px; }
+    .privacy-banner .privacy-primary, .privacy-banner .privacy-secondary { font-size: 13px; padding: 10px 8px; }
+    .privacy-dialog { padding: 40px 24px 24px; } .privacy-dialog h2 { font-size: 29px; } .privacy-dialog .privacy-actions { display: grid; }
+  }
+  @media (prefers-reduced-motion:reduce) { .legal-card-link .icon { transition: none; } }
+}

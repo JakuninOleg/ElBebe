@@ -1,0 +1,16 @@
+---
+import Inner from '../layouts/Inner.astro';
+import Icon from '../components/el-bebe/Icon.astro';
+import OperatorDetails from '../components/el-bebe/OperatorDetails.astro';
+const documents = [
+  { href: '/svedeniya/', title: 'Сведения о саде', text: 'Исполнитель, реквизиты ИП и информация о документах для родителей.', icon: 'document' },
+  { href: '/privacy/', title: 'Политика обработки данных', text: 'Какие данные используются, для чего они нужны и как обратиться к оператору.', icon: 'shield' },
+  { href: '/soglasie/', title: 'Согласие на обработку данных', text: 'Отдельное согласие для обращения и записи на знакомство с садом.', icon: 'check' },
+  { href: '/cookies/', title: 'Cookie и внешние сервисы', text: 'Как работает карта Яндекса и как изменить свой выбор.', icon: 'pin' },
+];
+---
+<Inner title="Документы и персональные данные — Эльбэби" heading="Всё важное — открыто" label="Документы" description="Сведения об ИП Семенюк Юлии Андреевне, документы детского сада Эльбэби и информация о персональных данных." intro="Сведения о саде, документы для родителей и ваши настройки конфиденциальности — в одном месте." callout={false} art="document" note="">
+  <section class="container content-section legal-hub" aria-label="Документы сада">{documents.map((document, index) => <a class="legal-card" href={document.href}><div class="legal-card-top"><Icon name={document.icon} size={40}/><span>0{index + 1}</span></div><h2>{document.title}</h2><p>{document.text}</p><span class="legal-card-link">Открыть документ <Icon name="arrow" size={22}/></span></a>)}</section>
+  <section class="container content-section legal-operator-block" aria-labelledby="operator-heading"><div><span class="eyebrow">Официальные сведения</span><h2 id="operator-heading">Кто отвечает за сад</h2><p>Адрес регистрации ИП отличается от адреса садика. На экскурсию ждём вас на Виноградной, 2/3 в Сочи.</p></div><OperatorDetails/></section>
+  <section class="container content-section legal-next" aria-labelledby="parent-documents-heading"><h2 id="parent-documents-heading">Перед началом посещения</h2><p>Ознакомьтесь с лицензией, договором и условиями выбранного режима посещения. <a href="/svedeniya/#documents">Информация о документах</a> собрана отдельно. Стоимость опубликована в разделе <a href="/stoimost/">«Стоимость»</a>.</p></section>
+</Inner>

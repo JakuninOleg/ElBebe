@@ -2,7 +2,7 @@
 export const publicPages = [
   '/', '/gruppy/', '/gruppy/mladshaya/', '/gruppy/srednyaya/', '/gruppy/starshaya/', '/stoimost/', '/den-v-sadu/', '/komanda/',
   '/prostranstvo/', '/roditelyam/', '/kontakty/', '/svedeniya/',
-  '/privacy/', '/soglasie/',
+  '/privacy/', '/soglasie/', '/dokumenty/', '/cookies/',
 ];
 
 export function publicSitemap(origin: string): string {

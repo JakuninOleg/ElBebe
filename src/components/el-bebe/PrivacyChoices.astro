@@ -1,0 +1,16 @@
+---
+import Icon from './Icon.astro';
+---
+<section class="privacy-banner" aria-label="Карта и cookie" data-privacy-banner hidden>
+  <div><p class="privacy-banner-title">Карту включаете вы</p><p>Карта Яндекса загружается с вашего разрешения. <a href="/cookies/">О cookie и сервисах</a></p></div>
+  <div class="privacy-actions"><button type="button" class="privacy-secondary" data-maps-choice="deny">Только необходимые</button><button type="button" class="privacy-primary" data-maps-choice="allow">Разрешить карту</button></div>
+</section>
+<dialog class="privacy-dialog" aria-labelledby="privacy-title" aria-describedby="privacy-description" data-privacy-dialog>
+  <button type="button" class="privacy-close" aria-label="Закрыть настройки" data-close-privacy><Icon name="close" size={24}/></button>
+  <span class="eyebrow">Ваш выбор</span><h2 id="privacy-title">Cookie и карта</h2>
+  <p id="privacy-description">Сайт работает без внешней карты. После её включения Яндекс получит технические данные браузера и сможет использовать свои cookie.</p>
+  <p class="privacy-current" data-privacy-current aria-live="polite"></p>
+  <div class="privacy-actions"><button type="button" class="privacy-secondary" data-maps-choice="deny">Только необходимые</button><button type="button" class="privacy-primary" data-maps-choice="allow">Разрешить карту</button></div>
+  <p class="privacy-dialog-note">Аналитика и рекламные счётчики не подключены. <a href="/cookies/">Подробнее о настройках</a></p>
+</dialog>
+<script>import '../../scripts/map-choice';</script>

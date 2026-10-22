@@ -4,6 +4,7 @@ import { mkdir, open } from "node:fs/promises";
 import { homedir } from "node:os";
 import { dirname, isAbsolute, relative, resolve } from "node:path";
 import { normalizeRuPhone } from "../../lib/ru-phone";
+import { legalVersion } from "../../data/legal-operator";
 
 export const prerender = false;
 const BODY_LIMIT = 8_192;
@@ -123,7 +124,7 @@ export const POST: APIRoute = async (context) => {
     const retryAfter = reserveRateLimit(ip, phone!);
     if (retryAfter) return json(429, { ok: false, message: "Слишком много обращений. Попробуйте позже." }, { "Retry-After": String(retryAfter) });
     const id = randomUUID();
-    await saveRequest({ id, received_at: new Date().toISOString(), name, phone, consent: true, source: "/api/visit" });
+    await saveRequest({ id, received_at: new Date().toISOString(), name, phone, consent: true, consent_version: legalVersion, privacy_version: legalVersion, source: "/api/visit" });
     return json(201, { ok: true, message: "Заявка сохранена. Спасибо за обращение!", id });
   } catch (error) {
     if (error instanceof RequestError) return json(error.status, { ok: false, message: error.message });

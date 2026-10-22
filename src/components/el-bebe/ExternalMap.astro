@@ -1,0 +1,10 @@
+---
+import Icon from './Icon.astro';
+interface Props { class?: string; }
+const { class: className = '' } = Astro.props;
+---
+<div class:list={['external-map', className]} data-external-map>
+  <div class="map-placeholder" data-map-placeholder><Icon name="pin" size={52}/><h3>Мы на Виноградной, 2/3</h3><p>Загрузить карту Яндекса?<br/>Сервис получит технические данные браузера.</p><button type="button" class="privacy-primary" data-maps-choice="allow">Показать карту</button><a class="map-privacy-link" href="/cookies/">О внешних сервисах</a></div>
+  <iframe data-map-frame data-src="https://yandex.ru/map-widget/v1/?oid=154599785417&ol=biz&z=16" title="Эльбэби — Сочи, улица Виноградная, 2/3" width="640" height="440" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" hidden></iframe>
+  <a href="https://yandex.ru/maps/org/el_bebe/154599785417/" target="_blank" rel="noopener noreferrer">Открыть в Яндекс Картах <Icon name="arrow" size={20}/></a>
+</div>

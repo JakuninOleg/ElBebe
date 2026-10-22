@@ -1,0 +1,9 @@
+---
+import { legalDate } from '../../data/legal-operator';
+interface Props { sections: { id: string; title: string }[]; }
+const { sections } = Astro.props;
+---
+<div class="container legal-layout content-section">
+  <aside class="legal-contents"><p>В этом документе</p><nav aria-label="Содержание документа">{sections.map(section => <a href={`#${section.id}`}>{section.title}</a>)}</nav><a class="legal-back" href="/dokumenty/">Все документы</a></aside>
+  <article class="legal-body"><p class="legal-version">Редакция от {legalDate}</p><slot/><p class="legal-endnote">Вопросы о документах? <a href="/kontakty/">Свяжитесь с садом</a>.</p></article>
+</div>

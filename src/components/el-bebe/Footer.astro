@@ -1,6 +1,7 @@
 ---
 import Icon from './Icon.astro';
 import IllustratedIcon from './IllustratedIcon.astro';
+import ExternalMap from './ExternalMap.astro';
 import { siteContacts } from '../../data/site-contacts';
 interface Props { address: string; phone?: string; }
 const { address, phone } = Astro.props;
@@ -9,7 +10,7 @@ const phoneHref = contactPhone.replace(/[^+\d]/g, '');
 const sections = [
   { title: 'О саде', links: [['Знакомство с садом', '/#o-sade'], ['Воспитатели', '/komanda/'], ['Фотографии', '/prostranstvo/']] },
   { title: 'Наши группы', links: [['Все группы', '/gruppy/'], ['Младшая группа', '/gruppy/mladshaya/'], ['Средняя группа', '/gruppy/srednyaya/'], ['Старшая группа', '/gruppy/starshaya/']] },
-  { title: 'Родителям', links: [['Стоимость', '/stoimost/'], ['День в саду', '/den-v-sadu/'], ['Вопросы родителей', '/roditelyam/'], ['Контакты', '/kontakty/']] },
+  { title: 'Родителям', links: [['Стоимость', '/stoimost/'], ['День в саду', '/den-v-sadu/'], ['Вопросы родителей', '/roditelyam/'], ['Документы', '/dokumenty/'], ['Контакты', '/kontakty/']] },
 ];
 ---
 <footer class="site-footer" id="kontakty">
@@ -25,11 +26,11 @@ const sections = [
       <div class="footer-messengers">{siteContacts.messengers.map(link=><a href={link.href} target="_blank" rel="noopener noreferrer"><Icon name="chat" size={23}/>Написать в {link.label}<Icon name="arrow" size={18}/></a>)}</div>
       <img class="footer-guide" src="/images/el-bebe/bunny-guide.webp" alt="" width="414" height="640" loading="lazy"/>
     </div>
-    <div class="footer-live-map"><iframe title="Эль Бебе на Яндекс Картах — Виноградная, 2/3" src="https://yandex.ru/map-widget/v1/?oid=154599785417&ol=biz&z=16" width="640" height="440" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe><a href="https://yandex.ru/maps/org/el_bebe/154599785417/" target="_blank" rel="noopener noreferrer">Открыть в Яндекс Картах <Icon name="arrow" size={20}/></a></div>
+    <ExternalMap class="footer-live-map"/>
   </section>
   <div class="container footer-main">
     <div class="footer-brand"><a href="/" aria-label="Эльбэби — на главную"><img src="/images/el-bebe/logo-ru-approved.svg" alt="Детский сад Эльбэби" width="1495" height="775" loading="lazy"/></a><p><span aria-hidden="true"><Icon name="heart" size={28}/></span> С любовью к детям.<br/>С заботой о будущем.</p></div>
     <nav class="footer-navigation" aria-label="Разделы сайта">{sections.map(section=><details class="footer-nav-group" open data-footer-section><summary>{section.title}<Icon name="chevron" size={18}/></summary><ul>{section.links.map(([label,href])=><li><a href={href}>{label}<Icon name="chevron" size={16}/></a></li>)}</ul></details>)}</nav>
   </div>
-  <div class="container footer-bottom"><p>Эльбэби · частный детский сад в Сочи</p><nav aria-label="Документы"><a href="/svedeniya/">Сведения об образовательной организации</a><a href="/privacy/">Персональные данные</a></nav></div>
+  <div class="container footer-bottom"><p>Эльбэби · частный детский сад в Сочи</p><nav aria-label="Документы"><a href="/dokumenty/">Документы сада</a><a href="/svedeniya/">Сведения об ИП</a><a href="/privacy/">Персональные данные</a><button type="button" data-open-privacy>Настройки cookie</button></nav></div>
 </footer>
