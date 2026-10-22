@@ -4,10 +4,11 @@
   .program-card-photo img, .program-card--blue .program-card-photo img, .program-card--green .program-card-photo img { object-position: center; }
   .group-detail-photo { aspect-ratio: 1.15; }
   .home-page { overflow-x: clip; }
-  .capital-photo>img { object-position: 50% 36%; }
+  .capital-photo>img { object-position: center; }
   .visit-stop--2 .visit-photo img { object-position: 50% 28%; }
   .rhythm-stop:first-of-type .rhythm-stop-photo>img { object-position: 50% 12%; }
-  .space-gallery:not(.space-gallery--full) .gallery-slide:nth-child(4)>img { object-position: 50% 65%; }
+  .space-gallery:not(.space-gallery--full) .gallery-slide>img { height: auto; aspect-ratio: 3 / 4; object-position: center; }
+  .space-gallery:not(.space-gallery--full) .gallery-slide:nth-child(4)>img { object-position: 50% 35%; }
   .space-gallery--full .gallery-track { align-items: start; }
   .space-gallery--full .gallery-slide { border-radius: 18px 18px 0 0; }
   .space-gallery--full .gallery-slide--wide { grid-column: 1 / -1; }
@@ -16,7 +17,7 @@
   .space-gallery--full .gallery-slide figcaption span { color: #574063; }
   @media (max-width: 760px) {
     .hero-circle img { object-position: center; transform: none; }
-    .space-gallery:not(.space-gallery--full) .gallery-slide>img { aspect-ratio: 1.5; }
+    .space-gallery:not(.space-gallery--full) .gallery-slide>img { aspect-ratio: 3 / 4; }
     .group-detail-photo { aspect-ratio: 1.15; }
   }
 }

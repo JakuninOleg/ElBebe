@@ -33,7 +33,7 @@ import { EmDashHead, EmDashBodyStart, EmDashBodyEnd, createPublicPageContext } f
 interface Props { title: string; description: string; address?: string; phone?: string; }
 const { title, description, address = siteLocation.address, phone = '' } = Astro.props;
 const canonical = new URL(Astro.url.pathname, Astro.url.origin).href;
-const page = createPublicPageContext({ Astro, kind: 'custom', pageType: 'website', title, pageTitle: title, description, canonical, image: '/images/el-bebe/real-blocks-v1.webp', siteName: 'Эльбэби', seo: { robots: 'noindex, nofollow' } });
+const page = createPublicPageContext({ Astro, kind: 'custom', pageType: 'website', title, pageTitle: title, description, canonical, image: '/images/el-bebe/real-outdoor-play-v1.webp', siteName: 'Эльбэби', seo: { robots: 'noindex, nofollow' } });
 ---
 <!doctype html>
 <html lang="ru">

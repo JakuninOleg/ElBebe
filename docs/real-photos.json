@@ -387,5 +387,118 @@
     "width": 900,
     "height": 643,
     "bytes": 49782
+  },
+  {
+    "asset": "real-heart-v1.webp",
+    "source": "WhatsApp Image 2026-10-19 at 14.23.49.jpeg",
+    "sourceSha256": "797ab009d49e6797194fc3cb183f7032abc171e29b2d2cb44ce005c5a27e9376",
+    "width": 720,
+    "height": 1280,
+    "bytes": 90140
+  },
+  {
+    "asset": "real-victory-craft-v1.webp",
+    "source": "WhatsApp Image 2026-10-22 at 17.07.2944.jpeg",
+    "sourceSha256": "7798e0f9ed4516f8a46ed8cbbc423c0837b661deaf2674661eed58eadc1b925a",
+    "width": 960,
+    "height": 1280,
+    "bytes": 80024
+  },
+  {
+    "asset": "real-boy-white-v1.webp",
+    "source": "WhatsApp Image 2026-10-22 at 17.41.14.jpeg",
+    "sourceSha256": "bb9364d67f6196f60ea23078bee605c3185669ad455980ea1889da44be3be32f",
+    "width": 960,
+    "height": 1280,
+    "bytes": 51360
+  },
+  {
+    "asset": "real-boy-polo-v1.webp",
+    "source": "WhatsApp Image 2026-10-22 at 17.41.1411.jpeg",
+    "sourceSha256": "eb2f7cfbd393b44c9853130e04d672e3969deb63ea26541ac11293eeb99e4190",
+    "width": 810,
+    "height": 1440,
+    "bytes": 45790
+  },
+  {
+    "asset": "real-hero-blocks-square-v1.webp",
+    "source": "WhatsApp Image 2026-10-22 at 20.23.38.jpeg",
+    "sourceSha256": "09571ac741323c946c4bef0bf5f360f7217c8dbf8cf444990b676047c4693f47",
+    "width": 841,
+    "height": 841,
+    "bytes": 36712,
+    "crop": [
+      0,
+      70,
+      841,
+      911
+    ]
+  },
+  {
+    "asset": "real-hero-rope-square-v1.webp",
+    "source": "WhatsApp Image 2026-10-22 at 20.27.36124142.jpeg",
+    "sourceSha256": "a76b36d3bfa367fbd7f62150241600fb7bb66ffbd5db5f388da7e84516032315",
+    "width": 720,
+    "height": 720,
+    "bytes": 44062,
+    "crop": [
+      0,
+      240,
+      720,
+      960
+    ]
+  },
+  {
+    "asset": "real-speech-wide-v1.webp",
+    "source": "WhatsApp Image 2026-10-22 at 17.07.36.jpeg",
+    "sourceSha256": "c9296f9d75876498bf218397979ebc22361980588ccc6955319545e1f507a629",
+    "width": 720,
+    "height": 680,
+    "bytes": 34188,
+    "crop": [
+      0,
+      180,
+      720,
+      860
+    ]
+  },
+  {
+    "asset": "real-boy-white-square-v1.webp",
+    "source": "WhatsApp Image 2026-10-22 at 17.41.14.jpeg",
+    "sourceSha256": "bb9364d67f6196f60ea23078bee605c3185669ad455980ea1889da44be3be32f",
+    "width": 960,
+    "height": 960,
+    "bytes": 39630,
+    "crop": [
+      0,
+      180,
+      960,
+      1140
+    ]
+  },
+  {
+    "asset": "real-boy-polo-square-v1.webp",
+    "source": "WhatsApp Image 2026-10-22 at 17.41.1411.jpeg",
+    "sourceSha256": "eb2f7cfbd393b44c9853130e04d672e3969deb63ea26541ac11293eeb99e4190",
+    "width": 900,
+    "height": 900,
+    "bytes": 27320,
+    "crop": [
+      0,
+      200,
+      900,
+      1100
+    ]
+  },
+  {
+    "asset": "real-hero-mobile-v2.webp",
+    "sources": [
+      "WhatsApp Image 2026-10-22 at 20.27.351111.jpeg",
+      "WhatsApp Image 2026-10-22 at 20.23.38.jpeg"
+    ],
+    "width": 1100,
+    "height": 1000,
+    "bytes": 73332,
+    "processing": "Two original photographs clipped into the established mobile collage; no generative edits."
   }
 ]

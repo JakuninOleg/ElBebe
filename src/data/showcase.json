@@ -101,6 +101,54 @@
   ],
   "spaces": [
     {
+      "id": "heart",
+      "title": "Сердечко для улыбки",
+      "description": "Праздничное настроение и яркие воздушные шары.",
+      "image": {
+        "id": "real-heart-v1.webp",
+        "src": "/images/el-bebe/real-heart-v1.webp",
+        "alt": "Девочка с красным воздушным шаром в форме сердца"
+      },
+      "width": 720,
+      "height": 1280
+    },
+    {
+      "id": "victory-craft",
+      "title": "Творчество к 9 Мая",
+      "description": "Открытка, сделанная своими руками.",
+      "image": {
+        "id": "real-victory-craft-v1.webp",
+        "src": "/images/el-bebe/real-victory-craft-v1.webp",
+        "alt": "Девочка показывает открытку к 9 Мая"
+      },
+      "width": 960,
+      "height": 1280
+    },
+    {
+      "id": "maslenitsa",
+      "title": "Широкая Масленица",
+      "description": "Праздничный костюм и знакомство с традициями.",
+      "image": {
+        "id": "real-maslenitsa-v1.webp",
+        "src": "/images/el-bebe/real-maslenitsa-v1.webp",
+        "alt": "Широкая Масленица"
+      },
+      "width": 720,
+      "height": 1280
+    },
+    {
+      "id": "abacus",
+      "title": "Считаем с интересом",
+      "description": "Занятие со счётами и тетрадью.",
+      "image": {
+        "id": "real-abacus-v1.webp",
+        "src": "/images/el-bebe/real-abacus-v1.webp",
+        "alt": "Считаем с интересом"
+      },
+      "width": 720,
+      "height": 1280
+    },
+    {
       "id": "confetti",
       "title": "Праздник вместе",
       "description": "Цветное конфетти и море радости.",
@@ -204,18 +252,6 @@
         "id": "real-speech-v1.webp",
         "src": "/images/el-bebe/real-speech-v1.webp",
         "alt": "Буквы и картинки"
-      },
-      "width": 720,
-      "height": 1280
-    },
-    {
-      "id": "abacus",
-      "title": "Считаем с интересом",
-      "description": "Занятие со счётами и тетрадью.",
-      "image": {
-        "id": "real-abacus-v1.webp",
-        "src": "/images/el-bebe/real-abacus-v1.webp",
-        "alt": "Считаем с интересом"
       },
       "width": 720,
       "height": 1280
@@ -389,18 +425,6 @@
       "height": 1280
     },
     {
-      "id": "maslenitsa",
-      "title": "Широкая Масленица",
-      "description": "Праздничный костюм и знакомство с традициями.",
-      "image": {
-        "id": "real-maslenitsa-v1.webp",
-        "src": "/images/el-bebe/real-maslenitsa-v1.webp",
-        "alt": "Широкая Масленица"
-      },
-      "width": 720,
-      "height": 1280
-    },
-    {
       "id": "graduation",
       "title": "Маленькие выпускники",
       "description": "Примеряем выпускную шапочку.",
@@ -435,6 +459,30 @@
       },
       "width": 960,
       "height": 1280
+    },
+    {
+      "id": "boy-white",
+      "title": "Маленькое знакомство",
+      "description": "Улыбки из жизни нашей группы.",
+      "image": {
+        "id": "real-boy-white-v1.webp",
+        "src": "/images/el-bebe/real-boy-white-v1.webp",
+        "alt": "Улыбающийся мальчик в белой футболке"
+      },
+      "width": 960,
+      "height": 1280
+    },
+    {
+      "id": "boy-polo",
+      "title": "Рады встрече",
+      "description": "Каждый день начинается со знакомства.",
+      "image": {
+        "id": "real-boy-polo-v1.webp",
+        "src": "/images/el-bebe/real-boy-polo-v1.webp",
+        "alt": "Мальчик в светлом поло"
+      },
+      "width": 810,
+      "height": 1440
     }
   ],
   "testimonials": []
