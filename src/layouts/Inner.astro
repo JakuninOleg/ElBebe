@@ -12,9 +12,9 @@ const pageArt: Record<string, string> = { '/stoimost/': 'apple', '/den-v-sadu/':
 const pageNotes: Record<string, string> = { '/den-v-sadu/': 'У каждого дня — свой ритм', '/komanda/': 'Рядом каждый день', '/prostranstvo/': 'Место для открытий', '/roditelyam/': 'Чтобы вам было спокойнее', '/kontakty/': 'Заглядывайте в гости!', '/svedeniya/': '', '/privacy/': '', '/soglasie/': '' };
 ---
 <Layout title={title} description={description} address={settings.address} phone={settings.phone}>
-  <div class="inner-page">
+  <div class:list={['inner-page', { 'inner-page--legal': quiet, 'inner-page--documents': Astro.url.pathname === '/dokumenty/' }]}>
   {!quiet && <PageEdges/>}
-  <PageIntro heading={heading} intro={intro} label={label} art={art || pageArt[Astro.url.pathname]} note={note ?? pageNotes[Astro.url.pathname]} mascot={mascot} parent={parent}/>
+  <PageIntro heading={heading} intro={intro} label={label} art={art || pageArt[Astro.url.pathname]} note={note ?? pageNotes[Astro.url.pathname]} mascot={mascot} legal={quiet} parent={parent}/>
   <slot/>
   {callout && <Callout compact/>}
   </div>
