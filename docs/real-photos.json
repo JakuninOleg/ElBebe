@@ -500,5 +500,30 @@
     "height": 1000,
     "bytes": 73332,
     "processing": "Two original photographs clipped into the established mobile collage; no generative edits."
+  },
+  {
+    "asset": "real-invitation-ladybug-v1.webp",
+    "source": "WhatsApp Image 2026-10-22 at 20.27.37.jpeg",
+    "sourceSha256": "867dfe13eec8048e5bc49547bfcae97c57bd91abd04315809399ee4e4704bd92",
+    "crop": [
+      260,
+      150,
+      900,
+      790
+    ],
+    "width": 640,
+    "height": 640,
+    "bytes": 41934
+  },
+  {
+    "asset": "real-hero-mobile-v3.webp",
+    "sources": [
+      "WhatsApp Image 2026-10-22 at 20.27.351111.jpeg",
+      "WhatsApp Image 2026-10-22 at 20.23.38.jpeg"
+    ],
+    "width": 1100,
+    "height": 1000,
+    "bytes": 73706,
+    "processing": "Two original photographs clipped into the established mobile collage; no generative edits."
   }
 ]
