@@ -4,15 +4,15 @@ import Callout from '../components/el-bebe/Callout.astro';
 import { getSiteContent } from '../lib/cms';
 import PageIntro from '../components/el-bebe/PageIntro.astro';
 import PageEdges from '../components/el-bebe/PageEdges.astro';
-interface Props { title: string; heading: string; description: string; label?: string; intro?: string; callout?: boolean; art?: string; note?: string; mascot?: boolean; parent?: { href: string; label: string }; }
-const { title, heading, description, label, intro = description, callout = true, art, note, mascot, parent } = Astro.props;
+interface Props { title: string; heading: string; description: string; label?: string; intro?: string; callout?: boolean; art?: string; note?: string; mascot?: boolean; pageClass?: string; parent?: { href: string; label: string }; }
+const { title, heading, description, label, intro = description, callout = true, art, note, mascot, parent, pageClass } = Astro.props;
 const { settings } = await getSiteContent();
 const quiet = ['/svedeniya/', '/privacy/', '/soglasie/', '/dokumenty/', '/cookies/'].includes(Astro.url.pathname);
 const pageArt: Record<string, string> = { '/stoimost/': 'apple', '/den-v-sadu/': 'sun', '/komanda/': 'people', '/prostranstvo/': 'home', '/roditelyam/': 'chat', '/kontakty/': 'pin', '/svedeniya/': 'document', '/privacy/': 'shield', '/soglasie/': 'document' };
 const pageNotes: Record<string, string> = { '/den-v-sadu/': 'У каждого дня — свой ритм', '/komanda/': 'Рядом каждый день', '/prostranstvo/': 'Место для открытий', '/roditelyam/': 'Чтобы вам было спокойнее', '/kontakty/': 'Заглядывайте в гости!', '/svedeniya/': '', '/privacy/': '', '/soglasie/': '' };
 ---
 <Layout title={title} description={description} address={settings.address} phone={settings.phone}>
-  <div class:list={['inner-page', { 'inner-page--legal': quiet, 'inner-page--documents': Astro.url.pathname === '/dokumenty/' }]}>
+  <div class:list={['inner-page', pageClass, { 'inner-page--legal': quiet, 'inner-page--documents': Astro.url.pathname === '/dokumenty/' }]}>
   {!quiet && <PageEdges/>}
   <PageIntro heading={heading} intro={intro} label={label} art={art || pageArt[Astro.url.pathname]} note={note ?? pageNotes[Astro.url.pathname]} mascot={mascot} legal={quiet} parent={parent}/>
   <slot/>

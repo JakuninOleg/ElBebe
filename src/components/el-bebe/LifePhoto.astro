@@ -1,0 +1,15 @@
+---
+import { Image } from '../../lib/emdash-ui';
+import type { LifePhotoItem } from '../../data/life-album';
+interface Props { photo: LifePhotoItem; eager?: boolean; }
+const { photo, eager = false } = Astro.props;
+const src = typeof photo.image === 'string' ? photo.image : photo.image?.src;
+const alt = typeof photo.image === 'string' ? photo.title : photo.image?.alt || photo.title;
+const wide = (photo.width ?? 720) > (photo.height ?? 1280);
+---
+<figure class:list={['life-photo', { 'life-photo--wide': wide }]} data-life-photo={photo.id}>
+  <a href={src} target="_blank" rel="noreferrer" aria-label={`${photo.title} — открыть фотографию полностью`}>
+    <Image image={photo.image} alt={alt} width={photo.width ?? 720} height={photo.height ?? 1280} loading={eager ? 'eager' : 'lazy'}/>
+  </a>
+  <figcaption>{photo.title}</figcaption>
+</figure>

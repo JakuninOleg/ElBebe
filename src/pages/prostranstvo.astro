@@ -1,6 +1,6 @@
 ---
 import Inner from '../layouts/Inner.astro';
-import Gallery from '../components/el-bebe/Gallery.astro';
+import LifeAlbum from '../components/el-bebe/LifeAlbum.astro';
 import { getSiteContent } from '../lib/cms';
 import { previewSpaces } from '../data/el-bebe';
 import Faq from '../components/el-bebe/Faq.astro';
@@ -11,7 +11,7 @@ const questions = [
 ];
 const { spaces } = await getSiteContent();
 ---
-<Inner title="Фотографии жизни детского сада Эльбэби в Сочи" heading="Жизнь в Эльбэби" label="Фотографии" description="Фотографии детей, занятий, прогулок и праздников в Эльбэби. Моменты из жизни детского сада в Сочи." intro="Играем, занимаемся, гуляем и празднуем вместе. Сохраняем моменты, из которых складывается детство.">
-  <section class="container content-section"><Gallery items={spaces.some(s=>s.image) ? spaces : previewSpaces} full/></section>
+<Inner title="Фотографии жизни детского сада Эльбэби в Сочи" heading="Жизнь в Эльбэби" label="Фотографии" description="Фотографии детей, занятий, прогулок и праздников в Эльбэби. Моменты из жизни детского сада в Сочи." intro="Играем, занимаемся, гуляем и празднуем вместе. Сохраняем моменты, из которых складывается детство." art="camera" note="Наш маленький фотоальбом" pageClass="life-page">
+  <LifeAlbum items={spaces.some(s=>s.image) ? spaces : previewSpaces}/>
   <section class="container content-section group-detail-faq"><h2>Перед визитом в сад</h2><Faq items={questions}/></section>
 </Inner>

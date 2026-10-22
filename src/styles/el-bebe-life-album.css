@@ -1,0 +1,109 @@
+@layer lifeAlbum {
+  .life-page>.inner-intro { padding-bottom: 12px; }
+  .life-page .inner-intro-grid { min-height: 164px; }
+  .life-page .inner-intro-art { min-height: 164px; }
+  .life-page .inner-intro-art>.illustrated-icon { width: 116px; height: 116px; }
+  .life-page .inner-intro-wash { width: 160px; height: 150px; top: 0; }
+  .life-page .inner-intro-art>.hand-note { bottom: -10px; }
+  .life-opening { position: relative; isolation: isolate; padding-block: 24px 64px; }
+  .life-opening-photos { display: grid; grid-template-columns: minmax(0,1.9fr) repeat(2,minmax(0,.9fr)); gap: 28px; align-items: center; }
+  .life-photo { min-width: 0; margin: 0; padding: 10px 10px 0; background: #fff; border-radius: 8px; box-shadow: 0 8px 24px #65432a0b; }
+  .life-photo>a { display: block; border-radius: 5px; overflow: hidden; }
+  .life-photo img { width: 100%; height: auto; aspect-ratio: 3 / 4; object-fit: cover; object-position: 50% 8%; transition: filter .2s; }
+  .life-photo--wide img { aspect-ratio: auto; object-fit: contain; }
+  .life-photo figcaption { padding: 12px 4px 15px; font-size: 16px; line-height: 1.35; font-weight: 750; color: var(--purple); overflow-wrap: break-word; }
+  .life-photo>a:hover img { filter: brightness(1.035); }
+  .life-photo>a:focus-visible { outline: 3px solid var(--purple); outline-offset: 4px; }
+  .life-opening-photos>.life-photo:first-child { transform: rotate(-2deg); }
+  .life-opening-photos>.life-photo:nth-child(2) { transform: rotate(3deg); margin-top: 50px; }
+  .life-opening-photos>.life-photo:nth-child(3) { transform: rotate(-3deg); margin-bottom: 48px; }
+  .life-opening [data-life-photo="heart"] img { object-position: 50% 35%; }
+  .life-opening-wash { width: 470px; height: 470px; right: -75px; top: -4px; z-index: -1; transform: rotate(60deg); }
+  .life-opening-note { position: absolute; right: 28px; bottom: 2px; color: #537b82; font-size: 31px; line-height: 1.05; text-align: center; transform: rotate(-5deg); }
+  .life-opening-heart { width: 44px; height: 48px; right: 18px; top: 9px; transform: rotate(15deg); }
+  .life-opening-sprig { position: absolute; width: 49px; height: 90px; left: -24px; bottom: 78px; transform: rotate(-20deg); }
+  .life-album-nav { display: flex; justify-content: center; gap: 24px 48px; padding-block: 30px 50px; flex-wrap: wrap; }
+  .life-album-nav>a { display: inline-flex; align-items: center; gap: 10px; min-height: 44px; font-size: 17px; font-weight: 750; text-decoration: none; color: var(--purple); }
+  .life-album-nav>a>span { border-bottom: 1px solid #c7aed1; padding-bottom: 3px; }
+  .life-album-nav>a>.icon { transform: rotate(90deg); }
+  .life-album-nav>a:hover>span { border-color: var(--purple); }
+  .life-chapter { --album-tint: #edf6f7; --album-ink: #477981; position: relative; padding-block: 64px; margin-bottom: 48px; background: var(--album-tint); border-radius: 5% 3% 6% 2% / 24px 18px 30px 20px; scroll-margin-top: 100px; }
+  .life-chapter--outdoors { --album-tint: #f0f4e8; --album-ink: #5a7545; }
+  .life-chapter--celebration { --album-tint: #fff0e9; --album-ink: #9a5a49; }
+  .life-chapter-layout { display: grid; grid-template-columns: minmax(0,.85fr) minmax(0,2.15fr); gap: 56px; align-items: start; }
+  .life-chapter-heading>.illustrated-icon { margin-bottom: 20px; transform: rotate(-8deg); }
+  .life-chapter-heading h2 { font-size: clamp(29px,3vw,40px); line-height: 1.15; text-wrap: balance; max-width: 12ch; }
+  .life-chapter-heading p { color: #574063; font-size: 17px; line-height: 1.65; margin-top: 20px; max-width: 32ch; }
+  .life-chapter-heading>.hand-note { display: block; color: var(--album-ink); font-size: 29px; line-height: 1.1; margin-top: 30px; max-width: 19ch; transform: rotate(-5deg); }
+  .life-chapter-body { min-width: 0; padding-top: 10px; }
+  .life-moments { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 18px; align-items: start; padding-block: 8px 30px; }
+  .life-moments>.life-photo:nth-child(2) { transform: rotate(3deg); margin-top: 25px; }
+  .life-moments>.life-photo:nth-child(3) { transform: rotate(-2deg); }
+  .life-moments--outdoors { grid-template-columns: minmax(0,1.65fr) minmax(0,1fr); align-items: center; }
+  .life-moments--outdoors>.life-photo:first-child { transform: rotate(-2deg); }
+  .life-more { border-top: 1px solid #b8c9c5; }
+  .life-more>summary { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 19px; min-height: 56px; color: var(--purple); font-size: 17px; font-weight: 750; cursor: pointer; list-style: none; }
+  .life-more>summary::-webkit-details-marker { display: none; }
+  .life-more>summary:focus-visible { outline: 3px solid var(--purple); outline-offset: 5px; border-radius: 4px; }
+  .life-more-symbol { position: relative; flex: 0 0 28px; width: 28px; height: 28px; }
+  .life-more-symbol::before,.life-more-symbol::after { content: ''; position: absolute; top: 13px; left: 5px; width: 18px; height: 2px; background: currentColor; }
+  .life-more-symbol::after { transform: rotate(90deg); }
+  .life-more[open] .life-more-symbol::after { transform: rotate(0); }
+  .life-contact-sheet { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 20px; padding-block: 12px 20px; align-items: start; }
+  .life-contact-sheet .life-photo--wide { grid-column: span 2; }
+  .life-contact-sheet .life-photo figcaption { font-size: 15px; }
+  @media (max-width: 1000px) {
+    .life-opening-photos { gap: 18px; }
+    .life-chapter-layout { grid-template-columns: minmax(0,1fr); gap: 28px; }
+    .life-chapter-heading { position: relative; padding-right: 120px; }
+    .life-chapter-heading>.illustrated-icon { position: absolute; right: 0; top: 0; width: 80px; height: 80px; margin-bottom: 0; }
+    .life-chapter-heading h2 { max-width: none; font-size: 35px; }
+    .life-chapter-heading p { max-width: 55ch; margin-top: 16px; }
+    .life-chapter-heading>.hand-note { display: none; }
+    .life-chapter { padding-block: 44px; }
+    .life-moments { gap: 12px; }
+    .life-photo { padding: 7px 7px 0; }
+    .life-photo figcaption { font-size: 14px; padding: 10px 2px 12px; }
+    .life-album-nav { gap: 16px 24px; }
+    .life-album-nav>a { font-size: 15px; }
+  }
+  @media (max-width: 760px) {
+    .life-page .inner-intro-grid { min-height: 0; }
+    .life-page .inner-intro-art { min-height: 96px; }
+    .life-page .inner-intro-art>.illustrated-icon { width: 78px; height: 78px; }
+    .life-page .inner-intro-copy>p { margin-top: 18px; }
+    .life-page .inner-intro-art>.hand-note { display: none; }
+    .life-opening { padding-block: 18px 64px; }
+    .life-opening-photos { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 20px; }
+    .life-opening-photos>.life-photo:first-child { grid-column: 1 / -1; transform: rotate(-1deg); }
+    .life-opening-photos>.life-photo:nth-child(2) { margin: 0 0 0 6px; }
+    .life-opening-photos>.life-photo:nth-child(3) { margin: 0 6px 0 0; transform: rotate(-3deg); }
+    .life-opening-wash { width: 260px; height: 340px; top: auto; bottom: -10px; right: -70px; }
+    .life-opening-heart { width: 32px; height: 36px; right: -4px; top: 0; }
+    .life-opening-note { font-size: 26px; right: 30px; bottom: -1px; }
+    .life-opening-sprig { width: 34px; height: 65px; left: -8px; bottom: 12px; }
+    .life-album-nav { display: grid; justify-content: stretch; gap: 4px; padding-block: 30px; }
+    .life-album-nav>a { font-size: 16px; min-height: 48px; }
+    .life-album-nav>a>.icon { margin-left: auto; }
+    .life-chapter { padding-block: 32px; margin-bottom: 28px; border-radius: 28px 14px 32px 16px; scroll-margin-top: 80px; }
+    .life-chapter-layout { grid-template-columns: minmax(0,1fr); gap: 24px; }
+    .life-chapter-heading { position: relative; padding-right: 66px; }
+    .life-chapter-heading>.illustrated-icon { position: absolute; right: -4px; top: -3px; width: 64px; height: 64px; }
+    .life-chapter-heading h2 { font-size: 31px; max-width: 14ch; }
+    .life-chapter-heading p { font-size: 16px; margin-top: 16px; max-width: none; }
+    .life-chapter-heading>.hand-note { display: none; }
+    .life-chapter-body { padding-top: 0; }
+    .life-moments { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 18px; padding-block: 4px 20px; }
+    .life-moments>.life-photo:nth-child(2) { margin-top: 20px; }
+    .life-moments>.life-photo:nth-child(3) { grid-column: 1 / -1; width: 60%; justify-self: center; margin-top: -2px; }
+    .life-moments--outdoors>.life-photo:first-child { grid-column: 1 / -1; }
+    .life-moments--outdoors>.life-photo:nth-child(2) { grid-column: 1 / -1; width: 60%; justify-self: center; margin-top: 0; }
+    .life-photo figcaption { font-size: 14px; }
+    .life-more>summary { font-size: 16px; }
+    .life-contact-sheet { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 16px; }
+    .life-contact-sheet .life-photo figcaption { font-size: 13px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .life-photo img { transition: none; }
+  }
+}

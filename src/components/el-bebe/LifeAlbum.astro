@@ -1,0 +1,44 @@
+---
+import { buildLifeAlbum, type LifePhotoItem } from '../../data/life-album';
+import LifePhoto from './LifePhoto.astro';
+import IllustratedIcon from './IllustratedIcon.astro';
+import Decor from './Decor.astro';
+import Sprig from './Sprig.astro';
+import Icon from './Icon.astro';
+interface Props { items: LifePhotoItem[]; }
+const { items } = Astro.props;
+const { opening, sections } = buildLifeAlbum(items);
+---
+<div class="life-album">
+  <section class="life-opening container" aria-label="Моменты из жизни Эльбэби">
+    <Decor kind="wash" color="#e4f1e4" class="life-opening-wash"/>
+    <div class="life-opening-photos">{opening.map((photo, index) => <LifePhoto photo={photo} eager={index === 0}/>)}</div>
+    <span class="hand-note life-opening-note">Вот из чего<br/>складывается детство</span>
+    <Decor kind="heart" color="#ffb8be" class="life-opening-heart"/>
+    <Sprig class="life-opening-sprig"/>
+  </section>
+
+  <nav class="life-album-nav container" aria-label="Темы фотоальбома">
+    {sections.map(section => <a href={`#${section.id}`}><IllustratedIcon name={section.icon} size={36}/><span>{section.label}</span><Icon name="chevron" size={18}/></a>)}
+  </nav>
+
+  {sections.map(section => <section class:list={['life-chapter', `life-chapter--${section.theme}`]} id={section.id} aria-labelledby={`${section.id}-heading`}>
+    <div class="container life-chapter-layout">
+      <header class="life-chapter-heading">
+        <IllustratedIcon name={section.icon} size={86}/>
+        <h2 id={`${section.id}-heading`}>{section.title}</h2>
+        {section.text && <p>{section.text}</p>}
+        {section.note && <span class="hand-note">{section.note}</span>}
+      </header>
+      <div class="life-chapter-body">
+        <div class:list={['life-moments', `life-moments--${section.theme}`]}>
+          {section.photos.slice(0, section.visible).map(photo => <LifePhoto photo={photo}/>)}
+        </div>
+        {section.photos.length > section.visible && <details class="life-more">
+          <summary><span>{section.more}</span><span class="life-more-symbol" aria-hidden="true"></span></summary>
+          <div class="life-contact-sheet">{section.photos.slice(section.visible).map(photo => <LifePhoto photo={photo}/>)}</div>
+        </details>}
+      </div>
+    </div>
+  </section>)}
+</div>
