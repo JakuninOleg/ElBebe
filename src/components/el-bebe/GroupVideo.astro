@@ -1,12 +1,43 @@
 ---
-import Icon from './Icon.astro';
-import Decor from './Decor.astro';
+import { groupVideos } from '../../data/group-videos';
 interface Props { groupId: string; title: string; }
 const { groupId, title } = Astro.props;
+const clip = groupVideos[groupId];
+if (!clip) throw new Error(`Missing video for group: ${groupId}`);
+const headingId = `group-video-${groupId}-title`;
+const captionId = `group-video-${groupId}-caption`;
 ---
-<section class="group-video container content-section" aria-labelledby="group-video-title">
-  <div><h2 id="group-video-title">Маленькие открытия<br/>в движении</h2><p>Короткие видео помогут увидеть, как дети занимаются, играют и пробуют новое.</p><span class="hand-note" aria-hidden="true">Посмотреть<br/>одним глазком ♡</span></div>
-  <div class="group-video-frame" data-video-slot={groupId} role="img" aria-label={`Видео: ${title.toLowerCase()}. Готовится к публикации.`}>
-    <Icon name="camera" size={58}/><strong>Видео из жизни группы</strong><span>Скоро здесь</span><Decor kind="drops"/>
-  </div>
+<section class="group-video container content-section" id={`video-${groupId}`} aria-labelledby={headingId}>
+  <div><h2 id={headingId}>{clip.title}</h2><p>{clip.description}</p><span class="hand-note" aria-hidden="true">Посмотреть<br/>одним глазком ♡</span></div>
+  <figure class="group-video-figure">
+    <div class="group-video-player" data-group-player>
+      <video controls playsinline preload="none" poster={clip.poster} width={clip.width} height={clip.height} aria-label={clip.title} aria-describedby={captionId} tabindex="0">
+        <source src={clip.src} type="video/mp4"/>
+        <a href={clip.src}>Открыть видео</a>
+      </video>
+      <button class="group-video-play" type="button" aria-label={`Смотреть видео: ${clip.title.toLowerCase()}`} data-video-start hidden><span class="group-video-play-label">Смотреть видео</span><span class="group-video-play-mark" aria-hidden="true"><svg viewBox="0 0 24 24" width="28" height="28"><path d="M8 4.5v15L20 12Z" fill="currentColor"/></svg></span></button>
+    </div>
+    <figcaption id={captionId}><span>{title}</span><span>{clip.duration}</span></figcaption>
+    <p class="group-video-error" data-video-error hidden role="status">Не удалось загрузить видео. <a href={clip.src}>Открыть ролик отдельно</a>.</p>
+  </figure>
 </section>
+<script>
+  document.querySelectorAll<HTMLElement>('[data-group-player]').forEach(player => {
+    const video = player.querySelector('video');
+    const start = player.querySelector<HTMLButtonElement>('[data-video-start]');
+    const error = player.parentElement?.querySelector<HTMLElement>('[data-video-error]');
+    if (!video || !start || !error) return;
+    // Native controls remain available without JavaScript.
+    video.controls = false;
+    start.hidden = false;
+    const showError = () => { video.controls = true; start.hidden = true; error.hidden = false; };
+    start.addEventListener('click', () => {
+      video.controls = true;
+      start.hidden = true;
+      video.focus();
+      video.play().catch(showError);
+    });
+    video.addEventListener('play', () => { video.controls = true; start.hidden = true; error.hidden = true; });
+    video.addEventListener('error', showError);
+  });
+</script>

@@ -1,0 +1,32 @@
+{
+  "encoder": "FFmpeg / libx264, CRF 28, slow, capped at 480 kbps / 960 kb buffer; AAC stream copied; faststart; original dimensions and duration",
+  "clips": [
+    {
+      "group": "younger",
+      "sourceFile": "small.mp4",
+      "sourceBytes": 12924470,
+      "sourceSha256": "259d7197fe68ecaf3a23d503b524992c7eee5b0fa42b9062fd0bd372ef47465f",
+      "output": "/videos/el-bebe/younger-v1.mp4",
+      "bytes": 9884520,
+      "savingPercent": 24
+    },
+    {
+      "group": "middle",
+      "sourceFile": "middle.mp4",
+      "sourceBytes": 19161214,
+      "sourceSha256": "86097b1fcf2fc9e24cb6fa5966ffd082e659f4565acfb3636d0bf3566d35b42d",
+      "output": "/videos/el-bebe/middle-v1.mp4",
+      "bytes": 14545543,
+      "savingPercent": 24
+    },
+    {
+      "group": "older",
+      "sourceFile": "robo.mp4",
+      "sourceBytes": 9171706,
+      "sourceSha256": "73b8f79e4944db6aecda7e7faebc4f2b6e6163bf424003c42b2dc52270c1f1a5",
+      "output": "/videos/el-bebe/older-v1.mp4",
+      "bytes": 6047811,
+      "savingPercent": 34
+    }
+  ]
+}
