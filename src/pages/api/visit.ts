@@ -1,6 +1,6 @@
 import type { APIRoute } from "astro";
 import { createHash, randomUUID } from "node:crypto";
-import { saveVisit } from "../../lib/office-store.ts";
+import { findSavedVisit, saveVisit, VisitRequestConflictError } from "../../lib/office-store.ts";
 import { normalizeRuPhone } from "../../lib/ru-phone.ts";
 import { legalVersion } from "../../data/legal-operator.ts";
 import { visitClientAddress } from '../../lib/visit-client-address.ts';
@@ -97,6 +97,10 @@ export const POST: APIRoute = async (context) => {
     if (!phone) errors.phone = "Проверьте номер телефона.";
     if (!consent) errors.consent = "Подтвердите согласие на обработку данных для связи.";
     if (Object.keys(errors).length) return json(422, { ok: false, message: "Проверьте поля формы.", errors });
+    const requestKey = request.headers.get('Idempotency-Key');
+    if (requestKey && !/^[a-f0-9-]{36}$/i.test(requestKey)) return json(400, { ok: false, message: 'Обновите форму и попробуйте ещё раз.' });
+    const previous = requestKey ? findSavedVisit(requestKey, { name, phone: phone! }) : null;
+    if (previous) return json(200, { ok: true, message: "Заявка сохранена. Спасибо за обращение!", id: previous });
     let ip = "local";
     try { ip = context.clientAddress || ip; } catch { /* Some local adapters omit clientAddress. */ }
     ip = visitClientAddress(ip, request.headers);
@@ -104,12 +108,11 @@ export const POST: APIRoute = async (context) => {
     const retryAfter = reserveRateLimit(ip, phone!);
     if (retryAfter) return json(429, { ok: false, message: "Слишком много обращений. Попробуйте позже." }, { "Retry-After": String(retryAfter) });
     const id = randomUUID();
-    const requestKey = request.headers.get('Idempotency-Key');
-    if (requestKey && !/^[a-f0-9-]{36}$/i.test(requestKey)) return json(400, { ok: false, message: 'Обновите форму и попробуйте ещё раз.' });
     const saved = saveVisit({ id, received_at: new Date().toISOString(), name, phone: phone!, consent_version: legalVersion, privacy_version: legalVersion, source: "/api/visit" }, requestKey);
     return json(saved.duplicate ? 200 : 201, { ok: true, message: "Заявка сохранена. Спасибо за обращение!", id: saved.id });
   } catch (error) {
     if (error instanceof RequestError) return json(error.status, { ok: false, message: error.message });
+    if (error instanceof VisitRequestConflictError) return json(409, { ok: false, message: 'Эта отправка уже связана с другой заявкой. Обновите страницу и заполните форму ещё раз.' });
     console.error("[El Bebe] Visit request could not be saved.");
     return json(500, { ok: false, message: "Не удалось сохранить заявку. Попробуйте отправить её позже." });
   }

@@ -1,5 +1,6 @@
 ---
 import { responsiveImage, responsiveAvif } from '../../lib/responsive-image';
+import { imageSource } from '../../lib/image-source';
 import type { SiteContent } from '../../lib/cms';
 import { Image } from '../../lib/emdash-ui';
 import { groupCards } from '../../data/group-cards';
@@ -25,8 +26,8 @@ const imageDescriptions = ['Рисование цветными карандаш
   </header>}
   <div class="programs-grid">{groupCards.map((program, index) => {
     const photo = groups.find(group => group.id === program.id || group.title === program.title)?.image;
-    const source = (typeof photo === 'string' ? photo : photo?.src) || `/images/el-bebe/${program.image}.webp`;
-    const avif = responsiveAvif(source, '(max-width: 600px) calc(100vw - 64px), (max-width: 979px) 510px, 31vw');
+    const source = imageSource(photo, `/images/el-bebe/${program.image}.webp`);
+    const avif = source ? responsiveAvif(source, '(max-width: 600px) calc(100vw - 64px), (max-width: 979px) 510px, 31vw') : {};
     return <article class={`program-card program-card--${program.accent}`} id={`group-${program.id}`}>
       <div class="program-card-visual">
         <picture class="program-card-photo">

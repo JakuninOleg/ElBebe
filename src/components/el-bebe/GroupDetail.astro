@@ -1,5 +1,6 @@
 ---
 import { responsiveImage, responsiveAvif } from '../../lib/responsive-image';
+import { imageSource } from '../../lib/image-source';
 import Inner from '../../layouts/Inner.astro';
 import { getSiteContent } from '../../lib/cms';
 import { Image } from '../../lib/emdash-ui';
@@ -19,9 +20,9 @@ const page = groupPages[groupId];
 const schedule = schedules.find(group => group.id === groupId)!;
 const { groups } = await getSiteContent();
 const photo = groups.find(group => group.id === program.id || group.title === program.title)?.image;
-const photoSrc = (typeof photo === 'string' ? photo : photo?.src) || `/images/el-bebe/${program.image}.webp`;
-const photoResponsive = responsiveImage(photoSrc);
-const photoAvif = responsiveAvif(photoSrc);
+const photoSrc = imageSource(photo, `/images/el-bebe/${program.image}.webp`);
+const photoResponsive = photoSrc ? responsiveImage(photoSrc) : {};
+const photoAvif = photoSrc ? responsiveAvif(photoSrc) : {};
 const categoryArt: Record<string, string[]> = { younger: ['lesson-speech','lesson-sensory','palette'], middle: ['lesson-english','lesson-chef','lesson-dance','lesson-support'], older: ['book','lesson-robot','lesson-finance','lesson-fitness'] };
 const faqs = [
   { question: page.question, answer: page.answer },
@@ -31,7 +32,7 @@ const faqs = [
 ];
 ---
 <Inner title={`${program.title} в детском саду Эльбэби, Сочи — занятия и расписание`} heading={program.title} label={program.title} intro={page.intro} description={page.intro} art={page.art} note={page.note} parent={{ href: '/gruppy/', label: 'Наши группы' }}>
-  <link slot="head" rel="preload" as="image" type={photoAvif.srcset ? 'image/avif' : undefined} href={photoAvif.srcset ? undefined : photoSrc} imagesrcset={photoAvif.srcset || photoResponsive.srcset} imagesizes={photoResponsive.sizes} fetchpriority="high"/>
+  {photoSrc && <link slot="head" rel="preload" as="image" type={photoAvif.srcset ? 'image/avif' : undefined} href={photoAvif.srcset ? undefined : photoSrc} imagesrcset={photoAvif.srcset || photoResponsive.srcset} imagesizes={photoResponsive.sizes} fetchpriority="high"/>}
   <section class={`group-detail-intro container content-section group-detail-intro--${program.accent}`} aria-labelledby="group-approach-title">
     <picture class="group-detail-photo">{photoAvif.srcset && <source type="image/avif" {...photoAvif}/>} {photo ? <Image image={photo} alt={`Занятия: ${program.title.toLowerCase()}`} width={1100} height={825} priority/> : <img src={`/images/el-bebe/${program.image}.webp`} {...responsiveImage(`/images/el-bebe/${program.image}.webp`)} alt={`Игра и занятия: ${program.title.toLowerCase()}`} width="1100" height="825" fetchpriority="high"/>}</picture>
     <div><h2 id="group-approach-title">{program.summary}</h2><p>{page.approach}</p><div class="group-detail-actions"><a class="button" href="#weekly-title">Посмотреть расписание <Icon name="arrow" size={20}/></a><button type="button" class="text-link" data-open-visit>Познакомиться с группой</button></div></div>

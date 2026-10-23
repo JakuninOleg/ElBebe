@@ -1,10 +1,9 @@
 ---
 import GroupDetail from '../../components/el-bebe/GroupDetail.astro';
 import { groupPages } from '../../data/group-pages';
-export const prerender = true;
-export function getStaticPaths() {
-  return Object.entries(groupPages).map(([groupId, page]) => ({ params: { group: page.slug }, props: { groupId } }));
-}
-const { groupId } = Astro.props;
+export const prerender = false;
+const group = Object.entries(groupPages).find(([, page]) => page.slug === Astro.params.group);
+if (!group) return Astro.rewrite('/404');
+const [groupId] = group;
 ---
 <GroupDetail groupId={groupId}/>

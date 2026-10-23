@@ -40,15 +40,21 @@ function database(): DatabaseSync {
   return db;
 }
 
+export class VisitRequestConflictError extends Error {}
+
+export function findSavedVisit(requestKey: string, record: Pick<VisitRecord, 'name' | 'phone'>): string | null {
+  const previous = database().prepare('SELECT id, name, phone FROM visits WHERE request_key = ?').get(requestKey);
+  if (previous) {
+    if (previous.name !== record.name || previous.phone !== record.phone) throw new VisitRequestConflictError('Request key already used for another submission.');
+    return String(previous.id);
+  }
+  return null;
+}
+
 export function saveVisit(record: VisitRecord, requestKey: string | null = null): { id: string; duplicate: boolean } {
   const db = database();
-  if (requestKey) {
-    const previous = db.prepare('SELECT id, name, phone FROM visits WHERE request_key = ?').get(requestKey);
-    if (previous) {
-      if (previous.name !== record.name || previous.phone !== record.phone) throw new Error('Request key already used for another submission.');
-      return { id: String(previous.id), duplicate: true };
-    }
-  }
+  const previous = requestKey ? findSavedVisit(requestKey, record) : null;
+  if (previous) return { id: previous, duplicate: true };
   db.prepare(`INSERT INTO visits (id, received_at, name, phone, consent_version, privacy_version, source, updated_at, request_key)
     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`).run(record.id, record.received_at, record.name, record.phone, record.consent_version, record.privacy_version, record.source, record.received_at, requestKey);
   return { id: record.id, duplicate: false };

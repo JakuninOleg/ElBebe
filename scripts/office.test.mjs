@@ -101,6 +101,35 @@ test('Forwarded IP is trusted only with explicit opt-in and an actual local reve
   assert.equal(visitClientAddress('127.0.0.1', headers, true), '192.0.2.10');
   assert.equal(visitClientAddress('127.0.0.1', new Headers({ 'X-Real-IP': '1.2.3.4, 2.3.4.5' }), true), '127.0.0.1');
 });
+
+test('Lost-response retries return the saved visit without consuming the phone limit', async () => {
+  const data = { ...valid, phone: '+79000000004' };
+  const key = randomUUID();
+  const options = { ip: 'retry-test', headers: { 'Idempotency-Key': key } };
+  const first = await (await POST(context(data, options))).json();
+  for (let i = 0; i < 8; i++) {
+    const retry = await POST(context(data, options));
+    assert.equal(retry.status, 200);
+    assert.equal((await retry.json()).id, first.id);
+  }
+  assert.equal(listVisits().items.filter(item => item.phone === data.phone).length, 1);
+  for (let i = 0; i < 2; i++) assert.equal((await POST(context(data, { ip: 'retry-test', headers: { 'Idempotency-Key': randomUUID() } }))).status, 201);
+  assert.equal((await POST(context(data, { ip: 'retry-test' }))).status, 429);
+  assert.equal((await POST(context(data, options))).status, 200);
+});
+
+test('An idempotency key with different data returns 409 and cannot create or expose another visit', async () => {
+  const data = { ...valid, phone: '+79000000005' };
+  const options = { ip: 'conflict-test', headers: { 'Idempotency-Key': randomUUID() } };
+  assert.equal((await POST(context(data, options))).status, 201);
+  const before = listVisits().items.length;
+  const response = await POST(context({ ...data, name: 'Другое имя' }, options));
+  assert.equal(response.status, 409);
+  const result = await response.json();
+  assert.equal(result.ok, false);
+  assert.equal(result.id, undefined);
+  assert.equal(listVisits().items.length, before);
+});
 test('Storage failure cannot return a success response', () => {
   const output = execFileSync(process.execPath, ['--input-type=module', '-e', `
     import {POST} from './src/pages/api/visit.ts';

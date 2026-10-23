@@ -4,7 +4,7 @@
 const targets: Record<string, string> = {
   el_bebe_site: '/', el_bebe_team: '/komanda/', el_bebe_rates: '/stoimost/',
   el_bebe_groups: '/gruppy/',
-  el_bebe_faqs: '/roditelyam/', el_bebe_spaces: '/prostranstvo/', el_bebe_testimonials: '/#o-sade',
+  el_bebe_faqs: '/roditelyam/', el_bebe_spaces: '/prostranstvo/', el_bebe_testimonials: '/#otzyvy',
 };
 const target = targets[Astro.params.collection || ''];
 if (target) return Astro.redirect(target, 302);
