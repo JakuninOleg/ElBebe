@@ -8,7 +8,6 @@ import { privateFileDeny } from './config/private-files.mjs';
 
 export default defineConfig({
 	output: "server",
-	build: { inlineStylesheets: 'always' },
 	adapter: node({
 		mode: "standalone",
 	}),
