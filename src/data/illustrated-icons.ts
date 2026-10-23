@@ -1,4 +1,4 @@
-import { groupLessonIcons } from './group-lesson-icons';
+import { groupLessonIcons } from './group-lesson-icons.ts';
 // The hero illustrations define the palette and shape language.
 // Static SVG markup only: these strings never contain editor-provided HTML.
 const rays = '<g fill="#ffcf23"><path d="M101 23c1-12 10-16 12-9s-8 14-12 9ZM105 35c10-9 18-6 13 0s-14 6-13 0Z"/></g>';

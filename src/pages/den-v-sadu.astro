@@ -11,6 +11,8 @@ const questions = [
 ---
 <Inner title="Распорядок дня в детском саду Эльбэби — Сочи" heading="Как проходит день в Эльбэби" label="День в саду" description="Распорядок дня детского сада Эльбэби в Сочи: встреча с 8:00, занятия, прогулки, питание, дневной сон и свободная игра." intro="В течение дня чередуем занятия, прогулки, питание и отдых. Посмотрите распорядок сада — он поможет представить день ребёнка и подготовиться к первым посещениям.">
   <DayMap/>
+  <link slot="head" rel="preload" as="image" href="/images/el-bebe/day-play-768.webp" media="(max-width: 760px)" fetchpriority="high"/>
+  <link slot="head" rel="preload" as="image" href="/images/el-bebe/day-map-v2-1536.webp" imagesrcset="/images/el-bebe/day-map-v2-640.webp 640w, /images/el-bebe/day-map-v2-960.webp 960w, /images/el-bebe/day-map-v2-1536.webp 1536w" imagesizes="(max-width: 1100px) 68vw, 900px" media="(min-width: 761px)" fetchpriority="high"/>
   <DailyRhythm/>
   <section class="container content-section group-detail-faq"><h2>О распорядке и питании</h2><Faq items={questions}/></section>
 </Inner>

@@ -541,6 +541,20 @@
         "src": "/images/el-bebe/real-group-middle-v1.webp",
         "width": 720
       }
+    ],
+    "avif": [
+      {
+        "src": "/images/el-bebe/responsive/real-group-middle-v1-320.avif",
+        "width": 320
+      },
+      {
+        "src": "/images/el-bebe/responsive/real-group-middle-v1-480.avif",
+        "width": 480
+      },
+      {
+        "src": "/images/el-bebe/responsive/real-group-middle-v1-720.avif",
+        "width": 720
+      }
     ]
   },
   "/images/el-bebe/real-group-older-v1.webp": {
@@ -563,6 +577,24 @@
         "src": "/images/el-bebe/real-group-older-v1.webp",
         "width": 960
       }
+    ],
+    "avif": [
+      {
+        "src": "/images/el-bebe/responsive/real-group-older-v1-320.avif",
+        "width": 320
+      },
+      {
+        "src": "/images/el-bebe/responsive/real-group-older-v1-480.avif",
+        "width": 480
+      },
+      {
+        "src": "/images/el-bebe/responsive/real-group-older-v1-768.avif",
+        "width": 768
+      },
+      {
+        "src": "/images/el-bebe/responsive/real-group-older-v1-960.avif",
+        "width": 960
+      }
     ]
   },
   "/images/el-bebe/real-group-younger-v1.webp": {
@@ -583,6 +615,24 @@
       },
       {
         "src": "/images/el-bebe/real-group-younger-v1.webp",
+        "width": 900
+      }
+    ],
+    "avif": [
+      {
+        "src": "/images/el-bebe/responsive/real-group-younger-v1-320.avif",
+        "width": 320
+      },
+      {
+        "src": "/images/el-bebe/responsive/real-group-younger-v1-480.avif",
+        "width": 480
+      },
+      {
+        "src": "/images/el-bebe/responsive/real-group-younger-v1-768.avif",
+        "width": 768
+      },
+      {
+        "src": "/images/el-bebe/responsive/real-group-younger-v1-900.avif",
         "width": 900
       }
     ]
@@ -689,6 +739,24 @@
       },
       {
         "src": "/images/el-bebe/real-hero-mobile-v3.webp",
+        "width": 1100
+      }
+    ],
+    "avif": [
+      {
+        "src": "/images/el-bebe/responsive/real-hero-mobile-v3-320.avif",
+        "width": 320
+      },
+      {
+        "src": "/images/el-bebe/responsive/real-hero-mobile-v3-480.avif",
+        "width": 480
+      },
+      {
+        "src": "/images/el-bebe/responsive/real-hero-mobile-v3-768.avif",
+        "width": 768
+      },
+      {
+        "src": "/images/el-bebe/responsive/real-hero-mobile-v3-1100.avif",
         "width": 1100
       }
     ]
@@ -871,6 +939,20 @@
       },
       {
         "src": "/images/el-bebe/real-outdoor-play-v1.webp",
+        "width": 720
+      }
+    ],
+    "avif": [
+      {
+        "src": "/images/el-bebe/responsive/real-outdoor-play-v1-320.avif",
+        "width": 320
+      },
+      {
+        "src": "/images/el-bebe/responsive/real-outdoor-play-v1-480.avif",
+        "width": 480
+      },
+      {
+        "src": "/images/el-bebe/responsive/real-outdoor-play-v1-720.avif",
         "width": 720
       }
     ]

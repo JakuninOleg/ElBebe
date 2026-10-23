@@ -22,7 +22,7 @@ import IllustratedIcon from '../components/el-bebe/IllustratedIcon.astro';
 import { getParentQuestions } from '../lib/parent-questions';
 import { getSiteContent } from '../lib/cms';
 import { activities, daySteps, previewSpaces } from '../data/el-bebe';
-import { responsiveImage } from '../lib/responsive-image';
+import { responsiveImage, responsiveAvif } from '../lib/responsive-image';
 const content = await getSiteContent();
 const { settings, rates, team, groups } = content;
 const heroAddress = settings.address.replace(/^Сочи,\s*/, '');
@@ -33,8 +33,8 @@ const faqs = getParentQuestions(content.faqs).slice(0, 8);
 ---
 <Layout title="Частный детский сад Эльбэби в Сочи — лицензия, 24/7" description="Частный детский садик с образовательной лицензией в Сочи, ул. Виноградная, 2/3. Работаем 24/7. Онлайн-камеры для родителей. Питание и занятия включены в стоимость." address={settings.address} phone={settings.phone}>
   <Fragment slot="head">
-    <link rel="preload" as="image" href="/images/el-bebe/real-hero-mobile-v3.webp" imagesrcset={responsiveImage('/images/el-bebe/real-hero-mobile-v3.webp').srcset} imagesizes="100vw" media="(max-width: 760px)" fetchpriority="high"/>
-    <link rel="preload" as="image" href="/images/el-bebe/real-outdoor-play-v1.webp" imagesrcset={responsiveImage('/images/el-bebe/real-outdoor-play-v1.webp').srcset} imagesizes="(max-width: 1100px) 50vw, 580px" media="(min-width: 761px)" fetchpriority="high"/>
+    <link rel="preload" as="image" type="image/avif" imagesrcset={responsiveAvif('/images/el-bebe/real-hero-mobile-v3.webp').srcset} imagesizes="100vw" media="(max-width: 760px)" fetchpriority="high"/>
+    <link rel="preload" as="image" type="image/avif" imagesrcset={responsiveAvif('/images/el-bebe/real-outdoor-play-v1.webp').srcset} imagesizes="(max-width: 1100px) 50vw, 580px" media="(min-width: 761px)" fetchpriority="high"/>
   </Fragment>
   <div class="home-page">
     <section class="hero container" aria-labelledby="hero-title">
@@ -52,7 +52,7 @@ const faqs = getParentQuestions(content.faqs).slice(0, 8);
         </div>
       </div>
       <div class="hero-collage">
-        <div class="hero-photo"><picture><source media="(max-width: 760px)" {...responsiveImage('/images/el-bebe/real-hero-mobile-v3.webp', '100vw')} width="1100" height="1000"/><img src="/images/el-bebe/real-outdoor-play-v1.webp" {...responsiveImage('/images/el-bebe/real-outdoor-play-v1.webp', '(max-width: 1100px) 50vw, 580px')} alt="Улыбка на прогулке" width="720" height="1280" fetchpriority="high"/></picture></div>
+        <div class="hero-photo"><picture><source type="image/avif" media="(max-width: 760px)" {...responsiveAvif('/images/el-bebe/real-hero-mobile-v3.webp', '100vw')} width="1100" height="1000"/><source media="(max-width: 760px)" {...responsiveImage('/images/el-bebe/real-hero-mobile-v3.webp', '100vw')} width="1100" height="1000"/><source type="image/avif" media="(min-width: 761px)" {...responsiveAvif('/images/el-bebe/real-outdoor-play-v1.webp', '(max-width: 1100px) 50vw, 580px')}/><img src="/images/el-bebe/real-outdoor-play-v1.webp" {...responsiveImage('/images/el-bebe/real-outdoor-play-v1.webp', '(max-width: 1100px) 50vw, 580px')} alt="Улыбка на прогулке" width="720" height="1280" fetchpriority="high"/></picture></div>
         <div class="hero-circle hero-circle--teacher"><img src="/images/el-bebe/real-hero-blocks-square-v1.webp" {...responsiveImage('/images/el-bebe/real-hero-blocks-square-v1.webp', '260px')} alt="Девочка играет с цветным конструктором" width="841" height="841" loading="lazy"/></div>
         <div class="hero-circle hero-circle--garden"><img src="/images/el-bebe/real-hero-rope-square-v1.webp" {...responsiveImage('/images/el-bebe/real-hero-rope-square-v1.webp', '260px')} alt="Мальчик на верёвочном мостике" width="720" height="720" loading="lazy"/></div>
         <span class="collage-note hand-note" aria-hidden="true"><span class="desktop-text">Любопытные<br/>дети —<br/>счастливые<br/>люди ♡</span><span class="mobile-text">Счастливые<br/>дети ♡</span></span>

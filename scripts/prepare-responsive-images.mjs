@@ -7,6 +7,7 @@ const root = new URL('../public/images/el-bebe/', import.meta.url);
 const output = new URL('responsive/', root);
 await mkdir(output, { recursive: true });
 const manifest = {};
+const firstScreenPhotos = new Set(['real-playground-friends-v1.webp', 'real-hero-mobile-v3.webp', 'real-outdoor-play-v1.webp', 'real-group-younger-v1.webp', 'real-group-middle-v1.webp', 'real-group-older-v1.webp']);
 for (const file of (await readdir(root)).filter(name => /^real-.*\.webp$/.test(name)).sort()) {
   const input = fileURLToPath(new URL(file, root));
   const { width, height } = await sharp(input).metadata();
@@ -18,11 +19,10 @@ for (const file of (await readdir(root)).filter(name => /^real-.*\.webp$/.test(n
   }
   variants.push({ src: `/images/el-bebe/${file}`, width });
   manifest[`/images/el-bebe/${file}`] = { width, height, variants };
-  // The album's large opening photograph is its LCP on phones. AVIF reduces
-  // that transfer further; browsers without support retain the WebP sources.
-  if (file === 'real-playground-friends-v1.webp') {
+  // Only first-screen photos need AVIF alongside the universal WebP sources.
+  if (firstScreenPhotos.has(file)) {
     const avif = [];
-    for (const size of [320, 480, 768, width]) {
+    for (const size of [...new Set([320, 480, 768, width].filter(size => size <= width))]) {
       const name = file.replace('.webp', `-${size}.avif`);
       await sharp(input).resize({ width: size }).avif({ quality: 55, effort: 4 }).toFile(fileURLToPath(new URL(name, output)));
       avif.push({ src: `/images/el-bebe/responsive/${name}`, width: size });

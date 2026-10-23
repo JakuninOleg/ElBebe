@@ -1,5 +1,5 @@
 ---
-import { responsiveImage } from '../../lib/responsive-image';
+import { responsiveImage, responsiveAvif } from '../../lib/responsive-image';
 import type { SiteContent } from '../../lib/cms';
 import { Image } from '../../lib/emdash-ui';
 import { groupCards } from '../../data/group-cards';
@@ -25,11 +25,14 @@ const imageDescriptions = ['Рисование цветными карандаш
   </header>}
   <div class="programs-grid">{groupCards.map((program, index) => {
     const photo = groups.find(group => group.id === program.id || group.title === program.title)?.image;
+    const source = (typeof photo === 'string' ? photo : photo?.src) || `/images/el-bebe/${program.image}.webp`;
+    const avif = responsiveAvif(source, '(max-width: 600px) calc(100vw - 64px), (max-width: 979px) 510px, 31vw');
     return <article class={`program-card program-card--${program.accent}`} id={`group-${program.id}`}>
       <div class="program-card-visual">
-        <div class="program-card-photo">
+        <picture class="program-card-photo">
+          {avif.srcset && <source type="image/avif" {...avif}/>}
           {photo ? <Image image={photo} alt={imageDescriptions[index]} width={700} height={460} sizes="(max-width: 600px) calc(100vw - 64px), (max-width: 979px) 510px, 31vw"/> : <img src={`/images/el-bebe/${program.image}.webp`} {...responsiveImage(`/images/el-bebe/${program.image}.webp`, '(max-width: 600px) calc(100vw - 64px), (max-width: 979px) 510px, 31vw')} alt={imageDescriptions[index]} width={program.id === 'younger' ? 900 : program.id === 'middle' ? 720 : 960} height={program.id === 'younger' ? 783 : program.id === 'middle' ? 626 : 835} loading="lazy"/>}
-        </div>
+        </picture>
         <Decor kind="drops" class="program-card-rays program-card-rays--left"/>
         <Decor kind="drops" class="program-card-rays program-card-rays--right"/>
       </div>

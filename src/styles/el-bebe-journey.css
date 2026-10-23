@@ -13,7 +13,7 @@
   .day-map-heading>.hand-note { color: #527c87; font-size: 30px; line-height: 1.05; text-align: center; transform: rotate(-7deg); flex-shrink: 0; }
   .day-map-layout { display: grid; grid-template-columns: minmax(0,3fr) minmax(245px,1fr); gap: 32px; align-items: center; margin-top: 24px; }
   .day-map-scene { position: relative; min-width: 0; }
-  .day-map-scene>img { display: block; width: 100%; height: auto; }
+  .day-map-scene>picture, .day-map-scene>picture>img { display: block; width: 100%; height: auto; }
   .day-map-controls:not([hidden]) { position: absolute; inset: 0; }
   .day-map-pin { position: absolute; left: var(--pin-x); top: var(--pin-y); display: flex; align-items: center; justify-content: center; gap: 8px; min-height: 44px; padding: 10px 16px; background: var(--pin-color); color: #4c235f; border: 2px solid #fffdf7; border-radius: 14px; font-size: 17px; font-weight: 800; transform: translate(-50%,-50%); box-shadow: 0 5px 10px #4d315b16; transition: background-color 180ms, color 180ms, box-shadow 180ms; }
   .map-pin-dot { width: 8px; height: 8px; border-radius: 50%; background: currentColor; flex-shrink: 0; }
@@ -157,7 +157,7 @@
     .day-map-heading p { font-size: 16px; margin-top: 16px; }
     .day-map-heading>.hand-note { display: none; }
     .day-map-layout { display: block; margin-top: 20px; }
-    .day-map-scene>img { display: none; }
+    .day-map-scene>picture { display: none; }
     .day-map-controls:not([hidden]) { position: static; display: grid; grid-template-columns: repeat(6,minmax(0,1fr)); gap: 8px; }
     .day-map-pin { position: static; left: auto; top: auto; transform: none; flex: 1 1 28%; font-size: 15px; min-height: 46px; padding: 9px 6px; border-width: 0; box-shadow: none; }
     .day-map-pin .map-pin-dot { display: none; }

@@ -1,8 +1,8 @@
 @layer realPhotos {
   .hero-circle img { object-position: center; transform: none; }
-  .program-card-photo { aspect-ratio: 1.15; }
+  .program-card-photo { display: block; aspect-ratio: 1.15; }
   .program-card-photo img, .program-card--blue .program-card-photo img, .program-card--green .program-card-photo img { object-position: center; }
-  .group-detail-photo { aspect-ratio: 1.15; }
+  .group-detail-photo { display: block; aspect-ratio: 1.15; }
   .home-page { overflow-x: clip; }
   .capital-photo>img { object-position: 50% 0%; }
   .visit-stop--2 .visit-photo, .visit-stop--3 .visit-photo { aspect-ratio: 1.25; }
