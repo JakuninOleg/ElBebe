@@ -1,7 +1,6 @@
 ---
 import Icon from './Icon.astro';
 import Decor from './Decor.astro';
-import Sprig from './Sprig.astro';
 const stops = [
   { title: 'Осмотримся', text: 'Покажем комнаты для игр, занятий и отдыха.', image: 'real-creative-table-wide-v1', alt: 'Творческое занятие за общим столом', width: 900, height: 643 },
   { title: 'Познакомимся', text: 'Пообщаемся с воспитателями и расскажем о жизни группы.', image: 'real-letters-v1', alt: 'Мальчик занимается с прописями', width: 960, height: 1280 },
@@ -19,5 +18,5 @@ const stops = [
       <h3>{stop.title}</h3><p>{stop.text}</p>
     </li>)}</ol>
   </div>
-  <div class="visit-bottom" id="visit-action"><div class="visit-action"><button type="button" class="button" data-open-visit>Прийти познакомиться <Icon name="arrow" size={24}/></button><p>Оставьте номер — свяжемся и выберем время встречи.</p></div><div class="visit-host" aria-hidden="true"><span class="visit-host-note hand-note">Рады<br/>знакомству! ♡</span><Sprig class="visit-host-sprig"/><svg class="visit-host-shelf" viewBox="0 0 330 120" preserveAspectRatio="none"><path d="M5 105C45 80 75 42 140 42S242 43 286 35C315 31 334 42 330 69C326 105 286 120 220 120H15C0 120-5 116 5 105Z" fill="#ffdee6"/></svg><img class="visit-host-bunny" src="/images/el-bebe/bunny-approved.svg" alt="" width="390" height="490" loading="lazy"/></div></div>
+  <div class="visit-bottom" id="visit-action"><div class="visit-action"><button type="button" class="button" data-open-visit>Прийти познакомиться <Icon name="arrow" size={24}/></button></div></div>
 </section>

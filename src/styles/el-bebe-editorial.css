@@ -61,9 +61,6 @@
   .footer-hours { color: #6d2194; font-size: 15px; font-weight: 700; margin-top: 14px; }
   .parent-topic-nav { display: flex; flex-wrap: wrap; gap: 12px 24px; }
   .parent-topic-nav>a { color: #387b88; text-underline-offset: 6px; font-size: 17px; padding-block: 8px; }
-  .visit-host { height: 270px; }
-  .visit-host-bunny { --host-bunny: 182px; }
-  .visit-host-note { top: 85px; }
   .faq-answer { color: #574063; font-size: 17px; line-height: 1.7; }
   .faq-item summary { font-size: 18px; line-height: 1.4; }
   .group-detail-intro { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 64px; align-items: center; }
@@ -168,9 +165,6 @@
     .camera-story-character { width: 108px; left: -12px; bottom: -4px; }
     .camera-story-note { width: 112px; font-size: 20px; padding: 13px 8px; top: 0; right: -7px; }
     .camera-story-rays { width: 32px; height: 35px; top: 19px; left: 10px; }
-    .visit-host { height: 226px; margin-top: 16px; }
-    .visit-host-bunny { --host-bunny: 146px; }
-    .visit-host-note { top: 74px; }
     .footer-brand>p { margin-top: 18px; line-height: 1.15; }
     .faq-item summary { font-size: 17px; }
     .faq-answer { font-size: 16px; line-height: 1.7; }

@@ -18,7 +18,6 @@ import AttendanceRates from '../components/el-bebe/AttendanceRates.astro';
 import Groups from '../components/el-bebe/Groups.astro';
 import VisitJourney from '../components/el-bebe/VisitJourney.astro';
 import FirstDays from '../components/el-bebe/FirstDays.astro';
-import Approach from '../components/el-bebe/Approach.astro';
 import IllustratedIcon from '../components/el-bebe/IllustratedIcon.astro';
 import { getParentQuestions } from '../lib/parent-questions';
 import { getSiteContent } from '../lib/cms';
@@ -95,8 +94,6 @@ const faqs = getParentQuestions(content.faqs).slice(0, 8);
     </section>
 
     <FirstDays/>
-
-    <Approach/>
 
     <Surveillance/>
 

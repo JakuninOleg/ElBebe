@@ -1,8 +1,8 @@
 @layer invitation {
   /* The mascot's paws meet the top edge of a real, usable invitation sheet. */
   .invitation { margin-top: 58px; }
-  .invitation > .wave-shape { inset: 38px 0 12px; height: calc(100% - 50px); }
-  .invitation-inner { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); grid-template-areas: "intro letter" "memory letter"; align-items: center; gap: 25px 74px; padding: 96px 0 78px; }
+  .invitation > .wave-shape { inset: 0; height: 100%; }
+  .invitation-inner { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); grid-template-areas: "intro letter" "memory letter"; align-items: center; gap: 25px 74px; padding: 128px 0 112px; }
   .invitation-intro { grid-area: intro; align-self: end; padding-top: 4px; }
   .invitation-intro > h2 { font-size: clamp(36px,3.8vw,54px); line-height: 1.03; }
   .invitation-intro > p { max-width: 410px; margin-top: 20px; font-size: 18px; line-height: 1.5; color: #735080; }
@@ -64,8 +64,7 @@
   }
   @media (max-width: 900px) {
     .invitation { margin-top: 30px; }
-    .invitation > .wave-shape { inset: 16px 0 10px; height: calc(100% - 26px); }
-    .invitation-inner { grid-template-columns: minmax(0,1fr); grid-template-areas: "intro" "letter" "memory"; gap: 0; max-width: 540px; padding: 58px 0 65px; }
+    .invitation-inner { grid-template-columns: minmax(0,1fr); grid-template-areas: "intro" "letter" "memory"; gap: 0; max-width: 540px; padding: 88px 0 104px; }
     .invitation .wave-path--desktop { display: none; }
     .invitation .wave-path--mobile { display: block; }
     .invitation-intro { position: relative; padding: 0 5px; }

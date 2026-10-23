@@ -65,14 +65,8 @@
   .visit-stop h3 { font-size: 24px; line-height: 1.15; letter-spacing: -.02em; margin: 22px 0 10px; }
   .visit-stop>p { font-size: 18px; line-height: 1.45; }
   .visit-mobile-trail { display: none; }
-  .visit-bottom { position: relative; display: flex; align-items: center; min-height: 195px; padding: 28px 325px 0 0; }
+  .visit-bottom { display: flex; justify-content: center; padding-top: 40px; }
   .visit-action>.button { font-size: 20px; gap: 20px; min-height: 59px; padding: 16px 29px; }
-  .visit-action>p { font-size: 16px; line-height: 1.45; margin-top: 15px; }
-  .visit-host { --host-bunny: 205px; --shelf-h: 95px; position: absolute; width: 330px; height: 230px; bottom: 0; right: -25px; isolation: isolate; }
-  .visit-host-bunny { position: absolute; width: var(--host-bunny); height: auto; right: 8px; bottom: calc(var(--shelf-h) * 2 / 3 - var(--host-bunny) * .065); z-index: 2; }
-  .visit-host-shelf { position: absolute; bottom: 0; right: 0; width: 100%; height: var(--shelf-h); z-index: 1; }
-  .visit-host-note { position: absolute; left: 0; top: 34px; width: 120px; color: #8c53a6; font-size: 27px; line-height: 1.1; transform: rotate(-12deg); }
-  .visit-host-sprig { position: absolute; width: 43px; left: 75px; bottom: 42px; transform: rotate(-36deg); z-index: 0; }
 
   @media (min-width: 761px) and (max-width: 1100px) {
     .growth-groups, .visit-journey { padding-inline: 6px; }
@@ -94,11 +88,7 @@
     .visit-number { width: 48px; height: 48px; font-size: 31px; }
     .visit-stop h3 { font-size: 22px; }
     .visit-stop>p { font-size: 16px; }
-    .visit-bottom { padding-right: 270px; }
     .visit-action>.button { font-size: 17px; padding: 15px 22px; }
-    .visit-action>p { font-size: 15px; }
-    .visit-host { --host-bunny: 175px; --shelf-h: 80px; width: 285px; height: 200px; }
-    .visit-host-note { width: 112px; font-size: 24px; }
   }
   @media (max-width: 760px) {
     .growth-groups, .visit-journey { width: calc(100% - 40px); max-width: 520px; padding: 0; margin-top: 43px; }
@@ -146,12 +136,8 @@
     .visit-paws { width: 32px; top: 27%; left: -5px; }
     .visit-stop h3 { margin-top: 14px; margin-bottom: 7px; font-size: 23px; line-height: 1.15; }
     .visit-stop>p { font-size: 16px; line-height: 1.45; }
-    .visit-bottom { display: block; min-height: 0; padding: 25px 0 0; }
+    .visit-bottom { padding-top: 28px; }
     .visit-action>.button { font-size: 17px; padding: 15px 23px; min-height: 54px; max-width: 100%; gap: 14px; }
-    .visit-action>p { font-size: 14px; line-height: 1.4; margin-top: 13px; }
-    .visit-host { --host-bunny: 146px; --shelf-h: 66px; position: relative; width: 250px; height: 180px; margin: 0 -20px 0 auto; right: auto; }
-    .visit-host-note { width: 92px; left: 12px; top: 47px; font-size: 23px; }
-    .visit-host-sprig { width: 32px; left: 65px; bottom: 31px; }
   }
   @media (max-width: 370px) {
     .growth-heading h2, .visit-heading h2 { font-size: 28px; }

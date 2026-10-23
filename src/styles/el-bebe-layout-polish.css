@@ -73,7 +73,7 @@
   .teacher-conversation li p { font-size: 17px; }
 
   .parent-reviews { margin-block: 64px; padding-block: 28px; border-block: 1px solid #dfd4e3; }
-  .parent-reviews-heading { display: grid; grid-template-columns: 88px minmax(0,1fr) auto; align-items: center; gap: 24px; }
+  .parent-reviews-heading { display: grid; grid-template-columns: 88px minmax(0,1fr); align-items: center; gap: 24px; }
   .parent-reviews-heading h2 { font-size: clamp(28px,2.7vw,36px); line-height: 1.2; }
   .parent-reviews-heading p { margin-top: 12px; color: #574063; font-size: 17px; line-height: 1.6; }
   .parent-reviews-heading>a { font-size: 16px; }

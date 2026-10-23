@@ -2,6 +2,7 @@
 import Icon from './Icon.astro';
 import IllustratedIcon from './IllustratedIcon.astro';
 import ExternalMap from './ExternalMap.astro';
+import MessengerIcon from './MessengerIcon.astro';
 import { siteContacts } from '../../data/site-contacts';
 interface Props { address: string; phone?: string; }
 const { address, phone } = Astro.props;
@@ -23,7 +24,10 @@ const sections = [
         <div><dt><IllustratedIcon name="clock" size={44}/>Режим работы</dt><dd>Работаем 24/7</dd></div>
       </dl>
       <a class="footer-phone" href={`tel:${phoneHref}`}>{contactPhone}</a>
-      <div class="footer-messengers">{siteContacts.messengers.map(link=><a href={link.href} target="_blank" rel="noopener noreferrer"><Icon name="chat" size={23}/>Написать в {link.label}<Icon name="arrow" size={18}/></a>)}</div>
+      <div class="footer-messengers" role="group" aria-label="Написать нам">{siteContacts.messengers.map(link=>link.href
+        ? <a class={`messenger-button messenger-button--${link.id}`} href={link.href} target="_blank" rel="noopener noreferrer" aria-label={`Написать в ${link.label}`}><MessengerIcon name={link.id}/><span>{link.label}</span></a>
+        : <button class={`messenger-button messenger-button--${link.id}`} type="button" disabled aria-label={`${link.label} — скоро`} title="Ссылка появится позже"><MessengerIcon name={link.id}/><span>{link.label}</span></button>
+      )}</div>
       <img class="footer-guide" src="/images/el-bebe/bunny-guide.webp" alt="" width="414" height="640" loading="lazy"/>
     </div>
     <ExternalMap class="footer-live-map"/>
