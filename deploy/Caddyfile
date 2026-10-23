@@ -1,0 +1,16 @@
+{
+	email {$ACME_EMAIL}
+}
+
+{$DOMAIN} {
+	encode zstd gzip
+	header X-Robots-Tag "noindex, nofollow"
+	@health path /healthz /healthz/
+	respond @health 404
+	request_body {
+		max_size 260MB
+	}
+	reverse_proxy app:4321 {
+		header_up X-Real-IP {remote_host}
+	}
+}

@@ -1,12 +1,18 @@
 import node from "@astrojs/node";
 import react from "@astrojs/react";
-import { defineConfig } from "astro/config";
+import { defineConfig, sessionDrivers } from "astro/config";
 import emdash, { local } from "emdash/astro";
 import { sqlite } from "emdash/db";
 import { fileURLToPath } from "node:url";
 import { privateFileDeny } from './config/private-files.mjs';
 
+const container = process.env.EL_BEBE_DOCKER === 'true';
+const siteUrl = process.env.EMDASH_SITE_URL;
+if (container && !siteUrl) throw new Error('Set EMDASH_SITE_URL when building the VPS image.');
+
 export default defineConfig({
+	site: siteUrl,
+	session: container ? { driver: sessionDrivers.fsLite({ base: '/var/lib/el-bebe/sessions' }) } : undefined,
 	output: "server",
 	adapter: node({
 		mode: "standalone",
@@ -18,6 +24,8 @@ export default defineConfig({
 	integrations: [
 		react(),
 		emdash({
+			siteUrl,
+			maxUploadSize: 250 * 1024 * 1024,
 			fonts: false,
 			plugins: [{
 				id: 'el-bebe-office', version: '1.0.0',
@@ -28,9 +36,9 @@ export default defineConfig({
 					{ path: '/print', label: 'Документы для печати', icon: 'file-text', group: 'Работа садика' },
 				],
 			}],
-			database: sqlite({ url: "file:./data.db" }),
+			database: sqlite({ url: container ? 'file:/var/lib/el-bebe/cms/data.db' : "file:./data.db" }),
 			storage: local({
-				directory: "./uploads",
+				directory: container ? '/var/lib/el-bebe/uploads' : "./uploads",
 				baseUrl: "/_emdash/api/media/file",
 			}),
 		}),

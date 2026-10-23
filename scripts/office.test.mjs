@@ -102,6 +102,14 @@ test('Forwarded IP is trusted only with explicit opt-in and an actual local reve
   assert.equal(visitClientAddress('127.0.0.1', new Headers({ 'X-Real-IP': '1.2.3.4, 2.3.4.5' }), true), '127.0.0.1');
 });
 
+test('Docker forwarded addresses are trusted only from the explicitly configured proxy, including mapped IPv4', () => {
+  const headers = new Headers({ 'X-Real-IP': '192.0.2.10' });
+  assert.equal(visitClientAddress('172.30.42.2', headers, true, ['172.30.42.2']), '192.0.2.10');
+  assert.equal(visitClientAddress('::ffff:172.30.42.2', headers, true, ['172.30.42.2']), '192.0.2.10');
+  assert.equal(visitClientAddress('172.30.42.3', headers, true, ['172.30.42.2']), '172.30.42.3');
+  assert.equal(visitClientAddress('172.30.42.2', headers, false, ['172.30.42.2']), '172.30.42.2');
+});
+
 test('Lost-response retries return the saved visit without consuming the phone limit', async () => {
   const data = { ...valid, phone: '+79000000004' };
   const key = randomUUID();

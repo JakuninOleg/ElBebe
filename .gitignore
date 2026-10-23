@@ -38,3 +38,9 @@ tmp/pdfs/
 *.db-shm
 *.sqlite
 *.sqlite3
+
+# VPS secrets, migration bundles and backups stay outside the image and Git.
+deploy/.env
+deploy/secrets/
+deploy/backups/
+deploy/bundles/

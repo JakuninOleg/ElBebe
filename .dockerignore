@@ -1,0 +1,28 @@
+# Only application sources and explicitly selected deployment scripts enter the build context.
+**
+!Dockerfile
+!package.json
+!package-lock.json
+!tsconfig.json
+!emdash-env.d.ts
+!astro.config.mjs
+!src/
+!src/**
+!public/
+!public/**
+!config/
+!config/**
+!seed/
+!seed/**
+!deploy/
+!deploy/runtime.mjs
+!deploy/healthcheck.mjs
+!deploy/data.mjs
+
+# Deny private files even if they accidentally appear inside an allowed source directory.
+**/.env*
+**/*.db*
+**/*.sqlite*
+**/*.pem
+**/*.key
+**/emdash-encryption-key*

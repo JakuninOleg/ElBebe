@@ -104,7 +104,7 @@ export const POST: APIRoute = async (context) => {
     let ip = "local";
     try { ip = context.clientAddress || ip; } catch { /* Some local adapters omit clientAddress. */ }
     ip = visitClientAddress(ip, request.headers);
-    // Forwarded addresses are ignored unless a trusted local proxy is explicitly configured.
+    // Forwarded addresses are ignored unless a trusted reverse proxy is explicitly configured.
     const retryAfter = reserveRateLimit(ip, phone!);
     if (retryAfter) return json(429, { ok: false, message: "Слишком много обращений. Попробуйте позже." }, { "Retry-After": String(retryAfter) });
     const id = randomUUID();
