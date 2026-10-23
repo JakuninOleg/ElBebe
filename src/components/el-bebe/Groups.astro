@@ -1,4 +1,5 @@
 ---
+import { responsiveImage } from '../../lib/responsive-image';
 import type { SiteContent } from '../../lib/cms';
 import { Image } from '../../lib/emdash-ui';
 import { groupCards } from '../../data/group-cards';
@@ -27,7 +28,7 @@ const imageDescriptions = ['Рисование цветными карандаш
     return <article class={`program-card program-card--${program.accent}`} id={`group-${program.id}`}>
       <div class="program-card-visual">
         <div class="program-card-photo">
-          {photo ? <Image image={photo} alt={imageDescriptions[index]} width={700} height={460}/> : <img src={`/images/el-bebe/${program.image}.webp`} alt={imageDescriptions[index]} width={program.id === 'younger' ? 900 : program.id === 'middle' ? 720 : 960} height={program.id === 'younger' ? 783 : program.id === 'middle' ? 626 : 835} sizes="(max-width: 600px) calc(100vw - 64px), (max-width: 979px) 510px, 31vw" loading="lazy"/>}
+          {photo ? <Image image={photo} alt={imageDescriptions[index]} width={700} height={460} sizes="(max-width: 600px) calc(100vw - 64px), (max-width: 979px) 510px, 31vw"/> : <img src={`/images/el-bebe/${program.image}.webp`} {...responsiveImage(`/images/el-bebe/${program.image}.webp`, '(max-width: 600px) calc(100vw - 64px), (max-width: 979px) 510px, 31vw')} alt={imageDescriptions[index]} width={program.id === 'younger' ? 900 : program.id === 'middle' ? 720 : 960} height={program.id === 'younger' ? 783 : program.id === 'middle' ? 626 : 835} loading="lazy"/>}
         </div>
         <Decor kind="drops" class="program-card-rays program-card-rays--left"/>
         <Decor kind="drops" class="program-card-rays program-card-rays--right"/>
@@ -36,7 +37,7 @@ const imageDescriptions = ['Рисование цветными карандаш
         <CardHeading>{program.title}</CardHeading>
         <p class="program-card-summary">{program.summary}</p>
         <ul class="program-lessons">{program.lessons.map(lesson => <li><span class="program-lesson-art"><IllustratedIcon name={lesson.icon} size={48}/></span><span>{lesson.label}</span></li>)}</ul>
-        <a class="program-card-link" href={`/gruppy/${groupPages[program.id].slug}/`} aria-label={`${program.title}: занятия и расписание`}>Подробнее о группе <Icon name="arrow" size={22}/></a>
+        <a class="program-card-link" href={`/gruppy/${groupPages[program.id].slug}/`} aria-label={`Подробнее о группе: ${program.title.toLowerCase()}`}>Подробнее о группе <Icon name="arrow" size={22}/></a>
       </div>
     </article>;
   })}</div>

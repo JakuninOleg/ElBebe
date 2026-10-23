@@ -1,0 +1,1074 @@
+{
+  "/images/el-bebe/real-abacus-v1.webp": {
+    "width": 720,
+    "height": 1280,
+    "variants": [
+      {
+        "src": "/images/el-bebe/responsive/real-abacus-v1-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/el-bebe/responsive/real-abacus-v1-480.webp",
+        "width": 480
+      },
+      {
+        "src": "/images/el-bebe/real-abacus-v1.webp",
+        "width": 720
+      }
+    ]
+  },
+  "/images/el-bebe/real-autumn-boy-v1.webp": {
+    "width": 960,
+    "height": 1280,
+    "variants": [
+      {
+        "src": "/images/el-bebe/responsive/real-autumn-boy-v1-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/el-bebe/responsive/real-autumn-boy-v1-480.webp",
+        "width": 480
+      },
+      {
+        "src": "/images/el-bebe/responsive/real-autumn-boy-v1-768.webp",
+        "width": 768
+      },
+      {
+        "src": "/images/el-bebe/real-autumn-boy-v1.webp",
+        "width": 960
+      }
+    ]
+  },
+  "/images/el-bebe/real-autumn-circle-v1.webp": {
+    "width": 1280,
+    "height": 960,
+    "variants": [
+      {
+        "src": "/images/el-bebe/responsive/real-autumn-circle-v1-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/el-bebe/responsive/real-autumn-circle-v1-480.webp",
+        "width": 480
+      },
+      {
+        "src": "/images/el-bebe/responsive/real-autumn-circle-v1-768.webp",
+        "width": 768
+      },
+      {
+        "src": "/images/el-bebe/real-autumn-circle-v1.webp",
+        "width": 1280
+      }
+    ]
+  },
+  "/images/el-bebe/real-autumn-wide-v1.webp": {
+    "width": 960,
+    "height": 685,
+    "variants": [
+      {
+        "src": "/images/el-bebe/responsive/real-autumn-wide-v1-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/el-bebe/responsive/real-autumn-wide-v1-480.webp",
+        "width": 480
+      },
+      {
+        "src": "/images/el-bebe/responsive/real-autumn-wide-v1-768.webp",
+        "width": 768
+      },
+      {
+        "src": "/images/el-bebe/real-autumn-wide-v1.webp",
+        "width": 960
+      }
+    ]
+  },
+  "/images/el-bebe/real-blocks-v1.webp": {
+    "width": 841,
+    "height": 1280,
+    "variants": [
+      {
+        "src": "/images/el-bebe/responsive/real-blocks-v1-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/el-bebe/responsive/real-blocks-v1-480.webp",
+        "width": 480
+      },
+      {
+        "src": "/images/el-bebe/responsive/real-blocks-v1-768.webp",
+        "width": 768
+      },
+      {
+        "src": "/images/el-bebe/real-blocks-v1.webp",
+        "width": 841
+      }
+    ]
+  },
+  "/images/el-bebe/real-boy-polo-square-v1.webp": {
+    "width": 900,
+    "height": 900,
+    "variants": [
+      {
+        "src": "/images/el-bebe/responsive/real-boy-polo-square-v1-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/el-bebe/responsive/real-boy-polo-square-v1-480.webp",
+        "width": 480
+      },
+      {
+        "src": "/images/el-bebe/responsive/real-boy-polo-square-v1-768.webp",
+        "width": 768
+      },
+      {
+        "src": "/images/el-bebe/real-boy-polo-square-v1.webp",
+        "width": 900
+      }
+    ]
+  },
+  "/images/el-bebe/real-boy-polo-v1.webp": {
+    "width": 810,
+    "height": 1440,
+    "variants": [
+      {
+        "src": "/images/el-bebe/responsive/real-boy-polo-v1-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/el-bebe/responsive/real-boy-polo-v1-480.webp",
+        "width": 480
+      },
+      {
+        "src": "/images/el-bebe/responsive/real-boy-polo-v1-768.webp",
+        "width": 768
+      },
+      {
+        "src": "/images/el-bebe/real-boy-polo-v1.webp",
+        "width": 810
+      }
+    ]
+  },
+  "/images/el-bebe/real-boy-white-square-v1.webp": {
+    "width": 960,
+    "height": 960,
+    "variants": [
+      {
+        "src": "/images/el-bebe/responsive/real-boy-white-square-v1-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/el-bebe/responsive/real-boy-white-square-v1-480.webp",
+        "width": 480
+      },
+      {
+        "src": "/images/el-bebe/responsive/real-boy-white-square-v1-768.webp",
+        "width": 768
+      },
+      {
+        "src": "/images/el-bebe/real-boy-white-square-v1.webp",
+        "width": 960
+      }
+    ]
+  },
+  "/images/el-bebe/real-boy-white-v1.webp": {
+    "width": 960,
+    "height": 1280,
+    "variants": [
+      {
+        "src": "/images/el-bebe/responsive/real-boy-white-v1-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/el-bebe/responsive/real-boy-white-v1-480.webp",
+        "width": 480
+      },
+      {
+        "src": "/images/el-bebe/responsive/real-boy-white-v1-768.webp",
+        "width": 768
+      },
+      {
+        "src": "/images/el-bebe/real-boy-white-v1.webp",
+        "width": 960
+      }
+    ]
+  },
+  "/images/el-bebe/real-butterfly-v1.webp": {
+    "width": 720,
+    "height": 1280,
+    "variants": [
+      {
+        "src": "/images/el-bebe/responsive/real-butterfly-v1-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/el-bebe/responsive/real-butterfly-v1-480.webp",
+        "width": 480
+      },
+      {
+        "src": "/images/el-bebe/real-butterfly-v1.webp",
+        "width": 720
+      }
+    ]
+  },
+  "/images/el-bebe/real-celebration-v1.webp": {
+    "width": 960,
+    "height": 1280,
+    "variants": [
+      {
+        "src": "/images/el-bebe/responsive/real-celebration-v1-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/el-bebe/responsive/real-celebration-v1-480.webp",
+        "width": 480
+      },
+      {
+        "src": "/images/el-bebe/responsive/real-celebration-v1-768.webp",
+        "width": 768
+      },
+      {
+        "src": "/images/el-bebe/real-celebration-v1.webp",
+        "width": 960
+      }
+    ]
+  },
+  "/images/el-bebe/real-chess-boy-v1.webp": {
+    "width": 960,
+    "height": 1280,
+    "variants": [
+      {
+        "src": "/images/el-bebe/responsive/real-chess-boy-v1-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/el-bebe/responsive/real-chess-boy-v1-480.webp",
+        "width": 480
+      },
+      {
+        "src": "/images/el-bebe/responsive/real-chess-boy-v1-768.webp",
+        "width": 768
+      },
+      {
+        "src": "/images/el-bebe/real-chess-boy-v1.webp",
+        "width": 960
+      }
+    ]
+  },
+  "/images/el-bebe/real-chess-girl-v1.webp": {
+    "width": 720,
+    "height": 1280,
+    "variants": [
+      {
+        "src": "/images/el-bebe/responsive/real-chess-girl-v1-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/el-bebe/responsive/real-chess-girl-v1-480.webp",
+        "width": 480
+      },
+      {
+        "src": "/images/el-bebe/real-chess-girl-v1.webp",
+        "width": 720
+      }
+    ]
+  },
+  "/images/el-bebe/real-chess-smile-v1.webp": {
+    "width": 768,
+    "height": 1024,
+    "variants": [
+      {
+        "src": "/images/el-bebe/responsive/real-chess-smile-v1-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/el-bebe/responsive/real-chess-smile-v1-480.webp",
+        "width": 480
+      },
+      {
+        "src": "/images/el-bebe/real-chess-smile-v1.webp",
+        "width": 768
+      }
+    ]
+  },
+  "/images/el-bebe/real-climbing-v1.webp": {
+    "width": 960,
+    "height": 1280,
+    "variants": [
+      {
+        "src": "/images/el-bebe/responsive/real-climbing-v1-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/el-bebe/responsive/real-climbing-v1-480.webp",
+        "width": 480
+      },
+      {
+        "src": "/images/el-bebe/responsive/real-climbing-v1-768.webp",
+        "width": 768
+      },
+      {
+        "src": "/images/el-bebe/real-climbing-v1.webp",
+        "width": 960
+      }
+    ]
+  },
+  "/images/el-bebe/real-confetti-v1.webp": {
+    "width": 1280,
+    "height": 720,
+    "variants": [
+      {
+        "src": "/images/el-bebe/responsive/real-confetti-v1-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/el-bebe/responsive/real-confetti-v1-480.webp",
+        "width": 480
+      },
+      {
+        "src": "/images/el-bebe/responsive/real-confetti-v1-768.webp",
+        "width": 768
+      },
+      {
+        "src": "/images/el-bebe/real-confetti-v1.webp",
+        "width": 1280
+      }
+    ]
+  },
+  "/images/el-bebe/real-construction-v1.webp": {
+    "width": 720,
+    "height": 1280,
+    "variants": [
+      {
+        "src": "/images/el-bebe/responsive/real-construction-v1-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/el-bebe/responsive/real-construction-v1-480.webp",
+        "width": 480
+      },
+      {
+        "src": "/images/el-bebe/real-construction-v1.webp",
+        "width": 720
+      }
+    ]
+  },
+  "/images/el-bebe/real-creative-table-v1.webp": {
+    "width": 810,
+    "height": 1440,
+    "variants": [
+      {
+        "src": "/images/el-bebe/responsive/real-creative-table-v1-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/el-bebe/responsive/real-creative-table-v1-480.webp",
+        "width": 480
+      },
+      {
+        "src": "/images/el-bebe/responsive/real-creative-table-v1-768.webp",
+        "width": 768
+      },
+      {
+        "src": "/images/el-bebe/real-creative-table-v1.webp",
+        "width": 810
+      }
+    ]
+  },
+  "/images/el-bebe/real-creative-table-wide-v1.webp": {
+    "width": 900,
+    "height": 643,
+    "variants": [
+      {
+        "src": "/images/el-bebe/responsive/real-creative-table-wide-v1-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/el-bebe/responsive/real-creative-table-wide-v1-480.webp",
+        "width": 480
+      },
+      {
+        "src": "/images/el-bebe/responsive/real-creative-table-wide-v1-768.webp",
+        "width": 768
+      },
+      {
+        "src": "/images/el-bebe/real-creative-table-wide-v1.webp",
+        "width": 900
+      }
+    ]
+  },
+  "/images/el-bebe/real-drawing-v1.webp": {
+    "width": 810,
+    "height": 1440,
+    "variants": [
+      {
+        "src": "/images/el-bebe/responsive/real-drawing-v1-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/el-bebe/responsive/real-drawing-v1-480.webp",
+        "width": 480
+      },
+      {
+        "src": "/images/el-bebe/responsive/real-drawing-v1-768.webp",
+        "width": 768
+      },
+      {
+        "src": "/images/el-bebe/real-drawing-v1.webp",
+        "width": 810
+      }
+    ]
+  },
+  "/images/el-bebe/real-drawing-wide-v1.webp": {
+    "width": 900,
+    "height": 643,
+    "variants": [
+      {
+        "src": "/images/el-bebe/responsive/real-drawing-wide-v1-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/el-bebe/responsive/real-drawing-wide-v1-480.webp",
+        "width": 480
+      },
+      {
+        "src": "/images/el-bebe/responsive/real-drawing-wide-v1-768.webp",
+        "width": 768
+      },
+      {
+        "src": "/images/el-bebe/real-drawing-wide-v1.webp",
+        "width": 900
+      }
+    ]
+  },
+  "/images/el-bebe/real-fountain-v1.webp": {
+    "width": 1280,
+    "height": 960,
+    "variants": [
+      {
+        "src": "/images/el-bebe/responsive/real-fountain-v1-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/el-bebe/responsive/real-fountain-v1-480.webp",
+        "width": 480
+      },
+      {
+        "src": "/images/el-bebe/responsive/real-fountain-v1-768.webp",
+        "width": 768
+      },
+      {
+        "src": "/images/el-bebe/real-fountain-v1.webp",
+        "width": 1280
+      }
+    ]
+  },
+  "/images/el-bebe/real-friends-square-v1.webp": {
+    "width": 960,
+    "height": 960,
+    "variants": [
+      {
+        "src": "/images/el-bebe/responsive/real-friends-square-v1-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/el-bebe/responsive/real-friends-square-v1-480.webp",
+        "width": 480
+      },
+      {
+        "src": "/images/el-bebe/responsive/real-friends-square-v1-768.webp",
+        "width": 768
+      },
+      {
+        "src": "/images/el-bebe/real-friends-square-v1.webp",
+        "width": 960
+      }
+    ]
+  },
+  "/images/el-bebe/real-friends-v1.webp": {
+    "width": 960,
+    "height": 1280,
+    "variants": [
+      {
+        "src": "/images/el-bebe/responsive/real-friends-v1-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/el-bebe/responsive/real-friends-v1-480.webp",
+        "width": 480
+      },
+      {
+        "src": "/images/el-bebe/responsive/real-friends-v1-768.webp",
+        "width": 768
+      },
+      {
+        "src": "/images/el-bebe/real-friends-v1.webp",
+        "width": 960
+      }
+    ]
+  },
+  "/images/el-bebe/real-graduation-v1.webp": {
+    "width": 720,
+    "height": 1280,
+    "variants": [
+      {
+        "src": "/images/el-bebe/responsive/real-graduation-v1-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/el-bebe/responsive/real-graduation-v1-480.webp",
+        "width": 480
+      },
+      {
+        "src": "/images/el-bebe/real-graduation-v1.webp",
+        "width": 720
+      }
+    ]
+  },
+  "/images/el-bebe/real-group-middle-v1.webp": {
+    "width": 720,
+    "height": 626,
+    "variants": [
+      {
+        "src": "/images/el-bebe/responsive/real-group-middle-v1-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/el-bebe/responsive/real-group-middle-v1-480.webp",
+        "width": 480
+      },
+      {
+        "src": "/images/el-bebe/real-group-middle-v1.webp",
+        "width": 720
+      }
+    ]
+  },
+  "/images/el-bebe/real-group-older-v1.webp": {
+    "width": 960,
+    "height": 835,
+    "variants": [
+      {
+        "src": "/images/el-bebe/responsive/real-group-older-v1-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/el-bebe/responsive/real-group-older-v1-480.webp",
+        "width": 480
+      },
+      {
+        "src": "/images/el-bebe/responsive/real-group-older-v1-768.webp",
+        "width": 768
+      },
+      {
+        "src": "/images/el-bebe/real-group-older-v1.webp",
+        "width": 960
+      }
+    ]
+  },
+  "/images/el-bebe/real-group-younger-v1.webp": {
+    "width": 900,
+    "height": 783,
+    "variants": [
+      {
+        "src": "/images/el-bebe/responsive/real-group-younger-v1-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/el-bebe/responsive/real-group-younger-v1-480.webp",
+        "width": 480
+      },
+      {
+        "src": "/images/el-bebe/responsive/real-group-younger-v1-768.webp",
+        "width": 768
+      },
+      {
+        "src": "/images/el-bebe/real-group-younger-v1.webp",
+        "width": 900
+      }
+    ]
+  },
+  "/images/el-bebe/real-heart-v1.webp": {
+    "width": 720,
+    "height": 1280,
+    "variants": [
+      {
+        "src": "/images/el-bebe/responsive/real-heart-v1-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/el-bebe/responsive/real-heart-v1-480.webp",
+        "width": 480
+      },
+      {
+        "src": "/images/el-bebe/real-heart-v1.webp",
+        "width": 720
+      }
+    ]
+  },
+  "/images/el-bebe/real-hero-blocks-square-v1.webp": {
+    "width": 841,
+    "height": 841,
+    "variants": [
+      {
+        "src": "/images/el-bebe/responsive/real-hero-blocks-square-v1-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/el-bebe/responsive/real-hero-blocks-square-v1-480.webp",
+        "width": 480
+      },
+      {
+        "src": "/images/el-bebe/responsive/real-hero-blocks-square-v1-768.webp",
+        "width": 768
+      },
+      {
+        "src": "/images/el-bebe/real-hero-blocks-square-v1.webp",
+        "width": 841
+      }
+    ]
+  },
+  "/images/el-bebe/real-hero-mobile-v1.webp": {
+    "width": 1100,
+    "height": 1000,
+    "variants": [
+      {
+        "src": "/images/el-bebe/responsive/real-hero-mobile-v1-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/el-bebe/responsive/real-hero-mobile-v1-480.webp",
+        "width": 480
+      },
+      {
+        "src": "/images/el-bebe/responsive/real-hero-mobile-v1-768.webp",
+        "width": 768
+      },
+      {
+        "src": "/images/el-bebe/real-hero-mobile-v1.webp",
+        "width": 1100
+      }
+    ]
+  },
+  "/images/el-bebe/real-hero-mobile-v2.webp": {
+    "width": 1100,
+    "height": 1000,
+    "variants": [
+      {
+        "src": "/images/el-bebe/responsive/real-hero-mobile-v2-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/el-bebe/responsive/real-hero-mobile-v2-480.webp",
+        "width": 480
+      },
+      {
+        "src": "/images/el-bebe/responsive/real-hero-mobile-v2-768.webp",
+        "width": 768
+      },
+      {
+        "src": "/images/el-bebe/real-hero-mobile-v2.webp",
+        "width": 1100
+      }
+    ]
+  },
+  "/images/el-bebe/real-hero-mobile-v3.webp": {
+    "width": 1100,
+    "height": 1000,
+    "variants": [
+      {
+        "src": "/images/el-bebe/responsive/real-hero-mobile-v3-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/el-bebe/responsive/real-hero-mobile-v3-480.webp",
+        "width": 480
+      },
+      {
+        "src": "/images/el-bebe/responsive/real-hero-mobile-v3-768.webp",
+        "width": 768
+      },
+      {
+        "src": "/images/el-bebe/real-hero-mobile-v3.webp",
+        "width": 1100
+      }
+    ]
+  },
+  "/images/el-bebe/real-hero-rope-square-v1.webp": {
+    "width": 720,
+    "height": 720,
+    "variants": [
+      {
+        "src": "/images/el-bebe/responsive/real-hero-rope-square-v1-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/el-bebe/responsive/real-hero-rope-square-v1-480.webp",
+        "width": 480
+      },
+      {
+        "src": "/images/el-bebe/real-hero-rope-square-v1.webp",
+        "width": 720
+      }
+    ]
+  },
+  "/images/el-bebe/real-invitation-ladybug-v1.webp": {
+    "width": 640,
+    "height": 640,
+    "variants": [
+      {
+        "src": "/images/el-bebe/responsive/real-invitation-ladybug-v1-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/el-bebe/responsive/real-invitation-ladybug-v1-480.webp",
+        "width": 480
+      },
+      {
+        "src": "/images/el-bebe/real-invitation-ladybug-v1.webp",
+        "width": 640
+      }
+    ]
+  },
+  "/images/el-bebe/real-learning-together-v1.webp": {
+    "width": 809,
+    "height": 1024,
+    "variants": [
+      {
+        "src": "/images/el-bebe/responsive/real-learning-together-v1-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/el-bebe/responsive/real-learning-together-v1-480.webp",
+        "width": 480
+      },
+      {
+        "src": "/images/el-bebe/responsive/real-learning-together-v1-768.webp",
+        "width": 768
+      },
+      {
+        "src": "/images/el-bebe/real-learning-together-v1.webp",
+        "width": 809
+      }
+    ]
+  },
+  "/images/el-bebe/real-learning-wide-v1.webp": {
+    "width": 809,
+    "height": 600,
+    "variants": [
+      {
+        "src": "/images/el-bebe/responsive/real-learning-wide-v1-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/el-bebe/responsive/real-learning-wide-v1-480.webp",
+        "width": 480
+      },
+      {
+        "src": "/images/el-bebe/responsive/real-learning-wide-v1-768.webp",
+        "width": 768
+      },
+      {
+        "src": "/images/el-bebe/real-learning-wide-v1.webp",
+        "width": 809
+      }
+    ]
+  },
+  "/images/el-bebe/real-letters-v1.webp": {
+    "width": 960,
+    "height": 1280,
+    "variants": [
+      {
+        "src": "/images/el-bebe/responsive/real-letters-v1-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/el-bebe/responsive/real-letters-v1-480.webp",
+        "width": 480
+      },
+      {
+        "src": "/images/el-bebe/responsive/real-letters-v1-768.webp",
+        "width": 768
+      },
+      {
+        "src": "/images/el-bebe/real-letters-v1.webp",
+        "width": 960
+      }
+    ]
+  },
+  "/images/el-bebe/real-magnolia-v1.webp": {
+    "width": 810,
+    "height": 1440,
+    "variants": [
+      {
+        "src": "/images/el-bebe/responsive/real-magnolia-v1-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/el-bebe/responsive/real-magnolia-v1-480.webp",
+        "width": 480
+      },
+      {
+        "src": "/images/el-bebe/responsive/real-magnolia-v1-768.webp",
+        "width": 768
+      },
+      {
+        "src": "/images/el-bebe/real-magnolia-v1.webp",
+        "width": 810
+      }
+    ]
+  },
+  "/images/el-bebe/real-magnolia-wide-v1.webp": {
+    "width": 900,
+    "height": 643,
+    "variants": [
+      {
+        "src": "/images/el-bebe/responsive/real-magnolia-wide-v1-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/el-bebe/responsive/real-magnolia-wide-v1-480.webp",
+        "width": 480
+      },
+      {
+        "src": "/images/el-bebe/responsive/real-magnolia-wide-v1-768.webp",
+        "width": 768
+      },
+      {
+        "src": "/images/el-bebe/real-magnolia-wide-v1.webp",
+        "width": 900
+      }
+    ]
+  },
+  "/images/el-bebe/real-maslenitsa-v1.webp": {
+    "width": 720,
+    "height": 1280,
+    "variants": [
+      {
+        "src": "/images/el-bebe/responsive/real-maslenitsa-v1-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/el-bebe/responsive/real-maslenitsa-v1-480.webp",
+        "width": 480
+      },
+      {
+        "src": "/images/el-bebe/real-maslenitsa-v1.webp",
+        "width": 720
+      }
+    ]
+  },
+  "/images/el-bebe/real-outdoor-play-v1.webp": {
+    "width": 720,
+    "height": 1280,
+    "variants": [
+      {
+        "src": "/images/el-bebe/responsive/real-outdoor-play-v1-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/el-bebe/responsive/real-outdoor-play-v1-480.webp",
+        "width": 480
+      },
+      {
+        "src": "/images/el-bebe/real-outdoor-play-v1.webp",
+        "width": 720
+      }
+    ]
+  },
+  "/images/el-bebe/real-outdoor-square-v1.webp": {
+    "width": 720,
+    "height": 720,
+    "variants": [
+      {
+        "src": "/images/el-bebe/responsive/real-outdoor-square-v1-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/el-bebe/responsive/real-outdoor-square-v1-480.webp",
+        "width": 480
+      },
+      {
+        "src": "/images/el-bebe/real-outdoor-square-v1.webp",
+        "width": 720
+      }
+    ]
+  },
+  "/images/el-bebe/real-painting-square-v1.webp": {
+    "width": 866,
+    "height": 866,
+    "variants": [
+      {
+        "src": "/images/el-bebe/responsive/real-painting-square-v1-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/el-bebe/responsive/real-painting-square-v1-480.webp",
+        "width": 480
+      },
+      {
+        "src": "/images/el-bebe/responsive/real-painting-square-v1-768.webp",
+        "width": 768
+      },
+      {
+        "src": "/images/el-bebe/real-painting-square-v1.webp",
+        "width": 866
+      }
+    ]
+  },
+  "/images/el-bebe/real-painting-v1.webp": {
+    "width": 779,
+    "height": 1440,
+    "variants": [
+      {
+        "src": "/images/el-bebe/responsive/real-painting-v1-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/el-bebe/responsive/real-painting-v1-480.webp",
+        "width": 480
+      },
+      {
+        "src": "/images/el-bebe/responsive/real-painting-v1-768.webp",
+        "width": 768
+      },
+      {
+        "src": "/images/el-bebe/real-painting-v1.webp",
+        "width": 779
+      }
+    ]
+  },
+  "/images/el-bebe/real-pencils-v1.webp": {
+    "width": 720,
+    "height": 1280,
+    "variants": [
+      {
+        "src": "/images/el-bebe/responsive/real-pencils-v1-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/el-bebe/responsive/real-pencils-v1-480.webp",
+        "width": 480
+      },
+      {
+        "src": "/images/el-bebe/real-pencils-v1.webp",
+        "width": 720
+      }
+    ]
+  },
+  "/images/el-bebe/real-playground-friends-v1.webp": {
+    "width": 1280,
+    "height": 960,
+    "variants": [
+      {
+        "src": "/images/el-bebe/responsive/real-playground-friends-v1-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/el-bebe/responsive/real-playground-friends-v1-480.webp",
+        "width": 480
+      },
+      {
+        "src": "/images/el-bebe/responsive/real-playground-friends-v1-768.webp",
+        "width": 768
+      },
+      {
+        "src": "/images/el-bebe/real-playground-friends-v1.webp",
+        "width": 1280
+      }
+    ]
+  },
+  "/images/el-bebe/real-rope-bridge-v1.webp": {
+    "width": 720,
+    "height": 1280,
+    "variants": [
+      {
+        "src": "/images/el-bebe/responsive/real-rope-bridge-v1-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/el-bebe/responsive/real-rope-bridge-v1-480.webp",
+        "width": 480
+      },
+      {
+        "src": "/images/el-bebe/real-rope-bridge-v1.webp",
+        "width": 720
+      }
+    ]
+  },
+  "/images/el-bebe/real-speech-coral-v1.webp": {
+    "width": 720,
+    "height": 1280,
+    "variants": [
+      {
+        "src": "/images/el-bebe/responsive/real-speech-coral-v1-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/el-bebe/responsive/real-speech-coral-v1-480.webp",
+        "width": 480
+      },
+      {
+        "src": "/images/el-bebe/real-speech-coral-v1.webp",
+        "width": 720
+      }
+    ]
+  },
+  "/images/el-bebe/real-speech-v1.webp": {
+    "width": 720,
+    "height": 1280,
+    "variants": [
+      {
+        "src": "/images/el-bebe/responsive/real-speech-v1-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/el-bebe/responsive/real-speech-v1-480.webp",
+        "width": 480
+      },
+      {
+        "src": "/images/el-bebe/real-speech-v1.webp",
+        "width": 720
+      }
+    ]
+  },
+  "/images/el-bebe/real-speech-wide-v1.webp": {
+    "width": 720,
+    "height": 680,
+    "variants": [
+      {
+        "src": "/images/el-bebe/responsive/real-speech-wide-v1-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/el-bebe/responsive/real-speech-wide-v1-480.webp",
+        "width": 480
+      },
+      {
+        "src": "/images/el-bebe/real-speech-wide-v1.webp",
+        "width": 720
+      }
+    ]
+  },
+  "/images/el-bebe/real-victory-craft-v1.webp": {
+    "width": 960,
+    "height": 1280,
+    "variants": [
+      {
+        "src": "/images/el-bebe/responsive/real-victory-craft-v1-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/el-bebe/responsive/real-victory-craft-v1-480.webp",
+        "width": 480
+      },
+      {
+        "src": "/images/el-bebe/responsive/real-victory-craft-v1-768.webp",
+        "width": 768
+      },
+      {
+        "src": "/images/el-bebe/real-victory-craft-v1.webp",
+        "width": 960
+      }
+    ]
+  }
+}

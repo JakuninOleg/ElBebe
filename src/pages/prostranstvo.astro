@@ -4,14 +4,21 @@ import LifeAlbum from '../components/el-bebe/LifeAlbum.astro';
 import { getSiteContent } from '../lib/cms';
 import { previewSpaces } from '../data/el-bebe';
 import Faq from '../components/el-bebe/Faq.astro';
+import { buildLifeAlbum } from '../data/life-album';
+import { responsiveImage } from '../lib/responsive-image';
 const questions = [
   { question: 'Можно ли увидеть сад до зачисления?', answer: 'Да. На знакомстве покажем пространство для игр, занятий и отдыха, познакомимся с воспитателями и обсудим жизнь группы. Согласуем время заранее, чтобы спокойно ответить на ваши вопросы.' },
   { question: 'Есть ли онлайн-камеры для родителей?', answer: 'Да, в Эльбэби есть видеонаблюдение онлайн для родителей. Как получить доступ к трансляции и пользоваться ею, расскажем при знакомстве с садом.' },
   { question: 'Где находится детский сад?', answer: 'Эльбэби находится в Сочи, на улице Виноградной, 2/3, на первом этаже. Перед визитом уточним маршрут и расположение входа.', link: { href: '/kontakty/', label: 'Контакты и карта' } },
 ];
 const { spaces } = await getSiteContent();
+const items = spaces.some(s=>s.image) ? spaces : previewSpaces;
+const firstPhoto = buildLifeAlbum(items).opening[0]?.image;
+const firstPhotoSrc = typeof firstPhoto === 'string' ? firstPhoto : firstPhoto?.src;
+const firstPhotoResponsive = firstPhotoSrc ? responsiveImage(firstPhotoSrc) : {};
 ---
 <Inner title="Фотографии жизни детского сада Эльбэби в Сочи" heading="Жизнь в Эльбэби" label="Фотографии" description="Фотографии детей, занятий, прогулок и праздников в Эльбэби. Моменты из жизни детского сада в Сочи." intro="Играем, занимаемся, гуляем и празднуем вместе. Сохраняем моменты, из которых складывается детство." art="camera" note="Наш маленький фотоальбом" pageClass="life-page">
-  <LifeAlbum items={spaces.some(s=>s.image) ? spaces : previewSpaces}/>
+  {firstPhotoSrc && <link slot="head" rel="preload" as="image" href={firstPhotoSrc} imagesrcset={firstPhotoResponsive.srcset} imagesizes={firstPhotoResponsive.sizes} fetchpriority="high"/>}
+  <LifeAlbum items={items}/>
   <section class="container content-section group-detail-faq"><h2>Перед визитом в сад</h2><Faq items={questions}/></section>
 </Inner>

@@ -47,8 +47,8 @@
   .footer-location h2 { font-size: clamp(34px,3.4vw,46px); line-height: 1.12; }
   .footer-location-copy>p { color: #574d63; font-size: 18px; line-height: 1.6; margin-top: 20px; }
   .footer-location-facts { display: grid; gap: 20px; margin: 28px 0 24px; }
-  .footer-location-facts>div { display: flex; align-items: center; gap: 16px; }
-  .footer-location-facts .illustrated-icon { flex-shrink: 0; }
+  .footer-location-facts>div { position: relative; padding-left: 60px; }
+  .footer-location-facts .illustrated-icon { position: absolute; left: 0; top: 50%; transform: translateY(-50%); }
   .footer-location-facts dt { color: #625c6b; font-size: 13px; font-weight: 700; }
   .footer-location-facts dd { color: #46334f; font-size: 18px; line-height: 1.5; margin: 4px 0 0; }
   .footer-location .footer-phone { width: fit-content; margin: 0; font-size: clamp(26px,2.4vw,34px); font-weight: 800; line-height: 1.3; color: var(--purple); text-decoration: none; white-space: nowrap; font-variant-numeric: tabular-nums; }
@@ -118,7 +118,7 @@
     .footer-location h2 { font-size: 32px; }
     .footer-location-copy>p { font-size: 16px; margin-top: 16px; }
     .footer-location-facts { gap: 20px; margin-block: 24px; }
-    .footer-location-facts>div { gap: 12px; }
+    .footer-location-facts>div { padding-left: 50px; }
     .footer-location-facts .illustrated-icon { width: 38px; height: 38px; }
     .footer-location-facts dd { font-size: 17px; }
     .footer-location .footer-phone { font-size: clamp(23px,6.5vw,30px); }

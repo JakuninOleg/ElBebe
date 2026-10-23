@@ -9,7 +9,7 @@ const reviews = selectParentReviews(parentReviews);
   <div class="parent-reviews-heading"><IllustratedIcon name="chat" size={88}/><div><h2 id="reviews-title">Родители об Эльбэби</h2><p>Фрагменты историй родителей с оценкой пять звёзд. Полные отзывы и все оценки — на картах.</p></div><div class="review-source-links"><a href={yandexReviewsUrl} target="_blank" rel="noopener noreferrer">Яндекс Карты <Icon name="arrow" size={18}/></a><a href={gisReviewsUrl} target="_blank" rel="noopener noreferrer">2ГИС <Icon name="arrow" size={18}/></a></div></div>
   {reviews.length > 0 && <div class="parent-reviews-list">{reviews.map(review => <figure>
     <figcaption class="review-author">{review.avatar ? <img src={review.avatar} width="52" height="52" loading="lazy" alt=""/> : <span class="review-avatar-fallback" aria-hidden="true">{review.author[0]}</span>}<div><strong>{review.author}</strong><time datetime={review.published}>{review.date}</time></div></figcaption>
-    <div class="review-meta"><span>{review.source === '2gis' ? '2ГИС' : 'Яндекс Карты'}</span><div class="review-stars" aria-label="Оценка: 5 из 5">{Array.from({length:5}, () => <Icon name="star" size={18}/>)}</div></div>
+    <div class="review-meta"><span>{review.source === '2gis' ? '2ГИС' : 'Яндекс Карты'}</span><div class="review-stars" role="img" aria-label="Оценка: 5 из 5">{Array.from({length:5}, () => <Icon name="star" size={18}/>)}</div></div>
     <blockquote><p>«{review.text}»</p></blockquote><a class="review-original" href={review.sourceUrl} target="_blank" rel="noopener noreferrer">Читать {review.source==='2gis'?'в 2ГИС':'на Яндекс Картах'} <Icon name="arrow" size={18}/></a>
   </figure>)}</div>}
 </section>

@@ -9,7 +9,7 @@ const wide = (photo.width ?? 720) > (photo.height ?? 1280);
 ---
 <figure class:list={['life-photo', { 'life-photo--wide': wide }]} data-life-photo={photo.id}>
   <a href={src} target="_blank" rel="noreferrer" aria-label={`${photo.title} — открыть фотографию полностью`}>
-    <Image image={photo.image} alt={alt} width={photo.width ?? 720} height={photo.height ?? 1280} loading={eager ? 'eager' : 'lazy'}/>
+    <Image image={photo.image} alt={alt} width={photo.width ?? 720} height={photo.height ?? 1280} sizes={wide ? '(max-width: 760px) calc(100vw - 40px), 50vw' : '(max-width: 760px) 60vw, (max-width: 1000px) 30vw, 280px'} loading={eager ? 'eager' : 'lazy'} priority={eager}/>
   </a>
   <figcaption>{photo.title}</figcaption>
 </figure>

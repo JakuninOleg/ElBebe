@@ -1,4 +1,5 @@
 ---
+import { responsiveImage } from '../../lib/responsive-image';
 import Icon from './Icon.astro';
 import Decor from './Decor.astro';
 const steps = [
@@ -9,7 +10,7 @@ const steps = [
 ---
 <section class="family-capital container section" aria-labelledby="capital-title">
   <div class="capital-art">
-    <div class="capital-photo"><img src="/images/el-bebe/real-boy-polo-v1.webp" alt="Мальчик в светлом поло" width="810" height="1440" loading="lazy"/></div>
+    <div class="capital-photo"><img src="/images/el-bebe/real-boy-polo-v1.webp" {...responsiveImage('/images/el-bebe/real-boy-polo-v1.webp')} alt="Мальчик в светлом поло" width="810" height="1440" loading="lazy"/></div>
     <span class="capital-note hand-note" aria-hidden="true">С заботой<br/>о семье<Icon name="heart" size={24}/></span>
     <Decor kind="drops" class="capital-drops"/>
     <Decor kind="heart" color="#ffb5c2" class="capital-heart"/>

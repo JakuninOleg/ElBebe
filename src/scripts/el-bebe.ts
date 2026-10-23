@@ -46,19 +46,25 @@ const scrollHeader = document.querySelector<HTMLElement>('[data-scroll-header]')
 if (scrollHeader) {
   let state: ScrollHeaderState = { y: window.scrollY, travel: 0, sticky: false, hidden: false };
   let frame = 0;
+  let stickyThreshold = 152;
   const update = () => {
     frame = 0;
     const wasSticky = state.sticky;
-    state = updateScrollHeader(state, window.scrollY, (scrollHeader.parentElement?.offsetHeight || 128) + 24, !!menu && !menu.hidden || navGroups.some(group => group.open) || scrollHeader.contains(document.activeElement));
+    state = updateScrollHeader(state, window.scrollY, stickyThreshold, !!menu && !menu.hidden || navGroups.some(group => group.open) || scrollHeader.contains(document.activeElement));
     if (wasSticky !== state.sticky) navGroups.forEach(group => { if (group.closest('.desktop-nav')) group.open = false; });
     scrollHeader.toggleAttribute('data-sticky', state.sticky);
     scrollHeader.toggleAttribute('data-hidden', state.hidden);
   };
   const scheduleUpdate = () => { if (!frame) frame = requestAnimationFrame(update); };
   window.addEventListener('scroll', scheduleUpdate, { passive: true });
-  window.addEventListener('resize', scheduleUpdate);
   scrollHeader.addEventListener('focusin', scheduleUpdate);
-  update();
+  // Observe the natural header height after layout instead of forcing layout
+  // during startup and on every scroll event.
+  if (scrollHeader.parentElement) new ResizeObserver(entries => {
+    const entry = entries[0];
+    stickyThreshold = (entry.borderBoxSize[0]?.blockSize ?? entry.contentRect.height) + 24;
+    scheduleUpdate();
+  }).observe(scrollHeader.parentElement);
 }
 
 const footerSections = document.querySelectorAll<HTMLDetailsElement>('[data-footer-section]');

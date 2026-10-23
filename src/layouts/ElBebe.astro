@@ -1,9 +1,9 @@
 ---
 import '../styles/el-bebe-fonts.css';
 import nunitoCyrillic from '@fontsource-variable/nunito-sans/files/nunito-sans-cyrillic-wght-normal.woff2?url';
-import nunitoLatin from '@fontsource-variable/nunito-sans/files/nunito-sans-latin-wght-normal.woff2?url';
-import nunitoSymbols from '@fontsource-variable/nunito-sans/files/nunito-sans-latin-ext-wght-normal.woff2?url';
-import '@fontsource-variable/caveat';
+const nunitoLatin = '/fonts/nunito-common-wght-v1.woff2';
+const nunitoSymbols = '/fonts/nunito-ruble-wght-v1.woff2';
+import '../styles/el-bebe-caveat.css';
 import '../styles/el-bebe.css';
 import '../styles/el-bebe-refinements.css';
 import '../styles/el-bebe-invitation.css';
@@ -42,6 +42,7 @@ const page = createPublicPageContext({ Astro, kind: 'custom', pageType: 'website
     <meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/>
     <meta name="theme-color" content="#fffdf7"/>
     <title>{title}</title>
+    <slot name="head"/>
     <link rel="preload" href={nunitoCyrillic} as="font" type="font/woff2" crossorigin/>
     <link rel="preload" href={nunitoLatin} as="font" type="font/woff2" crossorigin/>
     <link rel="preload" href={nunitoSymbols} as="font" type="font/woff2" crossorigin/>

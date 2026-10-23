@@ -307,8 +307,8 @@
   .modes-night>p { max-width: 48%; margin-top: 24px; font-size: 16px; line-height: 1.55; color: #5c3f72; }
   .modes-night>img { position: absolute; bottom: 8px; right: 14px; width: auto; max-width: 46%; height: 246px; object-fit: contain; z-index: -1; }
   .modes-extra { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 32px; padding-block: 26px; margin: 36px 0 24px; border-block: 1px solid #e2d7e5; }
-  .modes-extra>div { display: flex; align-items: center; gap: 18px; }
-  .modes-extra .illustrated-icon { flex-shrink: 0; }
+  .modes-extra>div { position: relative; padding-left: 62px; }
+  .modes-extra .illustrated-icon { position: absolute; left: 0; top: 50%; transform: translateY(-50%); }
   .modes-extra dt { color: var(--purple); font-weight: 750; font-size: 18px; }
   .modes-extra dd { color: #574063; font-size: 16px; margin: 6px 0 0; }
 
@@ -355,7 +355,7 @@
     .modes-night>img { height: 220px; right: 8px; }
     .modes-night dd { font-size: 20px; }
     .modes-extra { gap: 24px; }
-    .modes-extra>div { gap: 12px; }
+    .modes-extra>div { padding-left: 56px; }
     .footer-main { gap: 24px 48px; }
     .footer-brand { gap: 20px; }
     .footer-brand>a { flex-basis: 165px; }
@@ -401,7 +401,7 @@
     .modes-night>img { height: 224px; right: 8px; bottom: 8px; }
     .modes-night>p { font-size: 15px; }
     .modes-extra { grid-template-columns: minmax(0,1fr); gap: 24px; margin-top: 28px; }
-    .modes-extra>div { gap: 18px; }
+    .modes-extra>div { padding-left: 62px; }
     .modes-extra dt { font-size: 18px; }
     .parent-reviews-list>figure { padding: 24px; }
     .footer-main { grid-template-columns: minmax(0,1fr); grid-template-areas: 'brand' 'visit' 'map'; gap: 28px; padding-bottom: 28px; }

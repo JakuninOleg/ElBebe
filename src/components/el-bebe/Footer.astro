@@ -19,8 +19,8 @@ const sections = [
       <h2 id="footer-location-title">Приходите<br/>знакомиться</h2>
       <p>Покажем садик, ответим на вопросы<br class="footer-copy-break"/> и расскажем о нашей жизни.</p>
       <dl class="footer-location-facts">
-        <div><IllustratedIcon name="pin" size={44}/><div><dt>Наш адрес</dt><dd>{address}</dd></div></div>
-        <div><IllustratedIcon name="clock" size={44}/><div><dt>Режим работы</dt><dd>Работаем 24/7</dd></div></div>
+        <div><dt><IllustratedIcon name="pin" size={44}/>Наш адрес</dt><dd>{address}</dd></div>
+        <div><dt><IllustratedIcon name="clock" size={44}/>Режим работы</dt><dd>Работаем 24/7</dd></div>
       </dl>
       <a class="footer-phone" href={`tel:${phoneHref}`}>{contactPhone}</a>
       <div class="footer-messengers">{siteContacts.messengers.map(link=><a href={link.href} target="_blank" rel="noopener noreferrer"><Icon name="chat" size={23}/>Написать в {link.label}<Icon name="arrow" size={18}/></a>)}</div>

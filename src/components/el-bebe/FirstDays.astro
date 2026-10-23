@@ -1,4 +1,5 @@
 ---
+import { responsiveImage } from '../../lib/responsive-image';
 import Icon from './Icon.astro';
 import IllustratedIcon from './IllustratedIcon.astro';
 import Decor from './Decor.astro';
@@ -43,7 +44,7 @@ const details = [
 
   <figure class="first-days-media">
     <div class="first-days-photo">
-      <img src="/images/el-bebe/real-friends-square-v1.webp" alt="Дети обнимаются и смеются на прогулке" width="960" height="960" loading="lazy"/>
+      <img src="/images/el-bebe/real-friends-square-v1.webp" {...responsiveImage('/images/el-bebe/real-friends-square-v1.webp')} alt="Дети обнимаются и смеются на прогулке" width="960" height="960" loading="lazy"/>
     </div>
     <Decor kind="drops" class="first-days-rays"/>
     <Sprig class="first-days-sprig"/>

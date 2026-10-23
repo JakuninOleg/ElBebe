@@ -47,7 +47,7 @@
   .approach-story-wash { width: 180px; height: 250px; left: -240px; top: 80px; z-index: -1; }
   .camera-story { display: grid; grid-template-columns: minmax(0,.95fr) minmax(0,1.05fr); gap: 56px; align-items: center; padding: 48px; margin-block: 72px 84px; background: #edf6f2; border-radius: 48px 80px 48px 72px / 58px 48px 70px 44px; }
   .camera-story-copy h2 { font-size: clamp(30px,3.1vw,42px); line-height: 1.12; }
-  .camera-story-lead { font-size: 23px; line-height: 1.35; color: #4a7880; margin-top: 24px; }
+  .camera-story-lead { font-size: 23px; line-height: 1.35; color: #47747c; margin-top: 24px; }
   .camera-story-copy>p:not(.camera-story-lead) { color: #4d5c58; font-size: 17px; line-height: 1.6; margin-top: 18px; }
   .camera-story-copy>.text-link { font-size: 16px; margin-top: 24px; text-align: left; }
   .camera-story-visual { position: relative; padding-block: 42px 36px; isolation: isolate; }
