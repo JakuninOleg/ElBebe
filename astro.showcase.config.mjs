@@ -9,6 +9,7 @@ export default defineConfig({
   srcDir: './showcase',
   outDir: './dist-showcase',
   output: 'static',
+  build: { inlineStylesheets: 'always' },
   site: process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : 'http://localhost:4322',
   integrations: [react()],
   vite: {
