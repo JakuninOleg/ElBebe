@@ -18,6 +18,17 @@ for (const file of (await readdir(root)).filter(name => /^real-.*\.webp$/.test(n
   }
   variants.push({ src: `/images/el-bebe/${file}`, width });
   manifest[`/images/el-bebe/${file}`] = { width, height, variants };
+  // The album's large opening photograph is its LCP on phones. AVIF reduces
+  // that transfer further; browsers without support retain the WebP sources.
+  if (file === 'real-playground-friends-v1.webp') {
+    const avif = [];
+    for (const size of [320, 480, 768, width]) {
+      const name = file.replace('.webp', `-${size}.avif`);
+      await sharp(input).resize({ width: size }).avif({ quality: 55, effort: 4 }).toFile(fileURLToPath(new URL(name, output)));
+      avif.push({ src: `/images/el-bebe/responsive/${name}`, width: size });
+    }
+    manifest[`/images/el-bebe/${file}`].avif = avif;
+  }
 }
 await writeFile(new URL('../src/data/responsive-images.json', import.meta.url), JSON.stringify(manifest, null, 2) + '\n');
 console.log(`Prepared responsive versions of ${Object.keys(manifest).length} photographs.`);

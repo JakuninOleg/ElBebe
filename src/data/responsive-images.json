@@ -975,6 +975,24 @@
         "src": "/images/el-bebe/real-playground-friends-v1.webp",
         "width": 1280
       }
+    ],
+    "avif": [
+      {
+        "src": "/images/el-bebe/responsive/real-playground-friends-v1-320.avif",
+        "width": 320
+      },
+      {
+        "src": "/images/el-bebe/responsive/real-playground-friends-v1-480.avif",
+        "width": 480
+      },
+      {
+        "src": "/images/el-bebe/responsive/real-playground-friends-v1-768.avif",
+        "width": 768
+      },
+      {
+        "src": "/images/el-bebe/responsive/real-playground-friends-v1-1280.avif",
+        "width": 1280
+      }
     ]
   },
   "/images/el-bebe/real-rope-bridge-v1.webp": {
