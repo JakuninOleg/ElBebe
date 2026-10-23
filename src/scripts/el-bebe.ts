@@ -44,13 +44,15 @@ matchMedia('(min-width: 1101px)').addEventListener('change', () => closeMenu());
 
 const scrollHeader = document.querySelector<HTMLElement>('[data-scroll-header]');
 if (scrollHeader) {
-  let state: ScrollHeaderState = { y: window.scrollY, travel: 0, sticky: false, hidden: false };
+  let state: ScrollHeaderState | undefined;
   let frame = 0;
   let stickyThreshold = 152;
   const update = () => {
     frame = 0;
+    const y = window.scrollY;
+    state ??= { y, travel: 0, sticky: false, hidden: false };
     const wasSticky = state.sticky;
-    state = updateScrollHeader(state, window.scrollY, stickyThreshold, !!menu && !menu.hidden || navGroups.some(group => group.open) || scrollHeader.contains(document.activeElement));
+    state = updateScrollHeader(state, y, stickyThreshold, !!menu && !menu.hidden || navGroups.some(group => group.open) || scrollHeader.contains(document.activeElement));
     if (wasSticky !== state.sticky) navGroups.forEach(group => { if (group.closest('.desktop-nav')) group.open = false; });
     scrollHeader.toggleAttribute('data-sticky', state.sticky);
     scrollHeader.toggleAttribute('data-hidden', state.hidden);

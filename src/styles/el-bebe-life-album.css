@@ -10,7 +10,7 @@
   .life-photo { min-width: 0; margin: 0; padding: 10px 10px 0; background: #fff; border-radius: 8px; box-shadow: 0 8px 24px #65432a0b; }
   .life-photo>a { display: block; border-radius: 5px; overflow: hidden; }
   .life-photo img { width: 100%; height: auto; aspect-ratio: 3 / 4; object-fit: cover; object-position: 50% 8%; transition: filter .2s; }
-  .life-photo--wide img { aspect-ratio: auto; object-fit: contain; }
+  .life-photo--wide img { aspect-ratio: var(--photo-ratio, 4 / 3); object-fit: contain; }
   .life-photo figcaption { padding: 12px 4px 15px; font-size: 16px; line-height: 1.35; font-weight: 750; color: var(--purple); overflow-wrap: break-word; }
   .life-photo>a:hover img { filter: brightness(1.035); }
   .life-photo>a:focus-visible { outline: 3px solid var(--purple); outline-offset: 4px; }

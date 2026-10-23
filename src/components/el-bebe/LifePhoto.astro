@@ -7,7 +7,7 @@ const src = typeof photo.image === 'string' ? photo.image : photo.image?.src;
 const alt = typeof photo.image === 'string' ? photo.title : photo.image?.alt || photo.title;
 const wide = (photo.width ?? 720) > (photo.height ?? 1280);
 ---
-<figure class:list={['life-photo', { 'life-photo--wide': wide }]} data-life-photo={photo.id}>
+<figure class:list={['life-photo', { 'life-photo--wide': wide }]} data-life-photo={photo.id} style={`--photo-ratio:${photo.width ?? 720}/${photo.height ?? 1280}`}>
   <a href={src} target="_blank" rel="noreferrer" aria-label={`${photo.title} — открыть фотографию полностью`}>
     <Image image={photo.image} alt={alt} width={photo.width ?? 720} height={photo.height ?? 1280} sizes={wide ? '(max-width: 760px) calc(100vw - 40px), 50vw' : '(max-width: 760px) 60vw, (max-width: 1000px) 30vw, 280px'} loading={eager ? 'eager' : 'lazy'} priority={eager}/>
   </a>
