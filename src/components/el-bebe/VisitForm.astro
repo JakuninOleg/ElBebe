@@ -3,25 +3,25 @@ import Icon from './Icon.astro';
 interface Props { id: string; }
 const { id } = Astro.props;
 const showcase = import.meta.env.MODE === 'showcase';
-const FormElement = showcase ? 'div' : 'form';
 ---
-<FormElement class="visit-form" id={`${id}-form`} action={showcase ? undefined : '/api/visit'} method={showcase ? undefined : 'post'} novalidate={!showcase} data-visit-form={showcase ? undefined : ''}>
+<form class="visit-form" id={`${id}-form`} action="/api/visit" method="post" novalidate data-visit-form data-visit-available={showcase ? 'false' : 'true'}>
   <div class="visit-field">
     <label for={`${id}-name`}>Как к вам обращаться</label>
-    <input id={`${id}-name`} name="name" type="text" autocomplete="given-name" placeholder="Ваше имя" required maxlength="80" disabled={showcase} aria-describedby={`${id}-name-error`} />
+    <input id={`${id}-name`} name="name" type="text" autocomplete="given-name" placeholder="Ваше имя" required maxlength="80" aria-describedby={`${id}-name-error`} />
     <span class="field-error" id={`${id}-name-error`} data-error="name"></span>
   </div>
   <div class="visit-field">
     <label for={`${id}-phone`}>Номер телефона</label>
-    <input id={`${id}-phone`} name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="+7 (___) ___-__-__" required maxlength="18" data-phone-mask disabled={showcase} aria-describedby={`${id}-phone-error`} />
+    <input id={`${id}-phone`} name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="+7 (___) ___-__-__" required maxlength="18" data-phone-mask aria-describedby={`${id}-phone-error`} />
     <span class="field-error" id={`${id}-phone-error`} data-error="phone"></span>
   </div>
-  {!showcase && <div class="honey-field" aria-hidden="true"><label for={`${id}-website`}>Сайт</label><input id={`${id}-website`} name="website" tabindex="-1" autocomplete="off" /></div>}
+  <div class="honey-field" aria-hidden="true"><label for={`${id}-website`}>Сайт</label><input id={`${id}-website`} name="website" tabindex="-1" autocomplete="off" /></div>
   <label class="consent-row">
-    <input type="checkbox" name="consent" required value="true" disabled={showcase} aria-describedby={`${id}-consent-error`}/>
+    <input type="checkbox" name="consent" required value="true" aria-describedby={`${id}-consent-error`}/>
     <span>Даю <a href="/soglasie/" target="_blank" rel="noopener">согласие на обработку персональных данных</a> для связи по моей заявке. <a href="/privacy/" target="_blank" rel="noopener">Политика обработки</a>.</span>
   </label>
   <span class="field-error" id={`${id}-consent-error`} data-error="consent"></span>
   <p class="form-message" data-form-status role="status" aria-live="polite"></p>
-  <button class="button form-submit" type={showcase ? 'button' : 'submit'} data-open-visit={showcase ? '' : undefined}>Прийти познакомиться <Icon name="arrow" size={20}/></button>
-</FormElement>
+  <a class="form-contact-fallback" href="/kontakty/" data-form-contact hidden>Связаться с садиком <Icon name="arrow" size={18}/></a>
+  <button class="button form-submit" type="submit">Прийти познакомиться <Icon name="arrow" size={20}/></button>
+</form>

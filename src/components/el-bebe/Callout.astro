@@ -4,6 +4,7 @@ import Icon from './Icon.astro';
 import Wave from './Wave.astro';
 import Decor from './Decor.astro';
 import VisitForm from './VisitForm.astro';
+import VisitLoading from './VisitLoading.astro';
 const { compact = false } = Astro.props;
 ---
 <section class:list={['hello-band', 'invitation', compact && 'hello-band--compact']} aria-labelledby="hello-heading">
@@ -18,16 +19,18 @@ const { compact = false } = Astro.props;
       <span class="invitation-bunny-note hand-note" aria-hidden="true">Ждём вас<br/>в гости!</span>
       <div class="invitation-paper">
         <span class="invitation-stamp" aria-hidden="true"><Icon name="heart" size={29}/></span>
+        <div class="visit-state-grid" data-visit-stack data-state="form">
         <div data-visit-content>
           <h3>Приглашение<br/>в садик</h3>
           <p class="invitation-form-intro">Оставьте номер — свяжемся с вами<br class="invitation-desktop-break"/> и выберем удобное время.</p>
           <VisitForm id="hello-visit"/>
         </div>
+        <VisitLoading/>
         <div class="invitation-success" data-visit-success hidden>
           <span class="invitation-success-mark" aria-hidden="true"><Icon name="check" size={44}/></span>
           <h3 id="hello-success-title" tabindex="-1">До скорой встречи!</h3>
           <p>Заявка получена. Ваш номер сохранён.</p>
-          <p class="form-footnote">Это локальная проверка формы. Уведомление в садик не отправлялось.</p>
+        </div>
         </div>
       </div>
     </div>

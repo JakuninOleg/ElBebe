@@ -1,0 +1,16 @@
+@layer form-states {
+  /* The filled sheet stays in the grid, reserving its exact responsive dimensions. */
+  .visit-state-grid { display: grid; }
+  .visit-state-grid > * { grid-area: 1 / 1; min-width: 0; }
+  .visit-state-grid[data-state='pending'] > [data-visit-content],
+  .visit-state-grid[data-state='success'] > [data-visit-content] { visibility: hidden; pointer-events: none; }
+  .visit-state-grid > .visit-loading, .visit-state-grid > [data-visit-success] { min-height: 0; align-self: stretch; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 26px 10px; }
+  .visit-loading { color: #735080; gap: 14px; }
+  .visit-loading .visit-state-title { font-size: 25px; font-weight: 900; color: var(--purple); line-height: 1.15; }
+  .visit-loading > p:last-child { max-width: 240px; font-size: 16px; line-height: 1.5; }
+  .visit-spinner { display: block; width: 64px; height: 64px; margin-bottom: 12px; border: 5px solid #efdfed; border-top-color: var(--purple); border-radius: 50%; animation: visit-spin 850ms linear infinite; }
+  .form-contact-fallback { display: inline-flex; align-items: center; gap: 8px; color: var(--purple); margin-top: 10px; font-size: 14px; font-weight: 800; }
+  .visit-form[aria-busy='true'] { pointer-events: none; }
+  @keyframes visit-spin { to { transform: rotate(360deg); } }
+  @media (prefers-reduced-motion: reduce) { .visit-spinner { animation: none; border-style: dotted; } }
+}

@@ -1,16 +1,14 @@
 import type { APIRoute } from "astro";
 import { createHash, randomUUID } from "node:crypto";
-import { mkdir, open } from "node:fs/promises";
-import { homedir } from "node:os";
-import { dirname, isAbsolute, relative, resolve } from "node:path";
-import { normalizeRuPhone } from "../../lib/ru-phone";
-import { legalVersion } from "../../data/legal-operator";
+import { saveVisit } from "../../lib/office-store.ts";
+import { normalizeRuPhone } from "../../lib/ru-phone.ts";
+import { legalVersion } from "../../data/legal-operator.ts";
+import { visitClientAddress } from '../../lib/visit-client-address.ts';
 
 export const prerender = false;
 const BODY_LIMIT = 8_192;
 const WINDOW_MS = 10 * 60 * 1_000;
 const rateLimits = new Map<string, number[]>();
-let writeQueue: Promise<void> = Promise.resolve();
 
 class RequestError extends Error {
   status: number;
@@ -84,25 +82,6 @@ function reserveRateLimit(ip: string, phone: string): number {
   return 0;
 }
 
-async function saveRequest(record: Record<string, unknown>): Promise<void> {
-  // Vite can serve files under the project root. Store contact data outside that root,
-  // including in development. The optional override supports a private volume and isolated checks.
-  const file = process.env.EL_BEBE_VISITS_FILE
-    ? resolve(process.env.EL_BEBE_VISITS_FILE) : resolve(homedir(), ".el-bebe", "visit-requests.jsonl");
-  const fromProject = relative(process.cwd(), file);
-  if (!fromProject || (!isAbsolute(fromProject) && fromProject !== ".." && !fromProject.startsWith(`..${process.platform === "win32" ? "\\" : "/"}`))) {
-    throw new Error("Visit request storage must be outside the project root.");
-  }
-  const write = writeQueue.then(async () => {
-    await mkdir(dirname(file), { recursive: true, mode: 0o700 });
-    const handle = await open(file, "a", 0o600);
-    try { await handle.writeFile(`${JSON.stringify(record)}\n`, "utf8"); await handle.sync(); }
-    finally { await handle.close(); }
-  });
-  writeQueue = write.catch(() => {});
-  await write;
-}
-
 export const POST: APIRoute = async (context) => {
   const { request, url } = context;
   const origin = request.headers.get("origin");
@@ -120,12 +99,15 @@ export const POST: APIRoute = async (context) => {
     if (Object.keys(errors).length) return json(422, { ok: false, message: "Проверьте поля формы.", errors });
     let ip = "local";
     try { ip = context.clientAddress || ip; } catch { /* Some local adapters omit clientAddress. */ }
-    // Client-supplied proxy headers cannot bypass the local rate limiter.
+    ip = visitClientAddress(ip, request.headers);
+    // Forwarded addresses are ignored unless a trusted local proxy is explicitly configured.
     const retryAfter = reserveRateLimit(ip, phone!);
     if (retryAfter) return json(429, { ok: false, message: "Слишком много обращений. Попробуйте позже." }, { "Retry-After": String(retryAfter) });
     const id = randomUUID();
-    await saveRequest({ id, received_at: new Date().toISOString(), name, phone, consent: true, consent_version: legalVersion, privacy_version: legalVersion, source: "/api/visit" });
-    return json(201, { ok: true, message: "Заявка сохранена. Спасибо за обращение!", id });
+    const requestKey = request.headers.get('Idempotency-Key');
+    if (requestKey && !/^[a-f0-9-]{36}$/i.test(requestKey)) return json(400, { ok: false, message: 'Обновите форму и попробуйте ещё раз.' });
+    const saved = saveVisit({ id, received_at: new Date().toISOString(), name, phone: phone!, consent_version: legalVersion, privacy_version: legalVersion, source: "/api/visit" }, requestKey);
+    return json(saved.duplicate ? 200 : 201, { ok: true, message: "Заявка сохранена. Спасибо за обращение!", id: saved.id });
   } catch (error) {
     if (error instanceof RequestError) return json(error.status, { ok: false, message: error.message });
     console.error("[El Bebe] Visit request could not be saved.");

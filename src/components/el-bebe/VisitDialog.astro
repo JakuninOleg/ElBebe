@@ -1,19 +1,20 @@
 ---
 import Icon from './Icon.astro';
 import VisitForm from './VisitForm.astro';
-const showcase = import.meta.env.MODE === 'showcase';
+import VisitLoading from './VisitLoading.astro';
 ---
 <dialog class="visit-dialog" id="visit-dialog" aria-labelledby="visit-title" data-visit-panel>
   <button class="dialog-close" type="button" data-close-visit aria-label="Закрыть форму"><Icon name="close"/></button>
+  <div class="visit-state-grid" data-visit-stack data-state="form">
   <div class="dialog-content" data-visit-content>
     <span class="little-heart" aria-hidden="true"><Icon name="heart" size={48}/></span>
     <h2 id="visit-title">Давайте знакомиться!</h2>
-    {showcase ? <><p>Приходите познакомиться с садом и воспитателями. Адрес и способы связи — на странице контактов.</p><a class="button" href="/kontakty/">Контакты сада <Icon name="arrow" size={20}/></a></> : <>
     <p>Оставьте номер — договоримся о встрече, покажем садик и ответим на ваши вопросы.</p>
     <VisitForm id="visit"/>
-    </>}
   </div>
+  <VisitLoading/>
   <div class="visit-success" data-visit-success hidden>
-    <span class="success-heart" aria-hidden="true"><Icon name="heart" size={64}/></span><h2 id="visit-success-title">Заявка получена!</h2><p>Спасибо за знакомство. Ваш номер сохранён — можно закрыть это окно.</p><button type="button" class="button" data-close-visit>Отлично <Icon name="check" size={20}/></button>
+    <span class="success-heart" aria-hidden="true"><Icon name="heart" size={64}/></span><h2 id="visit-success-title" tabindex="-1">Заявка получена!</h2><p>Спасибо за знакомство. Ваш номер сохранён — можно закрыть это окно.</p><button type="button" class="button" data-close-visit>Отлично <Icon name="check" size={20}/></button>
+  </div>
   </div>
 </dialog>
