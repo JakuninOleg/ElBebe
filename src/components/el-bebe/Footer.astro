@@ -23,7 +23,6 @@ const sections = [
         <div><dt><IllustratedIcon name="clock" size={44}/>Режим работы</dt><dd>{contacts.hours}</dd></div>
       </dl>
       <a class="footer-phone" href={phoneHref}>{contactPhone}</a>
-      <a class="footer-email" href={`mailto:${contacts.email}`}>{contacts.email}</a>
       <div class="footer-messengers" role="group" aria-label="Написать нам">{contacts.messengers.map(link=>link.href
         ? <a class={`messenger-button messenger-button--${link.id}`} href={link.href} target="_blank" rel="noopener noreferrer" aria-label={`Написать в ${link.label}`}><MessengerIcon name={link.id}/><span>{link.label}</span></a>
         : <button class={`messenger-button messenger-button--${link.id}`} type="button" disabled aria-label={`${link.label} — скоро`} title="Ссылка появится позже"><MessengerIcon name={link.id}/><span>{link.label}</span></button>
