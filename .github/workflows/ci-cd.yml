@@ -36,10 +36,11 @@ jobs:
           node-version: '24'
           cache: npm
       - run: npm ci
-      - run: npm test
       - run: npm run typecheck
       - run: npm run build
       - run: npm run build:showcase
+      # Navigation and video checks inspect generated HTML from a fresh checkout.
+      - run: npm test
       - name: Validate deployment scripts and Compose
         env:
           DOMAIN: ci.example.invalid
