@@ -15,7 +15,7 @@ const reviews = selectParentReviews(parentReviews);
     <blockquote><p>«{review.quote}»</p></blockquote><a class="review-original" href={review.source_url} target="_blank" rel="noopener noreferrer">Читать оригинал <Icon name="arrow" size={18}/></a>
   </figure>)}</div> : reviews.length > 0 && <div class="parent-reviews-list">{reviews.map(review => <figure>
     <figcaption class="review-author">{review.avatar ? <img src={review.avatar} width="52" height="52" loading="lazy" alt=""/> : <span class="review-avatar-fallback" aria-hidden="true">{review.author[0]}</span>}<div><strong>{review.author}</strong><time datetime={review.published}>{review.date}</time></div></figcaption>
-    <div class="review-meta"><span>{review.source === '2gis' ? '2ГИС' : 'Яндекс Карты'}</span><div class="review-stars" role="img" aria-label="Оценка: 5 из 5">{Array.from({length:5}, () => <Icon name="star" size={18}/>)}</div></div>
+    <div class="review-meta"><span>{review.source === '2gis' ? '2ГИС' : 'Яндекс Карты'}</span><div class="review-stars" role="img" aria-label="Оценка: 5 из 5">{Array.from({length:5}, () => <IllustratedIcon name="rating-star" size={26}/>)}</div></div>
     <blockquote><p>«{review.text}»</p></blockquote><a class="review-original" href={review.sourceUrl} target="_blank" rel="noopener noreferrer">Читать {review.source==='2gis'?'в 2ГИС':'на Яндекс Картах'} <Icon name="arrow" size={18}/></a>
   </figure>)}</div>}
 </section>
