@@ -1,10 +1,12 @@
 ---
 import { legalOperator as operator } from '../../data/legal-operator';
+import { getSiteContent } from '../../lib/cms';
+const { settings } = await getSiteContent();
 ---
 <dl class="operator-details">
   <div><dt>Исполнитель и оператор данных</dt><dd>{operator.name}</dd></div>
   <div><dt>ИНН</dt><dd>{operator.inn}</dd></div>
   <div><dt>ОГРНИП</dt><dd>{operator.ogrnip}</dd></div>
   <div><dt>Адрес регистрации ИП и для письменных обращений</dt><dd>{operator.address}</dd></div>
-  <div><dt>Обращения по персональным данным</dt><dd><a href={`mailto:${operator.email}`}>{operator.email}</a></dd></div>
+  <div><dt>Обращения по персональным данным</dt><dd><a href={`mailto:${settings.email}`}>{settings.email}</a></dd></div>
 </dl>

@@ -4,14 +4,15 @@ import Decor from './Decor.astro';
 import { Image } from '../../lib/emdash-ui';
 import type { SiteContent } from '../../lib/cms';
 import { previewEducators } from '../../data/preview-educators';
-interface Props { team: SiteContent['team']; heading?: string; }
-const { team, heading = 'Наши воспитатели' } = Astro.props;
-const people = team.length > 0 ? team : previewEducators;
-const isPreview = team.length === 0;
+import { groupChoices } from '../../lib/director-model';
+interface Props { team: SiteContent['team']; heading?: string; usePreview?: boolean; }
+const { team, heading = 'Наши воспитатели', usePreview = true } = Astro.props;
+const people = team.length > 0 ? team : usePreview ? previewEducators : [];
+const isPreview = team.length === 0 && usePreview;
 const accents = ['aqua', 'yellow', 'pink', 'green'];
 const ornaments = ['heart', 'crown', 'flower', 'music'];
 ---
-<section class="educators container section" aria-labelledby="team-title">
+{people.length > 0 && <section class="educators container section" aria-labelledby="team-title">
   <header class="educators-heading">
     <div class="educators-title"><Icon name="people" size={34}/><h2 id="team-title">{heading}</h2></div>
     {Astro.url.pathname !== '/komanda/' && <a href="/komanda/" class="text-link">Знакомство с командой <Icon name="arrow" size={19}/></a>}
@@ -25,8 +26,9 @@ const ornaments = ['heart', 'crown', 'flower', 'music'];
         </div>
         <h3>{person.name}</h3>
         {person.role && <p class="educator-role">{person.role}</p>}
+        {'groups' in person && Array.isArray(person.groups) && person.groups.length > 0 && <p class="educator-groups">{person.groups.map(id => groupChoices.find(group => group.id === id)?.title).filter(Boolean).join(' · ')}</p>}
         {person.bio && <p class="educator-bio">{person.bio}</p>}
       </article>)}
     </div>
   <Decor kind="wash" color="#ffe8eb" class="educators-side-wash"/>
-</section>
+</section>}

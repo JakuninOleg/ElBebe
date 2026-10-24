@@ -11,7 +11,13 @@
         { "slug": "hero_text", "label": "Вступительный текст", "type": "text" },
         { "slug": "address", "label": "Адрес", "type": "string" },
         { "slug": "phone", "label": "Телефон для связи", "type": "string" },
-        { "slug": "license_text", "label": "Лицензия и материнский капитал", "type": "text" }
+        { "slug": "license_text", "label": "Лицензия и материнский капитал", "type": "text" },
+        {"slug":"email","label":"Публичная почта","type":"string","required":false},
+        {"slug":"hours","label":"Режим работы","type":"string","required":false,"validation":{"maxLength":90}},
+        {"slug":"entry_hint","label":"Как найти вход","type":"text","required":false,"validation":{"maxLength":300}},
+        {"slug":"whatsapp_phone","label":"Телефон WhatsApp","type":"string","required":false},
+        {"slug":"telegram_url","label":"Ссылка Telegram","type":"string","required":false},
+        {"slug":"vk_url","label":"Ссылка ВКонтакте","type":"string","required":false}
       ]
     },
     {
@@ -21,7 +27,9 @@
         { "slug": "role", "label": "Должность", "type": "string" },
         { "slug": "bio", "label": "Образование и опыт", "type": "text" },
         { "slug": "image", "label": "Фотография сотрудника", "type": "image" },
-        { "slug": "sort_order", "label": "Порядок на сайте", "type": "integer" }
+        { "slug": "sort_order", "label": "Порядок на сайте", "type": "integer" },
+        {"slug":"groups","label":"В каких группах работает","type":"multiSelect","required":false,"validation":{"options":["Младшая группа","Средняя группа","Старшая группа"]}},
+        {"slug":"is_hidden","label":"Скрыть сотрудника с сайта","type":"boolean","required":false}
       ]
     },
     {
@@ -32,7 +40,26 @@
         { "slug": "activities", "label": "Занятия", "type": "text" },
         { "slug": "approach", "label": "Подход", "type": "text" },
         { "slug": "image", "label": "Фотография группы", "type": "image" },
-        { "slug": "sort_order", "label": "Порядок на сайте", "type": "integer" }
+        { "slug": "sort_order", "label": "Порядок на сайте", "type": "integer" },
+        {"slug":"program_key","label":"Группа (служебное поле)","type":"select","validation":{"options":["younger","middle","older"]}},
+        {"slug":"intro","label":"Вступление на странице группы","type":"text","required":false,"validation":{"maxLength":500}},
+        {"slug":"note","label":"Короткая подпись","type":"string","required":false,"validation":{"maxLength":90}},
+        {"slug":"lesson_1","label":"Занятие 1 на карточке","type":"string","required":false,"validation":{"maxLength":100}},
+        {"slug":"lesson_2","label":"Занятие 2 на карточке","type":"string","required":false,"validation":{"maxLength":100}},
+        {"slug":"lesson_3","label":"Занятие 3 на карточке","type":"string","required":false,"validation":{"maxLength":100}},
+        {"slug":"lesson_4","label":"Занятие 4 на карточке","type":"string","required":false,"validation":{"maxLength":100}},
+        {"slug":"lesson_5","label":"Занятие 5 на карточке","type":"string","required":false,"validation":{"maxLength":100}},
+        {"slug":"lesson_6","label":"Занятие 6 на карточке","type":"string","required":false,"validation":{"maxLength":100}},
+        {"slug":"category_1_title","label":"Название раздела программы 1","type":"string","required":false,"validation":{"maxLength":80}},
+        {"slug":"category_1_items","label":"Занятия раздела 1","type":"text","required":false,"validation":{"maxLength":600}},
+        {"slug":"category_2_title","label":"Название раздела программы 2","type":"string","required":false,"validation":{"maxLength":80}},
+        {"slug":"category_2_items","label":"Занятия раздела 2","type":"text","required":false,"validation":{"maxLength":600}},
+        {"slug":"category_3_title","label":"Название раздела программы 3","type":"string","required":false,"validation":{"maxLength":80}},
+        {"slug":"category_3_items","label":"Занятия раздела 3","type":"text","required":false,"validation":{"maxLength":600}},
+        {"slug":"question","label":"Вопрос о программе","type":"string","required":false,"validation":{"maxLength":180}},
+        {"slug":"answer","label":"Ответ о программе","type":"text","required":false,"validation":{"maxLength":1100}},
+        {"slug":"category_4_title","label":"Название раздела программы 4","type":"string","required":false,"validation":{"maxLength":80}},
+        {"slug":"category_4_items","label":"Занятия раздела 4","type":"text","required":false,"validation":{"maxLength":600}}
       ]
     },
     {
@@ -84,9 +111,9 @@
     } }],
     "el_bebe_team": [],
     "el_bebe_groups": [
-      { "id": "elbebe-group-younger", "slug": "younger", "status": "draft", "data": { "title": "Младшая группа", "summary": "Первое знакомство с садом", "activities": "Сенсорные игры, речь, движение.", "approach": "Больше поддержки и повторения. Помогаем освоиться и пробовать самому.", "sort_order": 10 } },
-      { "id": "elbebe-group-middle", "slug": "middle", "status": "draft", "data": { "title": "Средняя группа", "summary": "Больше вопросов и открытий", "activities": "Творчество, логика, сюжетные игры.", "approach": "Учимся договариваться, выбирать и действовать вместе.", "sort_order": 20 } },
-      { "id": "elbebe-group-older", "slug": "older", "status": "draft", "data": { "title": "Старшая группа", "summary": "Больше самостоятельности", "activities": "Проекты, счёт, речевые игры.", "approach": "Обсуждаем идеи, ищем решения и доводим задуманное до конца.", "sort_order": 30 } }
+      {"id":"elbebe-group-younger","slug":"younger","status":"draft","data":{"title":"Младшая группа","summary":"Речь, сенсорика и первые открытия","activities":"Сенсорные игры, речь, движение.","approach":"В начале важно освоиться в группе и познакомиться с воспитателем. Игры с разными материалами, музыка, конструирование и движение помогают включаться в занятия через собственный интерес. О привычках и опыте ребёнка поговорим до первых посещений.","sort_order":10,"program_key":"younger","intro":"Сенсорика, развитие речи, музыка и первые задачи с кубиками. В младшей группе Эльбэби знакомимся с миром через игру, движение и повседневные открытия.","note":"Пробуем, трогаем, узнаём","question":"Какие занятия есть в младшей группе?","answer":"В программе младшей группы — занятия с логопедом, «Говорим правильно», сенсорика, Монтессори, кубики Зайцева, счёт, музыка, творчество и детский фитнес. В расписании также есть конструирование, окружающий мир и игры с кварцевым песком. Все занятия по программе группы включены в стоимость посещения.","lesson_1":"Логопед и развитие речи","lesson_2":"Сенсорика и Монтессори","lesson_3":"Кубики Зайцева и счёт","lesson_4":"Музыка и творчество","lesson_5":"Конструирование и детский фитнес","lesson_6":"Окружающий мир и кварцевый песок","category_1_title":"Речь и счёт","category_1_items":"Говорим правильно\nЛогопед\nСчитаем - размышляем\nКубики Зайцева","category_2_title":"Открываем мир","category_2_items":"Окружающий мир\nСенсорика\nМонтессори\nКварцевый песок","category_3_title":"Творим и двигаемся","category_3_items":"Музыка\nТворчество\nКонструирование\nДетский фитнес"}},
+      {"id":"elbebe-group-middle","slug":"middle","status":"draft","data":{"title":"Средняя группа","summary":"Языки, общение и творчество","activities":"Творчество, логика, сюжетные игры.","approach":"Занятия становятся поводом поговорить, сравнить, придумать и попробовать вместе. Чередуем языки, творчество, движение и практические задачи. В расписании предусмотрены занятия с логопедом и психологом; индивидуальные вопросы обсудим при знакомстве.","sort_order":20,"program_key":"middle","intro":"Английский язык, логопед, азбука, хореография и «Поварёнок». В средней группе Эльбэби соединяем речь, общение, творчество и практические занятия.","note":"Больше вопросов и открытий","question":"Есть ли в средней группе английский и логопед?","answer":"Да. По расписанию средней группы английский язык проходит по понедельникам и средам в 15:30, занятия с логопедом — по вторникам и четвергам в 10:00. Есть также развитие речи, азбука, психолог, хореография, детский фитнес, Монтессори и «Поварёнок». Эти занятия входят в стоимость посещения.","lesson_1":"Английский язык","lesson_2":"Логопед и развитие речи","lesson_3":"Азбука: знакомство с буквами","lesson_4":"Хореография и детский фитнес","lesson_5":"Монтессори и «Поварёнок»","lesson_6":"Занятия с психологом","category_1_title":"Речь и языки","category_1_items":"Развитие речи\nАзбука. Знакомство с буквами\nАнглийский язык","category_2_title":"Думаем и пробуем","category_2_items":"Считаем - размышляем\nОкружающий мир\nКласс Монтессори\nПоварёнок","category_3_title":"Творчество и движение","category_3_items":"Хореография\nТворчество\nДетский фитнес","category_4_title":"Со специалистами","category_4_items":"Логопед\nПсихолог"}},
+      {"id":"elbebe-group-older","slug":"older","status":"draft","data":{"title":"Старшая группа","summary":"Подготовка к школе и новые интересы","activities":"Проекты, счёт, речевые игры.","approach":"Собрать конструкцию, разобраться в задаче, объяснить ход мысли и договориться с другими. Соединяем подготовку к школе с робототехникой, шахматами, нейроиграми, творчеством и движением. Отдельное занятие по финансовой грамотности — «Бамбини-шоп».","sort_order":30,"program_key":"older","intro":"Подготовка к школе, английский язык, робототехника и шахматы. В старшей группе Эльбэби есть место и новым знаниям, и игре, и самостоятельным решениям.","note":"Думаем, собираем, решаем","question":"Что входит в программу старшей группы?","answer":"В старшей группе предусмотрены подготовка к школе, английский язык, робототехника, нейроигры, шахматы, логопед и психолог. Есть окружающий мир, «Поварёнок», хореография, творчество и детский фитнес. По пятницам в 15:30 проходит финансовая грамотность — «Бамбини-шоп». Все занятия по программе входят в стоимость посещения.","lesson_1":"Подготовка к школе","lesson_2":"Английский язык","lesson_3":"Робототехника и нейроигры","lesson_4":"Шахматы","lesson_5":"Логопед и психолог","lesson_6":"Финансовая грамотность: «Бамбини-шоп»","category_1_title":"Развитие и поддержка","category_1_items":"Подготовка к школе\nРазвитие речи\nАнглийский язык\nЛогопед\nПсихолог","category_2_title":"Логика и технологии","category_2_items":"Шахматы\nРобототехника\nНейроигры","category_3_title":"Мир и полезные навыки","category_3_items":"Окружающий мир\nПоварёнок\nФинансовая грамотность («Бамбини-шоп»)","category_4_title":"Творчество и движение","category_4_items":"Хореография\nТворчество\nДетский фитнес"}}
     ],
     "el_bebe_testimonials": [],
     "el_bebe_rates": [

@@ -6,7 +6,7 @@ export async function officeApi<T>(path: string, body?: unknown): Promise<T> {
   });
   const result = await response.json();
   if (!response.ok || result.success === false) {
-    if (response.status === 401 || response.status === 403) throw new Error('Для этого раздела войдите под учётной записью администратора садика.');
+    if (response.status === 401 || response.status === 403) throw new Error('Для этого раздела войдите под учётной записью директора или владельца садика.');
     throw new Error(result.error?.message || 'Не удалось выполнить действие. Попробуйте ещё раз.');
   }
   return result.data as T;

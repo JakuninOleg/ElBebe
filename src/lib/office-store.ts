@@ -35,9 +35,26 @@ function database(): DatabaseSync {
     CREATE TABLE IF NOT EXISTS print_documents (
       id TEXT PRIMARY KEY, title TEXT NOT NULL, kind TEXT NOT NULL,
       data TEXT NOT NULL, revision INTEGER NOT NULL DEFAULT 1, updated_at TEXT NOT NULL
+    );
+    CREATE TABLE IF NOT EXISTS office_settings (
+      name TEXT PRIMARY KEY, value TEXT NOT NULL, revision INTEGER NOT NULL DEFAULT 1
     );`);
   instance = db;
   return db;
+}
+
+export function requestEmail(): { email: string; revision: number } {
+  const row = database().prepare("SELECT value, revision FROM office_settings WHERE name = 'request_email'").get();
+  return { email: row ? String(row.value) : '', revision: row ? Number(row.revision) : 0 };
+}
+export function saveRequestEmail(email: string, revision: number) {
+  if (email.length > 254 || email && !/^[^\s@<>]+@[^\s@<>]+\.[^\s@<>]+$/.test(email)) throw new Error('Проверьте адрес почты для заявок.');
+  const db = database();
+  const result = revision === 0
+    ? db.prepare("INSERT OR IGNORE INTO office_settings (name, value) VALUES ('request_email', ?)").run(email)
+    : db.prepare("UPDATE office_settings SET value = ?, revision = revision + 1 WHERE name = 'request_email' AND revision = ?").run(email, revision);
+  if (!result.changes) throw new Error('Адрес изменён в другом окне. Обновите страницу.');
+  return requestEmail();
 }
 
 export class VisitRequestConflictError extends Error {}

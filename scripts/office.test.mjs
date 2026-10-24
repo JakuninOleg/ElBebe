@@ -7,11 +7,20 @@ import { randomUUID } from 'node:crypto';
 import { execFileSync } from 'node:child_process';
 import { visitClientAddress } from '../src/lib/visit-client-address.ts';
 import { validatePrintDraft, yearsLabel, blankRow } from '../src/lib/office-model.ts';
-import { privateDatabasePath, saveVisit, listVisits, changeVisitStatus, deleteVisit, savePrint, getPrint, listPrints, deletePrint } from '../src/lib/office-store.ts';
+import { privateDatabasePath, saveVisit, listVisits, changeVisitStatus, deleteVisit, savePrint, getPrint, listPrints, deletePrint, requestEmail, saveRequestEmail } from '../src/lib/office-store.ts';
 import { POST, ALL } from '../src/pages/api/visit.ts';
 
 const directory = mkdtempSync(join(tmpdir(), 'el-bebe-office-test-'));
 process.env.EL_BEBE_PRIVATE_DB = join(directory, 'office.sqlite');
+test('Request recipient is private, validated and protected against stale changes', () => {
+  assert.deepEqual(requestEmail(), { email: '', revision: 0 });
+  assert.throws(() => saveRequestEmail('invalid\nheader', 0), /почт/);
+  assert.deepEqual(saveRequestEmail('requests@example.ru', 0), { email: 'requests@example.ru', revision: 1 });
+  assert.throws(() => saveRequestEmail('other@example.ru', 0), /другом окне/);
+  assert.throws(() => saveRequestEmail('other@example.ru', 9), /другом окне/);
+  assert.equal(requestEmail().email, 'requests@example.ru');
+  assert.equal(saveRequestEmail('', 1).revision, 2);
+});
 const birthday = { kind: 'birthdays', title: 'Дни рождения', group: 'Пример группы', period: '2028-02', rows: [{ ...blankRow(), label: 'Тестовый ребёнок', day: 29, age: '5' }] };
 
 test('Private records cannot use a path inside the served project', () => {

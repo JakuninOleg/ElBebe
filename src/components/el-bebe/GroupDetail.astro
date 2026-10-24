@@ -4,22 +4,23 @@ import { imageSource } from '../../lib/image-source';
 import Inner from '../../layouts/Inner.astro';
 import { getSiteContent } from '../../lib/cms';
 import { Image } from '../../lib/emdash-ui';
-import { groupCards } from '../../data/group-cards';
 import { groupPages } from '../../data/group-pages';
-import { groups as schedules } from '../../data/group-schedules.json';
 import IllustratedIcon from './IllustratedIcon.astro';
 import Icon from './Icon.astro';
 import GroupSchedules from './GroupSchedules.astro';
 import GroupVideo from './GroupVideo.astro';
 import Included from './Included.astro';
 import Faq from './Faq.astro';
+import Educators from './Educators.astro';
+import { resolvePrograms } from '../../lib/group-programs';
 interface Props { groupId: string; }
 const { groupId } = Astro.props;
-const program = groupCards.find(group => group.id === groupId)!;
-const page = groupPages[groupId];
-const schedule = schedules.find(group => group.id === groupId)!;
-const { groups } = await getSiteContent();
-const photo = groups.find(group => group.id === program.id || group.title === program.title)?.image;
+const { groups, team } = await getSiteContent();
+const programs = resolvePrograms(groups);
+const program = programs.find(group => group.id === groupId)!;
+const page = program.page;
+const photo = program.photo;
+const educators = team.filter(person => person.groups.includes(groupId));
 const photoSrc = imageSource(photo, `/images/el-bebe/${program.image}.webp`);
 const photoResponsive = photoSrc ? responsiveImage(photoSrc) : {};
 const photoAvif = photoSrc ? responsiveAvif(photoSrc) : {};
@@ -37,10 +38,11 @@ const faqs = [
     <picture class="group-detail-photo">{photoAvif.srcset && <source type="image/avif" {...photoAvif}/>} {photo ? <Image image={photo} alt={`Занятия: ${program.title.toLowerCase()}`} width={1100} height={825} priority/> : <img src={`/images/el-bebe/${program.image}.webp`} {...responsiveImage(`/images/el-bebe/${program.image}.webp`)} alt={`Игра и занятия: ${program.title.toLowerCase()}`} width="1100" height="825" fetchpriority="high"/>}</picture>
     <div><h2 id="group-approach-title">{program.summary}</h2><p>{page.approach}</p><div class="group-detail-actions"><a class="button" href="#weekly-title">Посмотреть расписание <Icon name="arrow" size={20}/></a><button type="button" class="text-link" data-open-visit>Познакомиться с группой</button></div></div>
   </section>
-  <section class="group-curriculum container content-section" aria-labelledby="curriculum-title"><div><h2 id="curriculum-title">Что есть<br/>в программе</h2><p>Занятия по расписанию чередуются с прогулками, свободной игрой и отдыхом.</p><span class="hand-note" aria-hidden="true">Каждый день<br/>что-то новое ♡</span></div><div class="curriculum-list">{schedule.categories.map((category, i) => <article><IllustratedIcon name={categoryArt[groupId][i]} size={72}/><div><h3>{category.title}</h3><ul>{category.activities.map(activity => <li>{activity.replace('Считаем - размышляем', 'Считаем — размышляем')}</li>)}</ul></div></article>)}</div></section>
+  <section class="group-curriculum container content-section" aria-labelledby="curriculum-title"><div><h2 id="curriculum-title">Что есть<br/>в программе</h2><p>Занятия по расписанию чередуются с прогулками, свободной игрой и отдыхом.</p><span class="hand-note" aria-hidden="true">Каждый день<br/>что-то новое ♡</span></div><div class="curriculum-list">{program.categories.map((category, i) => <article><IllustratedIcon name={categoryArt[groupId][i]} size={72}/><div><h3>{category.title}</h3><ul>{category.activities.map(activity => <li>{activity.replace('Считаем - размышляем', 'Считаем — размышляем')}</li>)}</ul></div></article>)}</div></section>
   <div class="container content-section"><Included/></div>
+  {educators.length > 0 && <Educators team={educators} heading="Воспитатели группы"/>}
   <GroupVideo groupId={groupId} title={program.title}/>
   <GroupSchedules onlyGroup={groupId}/>
   <section class="container content-section group-detail-faq"><h2>Родители спрашивают</h2><Faq items={faqs}/></section>
-  <section class="group-explore container content-section" aria-labelledby="other-groups-title"><h2 id="other-groups-title">Посмотрите другие группы</h2><nav class="group-explore-links" aria-label="Другие группы">{groupCards.filter(group=>group.id!==groupId).map(group=><a class={`group-explore-link group-explore-link--${group.accent}`} href={`/gruppy/${groupPages[group.id].slug}/`}><img src={`/images/el-bebe/${group.image}.webp`} {...responsiveImage(`/images/el-bebe/${group.image}.webp`)} alt="" width="1100" height="825" loading="lazy"/><div><h3>{group.title}</h3><p>{group.summary}</p><span>Занятия и расписание <Icon name="arrow" size={20}/></span></div></a>)}</nav></section>
+  <section class="group-explore container content-section" aria-labelledby="other-groups-title"><h2 id="other-groups-title">Посмотрите другие группы</h2><nav class="group-explore-links" aria-label="Другие группы">{programs.filter(group=>group.id!==groupId).map(group=><a class={`group-explore-link group-explore-link--${group.accent}`} href={`/gruppy/${groupPages[group.id].slug}/`}><img src={`/images/el-bebe/${group.image}.webp`} {...responsiveImage(`/images/el-bebe/${group.image}.webp`)} alt="" width="1100" height="825" loading="lazy"/><div><h3>{group.title}</h3><p>{group.summary}</p><span>Занятия и расписание <Icon name="arrow" size={20}/></span></div></a>)}</nav></section>
 </Inner>

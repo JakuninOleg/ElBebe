@@ -125,3 +125,7 @@ docker compose --env-file deploy/.env up -d --wait
 - Linux Docker Engine на текущем компьютере отсутствует: сборка образа, права Linux-томов, выдача сертификата и реальное пересоздание контейнера должны пройти на Docker-хосте перед боевым запуском. Это не выдаётся за уже выполненный Docker smoke test.
 
 Официальные источники: [Astro Node standalone](https://docs.astro.build/en/guides/integrations-guide/node/), [Docker Engine](https://docs.docker.com/engine/install/), [Compose](https://docs.docker.com/compose/), [тома Docker](https://docs.docker.com/engine/storage/volumes/), [secrets Compose](https://docs.docker.com/reference/compose-file/secrets/), [HTTPS Caddy](https://caddyserver.com/docs/quick-starts/https).
+
+## Обновление кабинета директора
+
+Перед финальным экспортом базы выполните совместимую миграцию scripts/upgrade-director.mjs по docs/CMS-DIRECTOR.md и экспортируйте обновлённую CMS. Для уже работающего VPS скрипт запускается из полного репозитория с обычным токеном администратора против HTTPS-домена. Он не входит в runtime-образ, не сбрасывает БД и не меняет аккаунты. Ключ, тома и пути хранения остаются прежними.

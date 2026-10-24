@@ -1,6 +1,8 @@
 import { DatabaseSync } from 'node:sqlite';
 import { existsSync, writeFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
+import { contactFields, programKey, teacherGroups } from '../src/lib/director-model.ts';
+import { previewSpaces } from '../src/data/el-bebe.ts';
 
 // Read only live revisions of public site collections. Never read accounts,
 // sessions, settings, secrets, drafts, or form submissions.
@@ -28,12 +30,15 @@ try {
   const settings = entries('site')[0]?.data;
   if (!settings) throw new Error('Publish site settings before exporting the showcase.');
   const snapshot = {
-    settings: Object.fromEntries(['hero_title', 'hero_text', 'address', 'phone', 'license_text'].map(field => [field, string(settings[field])])),
-    team: entries('team').map(({ id, data }) => ({ id, name: string(data.title), role: string(data.role), bio: string(data.bio), image: publicImage(data.image) })),
-    groups: entries('groups').map(({ id, data }) => ({ id, title: string(data.title), summary: string(data.summary), activities: string(data.activities), approach: string(data.approach), image: publicImage(data.image) })),
+    teamConfigured: entries('team').length > 0,
+    settings: Object.fromEntries([...new Set(['hero_title', 'hero_text', 'license_text', ...contactFields.map(field => field.key)])].map(field => [field, string(settings[field])])),
+    team: entries('team').filter(({ data }) => data.is_hidden !== true).map(({ id, data }) => ({ id, name: string(data.title), role: string(data.role), bio: string(data.bio), groups: teacherGroups(data.groups), image: publicImage(data.image) })),
+    groups: entries('groups').map(({ id, data }) => ({ id: programKey({ id, data }) || id, title: string(data.title), summary: string(data.summary), activities: string(data.activities), approach: string(data.approach), program: Object.fromEntries(Object.entries(data).filter(([, value]) => typeof value === 'string')), image: publicImage(data.image) })),
     rates: entries('rates').map(({ id, data }) => ({ id, title: string(data.title), hours: string(data.hours), price: string(data.price), description: string(data.description), isMain: data.is_main === true || data.is_main === 1, isEntryFee: data.is_entry_fee === true || data.is_entry_fee === 1 })),
     faqs: entries('faqs').map(({ id, data }) => ({ id, question: string(data.title), answer: string(data.answer) })),
-    spaces: entries('spaces').map(({ id, data }) => ({ id, title: string(data.title), description: string(data.description), image: publicImage(data.image) })),
+    spaces: entries('spaces').some(({ data }) => publicImage(data.image))
+      ? entries('spaces').map(({ id, data }) => ({ id, title: string(data.title), description: string(data.description), image: publicImage(data.image) }))
+      : previewSpaces,
     testimonials: entries('testimonials').filter(({ data }) => string(data.title) && string(data.quote) && publicUrl(data.source_url)).map(({ id, data }) => ({ id, author: string(data.title), quote: string(data.quote), source_url: publicUrl(data.source_url) })),
   };
   writeFileSync(new URL('../src/data/showcase.json', import.meta.url), `${JSON.stringify(snapshot, null, 2)}\n`);

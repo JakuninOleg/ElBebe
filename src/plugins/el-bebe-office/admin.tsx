@@ -5,6 +5,7 @@ import printCss from './print.css?inline';
 import './office.css';
 import { blankRow, printKinds, validatePrintDraft, weekdays, type PrintDraft, type PrintKind, type PrintRow, type SavedPrint, type VisitStatus } from '../../lib/office-model';
 import type { StoredVisit } from '../../lib/office-store';
+import { ContentPage, DirectorHome, OfficeNav } from './ContentPage';
 import { officeApi } from './api';
 import { Printable } from './Printable';
 
@@ -33,7 +34,7 @@ function RequestsPage() {
     catch (error) { setNotice(message(error)); } finally { setBusy(false); }
   }
   return <section className="elb-office" aria-labelledby="office-requests-title">
-    <header className="office-heading"><div><h1 id="office-requests-title">Заявки родителей</h1><p>Откройте номер, свяжитесь с родителем и отметьте результат.</p></div><button type="button" onClick={() => void load()} disabled={busy}>Обновить список</button></header>
+    <OfficeNav/><header className="office-heading"><div><h1 id="office-requests-title">Заявки родителей</h1><p>Откройте номер, свяжитесь с родителем и отметьте результат.</p></div><button type="button" onClick={() => void load()} disabled={busy}>Обновить список</button></header>
     <p className="office-note">Заявки сохраняются здесь. Уведомления на почту и в мессенджеры пока не подключены.</p>
     <p role="status" className="office-status">{busy ? 'Загружаем…' : notice}</p>
     {!busy && !notice && !items.length && <div className="office-empty"><h2>Пока нет заявок</h2><p>Здесь появятся обращения, отправленные через форму сайта.</p></div>}
@@ -127,7 +128,7 @@ function PrintPage() {
     } catch (error) { setError(message(error)); }
   }
   return <section className="elb-office" aria-labelledby="office-print-title">
-    <header className="office-heading"><div><h1 id="office-print-title">Документы для печати</h1><p>Выберите шаблон, заполните поля и распечатайте готовый лист.</p></div></header>
+    <OfficeNav/><header className="office-heading"><div><h1 id="office-print-title">Документы для печати</h1><p>Выберите шаблон, заполните поля и распечатайте готовый лист.</p></div></header>
     <p className="office-note">Макет уже настроен. Эти документы доступны только в CMS и не публикуются на сайте. В дни рождения достаточно внести имя, число и возраст.</p>
     <div className="office-template-choices">{(Object.entries(printKinds) as Array<[PrintKind, string]>).map(([kind, label]) => <button key={kind} type="button" disabled={busy} onClick={() => begin(kind)}><span>{label}</span><small>{kind === 'week' ? 'А4 · альбомный лист' : 'А4 · книжный лист'}</small></button>)}</div>
     <p className="office-status" role="status">{busy ? 'Сохраняем или загружаем…' : notice}</p>{error && <p role="alert" className="office-error">{error}</p>}
@@ -154,4 +155,4 @@ function PrintPage() {
   </section>;
 }
 
-export const pages = { '/requests': RequestsPage, '/print': PrintPage };
+export const pages = { '/home': DirectorHome, '/team': () => <ContentPage section="team"/>, '/rates': () => <ContentPage section="rates"/>, '/contacts': () => <ContentPage section="contacts"/>, '/programs': () => <ContentPage section="programs"/>, '/requests': RequestsPage, '/print': PrintPage };

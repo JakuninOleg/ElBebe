@@ -1,5 +1,6 @@
 import { definePlugin, PluginRouteError, type RouteContext } from 'emdash';
-import { changeVisitStatus, deletePrint, deleteVisit, getPrint, listPrints, listVisits, savePrint } from '../../lib/office-store';
+import { changeVisitStatus, deletePrint, deleteVisit, getPrint, listPrints, listVisits, savePrint, requestEmail, saveRequestEmail } from '../../lib/office-store';
+import { officeUser } from '../../lib/director-access';
 import type { VisitStatus } from '../../lib/office-model';
 
 function object(input: unknown): Record<string, unknown> {
@@ -16,16 +17,23 @@ function integer(input: unknown, max: number): number {
   return value;
 }
 // EmDash checks the authenticated session, permissions and CSRF header before dispatch.
-// Private personal records require the administrator's settings permission, not public content access.
-const read = { permission: 'settings:manage' as const, public: false, methods: ['GET' as const], request: { body: 'none' as const } };
-const write = { permission: 'settings:manage' as const, public: false, methods: ['POST' as const], request: { body: 'json' as const, maxBytes: 32_768 } };
-function caller(ctx: RouteContext) { if (!ctx.user) throw PluginRouteError.unauthorized('Войдите в CMS.'); }
+// Private records are available only to the project Director profile and the owner.
+const read = { permission: 'content:edit_any' as const, public: false, methods: ['GET' as const], request: { body: 'none' as const } };
+const write = { permission: 'content:edit_any' as const, public: false, methods: ['POST' as const], request: { body: 'json' as const, maxBytes: 32_768 } };
+function caller(ctx: RouteContext) { if (!ctx.user) throw PluginRouteError.unauthorized('Войдите в CMS.'); if (!officeUser(ctx.user)) throw PluginRouteError.forbidden('Этот раздел доступен директору и владельцу сада.'); }
 
 export function createPlugin() {
   return definePlugin({
     id: 'el-bebe-office', version: '1.0.0',
     capabilities: ['content:read'],
     routes: {
+      'request-email': { ...read, handler: async ctx => { caller(ctx); return requestEmail(); } },
+      'request-email-save': { ...write, handler: async ctx => {
+        caller(ctx); const data = object(ctx.input);
+        if (typeof data.email !== 'string') throw PluginRouteError.badRequest('Введите адрес почты.');
+        try { return saveRequestEmail(data.email.trim(), integer(data.revision, Number.MAX_SAFE_INTEGER)); }
+        catch (error) { throw PluginRouteError.badRequest(error instanceof Error ? error.message : 'Не удалось сохранить почту.'); }
+      } },
       'price-source': { ...read, handler: async ctx => {
         caller(ctx);
         const result = await ctx.content!.list('el_bebe_rates', { limit: 40, where: { status: 'published' } }).catch(() => {
@@ -64,6 +72,11 @@ export function createPlugin() {
       } },
     },
     admin: { pages: [
+      { path: '/home', label: 'Кабинет директора', icon: 'house', group: 'Работа садика' },
+      { path: '/team', label: 'Воспитатели', icon: 'users', group: 'Работа садика' },
+      { path: '/rates', label: 'Стоимость', icon: 'currency-rub', group: 'Работа садика' },
+      { path: '/contacts', label: 'Контакты', icon: 'phone', group: 'Работа садика' },
+      { path: '/programs', label: 'Программы групп', icon: 'book-open', group: 'Работа садика' },
       { path: '/requests', label: 'Заявки родителей', icon: 'inbox', group: 'Работа садика' },
       { path: '/print', label: 'Документы для печати', icon: 'file-text', group: 'Работа садика' },
     ] },

@@ -3,11 +3,11 @@ import { responsiveImage, responsiveAvif } from '../../lib/responsive-image';
 import { imageSource } from '../../lib/image-source';
 import type { SiteContent } from '../../lib/cms';
 import { Image } from '../../lib/emdash-ui';
-import { groupCards } from '../../data/group-cards';
 import IllustratedIcon from './IllustratedIcon.astro';
 import Icon from './Icon.astro';
 import Decor from './Decor.astro';
 import { groupPages } from '../../data/group-pages';
+import { resolvePrograms } from '../../lib/group-programs';
 interface Props { groups: SiteContent['groups']; headingLevel?: 'h1' | 'h2'; showHeading?: boolean; }
 const { groups = [], headingLevel = 'h2', showHeading = true } = Astro.props;
 const Heading = headingLevel;
@@ -24,8 +24,8 @@ const imageDescriptions = ['Рисование цветными карандаш
     </div>
     <p>Английский, логопед, робототехника — у каждой группы своя программа.</p>
   </header>}
-  <div class="programs-grid">{groupCards.map((program, index) => {
-    const photo = groups.find(group => group.id === program.id || group.title === program.title)?.image;
+  <div class="programs-grid">{resolvePrograms(groups).map((program, index) => {
+    const photo = program.photo;
     const source = imageSource(photo, `/images/el-bebe/${program.image}.webp`);
     const avif = source ? responsiveAvif(source, '(max-width: 600px) calc(100vw - 64px), (max-width: 979px) 510px, 31vw') : {};
     return <article class={`program-card program-card--${program.accent}`} id={`group-${program.id}`}>

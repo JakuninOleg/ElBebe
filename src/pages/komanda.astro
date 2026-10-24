@@ -6,14 +6,14 @@ import IllustratedIcon from '../components/el-bebe/IllustratedIcon.astro';
 import Faq from '../components/el-bebe/Faq.astro';
 import ParentReviews from '../components/el-bebe/ParentReviews.astro';
 import Icon from '../components/el-bebe/Icon.astro';
-const { team, testimonials } = await getSiteContent();
+const { team, testimonials, teamConfigured } = await getSiteContent();
 const questions = [
   { question: 'Можно ли познакомиться с воспитателями до зачисления?', answer: 'Да. На экскурсии познакомимся с воспитателями, обсудим привычки ребёнка и программу группы. Расскажите, что помогает ему чувствовать себя спокойно, какие занятия интересны и есть ли опыт посещения другого детского сада.' },
   { question: 'Есть ли занятия с логопедом и психологом?', answer: 'В расписании младшей группы есть занятия с логопедом, в средней и старшей — с логопедом и психологом. Эти занятия включены в стоимость посещения по программе группы. Точное время указано в недельных расписаниях.', link: { href: '/gruppy/', label: 'Занятия по группам' } },
 ];
 ---
 <Inner title="Воспитатели детского сада Эльбэби в Сочи" heading="Наши воспитатели" label="Воспитатели" description="Знакомство с воспитателями Эльбэби: команда, подход к детям и общение с родителями." intro="Для ребёнка воспитатель — человек, к которому можно подойти с вопросом, радостью или тревогой. Для родителя — тот, с кем можно обсудить, как проходит день.">
-  <Educators team={team} heading="Познакомимся с командой"/>
+  <Educators team={team} usePreview={!teamConfigured} heading="Познакомимся с командой"/>
   <section class="teacher-conversation container content-section" aria-labelledby="conversation-title">
     <div><IllustratedIcon name="people" size={100}/><h2 id="conversation-title">Сначала познакомимся</h2><p>На встрече с воспитателем обсудим то, от чего зависит день вашего ребёнка в саду.</p><button type="button" class="button" data-open-visit>Познакомиться с воспитателем <Icon name="arrow" size={20}/></button></div>
     <ul role="list"><li><h3>Привычки и режим</h3><p>Как ребёнок засыпает, что любит есть, какие игры выбирает. Об аллергии и пищевых ограничениях важно рассказать заранее.</p></li><li><h3>Первые дни в группе</h3><p>Был ли уже опыт детского сада, как проходят расставания и что помогает ребёнку освоиться в новом месте.</p></li><li><h3>Общение с родителями</h3><p>Как обмениваться новостями о дне ребёнка и к кому обращаться с вопросами о занятиях и самочувствии.</p></li></ul>

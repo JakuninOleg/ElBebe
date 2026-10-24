@@ -1,11 +1,14 @@
 import { getEmDashCollection } from "emdash";
 import type { ImageValue } from "emdash";
-import { siteLocation, resolveSiteAddress } from '../data/site-location';
+import { siteLocation } from '../data/site-location';
+import { resolveContacts, type SiteContacts } from '../data/site-contacts';
+import { programKey, teacherGroups } from './director-model';
 
 export interface SiteContent {
-  settings: { hero_title: string; hero_text: string; address: string; phone: string; license_text: string };
-  team: Array<{ id: string; name: string; role: string; bio: string; image: ImageValue | null }>;
-  groups: Array<{ id: string; title: string; summary: string; activities: string; approach: string; image: ImageValue | null }>;
+  teamConfigured: boolean;
+  settings: SiteContacts & { hero_title: string; hero_text: string; license_text: string };
+  team: Array<{ id: string; name: string; role: string; bio: string; groups: string[]; image: ImageValue | null }>;
+  groups: Array<{ id: string; title: string; summary: string; activities: string; approach: string; program: Record<string, string>; image: ImageValue | null }>;
   rates: Array<{ id: string; title: string; hours: string; price: string; description: string; isMain: boolean; isEntryFee: boolean }>;
   faqs: Array<{ id: string; question: string; answer: string }>;
   spaces: Array<{ id: string; title: string; description: string; image: ImageValue | null }>;
@@ -15,10 +18,10 @@ export interface SiteContent {
 type CmsData = Record<string, unknown>;
 type CmsEntry = { id: string; data: CmsData };
 const defaults: SiteContent["settings"] = {
+  ...resolveContacts(),
   hero_title: "Здесь детство идёт своим ходом",
   hero_text: "Играем, дружим и открываем мир. С заботой о каждом ребёнке.",
   address: siteLocation.address,
-  phone: "",
   license_text: "Есть образовательная лицензия. Возможна оплата материнским капиталом.",
 };
 const text = (value: unknown): string => typeof value === "string" ? value.trim() : "";
@@ -77,18 +80,18 @@ export async function getSiteContent(): Promise<SiteContent> {
   ]);
   const settings = (site.find((entry) => entry.id === "main") ?? site[0])?.data;
   return {
+    teamConfigured: team.length > 0,
     settings: {
+      ...resolveContacts(settings),
       hero_title: text(settings?.hero_title) || defaults.hero_title,
       hero_text: text(settings?.hero_text) || defaults.hero_text,
-      address: resolveSiteAddress(settings?.address),
-      phone: text(settings?.phone),
       license_text: settings ? text(settings.license_text) : defaults.license_text,
     },
-    team: team.filter((e) => text(e.data.title)).map((e) => ({
-      id: entryId(e), name: text(e.data.title), role: text(e.data.role), bio: text(e.data.bio), image: imageValue(e.data.image),
+    team: team.filter((e) => text(e.data.title) && e.data.is_hidden !== true).map((e) => ({
+      id: entryId(e), name: text(e.data.title), role: text(e.data.role), bio: text(e.data.bio), groups: teacherGroups(e.data.groups), image: imageValue(e.data.image),
     })),
     groups: groups.filter(e => text(e.data.title)).map(e => ({
-      id: entryId(e), title: text(e.data.title), summary: text(e.data.summary), activities: text(e.data.activities), approach: text(e.data.approach), image: imageValue(e.data.image),
+      id: programKey(e) || entryId(e), title: text(e.data.title), summary: text(e.data.summary), activities: text(e.data.activities), approach: text(e.data.approach), program: Object.fromEntries(Object.entries(e.data).filter((entry): entry is [string, string] => typeof entry[1] === 'string')), image: imageValue(e.data.image),
     })),
     rates: rates.filter((e) => text(e.data.title)).map((e) => ({
       id: entryId(e), title: text(e.data.title), hours: text(e.data.hours), price: text(e.data.price), description: text(e.data.description),
