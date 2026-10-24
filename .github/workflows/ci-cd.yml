@@ -1,0 +1,141 @@
+name: Site checks and VPS deployment
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+    inputs:
+      reason:
+        description: What triggered the build
+        type: choice
+        options: [manual, cms]
+        default: manual
+      content_revision:
+        description: CMS queue revision (no content or personal data)
+        type: string
+        default: ''
+
+permissions:
+  contents: read
+
+# Never interrupt a deployment between stopping the app and checking its replacement.
+concurrency:
+  group: site-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  checks:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
+        with:
+          node-version: '24'
+          cache: npm
+      - run: npm ci
+      - run: npm test
+      - run: npm run typecheck
+      - run: npm run build
+      - run: npm run build:showcase
+      - name: Validate deployment scripts and Compose
+        env:
+          DOMAIN: ci.example.invalid
+          ACME_EMAIL: ci@example.invalid
+          CMS_REBUILD_REPOSITORY: JakuninOleg/ElBebe
+        run: |
+          bash -n deploy/apply-release.sh
+          docker compose -f compose.yaml -f compose.cicd.yaml config --quiet
+
+  image:
+    needs: checks
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    env:
+      SITE_URL: ${{ vars.SITE_URL || 'https://example.invalid' }}
+      DEPLOY_ENABLED: ${{ vars.DEPLOY_ENABLED }}
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+      - name: Validate build origin
+        run: |
+          node --input-type=module <<'NODE'
+          const url = new URL(process.env.SITE_URL);
+          if (url.protocol !== 'https:' || url.origin !== process.env.SITE_URL || url.username || url.password)
+            throw new Error('SITE_URL must be an HTTPS origin without a trailing slash.');
+          if (process.env.DEPLOY_ENABLED === 'true' && (url.hostname.endsWith('.invalid') || !url.hostname.includes('.')))
+            throw new Error('Set the real SITE_URL repository variable before enabling deployment.');
+          NODE
+      - name: Build and package the immutable image
+        run: |
+          tag="${GITHUB_SHA}-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
+          docker build --pull --build-arg "SITE_URL=$SITE_URL" --tag "el-bebe:$tag" .
+          mkdir release
+          docker save "el-bebe:$tag" | gzip > release/site-image.tar.gz
+          cp compose.yaml compose.cicd.yaml release/
+          cp deploy/Caddyfile deploy/apply-release.sh release/
+          printf '%s\n' "$tag" > release/image.tag
+          cd release
+          sha256sum site-image.tar.gz compose.yaml compose.cicd.yaml Caddyfile apply-release.sh image.tag > SHA256SUMS
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: vps-release
+          path: release/
+          retention-days: 3
+          if-no-files-found: error
+      - name: Report unconnected VPS
+        if: vars.DEPLOY_ENABLED != 'true'
+        run: echo 'Checks and image build passed. VPS deployment is disabled until its host, domain and SSH secrets are configured.' >> "$GITHUB_STEP_SUMMARY"
+
+  deploy:
+    needs: image
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request' && vars.DEPLOY_ENABLED == 'true'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    environment: production
+    steps:
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4
+        with:
+          name: vps-release
+          path: release
+      - name: Refuse an obsolete source revision
+        id: source
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          current="$(gh api "repos/$GITHUB_REPOSITORY/commits/main" --jq .sha)"
+          if [ "$current" = "$GITHUB_SHA" ]; then
+            echo 'current=true' >> "$GITHUB_OUTPUT"
+          else
+            echo 'A newer main commit exists; this release will not overwrite it.' >> "$GITHUB_STEP_SUMMARY"
+          fi
+      - name: Transfer and apply the release
+        if: steps.source.outputs.current == 'true'
+        env:
+          VPS_HOST: ${{ secrets.VPS_HOST }}
+          VPS_SSH_USER: ${{ secrets.VPS_SSH_USER }}
+          VPS_SSH_PORT: ${{ secrets.VPS_SSH_PORT || '22' }}
+          VPS_SSH_KEY: ${{ secrets.VPS_SSH_KEY }}
+          VPS_SSH_KNOWN_HOSTS: ${{ secrets.VPS_SSH_KNOWN_HOSTS }}
+        run: |
+          set -Eeuo pipefail
+          [[ "$VPS_HOST" =~ ^[A-Za-z0-9][A-Za-z0-9.-]*$ ]]
+          [[ "$VPS_SSH_USER" =~ ^[a-z_][a-z0-9_-]*$ ]]
+          [[ "$VPS_SSH_PORT" =~ ^[0-9]{1,5}$ ]] && (( 10#$VPS_SSH_PORT > 0 && 10#$VPS_SSH_PORT < 65536 ))
+          [[ "$GITHUB_RUN_ID-$GITHUB_RUN_ATTEMPT" =~ ^[0-9]+-[0-9]+$ ]]
+          [[ "$GITHUB_RUN_NUMBER" =~ ^[0-9]+$ ]]
+          install -d -m 700 "$HOME/.ssh"
+          umask 077
+          printf '%s\n' "$VPS_SSH_KEY" > "$HOME/.ssh/deploy_key"
+          printf '%s\n' "$VPS_SSH_KNOWN_HOSTS" > "$HOME/.ssh/known_hosts"
+          trap 'rm -f "$HOME/.ssh/deploy_key"' EXIT
+          opts=(-i "$HOME/.ssh/deploy_key" -o IdentitiesOnly=yes -o BatchMode=yes -o StrictHostKeyChecking=yes -o ConnectTimeout=20 -o ServerAliveInterval=15 -o ServerAliveCountMax=4)
+          target="$VPS_SSH_USER@$VPS_HOST"
+          release="$GITHUB_RUN_ID-$GITHUB_RUN_ATTEMPT"
+          destination="/srv/el-bebe/incoming/$release"
+          ssh "${opts[@]}" -p "$VPS_SSH_PORT" "$target" "umask 077; mkdir -p '$destination'"
+          scp "${opts[@]}" -P "$VPS_SSH_PORT" release/site-image.tar.gz release/compose.yaml release/compose.cicd.yaml release/Caddyfile release/apply-release.sh release/image.tag release/SHA256SUMS "$target:$destination/"
+          ssh "${opts[@]}" -p "$VPS_SSH_PORT" "$target" "bash '$destination/apply-release.sh' '$release' '$GITHUB_RUN_NUMBER'"
+          echo "VPS accepted release $release and passed its health checks." >> "$GITHUB_STEP_SUMMARY"

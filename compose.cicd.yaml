@@ -1,0 +1,11 @@
+# Add after the initial private data import and GitHub token provisioning.
+services:
+  app:
+    environment:
+      CMS_REBUILD_REPOSITORY: ${CMS_REBUILD_REPOSITORY:?Set the GitHub owner/repository}
+      CMS_REBUILD_TOKEN_FILE: /run/secrets/github_actions_token
+    secrets:
+      - github_actions_token
+secrets:
+  github_actions_token:
+    file: ./deploy/secrets/github-actions-token

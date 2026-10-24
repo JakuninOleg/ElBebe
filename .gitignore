@@ -44,3 +44,5 @@ deploy/.env
 deploy/secrets/
 deploy/backups/
 deploy/bundles/
+deploy/releases/
+incoming/

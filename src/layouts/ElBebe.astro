@@ -35,6 +35,8 @@ import { EmDashHead, EmDashBodyStart, EmDashBodyEnd, createPublicPageContext } f
 interface Props { title: string; description: string; address?: string; phone?: string; contacts?: SiteContacts; }
 const { title, description, contacts = resolveContacts() } = Astro.props;
 const canonical = new URL(Astro.url.pathname, Astro.url.origin).href;
+// Published CMS changes must be visible on the next page request.
+Astro.response.headers.set('Cache-Control', 'no-store');
 const page = createPublicPageContext({ Astro, kind: 'custom', pageType: 'website', title, pageTitle: title, description, canonical, image: '/images/el-bebe/real-outdoor-play-v1.webp', siteName: 'Эльбэби', seo: { robots: 'noindex, nofollow' } });
 ---
 <!doctype html>

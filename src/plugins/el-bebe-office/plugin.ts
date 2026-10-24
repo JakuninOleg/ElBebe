@@ -2,6 +2,7 @@ import { definePlugin, PluginRouteError, type RouteContext } from 'emdash';
 import { changeVisitStatus, deletePrint, deleteVisit, getPrint, listPrints, listVisits, savePrint, requestEmail, saveRequestEmail } from '../../lib/office-store';
 import { officeUser } from '../../lib/director-access';
 import type { VisitStatus } from '../../lib/office-model';
+import { requestCmsRebuild } from '../../../deploy/cms-rebuild.mjs';
 
 function object(input: unknown): Record<string, unknown> {
   if (!input || typeof input !== 'object' || Array.isArray(input)) throw PluginRouteError.badRequest('Не удалось прочитать данные.');
@@ -26,6 +27,11 @@ export function createPlugin() {
   return definePlugin({
     id: 'el-bebe-office', version: '1.0.0',
     capabilities: ['content:read'],
+    hooks: {
+      'content:afterPublish': async event => { requestCmsRebuild(event.collection); },
+      'content:afterUnpublish': async event => { requestCmsRebuild(event.collection); },
+      'content:afterDelete': async event => { requestCmsRebuild(event.collection); },
+    },
     routes: {
       'request-email': { ...read, handler: async ctx => { caller(ctx); return requestEmail(); } },
       'request-email-save': { ...write, handler: async ctx => {

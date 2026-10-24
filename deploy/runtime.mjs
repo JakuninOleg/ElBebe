@@ -1,6 +1,7 @@
 import { accessSync, constants, mkdirSync, readFileSync } from 'node:fs';
 import { DatabaseSync } from 'node:sqlite';
 import { join } from 'node:path';
+import { startRebuildWorker } from './cms-rebuild.mjs';
 
 export function prepareRuntime({ dataRoot = '/var/lib/el-bebe', originFile = new URL('../image-origin.txt', import.meta.url), env = process.env } = {}) {
   const expected = readFileSync(originFile, 'utf8').trim();
@@ -25,4 +26,4 @@ export function prepareRuntime({ dataRoot = '/var/lib/el-bebe', originFile = new
     }
   } finally { db.close(); }
 }
-if (process.env.EL_BEBE_DOCKER === 'true') prepareRuntime();
+if (process.env.EL_BEBE_DOCKER === 'true') { prepareRuntime(); startRebuildWorker(); }

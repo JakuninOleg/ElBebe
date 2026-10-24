@@ -18,6 +18,8 @@
 !deploy/runtime.mjs
 !deploy/healthcheck.mjs
 !deploy/data.mjs
+!deploy/cms-rebuild.mjs
+!deploy/backup-release.mjs
 
 # Deny private files even if they accidentally appear inside an allowed source directory.
 **/.env*

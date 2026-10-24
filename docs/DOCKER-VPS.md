@@ -1,5 +1,7 @@
 # Полный сайт и EmDash на VPS
 
+Автоматические сборка и деплой из GitHub, а также пересборка после публикаций EmDash описаны в `docs/CI-CD.md`. После включения CI/CD используйте команды с обоими Compose-файлами и текущим IMAGE_TAG из `deploy/releases/current-image`.
+
 Это серверная сборка Astro + EmDash + SQLite, а не Vercel showcase. Сайт, штатная админка, заявки и печатные документы работают в одном Node-процессе. Caddy принимает HTTPS. Отдельный сервер PostgreSQL/MySQL не требуется.
 
 ## Состав
