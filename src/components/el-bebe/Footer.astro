@@ -36,5 +36,13 @@ const sections = [
     <div class="footer-brand"><a href="/" aria-label="Эльбэби — на главную"><img src="/images/el-bebe/logo-ru-approved.svg" alt="Детский сад Эльбэби" width="1495" height="775" loading="lazy"/></a><p><span aria-hidden="true"><Icon name="heart" size={28}/></span> С любовью к детям.<br/>С заботой о будущем.</p></div>
     <nav class="footer-navigation" aria-label="Разделы сайта">{sections.map(section=><details class="footer-nav-group" open data-footer-section><summary>{section.title}<Icon name="chevron" size={18}/></summary><ul>{section.links.map(([label,href])=><li><a href={href}>{label}<Icon name="chevron" size={16}/></a></li>)}</ul></details>)}</nav>
   </div>
-  <div class="container footer-bottom"><p>Эльбэби · частный детский сад в Сочи</p><nav aria-label="Документы"><a href="/dokumenty/">Документы сада</a><a href="/svedeniya/">Сведения об ИП</a><a href="/privacy/">Персональные данные</a><button type="button" data-open-privacy>Настройки cookie</button></nav></div>
+  <div class="container footer-bottom"><p>Эльбэби · частный детский сад в Сочи</p><nav aria-label="Документы"><a href="/dokumenty/">Документы сада</a><a href="/svedeniya/">Сведения об ИП</a><a href="/privacy/">Персональные данные</a><button type="button" data-open-privacy>Настройки cookie</button></nav><p class="footer-credit"><a href="https://jakuninoleg.dev" target="_blank" rel="noopener noreferrer"><span>Дизайн и разработка — <strong>OJ</strong></span><Icon name="arrow" size={14}/></a></p></div>
 </footer>
+<style>
+  .footer-credit { width: 100%; text-align: right; }
+  .footer-credit a { display: inline-flex; align-items: center; gap: 6px; min-height: 28px; color: inherit; text-decoration: none; }
+  .footer-credit strong { color: var(--purple); font-weight: 900; }
+  .footer-credit :global(.icon) { transform: rotate(-45deg); }
+  .footer-credit a:hover span, .footer-credit a:focus-visible span { text-decoration: underline; }
+  @media (max-width: 700px) { .footer-credit { text-align: left; } }
+</style>
