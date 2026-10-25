@@ -109,8 +109,8 @@
   "spaces": [
     {
       "id": "heart",
-      "title": "Сердечко для улыбки",
-      "description": "Праздничное настроение и яркие воздушные шары.",
+      "title": "С красным сердечком",
+      "description": "Фотографируемся с воздушным шаром в форме сердца.",
       "image": {
         "id": "real-heart-v1.webp",
         "src": "/images/el-bebe/real-heart-v1.webp",
@@ -121,8 +121,8 @@
     },
     {
       "id": "victory-craft",
-      "title": "Творчество к 9 Мая",
-      "description": "Открытка, сделанная своими руками.",
+      "title": "Открытка к 9 Мая",
+      "description": "Показываем открытку с гвоздиками, которую сделали сами.",
       "image": {
         "id": "real-victory-craft-v1.webp",
         "src": "/images/el-bebe/real-victory-craft-v1.webp",
@@ -133,12 +133,12 @@
     },
     {
       "id": "maslenitsa",
-      "title": "Широкая Масленица",
-      "description": "Праздничный костюм и знакомство с традициями.",
+      "title": "Масленица в саду",
+      "description": "Кокошник, блины и самовар на нашем празднике.",
       "image": {
         "id": "real-maslenitsa-v1.webp",
         "src": "/images/el-bebe/real-maslenitsa-v1.webp",
-        "alt": "Широкая Масленица"
+        "alt": "Масленица в саду"
       },
       "width": 720,
       "height": 1280
@@ -157,24 +157,24 @@
     },
     {
       "id": "confetti",
-      "title": "Праздник вместе",
-      "description": "Цветное конфетти и море радости.",
+      "title": "Бумажное шоу",
+      "description": "Играем среди цветных бумажных лент.",
       "image": {
         "id": "real-confetti-v1.webp",
         "src": "/images/el-bebe/real-confetti-v1.webp",
-        "alt": "Праздник вместе"
+        "alt": "Бумажное шоу"
       },
       "width": 1280,
       "height": 720
     },
     {
       "id": "autumn-circle",
-      "title": "Осенние открытия",
-      "description": "Собираем листья и замечаем краски осени.",
+      "title": "Собираем осенние листья",
+      "description": "Нашли листья разных цветов и показываем друг другу.",
       "image": {
         "id": "real-autumn-circle-v1.webp",
         "src": "/images/el-bebe/real-autumn-circle-v1.webp",
-        "alt": "Осенние открытия"
+        "alt": "Собираем осенние листья"
       },
       "width": 1280,
       "height": 960
@@ -193,12 +193,12 @@
     },
     {
       "id": "creative-table",
-      "title": "Мастерим вместе",
-      "description": "Бумага, карандаши и собственные идеи.",
+      "title": "Делаем поделки",
+      "description": "Вырезаем и раскрашиваем за общим столом.",
       "image": {
         "id": "real-creative-table-v1.webp",
         "src": "/images/el-bebe/real-creative-table-v1.webp",
-        "alt": "Мастерим вместе"
+        "alt": "Делаем поделки"
       },
       "width": 810,
       "height": 1440
@@ -217,36 +217,36 @@
     },
     {
       "id": "drawing",
-      "title": "Рисунок начинается с идеи",
-      "description": "Пробуем цвета и рисуем карандашами.",
+      "title": "Рисуем карандашами",
+      "description": "Каждый выбирает, что нарисовать.",
       "image": {
         "id": "real-drawing-v1.webp",
         "src": "/images/el-bebe/real-drawing-v1.webp",
-        "alt": "Рисунок начинается с идеи"
+        "alt": "Рисуем карандашами"
       },
       "width": 810,
       "height": 1440
     },
     {
       "id": "pencils",
-      "title": "Готовы творить",
-      "description": "У каждого рисунка — своё настроение.",
+      "title": "Рисунок готов",
+      "description": "Показываем рисунок, а карандаши пока не убираем.",
       "image": {
         "id": "real-pencils-v1.webp",
         "src": "/images/el-bebe/real-pencils-v1.webp",
-        "alt": "Готовы творить"
+        "alt": "Рисунок готов"
       },
       "width": 720,
       "height": 1280
     },
     {
       "id": "chess-boy",
-      "title": "Думаем на ход вперёд",
-      "description": "Знакомимся с фигурами и пробуем играть.",
+      "title": "Занятие по шахматам",
+      "description": "Расставляем фигуры и пробуем делать ходы.",
       "image": {
         "id": "real-chess-boy-v1.webp",
         "src": "/images/el-bebe/real-chess-boy-v1.webp",
-        "alt": "Думаем на ход вперёд"
+        "alt": "Занятие по шахматам"
       },
       "width": 960,
       "height": 1280
@@ -254,7 +254,7 @@
     {
       "id": "speech",
       "title": "Буквы и картинки",
-      "description": "Выполняем задания и обсуждаем находки.",
+      "description": "Выполняем задания в тетради.",
       "image": {
         "id": "real-speech-v1.webp",
         "src": "/images/el-bebe/real-speech-v1.webp",
@@ -278,7 +278,7 @@
     {
       "id": "painting",
       "title": "Вот что получилось!",
-      "description": "Показываем рисунки и радуемся результату.",
+      "description": "Девочка показывает свой рисунок красками.",
       "image": {
         "id": "real-painting-v1.webp",
         "src": "/images/el-bebe/real-painting-v1.webp",
@@ -301,96 +301,96 @@
     },
     {
       "id": "learning-together",
-      "title": "За общим столом",
-      "description": "У каждого своё задание, а открывать новое веселее вместе.",
+      "title": "Занимаемся за одним столом",
+      "description": "Каждый выполняет своё задание в тетради.",
       "image": {
         "id": "real-learning-together-v1.webp",
         "src": "/images/el-bebe/real-learning-together-v1.webp",
-        "alt": "За общим столом"
+        "alt": "Занимаемся за одним столом"
       },
       "width": 809,
       "height": 1024
     },
     {
       "id": "construction",
-      "title": "Большая стройка",
-      "description": "Придумываем и собираем из конструктора.",
+      "title": "Собираем конструктор",
+      "description": "На столе много деталей для наших построек.",
       "image": {
         "id": "real-construction-v1.webp",
         "src": "/images/el-bebe/real-construction-v1.webp",
-        "alt": "Большая стройка"
+        "alt": "Собираем конструктор"
       },
       "width": 720,
       "height": 1280
     },
     {
       "id": "playground-friends",
-      "title": "Хорошо быть вместе",
-      "description": "Друзья, улыбки и прогулка.",
+      "title": "Вместе на площадке",
+      "description": "Собрались для общей фотографии на прогулке.",
       "image": {
         "id": "real-playground-friends-v1.webp",
         "src": "/images/el-bebe/real-playground-friends-v1.webp",
-        "alt": "Хорошо быть вместе"
+        "alt": "Вместе на площадке"
       },
       "width": 1280,
       "height": 960
     },
     {
       "id": "outdoor-play",
-      "title": "Радость прогулки",
-      "description": "Играем на свежем воздухе.",
+      "title": "На прогулке",
+      "description": "Улыбка для фотографа.",
       "image": {
         "id": "real-outdoor-play-v1.webp",
         "src": "/images/el-bebe/real-outdoor-play-v1.webp",
-        "alt": "Радость прогулки"
+        "alt": "На прогулке"
       },
       "width": 720,
       "height": 1280
     },
     {
       "id": "rope-bridge",
-      "title": "Маленькое приключение",
-      "description": "Пробуем пройти по верёвочному мосту.",
+      "title": "На верёвочном мостике",
+      "description": "Пробуем пройти по мосту.",
       "image": {
         "id": "real-rope-bridge-v1.webp",
         "src": "/images/el-bebe/real-rope-bridge-v1.webp",
-        "alt": "Маленькое приключение"
+        "alt": "На верёвочном мостике"
       },
       "width": 720,
       "height": 1280
     },
     {
       "id": "climbing",
-      "title": "Выше и смелее",
-      "description": "На прогулке всегда найдётся место для движения.",
+      "title": "На игровой площадке",
+      "description": "Забрались на деревянную перекладину.",
       "image": {
         "id": "real-climbing-v1.webp",
         "src": "/images/el-bebe/real-climbing-v1.webp",
-        "alt": "Выше и смелее"
+        "alt": "На игровой площадке"
       },
       "width": 960,
       "height": 1280
     },
     {
       "id": "magnolia",
-      "title": "Замечаем прекрасное",
-      "description": "Знакомимся с цветами и рассматриваем природу.",
+      "title": "Магнолия цветёт",
+      "description": "Рассматриваем большие белые цветы.",
       "image": {
         "id": "real-magnolia-v1.webp",
         "src": "/images/el-bebe/real-magnolia-v1.webp",
-        "alt": "Замечаем прекрасное"
+        "alt": "Магнолия цветёт"
       },
       "width": 810,
       "height": 1440
     },
     {
       "id": "friends",
-      "title": "Дружба начинается здесь",
-      "description": "Объятия и смех без повода.",
+      "title": "Обнимаемся!",
+      "description": "Объятия и смех на прогулке.",
       "image": {
         "id": "real-friends-v1.webp",
         "src": "/images/el-bebe/real-friends-v1.webp",
-        "alt": "Дружба начинается здесь"
+        "alt": "Обнимаемся!"
       },
       "width": 960,
       "height": 1280
@@ -409,24 +409,24 @@
     },
     {
       "id": "chess-smile",
-      "title": "Игра с настроением",
-      "description": "Шахматы — повод и подумать, и улыбнуться.",
+      "title": "Перед партией",
+      "description": "Фигуры расставлены. Можно начинать!",
       "image": {
         "id": "real-chess-smile-v1.webp",
         "src": "/images/el-bebe/real-chess-smile-v1.webp",
-        "alt": "Игра с настроением"
+        "alt": "Перед партией"
       },
       "width": 768,
       "height": 1024
     },
     {
       "id": "speech-coral",
-      "title": "Пробуем новое",
-      "description": "Работаем с картинками и буквами.",
+      "title": "Задание с картинками",
+      "description": "Ищем пары и соединяем их карандашом.",
       "image": {
         "id": "real-speech-coral-v1.webp",
         "src": "/images/el-bebe/real-speech-coral-v1.webp",
-        "alt": "Пробуем новое"
+        "alt": "Задание с картинками"
       },
       "width": 720,
       "height": 1280
@@ -445,32 +445,32 @@
     },
     {
       "id": "celebration",
-      "title": "Праздничные встречи",
-      "description": "Нарядные костюмы и любимые герои.",
+      "title": "Встреча с аниматором",
+      "description": "Общая фотография на празднике.",
       "image": {
         "id": "real-celebration-v1.webp",
         "src": "/images/el-bebe/real-celebration-v1.webp",
-        "alt": "Праздничные встречи"
+        "alt": "Встреча с аниматором"
       },
       "width": 960,
       "height": 1280
     },
     {
       "id": "autumn-boy",
-      "title": "Букет осенних красок",
-      "description": "Листья, которые хочется показать друзьям.",
+      "title": "Букеты из осенних листьев",
+      "description": "Набрали красных и жёлтых листьев на прогулке.",
       "image": {
         "id": "real-autumn-boy-v1.webp",
         "src": "/images/el-bebe/real-autumn-boy-v1.webp",
-        "alt": "Букет осенних красок"
+        "alt": "Букеты из осенних листьев"
       },
       "width": 960,
       "height": 1280
     },
     {
       "id": "boy-white",
-      "title": "Маленькое знакомство",
-      "description": "Улыбки из жизни нашей группы.",
+      "title": "Улыбка для фотографии",
+      "description": "",
       "image": {
         "id": "real-boy-white-v1.webp",
         "src": "/images/el-bebe/real-boy-white-v1.webp",
@@ -481,8 +481,8 @@
     },
     {
       "id": "boy-polo",
-      "title": "Рады встрече",
-      "description": "Каждый день начинается со знакомства.",
+      "title": "Портрет в садике",
+      "description": "",
       "image": {
         "id": "real-boy-polo-v1.webp",
         "src": "/images/el-bebe/real-boy-polo-v1.webp",

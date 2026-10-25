@@ -19,45 +19,45 @@ export const approaches = [
   { title: 'Забота каждый день', text: 'Замечаем настроение, помогаем и остаёмся рядом.', image: 'real-friends-v1', color: 'blue' },
 ];
 export const previewSpaces = [
-  {"id": "heart", "title": "Сердечко для улыбки", "description": "Праздничное настроение и яркие воздушные шары.", "image": {"id": "real-heart-v1.webp", "src": "/images/el-bebe/real-heart-v1.webp", "alt": "Девочка с красным воздушным шаром в форме сердца"}, "width": 720, "height": 1280},
-  {"id": "victory-craft", "title": "Творчество к 9 Мая", "description": "Открытка, сделанная своими руками.", "image": {"id": "real-victory-craft-v1.webp", "src": "/images/el-bebe/real-victory-craft-v1.webp", "alt": "Девочка показывает открытку к 9 Мая"}, "width": 960, "height": 1280},
-  {"id": "maslenitsa", "title": "Широкая Масленица", "description": "Праздничный костюм и знакомство с традициями.", "image": {"id": "real-maslenitsa-v1.webp", "src": "/images/el-bebe/real-maslenitsa-v1.webp", "alt": "Широкая Масленица"}, "width": 720, "height": 1280},
+  {"id": "heart", "title": "С красным сердечком", "description": "Фотографируемся с воздушным шаром в форме сердца.", "image": {"id": "real-heart-v1.webp", "src": "/images/el-bebe/real-heart-v1.webp", "alt": "Девочка с красным воздушным шаром в форме сердца"}, "width": 720, "height": 1280},
+  {"id": "victory-craft", "title": "Открытка к 9 Мая", "description": "Показываем открытку с гвоздиками, которую сделали сами.", "image": {"id": "real-victory-craft-v1.webp", "src": "/images/el-bebe/real-victory-craft-v1.webp", "alt": "Девочка показывает открытку к 9 Мая"}, "width": 960, "height": 1280},
+  {"id": "maslenitsa", "title": "Масленица в саду", "description": "Кокошник, блины и самовар на нашем празднике.", "image": {"id": "real-maslenitsa-v1.webp", "src": "/images/el-bebe/real-maslenitsa-v1.webp", "alt": "Масленица в саду"}, "width": 720, "height": 1280},
   {"id": "abacus", "title": "Считаем с интересом", "description": "Занятие со счётами и тетрадью.", "image": {"id": "real-abacus-v1.webp", "src": "/images/el-bebe/real-abacus-v1.webp", "alt": "Считаем с интересом"}, "width": 720, "height": 1280},
-  {"id": "confetti", "title": "Праздник вместе", "description": "Цветное конфетти и море радости.", "image": {"id": "real-confetti-v1.webp", "src": "/images/el-bebe/real-confetti-v1.webp", "alt": "Праздник вместе"}, "width": 1280, "height": 720},
-  {"id": "autumn-circle", "title": "Осенние открытия", "description": "Собираем листья и замечаем краски осени.", "image": {"id": "real-autumn-circle-v1.webp", "src": "/images/el-bebe/real-autumn-circle-v1.webp", "alt": "Осенние открытия"}, "width": 1280, "height": 960},
+  {"id": "confetti", "title": "Бумажное шоу", "description": "Играем среди цветных бумажных лент.", "image": {"id": "real-confetti-v1.webp", "src": "/images/el-bebe/real-confetti-v1.webp", "alt": "Бумажное шоу"}, "width": 1280, "height": 720},
+  {"id": "autumn-circle", "title": "Собираем осенние листья", "description": "Нашли листья разных цветов и показываем друг другу.", "image": {"id": "real-autumn-circle-v1.webp", "src": "/images/el-bebe/real-autumn-circle-v1.webp", "alt": "Собираем осенние листья"}, "width": 1280, "height": 960},
   {"id": "fountain", "title": "Гуляем по Сочи", "description": "Выездная прогулка у городского фонтана.", "image": {"id": "real-fountain-v1.webp", "src": "/images/el-bebe/real-fountain-v1.webp", "alt": "Гуляем по Сочи"}, "width": 1280, "height": 960},
-  {"id": "creative-table", "title": "Мастерим вместе", "description": "Бумага, карандаши и собственные идеи.", "image": {"id": "real-creative-table-v1.webp", "src": "/images/el-bebe/real-creative-table-v1.webp", "alt": "Мастерим вместе"}, "width": 810, "height": 1440},
+  {"id": "creative-table", "title": "Делаем поделки", "description": "Вырезаем и раскрашиваем за общим столом.", "image": {"id": "real-creative-table-v1.webp", "src": "/images/el-bebe/real-creative-table-v1.webp", "alt": "Делаем поделки"}, "width": 810, "height": 1440},
   {"id": "blocks", "title": "Строим и придумываем", "description": "Первые постройки из цветных деталей.", "image": {"id": "real-blocks-v1.webp", "src": "/images/el-bebe/real-blocks-v1.webp", "alt": "Строим и придумываем"}, "width": 841, "height": 1280},
-  {"id": "drawing", "title": "Рисунок начинается с идеи", "description": "Пробуем цвета и рисуем карандашами.", "image": {"id": "real-drawing-v1.webp", "src": "/images/el-bebe/real-drawing-v1.webp", "alt": "Рисунок начинается с идеи"}, "width": 810, "height": 1440},
-  {"id": "pencils", "title": "Готовы творить", "description": "У каждого рисунка — своё настроение.", "image": {"id": "real-pencils-v1.webp", "src": "/images/el-bebe/real-pencils-v1.webp", "alt": "Готовы творить"}, "width": 720, "height": 1280},
-  {"id": "chess-boy", "title": "Думаем на ход вперёд", "description": "Знакомимся с фигурами и пробуем играть.", "image": {"id": "real-chess-boy-v1.webp", "src": "/images/el-bebe/real-chess-boy-v1.webp", "alt": "Думаем на ход вперёд"}, "width": 960, "height": 1280},
-  {"id": "speech", "title": "Буквы и картинки", "description": "Выполняем задания и обсуждаем находки.", "image": {"id": "real-speech-v1.webp", "src": "/images/el-bebe/real-speech-v1.webp", "alt": "Буквы и картинки"}, "width": 720, "height": 1280},
+  {"id": "drawing", "title": "Рисуем карандашами", "description": "Каждый выбирает, что нарисовать.", "image": {"id": "real-drawing-v1.webp", "src": "/images/el-bebe/real-drawing-v1.webp", "alt": "Рисуем карандашами"}, "width": 810, "height": 1440},
+  {"id": "pencils", "title": "Рисунок готов", "description": "Показываем рисунок, а карандаши пока не убираем.", "image": {"id": "real-pencils-v1.webp", "src": "/images/el-bebe/real-pencils-v1.webp", "alt": "Рисунок готов"}, "width": 720, "height": 1280},
+  {"id": "chess-boy", "title": "Занятие по шахматам", "description": "Расставляем фигуры и пробуем делать ходы.", "image": {"id": "real-chess-boy-v1.webp", "src": "/images/el-bebe/real-chess-boy-v1.webp", "alt": "Занятие по шахматам"}, "width": 960, "height": 1280},
+  {"id": "speech", "title": "Буквы и картинки", "description": "Выполняем задания в тетради.", "image": {"id": "real-speech-v1.webp", "src": "/images/el-bebe/real-speech-v1.webp", "alt": "Буквы и картинки"}, "width": 720, "height": 1280},
   {"id": "letters", "title": "Знакомимся с буквами", "description": "Первые задания в прописях.", "image": {"id": "real-letters-v1.webp", "src": "/images/el-bebe/real-letters-v1.webp", "alt": "Знакомимся с буквами"}, "width": 960, "height": 1280},
-  {"id": "painting", "title": "Вот что получилось!", "description": "Показываем рисунки и радуемся результату.", "image": {"id": "real-painting-v1.webp", "src": "/images/el-bebe/real-painting-v1.webp", "alt": "Вот что получилось!"}, "width": 779, "height": 1440},
+  {"id": "painting", "title": "Вот что получилось!", "description": "Девочка показывает свой рисунок красками.", "image": {"id": "real-painting-v1.webp", "src": "/images/el-bebe/real-painting-v1.webp", "alt": "Вот что получилось!"}, "width": 779, "height": 1440},
   {"id": "butterfly", "title": "Бабочка своими руками", "description": "Бумага превращается в большую бабочку.", "image": {"id": "real-butterfly-v1.webp", "src": "/images/el-bebe/real-butterfly-v1.webp", "alt": "Бабочка своими руками"}, "width": 720, "height": 1280},
-  {"id": "learning-together", "title": "За общим столом", "description": "У каждого своё задание, а открывать новое веселее вместе.", "image": {"id": "real-learning-together-v1.webp", "src": "/images/el-bebe/real-learning-together-v1.webp", "alt": "За общим столом"}, "width": 809, "height": 1024},
-  {"id": "construction", "title": "Большая стройка", "description": "Придумываем и собираем из конструктора.", "image": {"id": "real-construction-v1.webp", "src": "/images/el-bebe/real-construction-v1.webp", "alt": "Большая стройка"}, "width": 720, "height": 1280},
-  {"id": "playground-friends", "title": "Хорошо быть вместе", "description": "Друзья, улыбки и прогулка.", "image": {"id": "real-playground-friends-v1.webp", "src": "/images/el-bebe/real-playground-friends-v1.webp", "alt": "Хорошо быть вместе"}, "width": 1280, "height": 960},
-  {"id": "outdoor-play", "title": "Радость прогулки", "description": "Играем на свежем воздухе.", "image": {"id": "real-outdoor-play-v1.webp", "src": "/images/el-bebe/real-outdoor-play-v1.webp", "alt": "Радость прогулки"}, "width": 720, "height": 1280},
-  {"id": "rope-bridge", "title": "Маленькое приключение", "description": "Пробуем пройти по верёвочному мосту.", "image": {"id": "real-rope-bridge-v1.webp", "src": "/images/el-bebe/real-rope-bridge-v1.webp", "alt": "Маленькое приключение"}, "width": 720, "height": 1280},
-  {"id": "climbing", "title": "Выше и смелее", "description": "На прогулке всегда найдётся место для движения.", "image": {"id": "real-climbing-v1.webp", "src": "/images/el-bebe/real-climbing-v1.webp", "alt": "Выше и смелее"}, "width": 960, "height": 1280},
-  {"id": "magnolia", "title": "Замечаем прекрасное", "description": "Знакомимся с цветами и рассматриваем природу.", "image": {"id": "real-magnolia-v1.webp", "src": "/images/el-bebe/real-magnolia-v1.webp", "alt": "Замечаем прекрасное"}, "width": 810, "height": 1440},
-  {"id": "friends", "title": "Дружба начинается здесь", "description": "Объятия и смех без повода.", "image": {"id": "real-friends-v1.webp", "src": "/images/el-bebe/real-friends-v1.webp", "alt": "Дружба начинается здесь"}, "width": 960, "height": 1280},
+  {"id": "learning-together", "title": "Занимаемся за одним столом", "description": "Каждый выполняет своё задание в тетради.", "image": {"id": "real-learning-together-v1.webp", "src": "/images/el-bebe/real-learning-together-v1.webp", "alt": "Занимаемся за одним столом"}, "width": 809, "height": 1024},
+  {"id": "construction", "title": "Собираем конструктор", "description": "На столе много деталей для наших построек.", "image": {"id": "real-construction-v1.webp", "src": "/images/el-bebe/real-construction-v1.webp", "alt": "Собираем конструктор"}, "width": 720, "height": 1280},
+  {"id": "playground-friends", "title": "Вместе на площадке", "description": "Собрались для общей фотографии на прогулке.", "image": {"id": "real-playground-friends-v1.webp", "src": "/images/el-bebe/real-playground-friends-v1.webp", "alt": "Вместе на площадке"}, "width": 1280, "height": 960},
+  {"id": "outdoor-play", "title": "На прогулке", "description": "Улыбка для фотографа.", "image": {"id": "real-outdoor-play-v1.webp", "src": "/images/el-bebe/real-outdoor-play-v1.webp", "alt": "На прогулке"}, "width": 720, "height": 1280},
+  {"id": "rope-bridge", "title": "На верёвочном мостике", "description": "Пробуем пройти по мосту.", "image": {"id": "real-rope-bridge-v1.webp", "src": "/images/el-bebe/real-rope-bridge-v1.webp", "alt": "На верёвочном мостике"}, "width": 720, "height": 1280},
+  {"id": "climbing", "title": "На игровой площадке", "description": "Забрались на деревянную перекладину.", "image": {"id": "real-climbing-v1.webp", "src": "/images/el-bebe/real-climbing-v1.webp", "alt": "На игровой площадке"}, "width": 960, "height": 1280},
+  {"id": "magnolia", "title": "Магнолия цветёт", "description": "Рассматриваем большие белые цветы.", "image": {"id": "real-magnolia-v1.webp", "src": "/images/el-bebe/real-magnolia-v1.webp", "alt": "Магнолия цветёт"}, "width": 810, "height": 1440},
+  {"id": "friends", "title": "Обнимаемся!", "description": "Объятия и смех на прогулке.", "image": {"id": "real-friends-v1.webp", "src": "/images/el-bebe/real-friends-v1.webp", "alt": "Обнимаемся!"}, "width": 960, "height": 1280},
   {"id": "chess-girl", "title": "Сосредоточились", "description": "Рассматриваем шахматную позицию.", "image": {"id": "real-chess-girl-v1.webp", "src": "/images/el-bebe/real-chess-girl-v1.webp", "alt": "Сосредоточились"}, "width": 720, "height": 1280},
-  {"id": "chess-smile", "title": "Игра с настроением", "description": "Шахматы — повод и подумать, и улыбнуться.", "image": {"id": "real-chess-smile-v1.webp", "src": "/images/el-bebe/real-chess-smile-v1.webp", "alt": "Игра с настроением"}, "width": 768, "height": 1024},
-  {"id": "speech-coral", "title": "Пробуем новое", "description": "Работаем с картинками и буквами.", "image": {"id": "real-speech-coral-v1.webp", "src": "/images/el-bebe/real-speech-coral-v1.webp", "alt": "Пробуем новое"}, "width": 720, "height": 1280},
+  {"id": "chess-smile", "title": "Перед партией", "description": "Фигуры расставлены. Можно начинать!", "image": {"id": "real-chess-smile-v1.webp", "src": "/images/el-bebe/real-chess-smile-v1.webp", "alt": "Перед партией"}, "width": 768, "height": 1024},
+  {"id": "speech-coral", "title": "Задание с картинками", "description": "Ищем пары и соединяем их карандашом.", "image": {"id": "real-speech-coral-v1.webp", "src": "/images/el-bebe/real-speech-coral-v1.webp", "alt": "Задание с картинками"}, "width": 720, "height": 1280},
   {"id": "graduation", "title": "Маленькие выпускники", "description": "Примеряем выпускную шапочку.", "image": {"id": "real-graduation-v1.webp", "src": "/images/el-bebe/real-graduation-v1.webp", "alt": "Маленькие выпускники"}, "width": 720, "height": 1280},
-  {"id": "celebration", "title": "Праздничные встречи", "description": "Нарядные костюмы и любимые герои.", "image": {"id": "real-celebration-v1.webp", "src": "/images/el-bebe/real-celebration-v1.webp", "alt": "Праздничные встречи"}, "width": 960, "height": 1280},
-  {"id": "autumn-boy", "title": "Букет осенних красок", "description": "Листья, которые хочется показать друзьям.", "image": {"id": "real-autumn-boy-v1.webp", "src": "/images/el-bebe/real-autumn-boy-v1.webp", "alt": "Букет осенних красок"}, "width": 960, "height": 1280},
-  {"id": "boy-white", "title": "Маленькое знакомство", "description": "Улыбки из жизни нашей группы.", "image": {"id": "real-boy-white-v1.webp", "src": "/images/el-bebe/real-boy-white-v1.webp", "alt": "Улыбающийся мальчик в белой футболке"}, "width": 960, "height": 1280},
-  {"id": "boy-polo", "title": "Рады встрече", "description": "Каждый день начинается со знакомства.", "image": {"id": "real-boy-polo-v1.webp", "src": "/images/el-bebe/real-boy-polo-v1.webp", "alt": "Мальчик в светлом поло"}, "width": 810, "height": 1440},
+  {"id": "celebration", "title": "Встреча с аниматором", "description": "Общая фотография на празднике.", "image": {"id": "real-celebration-v1.webp", "src": "/images/el-bebe/real-celebration-v1.webp", "alt": "Встреча с аниматором"}, "width": 960, "height": 1280},
+  {"id": "autumn-boy", "title": "Букеты из осенних листьев", "description": "Набрали красных и жёлтых листьев на прогулке.", "image": {"id": "real-autumn-boy-v1.webp", "src": "/images/el-bebe/real-autumn-boy-v1.webp", "alt": "Букеты из осенних листьев"}, "width": 960, "height": 1280},
+  {"id": "boy-white", "title": "Улыбка для фотографии", "description": "", "image": {"id": "real-boy-white-v1.webp", "src": "/images/el-bebe/real-boy-white-v1.webp", "alt": "Улыбающийся мальчик в белой футболке"}, "width": 960, "height": 1280},
+  {"id": "boy-polo", "title": "Портрет в садике", "description": "", "image": {"id": "real-boy-polo-v1.webp", "src": "/images/el-bebe/real-boy-polo-v1.webp", "alt": "Мальчик в светлом поло"}, "width": 810, "height": 1440},
 ];
 
 export const parentQuestions = [
   {
     "id": "price",
     "question": "Сколько стоит посещение и что входит в стоимость?",
-    "answer": "Стоимость зависит от режима: полный день, утро, вечер, почасовое, разовое или ночное посещение. Есть отдельный вариант для выходного дня. Все цены и часы опубликованы на странице стоимости. Питание и все занятия по программе группы включены в стоимость посещения. Вступительный взнос указан отдельно в прайсе. Перед зачислением согласуем режим, свободные места и условия договора."
+    "answer": "Цены и часы для всех режимов есть в разделе «Стоимость»: полный день, утро, вечер, несколько часов, разовое посещение, выходной день или ночь. Питание и все занятия по программе группы включены в стоимость. Вступительный взнос оплачивается отдельно. Перед зачислением уточним свободные места и условия договора."
   },
   {
     "id": "lessons",
@@ -67,22 +67,22 @@ export const parentQuestions = [
   {
     "id": "cameras",
     "question": "Можно ли смотреть видеонаблюдение онлайн?",
-    "answer": "Да, в детском саду Эльбэби есть видеонаблюдение онлайн для родителей. Можно увидеть, как ребёнок играет, занимается и общается в группе. На знакомстве расскажем, как получить доступ к трансляции и пользоваться ею. Вопросы о подключении и условиях доступа можно обсудить до начала посещений."
+    "answer": "Да, в саду есть видеонаблюдение онлайн для родителей. Можно посмотреть, как ребёнок играет и занимается в группе. Как подключиться к трансляции и пользоваться ею, расскажем на встрече."
   },
   {
     "id": "hours",
     "question": "Сад работает круглосуточно?",
-    "answer": "Режим работы указан в контактах сада. Кроме полного и неполного дня, в прайсе есть посещение в выходной день и ночное пребывание. Полный день рассчитан на 8:00–19:00, ночь — на 19:00–09:00. Если нужен другой график, расскажите о нём при обращении: согласуем время, наличие мест и подходящий режим."
+    "answer": "Да, работаем 24/7. Полный день — с 8:00 до 19:00, ночное пребывание — с 19:00 до 09:00. Есть утреннее, вечернее, почасовое и разовое посещение, а также посещение в выходные. Даты, время и наличие мест согласуем при записи."
   },
   {
     "id": "food",
     "question": "Как организовано питание и нужно ли за него доплачивать?",
-    "answer": "Питание включено в стоимость посещения. На полном дне — четыре приёма пищи: завтрак, обед, полдник и ужин. При неполном дне питание соответствует времени пребывания в саду. Перед началом покажем актуальное меню; об аллергии и пищевых ограничениях важно рассказать заранее, чтобы обсудить питание ребёнка с садом."
+    "answer": "Доплачивать за питание не нужно. На полном дне дети завтракают, обедают, полдничают и ужинают. При неполном дне питание зависит от часов посещения. Перед началом покажем меню. Если у ребёнка есть аллергия или ограничения в питании, расскажите об этом заранее."
   },
   {
     "id": "adaptation",
     "question": "Как проходят первые дни и адаптация к детскому саду?",
-    "answer": "Начинаем со знакомства с садом и воспитателем. Обсуждаем привычки ребёнка, его распорядок, любимые занятия и опыт общения с другими детьми. Порядок первых посещений согласуем с родителями, наблюдаем за самочувствием и обмениваемся новостями. Универсальный срок адаптации не обещаем: ребёнку может понадобиться разное время, чтобы освоиться."
+    "answer": "Сначала знакомимся с ребёнком и обсуждаем с вами его привычки: как он ест, засыпает и общается с другими детьми. Договариваемся о первых посещениях и рассказываем, как он себя чувствует в группе. На привыкание к саду каждому ребёнку нужно своё время."
   },
   {
     "id": "capital",
@@ -92,11 +92,11 @@ export const parentQuestions = [
   {
     "id": "visit",
     "question": "Можно ли сначала прийти на экскурсию?",
-    "answer": "Да. На знакомстве покажем детский сад на Виноградной, 2/3 в Сочи, познакомимся с воспитателями и обсудим подходящую группу. Можно спросить о занятиях, питании, онлайн-камерах и режиме посещения. Оставьте контакт — договоримся о времени встречи, чтобы спокойно ответить на ваши вопросы."
+    "answer": "Да. Покажем, где дети играют, занимаются и отдыхают, познакомим с воспитателями. Можно спросить о питании, занятиях, камерах и режиме посещения. Оставьте имя и телефон — договоримся о времени встречи."
   },
   {
     "id": "age",
     "question": "Как выбрать подходящую группу по возрасту?",
-    "answer": "В Эльбэби есть младшая, средняя и старшая группы с разными программами занятий. Расскажите о возрасте ребёнка, его интересах и опыте посещения детского сада. При знакомстве обсудим подходящую группу, условия приёма и свободные места. Возрастные границы и начало посещений согласуем лично."
+    "answer": "Скажите, сколько лет ребёнку и ходил ли он раньше в сад. Мы подскажем, какая из трёх групп ему подойдёт и есть ли в ней места. На встрече можно обсудить программу и познакомиться с воспитателем."
   }
 ];

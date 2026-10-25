@@ -12,9 +12,9 @@ const nightRates=modes.filter(rate=>night(rate.title));
 const otherRates=modes.filter(rate=>!regular(rate.title)&&!night(rate.title));
 ---
 <section class="visit-modes container content-section" id="rezhimy" aria-labelledby="modes-title">
-  <header class="modes-heading"><h2 id="modes-title">Сад под ваш ритм</h2><p>{hours}: встречаем утром, проводим день вместе и остаёмся рядом, когда нужна ночёвка.</p></header>
+  <header class="modes-heading"><h2 id="modes-title">Когда можно приходить в сад</h2><p>{hours}. Можно выбрать полный день, утро, вечер или посещение с ночёвкой.</p></header>
   <div class="modes-scene">
-    <div class="modes-day"><header><IllustratedIcon name="sun" size={72}/><div><h3>Днём — столько интересного</h3><p>Выберите удобную часть дня</p></div></header><dl>{dayRates.map(rate=><div><dt>{rate.title.replace(' · ', ': ')}</dt><dd>{rate.hours}</dd></div>)}</dl><div class="daylight-line" aria-hidden="true"><span>8:00</span><svg viewBox="0 0 300 60"><path d="M5 50C65-10 235-10 295 50" fill="none" stroke="#efbf46" stroke-width="2" stroke-dasharray="5 6"/><circle cx="150" cy="5" r="5" fill="#efbf46"/></svg><span>19:00</span></div></div>
+    <div class="modes-day"><header><IllustratedIcon name="sun" size={72}/><div><h3>Полный или неполный день</h3><p>Выберите удобную часть дня</p></div></header><dl>{dayRates.map(rate=><div><dt>{rate.title.replace(' · ', ': ')}</dt><dd>{rate.hours}</dd></div>)}</dl><div class="daylight-line" aria-hidden="true"><span>8:00</span><svg viewBox="0 0 300 60"><path d="M5 50C65-10 235-10 295 50" fill="none" stroke="#efbf46" stroke-width="2" stroke-dasharray="5 6"/><circle cx="150" cy="5" r="5" fill="#efbf46"/></svg><span>19:00</span></div></div>
     <div class="modes-night"><header><IllustratedIcon name="moon" size={48}/><h3>Можно с ночёвкой</h3></header><dl>{nightRates.map(rate=><div><dt>{rate.title}</dt><dd>{rate.hours}</dd></div>)}</dl><p>Даты и условия<br/>согласуем при записи.</p><img src="/images/el-bebe/bunny-sleep.webp" width="481" height="640" alt="Заяц в очках обнимает подушку" loading="lazy"/></div>
   </div>
   <dl class="modes-extra">{otherRates.map((rate,i)=><div><dt><IllustratedIcon name={['clock','sun','calendar'][i]||'clock'} size={44}/>{rate.title}</dt><dd>{rate.hours||'Время согласуем при записи'}</dd></div>)}</dl>

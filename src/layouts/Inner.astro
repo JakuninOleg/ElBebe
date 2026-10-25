@@ -9,7 +9,7 @@ const { title, heading, description, label, intro = description, callout = true,
 const { settings } = await getSiteContent();
 const quiet = ['/svedeniya/', '/privacy/', '/soglasie/', '/dokumenty/', '/cookies/'].includes(Astro.url.pathname);
 const pageArt: Record<string, string> = { '/stoimost/': 'apple', '/den-v-sadu/': 'sun', '/komanda/': 'people', '/prostranstvo/': 'home', '/roditelyam/': 'chat', '/kontakty/': 'pin', '/svedeniya/': 'document', '/privacy/': 'shield', '/soglasie/': 'document' };
-const pageNotes: Record<string, string> = { '/den-v-sadu/': 'У каждого дня — свой ритм', '/komanda/': 'Рядом каждый день', '/prostranstvo/': 'Место для открытий', '/roditelyam/': 'Чтобы вам было спокойнее', '/kontakty/': 'Заглядывайте в гости!', '/svedeniya/': '', '/privacy/': '', '/soglasie/': '' };
+const pageNotes: Record<string, string> = { '/den-v-sadu/': 'От утра до вечера', '/komanda/': 'Рядом каждый день', '/prostranstvo/': 'Место для открытий', '/roditelyam/': 'Чтобы вам было спокойнее', '/kontakty/': 'Заглядывайте в гости!', '/svedeniya/': '', '/privacy/': '', '/soglasie/': '' };
 ---
 <Layout title={title} description={description} contacts={settings}>
   <slot name="head" slot="head"/>

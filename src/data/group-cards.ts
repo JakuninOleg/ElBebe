@@ -1,7 +1,7 @@
 export const groupCards = [
   {
     id: 'younger', title: 'Младшая группа', accent: 'pink', image: 'real-group-younger-v1',
-    summary: 'Речь, сенсорика и первые открытия',
+    summary: 'Речь, сенсорика и игры с кубиками',
     lessons: [
       { icon: 'lesson-speech', label: 'Логопед и развитие речи' },
       { icon: 'lesson-sensory', label: 'Сенсорика и Монтессори' },
@@ -13,7 +13,7 @@ export const groupCards = [
   },
   {
     id: 'middle', title: 'Средняя группа', accent: 'blue', image: 'real-group-middle-v1',
-    summary: 'Языки, общение и творчество',
+    summary: 'Азбука, английский и творчество',
     lessons: [
       { icon: 'lesson-english', label: 'Английский язык' },
       { icon: 'lesson-speech', label: 'Логопед и развитие речи' },
@@ -25,7 +25,7 @@ export const groupCards = [
   },
   {
     id: 'older', title: 'Старшая группа', accent: 'green', image: 'real-group-older-v1',
-    summary: 'Подготовка к школе и новые интересы',
+    summary: 'Подготовка к школе и робототехника',
     lessons: [
       { icon: 'book', label: 'Подготовка к школе' },
       { icon: 'lesson-english', label: 'Английский язык' },

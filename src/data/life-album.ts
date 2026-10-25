@@ -12,23 +12,23 @@ export interface LifePhotoItem {
 const chapters = [
   {
     id: 'otkrytiya', theme: 'learning', icon: 'palette', label: 'Занятия и творчество',
-    title: 'А что, если попробовать?',
-    text: 'Рисовать, считать, строить и думать над следующим ходом. У каждого — своё маленькое открытие.',
+    title: 'Что получилось сегодня',
+    text: 'На занятиях рисуем, делаем поделки, собираем конструктор и учимся играть в шахматы.',
     note: '«Смотри, я сам!»', more: 'Ещё с наших занятий', visible: 3,
     photos: ['pencils', 'chess-boy', 'painting', 'speech', 'letters', 'drawing', 'butterfly', 'blocks', 'creative-table', 'learning-together', 'construction', 'chess-girl', 'chess-smile', 'speech-coral'],
   },
   {
     id: 'druzya', theme: 'outdoors', icon: 'tree', label: 'Прогулки и друзья',
     title: 'Вместе интереснее',
-    text: 'Собирать осенние листья, замечать цветы и обниматься просто так. Хорошо, когда рядом друзья.',
-    note: 'Маленькие приключения каждый день', more: 'Ещё с наших прогулок', visible: 2,
+    text: 'Собираем листья, рассматриваем цветы, играем на площадке. Фотографии с наших прогулок по Сочи.',
+    note: 'Пойдём гулять!', more: 'Ещё с наших прогулок', visible: 2,
     photos: ['autumn-circle', 'friends', 'fountain', 'outdoor-play', 'rope-bridge', 'climbing', 'magnolia', 'autumn-boy', 'boy-white', 'boy-polo'],
   },
   {
     id: 'prazdniki', theme: 'celebration', icon: 'sun', label: 'Наши праздники',
-    title: 'Поводы для радости',
-    text: 'Любимые герои, праздничные костюмы и открытки своими руками. Такие моменты хочется сохранить.',
-    note: 'И целое море улыбок!', more: 'Ещё праздничные моменты', visible: 3,
+    title: 'Празднуем в саду',
+    text: 'Костюмы на Масленицу, открытки к 9 Мая и встречи с аниматорами.',
+    note: 'С праздником!', more: 'Ещё праздничные моменты', visible: 3,
     photos: ['maslenitsa', 'victory-craft', 'celebration', 'confetti', 'graduation'],
   },
 ];

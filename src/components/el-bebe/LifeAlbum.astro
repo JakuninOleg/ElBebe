@@ -13,7 +13,7 @@ const { opening, sections } = buildLifeAlbum(items);
   <section class="life-opening container" aria-label="Моменты из жизни Эльбэби">
     <Decor kind="wash" color="#e4f1e4" class="life-opening-wash"/>
     <div class="life-opening-photos">{opening.map((photo, index) => <LifePhoto photo={photo} eager={index === 0}/>)}</div>
-    <span class="hand-note life-opening-note">Вот из чего<br/>складывается детство</span>
+    <span class="hand-note life-opening-note">Это мы<br/>в Эльбэби!</span>
     <Decor kind="heart" color="#ffb8be" class="life-opening-heart"/>
     <Sprig class="life-opening-sprig"/>
   </section>
