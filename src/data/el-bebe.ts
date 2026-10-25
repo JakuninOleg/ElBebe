@@ -19,7 +19,7 @@ export const approaches = [
   { title: 'Забота каждый день', text: 'Замечаем настроение, помогаем и остаёмся рядом.', image: 'real-friends-v1', color: 'blue' },
 ];
 export const previewSpaces = [
-  {"id": "heart", "title": "С красным сердечком", "description": "Фотографируемся с воздушным шаром в форме сердца.", "image": {"id": "real-heart-v1.webp", "src": "/images/el-bebe/real-heart-v1.webp", "alt": "Девочка с красным воздушным шаром в форме сердца"}, "width": 720, "height": 1280},
+  {"id": "heart", "title": "День святого Валентина", "description": "", "image": {"id": "real-heart-v1.webp", "src": "/images/el-bebe/real-heart-v1.webp", "alt": "Девочка с красным воздушным шаром в форме сердца"}, "width": 720, "height": 1280},
   {"id": "victory-craft", "title": "Открытка к 9 Мая", "description": "Показываем открытку с гвоздиками, которую сделали сами.", "image": {"id": "real-victory-craft-v1.webp", "src": "/images/el-bebe/real-victory-craft-v1.webp", "alt": "Девочка показывает открытку к 9 Мая"}, "width": 960, "height": 1280},
   {"id": "maslenitsa", "title": "Масленица в саду", "description": "Кокошник, блины и самовар на нашем празднике.", "image": {"id": "real-maslenitsa-v1.webp", "src": "/images/el-bebe/real-maslenitsa-v1.webp", "alt": "Масленица в саду"}, "width": 720, "height": 1280},
   {"id": "abacus", "title": "Считаем с интересом", "description": "Занятие со счётами и тетрадью.", "image": {"id": "real-abacus-v1.webp", "src": "/images/el-bebe/real-abacus-v1.webp", "alt": "Считаем с интересом"}, "width": 720, "height": 1280},

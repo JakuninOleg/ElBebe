@@ -109,8 +109,8 @@
   "spaces": [
     {
       "id": "heart",
-      "title": "С красным сердечком",
-      "description": "Фотографируемся с воздушным шаром в форме сердца.",
+      "title": "День святого Валентина",
+      "description": "",
       "image": {
         "id": "real-heart-v1.webp",
         "src": "/images/el-bebe/real-heart-v1.webp",

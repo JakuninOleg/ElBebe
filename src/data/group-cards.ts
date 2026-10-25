@@ -1,7 +1,7 @@
 export const groupCards = [
   {
     id: 'younger', title: 'Младшая группа', accent: 'pink', image: 'real-group-younger-v1',
-    summary: 'Речь, сенсорика и игры с кубиками',
+    summary: 'Речь, сенсорика и игры',
     lessons: [
       { icon: 'lesson-speech', label: 'Логопед и развитие речи' },
       { icon: 'lesson-sensory', label: 'Сенсорика и Монтессори' },
