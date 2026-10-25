@@ -17,7 +17,7 @@ const ornaments = ['heart', 'crown', 'flower', 'music'];
     <div class="educators-title"><Icon name="people" size={34}/><h2 id="team-title">{heading}</h2></div>
     {Astro.url.pathname !== '/komanda/' && <a href="/komanda/" class="text-link">Знакомство с командой <Icon name="arrow" size={19}/></a>}
   </header>
-  <p class="educators-intro">С воспитателями можно познакомиться до зачисления. Расскажите, что ребёнок любит делать и как привык проводить день.</p>
+  <p class="educators-intro">Приходите познакомиться с воспитателями ещё до первого дня в саду. Расскажите о ребёнке и спросите обо всём, что вас волнует.</p>
     <div class="educators-grid">
       {(Astro.url.pathname === '/komanda/' ? people : people.slice(0,4)).map((person, i) => <article class={`educator educator--${accents[i % accents.length]}`} data-preview-educator={isPreview || undefined}>
         <div class="educator-portrait">

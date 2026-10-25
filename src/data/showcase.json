@@ -241,7 +241,7 @@
     },
     {
       "id": "chess-boy",
-      "title": "Занятие по шахматам",
+      "title": "Думаем над ходом",
       "description": "Расставляем фигуры и пробуем делать ходы.",
       "image": {
         "id": "real-chess-boy-v1.webp",
@@ -278,7 +278,7 @@
     {
       "id": "painting",
       "title": "Вот что получилось!",
-      "description": "Девочка показывает свой рисунок красками.",
+      "description": "Рисовали красками, а теперь показываем свою работу.",
       "image": {
         "id": "real-painting-v1.webp",
         "src": "/images/el-bebe/real-painting-v1.webp",
@@ -301,8 +301,8 @@
     },
     {
       "id": "learning-together",
-      "title": "Занимаемся за одним столом",
-      "description": "Каждый выполняет своё задание в тетради.",
+      "title": "За общим столом",
+      "description": "Сидим за одним столом, а задания у каждого свои.",
       "image": {
         "id": "real-learning-together-v1.webp",
         "src": "/images/el-bebe/real-learning-together-v1.webp",
@@ -314,7 +314,7 @@
     {
       "id": "construction",
       "title": "Собираем конструктор",
-      "description": "На столе много деталей для наших построек.",
+      "description": "За одним столом собралась целая компания строителей.",
       "image": {
         "id": "real-construction-v1.webp",
         "src": "/images/el-bebe/real-construction-v1.webp",
@@ -481,7 +481,7 @@
     },
     {
       "id": "boy-polo",
-      "title": "Портрет в садике",
+      "title": "Улыбку — в кадр!",
       "description": "",
       "image": {
         "id": "real-boy-polo-v1.webp",

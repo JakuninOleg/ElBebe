@@ -20,14 +20,14 @@ const chapters = [
   {
     id: 'druzya', theme: 'outdoors', icon: 'tree', label: 'Прогулки и друзья',
     title: 'Вместе интереснее',
-    text: 'Собираем листья, рассматриваем цветы, играем на площадке. Фотографии с наших прогулок по Сочи.',
+    text: 'Собираем листья, рассматриваем цветы и гуляем по Сочи. А ещё играем на площадке и обнимаемся с друзьями.',
     note: 'Пойдём гулять!', more: 'Ещё с наших прогулок', visible: 2,
     photos: ['autumn-circle', 'friends', 'fountain', 'outdoor-play', 'rope-bridge', 'climbing', 'magnolia', 'autumn-boy', 'boy-white', 'boy-polo'],
   },
   {
     id: 'prazdniki', theme: 'celebration', icon: 'sun', label: 'Наши праздники',
     title: 'Празднуем в саду',
-    text: 'Костюмы на Масленицу, открытки к 9 Мая и встречи с аниматорами.',
+    text: 'Наряжаемся на Масленицу, делаем открытки к 9 Мая и встречаем гостей на праздниках.',
     note: 'С праздником!', more: 'Ещё праздничные моменты', visible: 3,
     photos: ['maslenitsa', 'victory-craft', 'celebration', 'confetti', 'graduation'],
   },

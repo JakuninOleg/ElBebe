@@ -18,7 +18,7 @@ const firstPhotoSrc = typeof firstPhoto === 'string' ? firstPhoto : firstPhoto?.
 const firstPhotoAvif = firstPhotoSrc ? responsiveAvif(firstPhotoSrc, '(max-width: 760px) calc(100vw - 40px), 50vw') : {};
 const firstPhotoResponsive = firstPhotoAvif.srcset ? firstPhotoAvif : firstPhotoSrc ? responsiveImage(firstPhotoSrc) : {};
 ---
-<Inner title="Фотографии жизни детского сада Эльбэби в Сочи" heading="Жизнь в Эльбэби" label="Фотографии" description="Фотографии детей, занятий, прогулок и праздников в Эльбэби. Моменты из жизни детского сада в Сочи." intro="Посмотрите, чем дети занимаются в Эльбэби: рисунки и поделки, прогулки с друзьями и праздники в саду." art="camera" note="Наш маленький фотоальбом" pageClass="life-page">
+<Inner title="Фотографии жизни детского сада Эльбэби в Сочи" heading="Жизнь в Эльбэби" label="Фотографии" description="Фотографии детей, занятий, прогулок и праздников в Эльбэби. Моменты из жизни детского сада в Сочи." intro="Собрали для вас фотографии с занятий, прогулок и праздников. Посмотрите, что ребята мастерят, во что играют и как проводят время вместе." art="camera" note="Наш маленький фотоальбом" pageClass="life-page">
   {firstPhotoSrc && <link slot="head" rel="preload" as="image" type={firstPhotoAvif.srcset ? 'image/avif' : undefined} href={firstPhotoSrc} imagesrcset={firstPhotoResponsive.srcset} imagesizes={firstPhotoResponsive.sizes} fetchpriority="high"/>}
   <LifeAlbum items={items}/>
   <section class="container content-section group-detail-faq"><h2>Перед визитом в сад</h2><Faq items={questions}/></section>

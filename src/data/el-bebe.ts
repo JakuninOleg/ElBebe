@@ -30,13 +30,13 @@ export const previewSpaces = [
   {"id": "blocks", "title": "Строим и придумываем", "description": "Первые постройки из цветных деталей.", "image": {"id": "real-blocks-v1.webp", "src": "/images/el-bebe/real-blocks-v1.webp", "alt": "Строим и придумываем"}, "width": 841, "height": 1280},
   {"id": "drawing", "title": "Рисуем карандашами", "description": "Каждый выбирает, что нарисовать.", "image": {"id": "real-drawing-v1.webp", "src": "/images/el-bebe/real-drawing-v1.webp", "alt": "Рисуем карандашами"}, "width": 810, "height": 1440},
   {"id": "pencils", "title": "Рисунок готов", "description": "Показываем рисунок, а карандаши пока не убираем.", "image": {"id": "real-pencils-v1.webp", "src": "/images/el-bebe/real-pencils-v1.webp", "alt": "Рисунок готов"}, "width": 720, "height": 1280},
-  {"id": "chess-boy", "title": "Занятие по шахматам", "description": "Расставляем фигуры и пробуем делать ходы.", "image": {"id": "real-chess-boy-v1.webp", "src": "/images/el-bebe/real-chess-boy-v1.webp", "alt": "Занятие по шахматам"}, "width": 960, "height": 1280},
+  {"id": "chess-boy", "title": "Думаем над ходом", "description": "Расставляем фигуры и пробуем делать ходы.", "image": {"id": "real-chess-boy-v1.webp", "src": "/images/el-bebe/real-chess-boy-v1.webp", "alt": "Занятие по шахматам"}, "width": 960, "height": 1280},
   {"id": "speech", "title": "Буквы и картинки", "description": "Выполняем задания в тетради.", "image": {"id": "real-speech-v1.webp", "src": "/images/el-bebe/real-speech-v1.webp", "alt": "Буквы и картинки"}, "width": 720, "height": 1280},
   {"id": "letters", "title": "Знакомимся с буквами", "description": "Первые задания в прописях.", "image": {"id": "real-letters-v1.webp", "src": "/images/el-bebe/real-letters-v1.webp", "alt": "Знакомимся с буквами"}, "width": 960, "height": 1280},
-  {"id": "painting", "title": "Вот что получилось!", "description": "Девочка показывает свой рисунок красками.", "image": {"id": "real-painting-v1.webp", "src": "/images/el-bebe/real-painting-v1.webp", "alt": "Вот что получилось!"}, "width": 779, "height": 1440},
+  {"id": "painting", "title": "Вот что получилось!", "description": "Рисовали красками, а теперь показываем свою работу.", "image": {"id": "real-painting-v1.webp", "src": "/images/el-bebe/real-painting-v1.webp", "alt": "Вот что получилось!"}, "width": 779, "height": 1440},
   {"id": "butterfly", "title": "Бабочка своими руками", "description": "Бумага превращается в большую бабочку.", "image": {"id": "real-butterfly-v1.webp", "src": "/images/el-bebe/real-butterfly-v1.webp", "alt": "Бабочка своими руками"}, "width": 720, "height": 1280},
-  {"id": "learning-together", "title": "Занимаемся за одним столом", "description": "Каждый выполняет своё задание в тетради.", "image": {"id": "real-learning-together-v1.webp", "src": "/images/el-bebe/real-learning-together-v1.webp", "alt": "Занимаемся за одним столом"}, "width": 809, "height": 1024},
-  {"id": "construction", "title": "Собираем конструктор", "description": "На столе много деталей для наших построек.", "image": {"id": "real-construction-v1.webp", "src": "/images/el-bebe/real-construction-v1.webp", "alt": "Собираем конструктор"}, "width": 720, "height": 1280},
+  {"id": "learning-together", "title": "За общим столом", "description": "Сидим за одним столом, а задания у каждого свои.", "image": {"id": "real-learning-together-v1.webp", "src": "/images/el-bebe/real-learning-together-v1.webp", "alt": "Занимаемся за одним столом"}, "width": 809, "height": 1024},
+  {"id": "construction", "title": "Собираем конструктор", "description": "За одним столом собралась целая компания строителей.", "image": {"id": "real-construction-v1.webp", "src": "/images/el-bebe/real-construction-v1.webp", "alt": "Собираем конструктор"}, "width": 720, "height": 1280},
   {"id": "playground-friends", "title": "Вместе на площадке", "description": "Собрались для общей фотографии на прогулке.", "image": {"id": "real-playground-friends-v1.webp", "src": "/images/el-bebe/real-playground-friends-v1.webp", "alt": "Вместе на площадке"}, "width": 1280, "height": 960},
   {"id": "outdoor-play", "title": "На прогулке", "description": "Улыбка для фотографа.", "image": {"id": "real-outdoor-play-v1.webp", "src": "/images/el-bebe/real-outdoor-play-v1.webp", "alt": "На прогулке"}, "width": 720, "height": 1280},
   {"id": "rope-bridge", "title": "На верёвочном мостике", "description": "Пробуем пройти по мосту.", "image": {"id": "real-rope-bridge-v1.webp", "src": "/images/el-bebe/real-rope-bridge-v1.webp", "alt": "На верёвочном мостике"}, "width": 720, "height": 1280},
@@ -50,7 +50,7 @@ export const previewSpaces = [
   {"id": "celebration", "title": "Встреча с аниматором", "description": "Общая фотография на празднике.", "image": {"id": "real-celebration-v1.webp", "src": "/images/el-bebe/real-celebration-v1.webp", "alt": "Встреча с аниматором"}, "width": 960, "height": 1280},
   {"id": "autumn-boy", "title": "Букеты из осенних листьев", "description": "Набрали красных и жёлтых листьев на прогулке.", "image": {"id": "real-autumn-boy-v1.webp", "src": "/images/el-bebe/real-autumn-boy-v1.webp", "alt": "Букеты из осенних листьев"}, "width": 960, "height": 1280},
   {"id": "boy-white", "title": "Улыбка для фотографии", "description": "", "image": {"id": "real-boy-white-v1.webp", "src": "/images/el-bebe/real-boy-white-v1.webp", "alt": "Улыбающийся мальчик в белой футболке"}, "width": 960, "height": 1280},
-  {"id": "boy-polo", "title": "Портрет в садике", "description": "", "image": {"id": "real-boy-polo-v1.webp", "src": "/images/el-bebe/real-boy-polo-v1.webp", "alt": "Мальчик в светлом поло"}, "width": 810, "height": 1440},
+  {"id": "boy-polo", "title": "Улыбку — в кадр!", "description": "", "image": {"id": "real-boy-polo-v1.webp", "src": "/images/el-bebe/real-boy-polo-v1.webp", "alt": "Мальчик в светлом поло"}, "width": 810, "height": 1440},
 ];
 
 export const parentQuestions = [
@@ -92,11 +92,11 @@ export const parentQuestions = [
   {
     "id": "visit",
     "question": "Можно ли сначала прийти на экскурсию?",
-    "answer": "Да. Покажем, где дети играют, занимаются и отдыхают, познакомим с воспитателями. Можно спросить о питании, занятиях, камерах и режиме посещения. Оставьте имя и телефон — договоримся о времени встречи."
+    "answer": "Конечно, приходите! Покажем, где дети играют, занимаются и отдыхают, познакомим с воспитателями. Вы сможете спросить о питании, занятиях и первых днях в саду. Оставьте имя и телефон — договоримся о времени встречи."
   },
   {
     "id": "age",
     "question": "Как выбрать подходящую группу по возрасту?",
-    "answer": "Скажите, сколько лет ребёнку и ходил ли он раньше в сад. Мы подскажем, какая из трёх групп ему подойдёт и есть ли в ней места. На встрече можно обсудить программу и познакомиться с воспитателем."
+    "answer": "Расскажите, сколько лет ребёнку и ходил ли он раньше в сад. Мы подскажем, какая из трёх групп ему подойдёт и есть ли в ней места. На встрече можно обсудить программу и познакомиться с воспитателем."
   }
 ];
