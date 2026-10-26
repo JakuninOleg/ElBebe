@@ -5,6 +5,7 @@ import { Image } from '../../lib/emdash-ui';
 import type { SiteContent } from '../../lib/cms';
 import { previewEducators } from '../../data/preview-educators';
 import { groupChoices } from '../../lib/director-model';
+import { educatorsPublished } from '../../lib/public-pages';
 interface Props { team: SiteContent['team']; heading?: string; usePreview?: boolean; }
 const { team, heading = 'Наши воспитатели', usePreview = true } = Astro.props;
 const people = team.length > 0 ? team : usePreview ? previewEducators : [];
@@ -12,7 +13,7 @@ const isPreview = team.length === 0 && usePreview;
 const accents = ['aqua', 'yellow', 'pink', 'green'];
 const ornaments = ['heart', 'crown', 'flower', 'music'];
 ---
-{people.length > 0 && <section class="educators container section" aria-labelledby="team-title">
+{educatorsPublished && people.length > 0 && <section class="educators container section" aria-labelledby="team-title">
   <header class="educators-heading">
     <div class="educators-title"><Icon name="people" size={34}/><h2 id="team-title">{heading}</h2></div>
     {Astro.url.pathname !== '/komanda/' && <a href="/komanda/" class="text-link">Знакомство с командой <Icon name="arrow" size={19}/></a>}

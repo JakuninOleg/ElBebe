@@ -11,9 +11,10 @@ import Privacy from '../../src/pages/privacy.astro';
 import Consent from '../../src/pages/soglasie.astro';
 import Documents from '../../src/pages/dokumenty.astro';
 import Cookies from '../../src/pages/cookies.astro';
+import { educatorsPublished } from '../../src/lib/public-pages';
 
 export function getStaticPaths() {
-  return ['gruppy', 'stoimost', 'den-v-sadu', 'komanda', 'prostranstvo', 'roditelyam', 'kontakty', 'svedeniya', 'privacy', 'soglasie', 'dokumenty', 'cookies'].map(page => ({ params: { page } }));
+  return ['gruppy', 'stoimost', 'den-v-sadu', 'komanda', 'prostranstvo', 'roditelyam', 'kontakty', 'svedeniya', 'privacy', 'soglasie', 'dokumenty', 'cookies'].filter(page => page !== 'komanda' || educatorsPublished).map(page => ({ params: { page } }));
 }
 const pages = { gruppy: Groups, stoimost: Prices, 'den-v-sadu': Day, komanda: Team, prostranstvo: Space, roditelyam: Parents, kontakty: Contacts, svedeniya: Details, privacy: Privacy, soglasie: Consent, dokumenty: Documents, cookies: Cookies };
 const Page = pages[Astro.params.page as keyof typeof pages];

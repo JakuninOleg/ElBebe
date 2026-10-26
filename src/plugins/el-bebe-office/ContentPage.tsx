@@ -4,6 +4,7 @@ import { contactFields, groupChoices, officePath, programDefaults, programFields
 import { resolveContacts } from '../../data/site-contacts';
 import { RuPhoneInput } from '../../lib/RuPhoneInput';
 import { officeApi } from './api';
+import { educatorsPublished } from '../../lib/public-pages';
 
 export const officeLinks = [
   ['home', 'Кабинет директора'], ['team', 'Воспитатели'], ['rates', 'Стоимость'], ['contacts', 'Контакты'],
@@ -101,7 +102,7 @@ export function ContentPage({ section }: { section: EditorSection }) {
             {field.help && <p id={help} className="office-field-help">{field.help}</p>}
           </div>;
         })}
-        <div className="office-document-actions"><button className="office-primary" disabled={busy} type="submit">Сохранить и опубликовать</button><button disabled={busy} type="button" onClick={() => void save(false)}>Сохранить черновик</button>{entry && <a href={section === 'programs' ? '/gruppy/' : section === 'rates' ? '/stoimost/' : section === 'team' ? '/komanda/' : '/kontakty/'} target="_blank" rel="noopener noreferrer">Открыть сайт</a>}</div>
+        <div className="office-document-actions"><button className="office-primary" disabled={busy} type="submit">Сохранить и опубликовать</button><button disabled={busy} type="button" onClick={() => void save(false)}>Сохранить черновик</button>{entry && (section !== 'team' || educatorsPublished) && <a href={section === 'programs' ? '/gruppy/' : section === 'rates' ? '/stoimost/' : section === 'team' ? '/komanda/' : '/kontakty/'} target="_blank" rel="noopener noreferrer">Открыть сайт</a>}</div>
       </form>}
     </div>
     {section === 'contacts' && <RequestEmail/>}

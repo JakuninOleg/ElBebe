@@ -6,6 +6,8 @@ import IllustratedIcon from '../components/el-bebe/IllustratedIcon.astro';
 import Faq from '../components/el-bebe/Faq.astro';
 import ParentReviews from '../components/el-bebe/ParentReviews.astro';
 import Icon from '../components/el-bebe/Icon.astro';
+import { educatorsPublished } from '../lib/public-pages';
+if (!educatorsPublished) return Astro.rewrite('/404');
 const { team, testimonials, teamConfigured } = await getSiteContent();
 const questions = [
   { question: 'Можно ли познакомиться с воспитателями до зачисления?', answer: 'Да. На экскурсии познакомимся с воспитателями, обсудим привычки ребёнка и программу группы. Расскажите, что помогает ему чувствовать себя спокойно, какие занятия интересны и есть ли опыт посещения другого детского сада.' },

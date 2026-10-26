@@ -5,6 +5,7 @@ import Icon from '../components/el-bebe/Icon.astro';
 import IllustratedIcon from '../components/el-bebe/IllustratedIcon.astro';
 import { getSiteContent } from '../lib/cms';
 import { getParentQuestions } from '../lib/parent-questions';
+import { educatorsPublished } from '../lib/public-pages';
 const { faqs } = await getSiteContent();
 const questions = getParentQuestions(faqs);
 const topics = [
@@ -18,5 +19,8 @@ const extra = questions.filter(question => !topics.some(topic => topic.ids.inclu
   <nav class="parent-topic-nav container content-section" aria-label="Темы вопросов">{topics.map(topic => <a href={`#${topic.id}`}>{topic.title}</a>)}</nav>
   {topics.map(topic => <section class="container content-section group-detail-faq" id={topic.id}><h2>{topic.title}</h2><Faq items={questions.filter(question => topic.ids.includes(question.id))}/></section>)}
   {extra.length > 0 && <section class="container content-section group-detail-faq"><h2>Другие вопросы</h2><Faq items={extra}/></section>}
-  <section class="container content-section"><div class="content-grid"><article class="content-card"><IllustratedIcon name="heart" size={64}/><h3>Первые дни</h3><p>Как познакомиться с садом, что рассказать воспитателю и как подготовиться к посещению.</p><p><a href="/gruppy/#adaptaciya">Об адаптации <Icon name="arrow" size={18}/></a></p></article><article class="content-card"><IllustratedIcon name="document" size={64}/><h3>Стоимость и оплата</h3><p>Режим посещения, условия договора и возможность оплаты материнским капиталом.</p><p><a href="/stoimost/">Условия посещения <Icon name="arrow" size={18}/></a></p></article><article class="content-card"><IllustratedIcon name="people" size={64}/><h3>Наша команда</h3><p>Познакомьтесь с людьми, которые будут рядом с ребёнком в течение дня.</p><p><a href="/komanda/">Воспитатели <Icon name="arrow" size={18}/></a></p></article></div></section>
+  <section class="container content-section"><div class="content-grid parent-resources"><article class="content-card"><IllustratedIcon name="heart" size={64}/><h3>Первые дни</h3><p>Как познакомиться с садом, что рассказать воспитателю и как подготовиться к посещению.</p><p><a href="/gruppy/#adaptaciya">Об адаптации <Icon name="arrow" size={18}/></a></p></article><article class="content-card"><IllustratedIcon name="document" size={64}/><h3>Стоимость и оплата</h3><p>Режим посещения, условия договора и возможность оплаты материнским капиталом.</p><p><a href="/stoimost/">Условия посещения <Icon name="arrow" size={18}/></a></p></article>{educatorsPublished && <article class="content-card"><IllustratedIcon name="people" size={64}/><h3>Наша команда</h3><p>Познакомьтесь с людьми, которые будут рядом с ребёнком в течение дня.</p><p><a href="/komanda/">Воспитатели <Icon name="arrow" size={18}/></a></p></article>}</div></section>
 </Inner>
+<style>
+  .parent-resources { grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); }
+</style>

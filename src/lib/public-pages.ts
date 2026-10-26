@@ -1,6 +1,10 @@
 /** Intended public pages; native CMS records and administration stay intact. */
+// Re-enable after the director supplies the staff profiles and photos.
+export const educatorsPublished = false;
+
 export const publicPages = [
-  '/', '/gruppy/', '/gruppy/mladshaya/', '/gruppy/srednyaya/', '/gruppy/starshaya/', '/stoimost/', '/den-v-sadu/', '/komanda/',
+  '/', '/gruppy/', '/gruppy/mladshaya/', '/gruppy/srednyaya/', '/gruppy/starshaya/', '/stoimost/', '/den-v-sadu/',
+  ...(educatorsPublished ? ['/komanda/'] : []),
   '/prostranstvo/', '/roditelyam/', '/kontakty/', '/svedeniya/',
   '/privacy/', '/soglasie/', '/dokumenty/', '/cookies/',
 ];

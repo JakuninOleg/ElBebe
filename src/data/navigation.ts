@@ -1,10 +1,12 @@
+import { educatorsPublished } from '../lib/public-pages.ts';
+
 interface NavigationLink { label: string; href: string; }
 type NavigationItem = (NavigationLink & { id: string }) | { id: string; label: string; children: NavigationLink[] };
 
 export const primaryNavigation: NavigationItem[] = [
   { id: 'about', label: 'О саде', children: [
     { href: '/#o-sade', label: 'Знакомство с садом' },
-    { href: '/komanda/', label: 'Воспитатели' },
+    ...(educatorsPublished ? [{ href: '/komanda/', label: 'Воспитатели' }] : []),
     { href: '/dokumenty/', label: 'Документы сада' },
   ] },
   { id: 'groups', label: 'Группы', children: [
